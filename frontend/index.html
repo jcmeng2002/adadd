@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ADADD · 广告行业资讯聚合平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Tencent+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0052D9;--primary-light:#E8F0FE;--primary-dark:#1a3c6e;--primary-hover:#2670F0;--accent:#00A870;--warning:#ED7B2D;--danger:#E02020;--text-primary:#1a1a1a;--text-secondary:#666;--text-tertiary:#999;--border-color:#e5e5e5;--bg-body:#f5f7fa;--bg-white:#fff;--shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 30px rgba(0,0,0,.12);--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--font-family:"Tencent Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-family);background:var(--bg-body);color:var(--text-primary);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:inherit;border:none;background:none}input,select{font-family:inherit}
+
+/* Navbar */
+.navbar{position:sticky;top:0;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);box-shadow:var(--shadow-sm)}
+.navbar-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 24px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+.logo-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--primary-hover));display:flex;align-items:center;justify-content:center;font-size:18px;color:white;font-weight:900;font-family:"Tencent Sans",sans-serif}
+.logo-text{font-size:22px;font-weight:900;color:var(--primary);letter-spacing:2px;font-family:"Tencent Sans",sans-serif}
+.logo-sub{font-size:11px;color:var(--text-tertiary);padding-left:10px;border-left:1px solid var(--border-color)}
+.navbar-center{flex:1;max-width:520px}
+.search-bar{display:flex;align-items:center;background:var(--bg-body);border-radius:24px;padding:8px 18px;gap:8px;transition:all .25s;border:1.5px solid transparent}
+.search-bar:focus-within{background:var(--bg-white);border-color:var(--primary);box-shadow:0 0 0 4px rgba(0,82,217,.08)}
+.search-bar svg{flex-shrink:0;opacity:.5;color:var(--text-tertiary)}
+.search-bar input{flex:1;border:none;outline:none;background:transparent;font-size:14px;color:var(--text-primary)}
+.clear-search{width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:14px;color:var(--text-tertiary);background:#ddd}
+.search-mode-badge{font-size:11px;padding:3px 10px;border-radius:12px;white-space:nowrap;flex-shrink:0;font-weight:600}
+.search-mode-badge.local{background:var(--primary-light);color:var(--primary)}
+.search-mode-badge.live{background:linear-gradient(135deg,#ff6b35,#f7931e);color:white}
+.navbar-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.year-select{padding:6px 12px;border-radius:var(--radius-sm);border:1px solid var(--border-color);font-size:13px;color:var(--text-secondary);background:var(--bg-white);cursor:pointer}
+.refresh-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all .25s}
+.refresh-btn:hover{color:var(--primary);background:var(--primary-light)}
+.refresh-btn.spinning svg{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Filter Bar */
+.filter-bar{max-width:1400px;margin:0 auto;padding:16px 24px 0}
+.filter-row{display:flex;align-items:center;gap:20px;margin-bottom:12px;flex-wrap:wrap}
+.filter-group-inline{display:flex;align-items:center;gap:8px}
+.filter-group-inline.wide{flex:1;min-width:300px}
+.filter-label-inline{font-size:13px;font-weight:500;color:var(--text-secondary);white-space:nowrap;flex-shrink:0}
+.filter-btns,.cat-btns{display:flex;flex-wrap:wrap;gap:6px}
+.filter-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:13px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
+.filter-btn .count{font-size:11px;background:var(--bg-body);padding:1px 7px;border-radius:10px;color:var(--text-tertiary)}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(0,82,217,.25)}
+.filter-btn.active .count{background:rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
+.cat-btn{padding:4px 12px;border-radius:16px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
+.cat-btn:hover{border-color:var(--primary-hover);color:var(--primary-hover)}
+.cat-btn.active{background:linear-gradient(135deg,var(--primary),#2670F0);color:white;border-color:transparent}
+.impact-filters,.sort-options{display:flex;gap:4px}
+.impact-filter-btn,.sort-btn{padding:4px 12px;border-radius:14px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s}
+.impact-filter-btn:hover,.sort-btn:hover{border-color:var(--primary-hover)}
+.impact-filter-btn.active{background:var(--primary-light);color:var(--primary);border-color:var(--primary);font-weight:600}
+.sort-btn.active{color:var(--primary);border-color:var(--primary);background:var(--primary-light);font-weight:500}
+.view-toggle{display:flex;gap:2px;background:var(--bg-body);border-radius:var(--radius-sm);padding:2px}
+.toggle-btn{padding:5px 14px;border-radius:6px;font-size:12px;color:var(--text-secondary);transition:all .2s}
+.toggle-btn:hover{color:var(--text-primary)}
+.toggle-btn.active{background:var(--bg-white);color:var(--primary);box-shadow:var(--shadow-sm);font-weight:600}
+
+/* Stats */
+.stats-bar{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:0;background:linear-gradient(135deg,#fff 0%,#f0f5ff 100%);border-radius:var(--radius-md);padding:18px 28px;margin-bottom:18px;border:1px solid rgba(0,82,217,.08);box-shadow:var(--shadow-sm)}
+.stat-item{text-align:center;flex:1}
+.stat-number{font-size:26px;font-weight:900;color:var(--primary);line-height:1.2;letter-spacing:-.5px}
+.stat-number.highlight{color:var(--danger)}
+.stat-label{font-size:12px;color:var(--text-tertiary);margin-top:2px}
+.stat-divider{width:1px;height:40px;background:var(--border-color);margin:0 16px}
+
+/* News Grid */
+.news-section{max-width:1400px;margin:0 auto;padding:0 24px 60px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px}
+
+/* News Card */
+.news-card{background:var(--bg-white);border-radius:var(--radius-md);padding:24px;border:1px solid var(--border-color);cursor:pointer;transition:all .3s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.news-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-hover));opacity:0;transition:opacity .3s}
+.news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:transparent}
+.news-card:hover::before{opacity:1}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.news-source{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.news-date{font-size:12px;color:var(--text-tertiary);flex:1}
+.impact-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.card-title{font-size:17px;font-weight:700;line-height:1.45;color:var(--text-primary);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .2s}
+.news-card:hover .card-title{color:var(--primary)}
+.card-summary{font-size:14px;line-height:1.65;color:var(--text-secondary);margin-bottom:14px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tag{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--bg-body);color:var(--text-secondary);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
+.tag:hover{background:var(--primary-light);color:var(--primary);border-color:var(--primary)}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid #f0f0f0}
+.category-tag{font-size:12px;color:var(--primary);background:var(--primary-light);padding:3px 10px;border-radius:10px;font-weight:500}
+.read-more,.visit-link{font-size:13px;color:var(--primary-hover);font-weight:500;opacity:0;transition:opacity .2s}
+.news-card:hover .read-more,.news-card:hover .visit-link{opacity:1}
+.visit-link{color:var(--accent)!important}
+
+/* Timeline */
+.timeline-group{margin-bottom:32px}
+.timeline-year{font-size:22px;font-weight:900;color:var(--primary);margin-bottom:20px;padding-left:16px;border-left:4px solid var(--primary);letter-spacing:1px}
+.timeline-items{display:flex;flex-direction:column;gap:12px}
+.timeline-item{display:flex;gap:16px;background:var(--bg-white);border-radius:var(--radius-md);padding:20px 24px;border:1px solid var(--border-color);cursor:pointer;transition:all .25s}
+.timeline-item:hover{transform:translateX(4px);box-shadow:var(--shadow-md);border-color:var(--primary-hover)}
+.timeline-dot{width:12px;height:12px;border-radius:50%;margin-top:6px;flex-shrink:0;box-shadow:0 0 0 3px rgba(0,82,217,.15)}
+.timeline-content{flex:1;min-width:0}
+.timeline-meta{display:flex;align-items:center;gap:12px;margin-bottom:8px;font-size:12px;color:var(--text-tertiary)}
+.timeline-item h4{font-size:16px;font-weight:700;line-height:1.4;color:var(--text-primary);margin-bottom:6px;transition:color .2s}
+.timeline-item:hover h4{color:var(--primary)}
+.timeline-item>p{font-size:14px;color:var(--text-secondary);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Empty */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;text-align:center}
+.empty-state svg{width:80px;height:80px;opacity:.15;margin-bottom:20px}
+.empty-state p{font-size:16px;color:var(--text-secondary);margin-top:16px}
+.empty-hint{font-size:13px!important;color:var(--text-tertiary)!important;margin-top:8px!important}
+
+/* Pagination */
+.pagination{display:flex;justify-content:center;margin-top:32px}
+.pagination-inner{display:flex;align-items:center;gap:4px}
+.page-btn{min-width:38px;height:38px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);display:flex;align-items:center;justify-content:center;padding:0 12px;transition:all .2s}
+.page-btn:hover:not(:disabled){border-color:var(--primary);color:var(--primary)}
+.page-btn.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(0,82,217,.25)}
+.page-btn:disabled{opacity:.35;cursor:not-allowed}
+.page-dots{color:var(--text-tertiary);padding:0 6px;font-size:13px}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px}
+.modal-overlay.show{display:flex;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-dialog{background:var(--bg-white);border-radius:var(--radius-lg);max-width:720px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2);animation:slideUp .3s ease;margin:auto;max-height:90vh;overflow-y:auto}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:16px;right:16px;z-index:5;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--text-tertiary);background:var(--bg-body);transition:all .2s}
+.modal-close:hover{background:var(--danger);color:white}
+.modal-body-content{padding:36px 36px 28px}
+.detail-header{margin-bottom:24px}
+.detail-meta-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.news-source.large{font-size:13px;padding:4px 12px}
+.impact-badge.large{font-size:12px;padding:3px 10px}
+.category-tag.large{font-size:13px;padding:4px 12px}
+.detail-date{font-size:13px;color:var(--text-tertiary);display:block;margin-bottom:10px}
+.detail-title{font-size:24px;font-weight:900;line-height:1.35;color:var(--text-primary);margin-bottom:12px;font-family:"Tencent Sans",sans-serif}
+.detail-summary{font-size:16px;color:var(--text-secondary);line-height:1.6}
+.detail-body{margin-bottom:20px}
+.detail-body p{font-size:15px;line-height:1.85;color:var(--text-primary);white-space:pre-line}
+.detail-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;padding-top:16px;border-top:1px solid var(--border-color)}
+.detail-actions{display:flex;gap:12px;justify-content:flex-end}
+.action-btn{padding:10px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s}
+.action-btn.primary{background:var(--primary);color:white}.action-btn.primary:hover{background:var(--primary-hover);box-shadow:0 4px 12px rgba(0,82,217,.3)}
+.action-btn.secondary{background:var(--bg-body);color:var(--text-secondary);border:1px solid var(--border-color)}.action-btn.secondary:hover{background:var(--border-color)}
+.visit-original-btn{background:var(--accent)!important;color:white!important}.visit-original-btn:hover{background:#00915e!important}
+
+/* Toast & Notification */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text-primary);color:white;padding:12px 28px;border-radius:24px;font-size:14px;font-weight:500;z-index:2000;opacity:0;pointer-events:none;transition:all .3s;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.update-notification{position:fixed;top:76px;left:50%;transform:translateX(-50%) translateY(-20px);background:linear-gradient(135deg,var(--primary),var(--primary-hover));color:white;padding:10px 24px;border-radius:24px;font-size:13px;font-weight:500;z-index:99;display:none;align-items:center;gap:12px;box-shadow:0 4px 16px rgba(0,82,217,.3);opacity:0;transition:all .35s}
+.update-notification.show{display:flex;opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Loading skeleton */
+.loading-skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:skeleton-loading 1.5s infinite}
+@keyframes skeleton-loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* Footer */
+.footer{background:var(--text-primary);color:rgba(255,255,255,.6);padding:24px;text-align:center;font-size:13px;margin-top:auto}
+.footer a{color:rgba(255,255,255,.8)}
+.footer a:hover{color:var(--primary-hover)}
+
+/* Responsive */
+@media(max-width:1024px){.news-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}.navbar-inner{flex-wrap:wrap;gap:12px;padding:10px 20px}.navbar-center{order:3;max-width:100%;flex-basis:100%}.search-bar{width:100%}}
+@media(max-width:768px){.news-grid{grid-template-columns:1fr}.filter-row{gap:12px}.filter-group-inline.wide{min-width:auto}.stats-bar{flex-direction:column;gap:12px;padding:16px}.stat-divider{display:none}.modal-dialog{margin:10px;max-width:none}.modal-body-content{padding:24px 20px}.detail-title{font-size:20px}.card-footer{flex-direction:column;align-items:flex-start;gap:8px}.read-more,.visit-link{opacity:1!important}}
+
+/* Source colors for cards */
+.source-weibo{background:#fce8e8;color:#c41e1a}
+.source-zhihu{background:#e8f2ff;color:#0066cc}
+.source-wechat{background:#e8faf0;color:#078c38}
+.source-github{background:#f0f0f0;color:#333}
+.source-tech-media{background:#fef3e8;color:#b8690b}
+.source-industry-media{background:#e8eeff;color:#0052d9}
+.source-36kr{background:#e8f4fc;color:#066cbc}
+
+/* Impact badge colors */
+.impact-high{background:#feecec;color:#d32f2f}
+.impact-medium{background:#fff3e0;color:#ed7b2d}
+.impact-low{background:#e8f5e9;color:#00a870}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+<div class="navbar-inner">
+<a href="#" class="logo" onclick="location.reload();return false;">
+<div class="logo-icon">A</div>
+<span class="logo-text">ADADD</span>
+<span class="logo-sub">广告行业资讯聚合</span>
+</a>
+
+<div class="navbar-center">
+<div class="search-bar" id="searchBar">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input type="text" id="searchInput" placeholder="搜索广告行业资讯..." autocomplete="off"/>
+<button id="clearSearchBtn" class="clear-search">×</button>
+<span id="searchModeBadge" class="search-mode-badge local" onclick="toggleSearchMode()" title="点击切换搜索模式：本地/实时">📋本地</span>
+</div>
+</div>
+
+<div class="navbar-right">
+<select id="yearSelect" class="year-select" onchange="handleFilter()"><option value="">全部年份</option></select>
+<button id="refreshBtn" class="refresh-btn" onclick="refreshData()" title="刷新数据"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></button>
+</div>
+</div>
+</header>
+
+<!-- Filter Bar -->
+<section class="filter-bar">
+<!-- 来源筛选 -->
+<div class="filter-row">
+<div class="filter-group-inline wide">
+<span class="filter-label-inline">来源：</span>
+<div class="filter-btns" id="sourceFilters"></div>
+</div>
+</div>
+
+<!-- 分类筛选 -->
+<div class="filter-row">
+<div class="filter-group-inline wide">
+<span class="filter-label-inline">分类：</span>
+<div class="cat-btns" id="categoryFilters"></div>
+</div>
+</div>
+
+<!-- 操作栏：影响力 + 排序 + 视图 -->
+<div class="filter-row">
+<div class="filter-group-inline">
+<span class="filter-label-inline">影响力：</span>
+<div class="impact-filters" id="impactFilters">
+<button class="impact-filter-btn" data-value="">全部</button>
+<button class="impact-filter-btn" data-value="high">🔴 高</button>
+<button class="impact-filter-btn" data-value="medium">🟠 中</button>
+<button class="impact-filter-btn" data-value="low">🟢 低</button>
+</div>
+</div>
+
+<div class="filter-group-inline">
+<span class="filter-label-inline">排序：</span>
+<div class="sort-options" id="sortOptions">
+<button class="sort-btn active" data-sort="latest">最新优先</button>
+<button class="sort-btn" data-sort="oldest">最早优先</button>
+<button class="sort-btn" data-sort="hot">热度最高</button>
+</div>
+</div>
+
+<div class="view-toggle" id="viewToggle">
+<button class="toggle-btn active" data-view="card">卡片视图</button>
+<button class="toggle-btn" data-view="timeline">时间轴视图</button>
+</div>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="stats-bar" id="statsBar">
+<div class="stat-item"><div class="stat-number" id="statTotal">0</div><div class="stat-label">总资讯数</div></div>
+<div class="stat-divider"></div>
+<div class="stat-item"><div class="stat-number" id="statSources">0</div><div class="stat-label">数据源</div></div>
+<div class="stat-divider"></div>
+<div class="stat-item"><div class="stat-number" id="statCategories">0</div><div class="stat-label">分类</div></div>
+<div class="stat-divider"></div>
+<div class="stat-item"><div class="stat-number highlight" id="statToday">0</div><div class="stat-label">今日更新</div></div>
+</section>
+
+<!-- News Section -->
+<section class="news-section">
+<div class="news-grid" id="newsGrid"></div>
+<div id="emptyState" class="empty-state" style="display:none">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6m0-6 6 6"/></svg>
+<p>没有找到匹配的资讯</p><p class="empty-hint">试试调整筛选条件或换个关键词</p>
+</div>
+<div class="pagination" id="pagination"></div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+<div class="modal-dialog">
+<button class="modal-close" onclick="closeModal()">×</button>
+<div class="modal-body-content" id="modalContent"></div>
+</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Update notification -->
+<div class="update-notification" id="updateNotification">
+<span>📦 发现新数据，点击刷新</span>
+<button onclick="refreshData()">→</button>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-inner">
+<strong>ADADD</strong> <span class="divider">|</span> 广告行业资讯聚合平台 v2.0
+<span class="divider">|</span> Powered by ADADD Engine
+<br><br>
+Developed with ❤️ by <a href="https://github.com/nelsonmeng" target="_blank">nelsonmeng</a>
+<span class="divider">|</span> © 2024-2026 All Rights Reserved
+</div>
+</footer>
+
+<script>
+// ============================================================
+// 全局状态与配置
+// ============================================================
+const state = {
+    allData: [],
+    filteredData: [],
+    sourceConfigs: {},
+    categories: [],
+    impactLevels: [],
+    
+    // 筛选状态
+    activeSource: null,
+    activeCategories: new Set(),
+    activeImpact: null,
+    activeYear: '',
+    searchKeyword: '',
+    searchMode: 'local', // 'local' | 'live'
+    sortBy: 'latest',
+    viewMode: 'card',
+    
+    // 分页
+    page: 1,
+    pageSize: 12,
+    
+    // UI状态
+    loading: false,
+    initialized: false,
+};
+
+const API_BASE = window.location.origin;
+const SOURCE_CONFIG = {
+    'weibo': {name:'微博',icon:'📱',color:'#E6162D'},
+    'zhihu': {name:'知乎',icon:'💡',color:'#0084FF'},
+    'wechat': {name:'微信公众号',icon:'📨',color:'#07C160'},
+    'github': {name:'GitHub',icon:'🐙',color:'#24292E'},
+    'tech-media': {name:'技术社区',icon:'⚙️',color:'#ED7B2D'},
+    'industry-media': {name:'行业媒体',icon:'📰',color:'#0052D9'},
+    '36kr': {name:'36氪',icon:'🚀',color:'#0066CC'},
+};
+
+const IMPACT_CONFIG = {
+    high:{label:'高影响力',color:'#E02020'},
+    medium:{label:'中影响力',color:'#ED7B2D'},
+    low:{label:'一般关注',color:'#00A870'},
+};
+
+// ============================================================
+// API 调用
+// ============================================================
+async function apiFetch(endpoint, params = {}) {
+    const url = new URL(`${API_BASE}/api${endpoint}`);
+    Object.entries(params).forEach(([k, v]) => {
+        if (v !== '' && v !== null && v !== undefined) {
+            url.searchParams.set(k, v);
+        }
+    });
+    
+    try {
+        const resp = await fetch(url.toString());
+        const json = await resp.json();
+        return json;
+    } catch (err) {
+        console.error('API Error:', err);
+        return {code: -1, message: err.message};
+    }
+}
+
+async function loadInitialData() {
+    showLoading();
+    
+    const [newsResp, statsResp] = await Promise.all([
+        apiFetch('/news', {pageSize: 9999}),
+        apiFetch('/stats'),
+    ]);
+    
+    if (newsResp.code === 0 && newsResp.data) {
+        state.allData = newsResp.data.items || [];
+        state.filteredData = [...state.allData];
+    }
+    
+    if (statsResp.code === 0 && statsResp.data) {
+        state.sourceConfigs = statsResp.data.sourceDetails || {};
+        state.categories = statsResp.data.categories || [];
+        state.impactLevels = statsResp.data.impactLevels || [];
+        
+        // 年份列表
+        if (statsResp.data.years) {
+            populateYearSelect(Object.keys(statsResp.data.years));
+        }
+    }
+    
+    hideLoading();
+    state.initialized = true;
+}
+
+// ============================================================
+// 渲染函数
+// ============================================================
+function renderSources() {
+    const container = document.getElementById('sourceFilters');
+    let html = `<button class="filter-btn active" data-source="">
+        <span>全部来源</span><span class="count">${state.allData.length}</span>
+    </button>`;
+    
+    Object.entries(SOURCE_CONFIG).forEach(([id, cfg]) => {
+        const count = state.allData.filter(d => d.source === id).length;
+        html += `<button class="filter-btn" data-source="${id}">
+            <span>${cfg.icon}${cfg.name}</span><span class="count">${count}</span>
+        </button>`;
+    });
+    
+    container.innerHTML = html;
+    
+    // 绑定事件
+    container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            state.activeSource = btn.dataset.source || null;
+            state.page = 1;
+            handleFilter();
+        });
+    });
+}
+
+function renderCategories() {
+    const container = document.getElementById('categoryFilters');
+    let html = '';
+    
+    state.categories.forEach(cat => {
+        const count = state.allData.filter(d => d.category === cat.name).length;
+        if (count > 0) {
+            html += `<button class="cat-btn ${state.activeCategories.has(cat.name)?'active':''}" data-category="${cat.name}">${cat.name}<span class="count">${count}</span></button>`;
+        }
+    });
+    
+    container.innerHTML = html;
+    
+    container.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const catName = btn.dataset.category;
+            if (state.activeCategories.has(catName)) {
+                state.activeCategories.delete(catName);
+                btn.classList.remove('active');
+            } else {
+                // 限制最多选3个分类
+                if (state.activeCategories.size >= 3) {
+                    showToast('最多选择3个分类'); return;
+                }
+                state.activeCategories.add(catName);
+                btn.classList.add('active');
+            }
+            state.page = 1;
+            handleFilter();
+        });
+    });
+}
+
+function renderStats() {
+    const todayStr = new Date().toISOString().slice(0,10);
+    const todayCount = state.allData.filter(d => d.date >= todayStr).length;
+    
+    animateNumber('statTotal', state.allData.length);
+    animateNumber('statSources', Object.keys(SOURCE_CONFIG).length);
+    animateNumber('statCategories', state.categories.filter(c => c.count > 0).length);
+    animateNumber('statToday', todayCount);
+}
+
+function renderNews() {
+    const grid = document.getElementById('newsGrid');
+    const empty = document.getElementById('emptyState');
+    const pagination = document.getElementById('pagination');
+    
+    if (state.viewMode === 'timeline') {
+        renderTimeline();
+        return;
+    }
+    
+    // 分页
+    const total = state.filteredData.length;
+    const totalPages = Math.ceil(total / state.pageSize) || 1;
+    const start = (state.page - 1) * state.pageSize;
+    const items = state.filteredData.slice(start, start + state.pageSize);
+    
+    if (items.length === 0) {
+        grid.innerHTML = ''; empty.style.display = 'flex'; pagination.innerHTML = '';
+        return;
+    }
+    
+    empty.style.display = 'none';
+    grid.innerHTML = items.map(item => createCardHTML(item)).join('');
+    
+    // 绑定卡片事件
+    grid.querySelectorAll('.news-card').forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+            if (!e.target.closest('.visit-link') && !e.target.closest('.read-more')) {
+                openDetail(items[idx].id);
+            }
+        });
+    });
+    
+    renderPagination(totalPages);
+}
+
+function renderTimeline() {
+    const grid = document.getElementById('newsGrid');
+    const empty = document.getElementById('emptyState');
+    const pagination = document.getElementById('pagination');
+    
+    if (state.filteredData.length === 0) {
+        grid.innerHTML = ''; empty.style.display = 'flex'; pagination.innerHTML = '';
+        return;
+    }
+    
+    empty.style.display = 'none';
+    
+    // 按年份分组
+    const groups = {};
+    state.filteredData.forEach(item => {
+        const y = item.date.slice(0,4);
+        if (!groups[y]) groups[y] = [];
+        groups[y].push(item);
+    });
+    
+    let html = '';
+    Object.keys(groups).sort().reverse().forEach(year => {
+        html += `<div class="timeline-group"><div class="timeline-year">${year}</div><div class="timeline-items">`;
+        groups[year].forEach(item => {
+            const sc = SOURCE_CONFIG[item.source] || {};
+            const ic = IMPACT_CONFIG[item.impact] || {};
+            html += `
+            <div class="timeline-item" onclick="openDetail(${item.id})">
+                <div class="timeline-dot" style="background:${sc.color||'#ccc'}"></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="news-source source-${item.source}">${sc.icon||''}${sc.name||item.source}</span>
+                        <span>${item.date}</span>
+                        <span class="impact-badge impact-${item impact-${item.impact}">${ic.label||''}</span>
+                    </div>
+                    <h4>${item.title}</h4>
+                    <p>${item.summary}</p>
+                </div>
+            </div>`;
+        });
+        html += `</div></div>`;
+    });
+    
+    grid.innerHTML = html;
+    pagination.innerHTML = '';
+}
+
+function createCardHTML(item) {
+    const sc = SOURCE_CONFIG[item.source] || {};
+    const ic = IMPACT_CONFIG[item.impact] || {};
+    const tagsHtml = (item.tags||[]).slice(0,4).map(t => `<span class="tag">${t}</span>`).join('');
+    const url = item.url || '#';
+    
+    return `
+    <article class="news-card">
+        <div class="card-header">
+            <span class="news-source source-${item.source}">${sc.icon||'📄'}${sc.name||item.source}</span>
+            <span class="news-date">${item.date}</span>
+            <span class="impact-badge impact-${item.impact}">${ic.label||''}</span>
+        </div>
+        <h3 class="card-title">${item.title}</h3>
+        <p class="card-summary">${item.summary}</p>
+        <div class="card-tags">${tagsHtml}</div>
+        <div class="card-footer">
+            <span class="category-tag">${item.category}</span>
+            <div>
+                ${url && url !== '#' ? `<a class="visit-link" href="${url}" target="_blank" onclick="event.stopPropagation()">访问原文 ↗</a>` : ''}
+                <span class="read-more">阅读全文 →</span>
+            </div>
+        </div>
+    </article>`;
+}
+
+function renderPagination(totalPages) {
+    const container = document.getElementById('pagination');
+    if (totalPages <= 1) {container.innerHTML='';return;}
+    
+    let html = '<div class="pagination-inner">';
+    html += `<button class="page-btn" ${state.page<=1?'disabled':''} onclick="goPage(${state.page-1})">‹</button>`;
+    
+    const maxVisible = 5;
+    let start = Math.max(1, state.page - Math.floor(maxVisible/2));
+    let end = Math.min(totalPages, start + maxVisible - 1);
+    if (end - start < maxVisible - 1) start = Math.max(1, end - maxVisible + 1);
+    
+    if (start > 1) {html+=`<button class="page-btn" onclick="goPage(1)">1</button><span class="page-dots">···</span>`;}
+    
+    for(let i=start;i<=end;i++) {
+        html += `<button class="page-btn ${i===state.page?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    }
+    
+    if (end < totalPages) {html+=`<span class="page-dots">···</span><button class="page-btn" onclick="goPage(${totalPages})">${totalPages}</button>`;}
+    
+    html += `<button class="page-btn" ${state.page>=totalPages?'disabled':''} onclick="goPage(${state.page+1})">›</button>`;
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+// ============================================================
+// 详情弹窗
+// ============================================================
+async function openDetail(id) {
+    const resp = await apiFetch(`/news/${id}`);
+    if (resp.code !== 0 || !resp.data) {showToast('加载失败');return;}
+    
+    const item = resp.data;
+    const sc = SOURCE_CONFIG[item.source] || {};
+    const ic = IMPACT_CONFIG[item.impact] || {};
+    const tagsHtml = (item.tags||[]).map(t => `<span class="tag">${t}</span>`).join('');
+    const url = item.url || '#';
+    
+    document.getElementById('modalContent').innerHTML = `
+        <div class="detail-header">
+            <div class="detail-meta-top">
+                <span class="news-source large source-${item.source}">${sc.icon||''}${sc.name||item.source}</span>
+                <span class="impact-badge large impact-${item.impact}">${ic.label||''}</span>
+                <span class="category-tag large">${item.category}</span>
+            </div>
+            <span class="detail-date">📅 ${item.date} | 👁 ${item.readCount||0} 阅读 | 💬 ${item.commentCount||0} 评论</span>
+            <h1 class="detail-title">${item.title}</h1>
+            <p class="detail-summary">${item.summary}</p>
+        </div>
+        <div class="detail-body"><p>${item.body||item.summary}</p></div>
+        <div class="detail-tags">${tagsHtml}</div>
+        <div class="detail-actions">
+            ${url&&url!=='#'?`<a class="action-btn visit-original-btn" href="${url}" target="_blank">访问原文 ↗</a>`:''}
+            <button class="action-btn primary" onclick="shareNews(${id})">分享</button>
+            <button class="action-btn secondary" onclick="closeModal()">关闭</button>
+        </div>
+    `;
+    
+    document.getElementById('modalOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// ============================================================
+// 筛选与交互
+// ============================================================
+function handleFilter() {
+    let filtered = [...state.allData];
+    
+    if (state.activeSource) {
+        filtered = filtered.filter(d => d.source === state.activeSource);
+    }
+    if (state.activeCategories.size > 0) {
+        filtered = filtered.filter(d => state.activeCategories.has(d.category));
+    }
+    if (state.activeImpact) {
+        filtered = filtered.filter(d => d.impact === state.activeImpact);
+    }
+    if (state.activeYear) {
+        filtered = filtered.filter(d => d.date.startsWith(state.activeYear));
+    }
+    if (state.searchKeyword && state.searchMode === 'local') {
+        const kw = state.searchKeyword.toLowerCase();
+        filtered = filtered.filter(d =>
+            d.title.toLowerCase().includes(kw) ||
+            d.summary.toLowerCase().includes(kw) ||
+            (d.tags||[]).some(t=>t.toLowerCase().includes(kw))
+        );
+    }
+    
+    // 排序
+    switch(state.sortBy) {
+        case 'oldest': filtered.sort((a,b)=>a.date.localeCompare(b.date)); break;
+        case 'hot': filtered.sort((a,b)=>(b.readCount||0)-(a.readCount||0)); break;
+        default: filtered.sort((a,b)=>b.date.localeCompare(a.date)); break;
+    }
+    
+    state.filteredData = filtered;
+    state.page = 1;
+    renderNews();
+}
+
+function goPage(p) {
+    state.page = p;
+    renderNews();
+    window.scrollTo({top:document.querySelector('.news-section').offsetTop-120,behavior:'smooth'});
+}
+
+function toggleSearchMode() {
+    state.searchMode = state.searchMode === 'local' ? 'live' : 'local';
+    const badge = document.getElementById('searchModeBadge');
+    if (state.searchMode === 'live') {
+        badge.className = 'search-mode-badge live'; badge.textContent = '🔍实时';
+        showToast('已切换到实时模式 — 搜索将跳转到各平台实时结果');
+    } else {
+        badge.className = 'search-mode-badge local'; badge.textContent = '📋本地';
+        showToast('已切换到本地模式');
+    }
+}
+
+async function doSearch() {
+    const kw = document.getElementById('searchInput').value.trim();
+    state.searchKeyword = kw;
+    
+    const clearBtn = document.getElementById('clearSearchBtn');
+    clearBtn.style.display = kw ? 'flex' : 'none';
+    
+    if (state.searchMode === 'live' && kw) {
+        // 实时模式：获取外部搜索链接并打开
+        const resp = await apiFetch('/search/live', {keyword: kw});
+        if (resp.code === 0 && resp.data.results && resp.data.results.length > 0) {
+            // 打开第一个（最相关）平台的搜索页
+            window.open(resp.data.results[0].url, '_blank');
+            showToast(`正在${resp.data.results[0].name}中搜索"${kw}"`);
+        } else {
+            showToast('实时搜索暂无结果，请稍后再试');
+        }
+    } else {
+        handleFilter();
+    }
+}
+
+function refreshData() {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('spinning');
+    loadInitialData().then(() => {
+        renderSources(); renderCategories(); renderStats(); renderNews();
+        btn.classList.remove('spinning');
+        document.getElementById('updateNotification').classList.remove('show');
+        showToast(`数据已更新！共 ${state.allData.length} 条资讯`);
+    });
+}
+
+// ============================================================
+// 工具函数
+// ============================================================
+function showToast(msg, duration=2500) {
+    const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),duration);
+}
+
+function animateNumber(id,target){
+    const el=document.getElementById(id);if(!el)return;
+    const current=parseInt(el.textContent)||0;
+    if(current===target)return;
+    const step=Math.ceil(Math.abs(target-current)/15);
+    let val=current;
+    const timer=setInterval(()=>{
+        val<target?val=Math.min(val+step,target):val=Math.max(val-step,target);
+        el.textContent=val;
+        if(val===target)clearInterval(timer);
+    },30);
+}
+
+function shareNews(id){
+    const item=state.allData.find(d=>d.id===id)||{};
+    const text=`【ADADD】${item.title}\n${item.summary}\nvia ADADD - 广告行业资讯聚合平台`;
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>showToast('链接已复制！'));}
+    else{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('链接已复制！');}
+}
+
+function populateYearSelect(years){
+    const sel=document.getElementById('yearSelect');
+    sel.innerHTML='<option value="">全部年份</option>';
+    years.sort().reverse().forEach(y=>sel.innerHTML+=`<option value="${y}">${y}年</option>`);
+
+    // 绑定change
+    sel.addEventListener('change',()=>{state.activeYear=sel.value;state.page=1;handleFilter()});
+}
+
+function showLoading(){
+    const g=document.getElementById('newsGrid');
+    g.innerHTML='<div style="grid-column:1/-1;padding:40px;text-align:center"><div style="height:20px;border-radius:10px" class="loading-skeleton" style="width:60%;margin:0 auto 16px"></div><div style="height:16px;border-radius:8px" class="loading-skeleton" style="width:100%"></div><div style="height:16px;border-radius:8px" class="loading-skeleton" style="width:95%;margin-top:10px"></div><div style="height:16px;border-radius:8px" class="loading-skeleton" style="width:88%;margin-top:10px"></div></div>'.repeat(4);
+}
+function hideLoading(){/* 数据渲染后自动替换 */}
+
+// ============================================================
+// 初始化
+// ============================================================
+function bindEvents(){
+    // 搜索框
+    const searchInput=document.getElementById('searchInput');
+    searchInput.addEventListener('input',()=>{
+        document.getElementById('clearSearchBtn').style.display=searchInput.value?'flex':'none'
+    });
+    searchInput.addEventListener('keydown',e=>{
+        if(e.key==='Enter')doSearch();
+    });
+    document.getElementById('clearSearchBtn').addEventListener('click',()=>{
+        searchInput.value='';state.searchKeyword='';document.getElementById('clearSearchBtn').style.display='none';handleFilter()
+    });
+
+    // 影响力
+    document.querySelectorAll('#impactFilters .impact-filter-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            document.querySelectorAll('#impactFilters .impact-filter-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            state.activeImpact=btn.dataset.value||null;state.page=1;handleFilter();
+        })
+    })
+
+    // 排序
+    document.querySelectorAll('#sortOptions .sort-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            document.querySelectorAll('#sortOptions .sort-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            state.sortBy=btn.dataset.sort;state.page=1;handleFilter();
+        })
+    })
+
+    // 视图切换
+    document.querySelectorAll('#viewToggle .toggle-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            document.querySelectorAll('#viewToggle .toggle-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');
+            state.viewMode=btn.dataset.view;renderNews();
+        })
+    })
+}
+
+// ESC关闭弹窗
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})
+
+// 启动
+async function init(){
+    await loadInitialData();
+    renderSources();renderCategories();renderStats();renderNews();bindEvents();
+    
+    // 更新页脚总数
+    const ft=document.getElementById('footerTotal');
+    if(ft)ft.textContent=state.allData.length;
+    
+    console.log('%c ADADD v2.0 ','background:#0052D9;color:white;padding:4px 8px;border-radius:4px','✅ 已连接后端API');
+}
+init();
+</script>
+</body>
+</html>
