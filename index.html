@@ -161,7 +161,7 @@ function renderNews(){
 filterBar.addEventListener("click",function(e){
   var btn=e.target.closest("[data-a]");
   if(!btn)return;
-  var a=btn.dataset.a,v=btn.dataset.v;
+  var a=btn.dataset.a,v=btn.dataset.v||btn.dataset.val;
   if(a==="src")state.source=v;else if(a==="cat")state.category=v;
   else if(a==="imp")state.impact=v;else if(a==="sort")state.sort=v;
   else if(a==="view")state.view=v;

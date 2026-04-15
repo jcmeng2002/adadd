@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ADADD · 广告行业资讯聚合平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Tencent Sans';src:url('./fonts/TencentSans-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
+@font-face{font-family:'Tencent Sans';src:url('./fonts/TencentSans-W7.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap;}
+@font-face{font-family:'Tencent Sans';src:url('./fonts/TencentSans-W3.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap;}
+:root{--primary:#0052D9;--primary-light:#E8F0FE;--primary-dark:#1a3c6e;--primary-hover:#2670F0;--accent:#00A870;--warning:#ED7B2D;--danger:#E02020;--text-primary:#1a1a1a;--text-secondary:#666;--text-tertiary:#999;--border-color:#e5e5e5;--bg-body:#f5f7fa;--bg-white:#fff;--shadow-sm:0 1px 3px rgba(0,0,0,.06);--shadow-md:0 4px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 30px rgba(0,0,0,.12);--radius-sm:6px;--radius-md:10px;--radius-lg:16px;--font-family:'Tencent Sans','Noto Sans SC',-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-family);background:var(--bg-body);color:var(--text-primary);line-height:1.6;min-height:100vh}
+a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:inherit;border:none;background:none}input,select{font-family:inherit}
+
+/* Navbar */
+.navbar{position:sticky;top:0;z-index:100;background:var(--bg-white);border-bottom:1px solid var(--border-color);box-shadow:var(--shadow-sm)}
+.navbar-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 24px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}.logo-icon{font-size:26px}
+.logo-text{font-size:24px;font-weight:900;color:var(--primary);letter-spacing:3px;font-family:'Tencent Sans',sans-serif}
+.logo-sub{font-size:11px;color:var(--text-tertiary);padding-left:10px;border-left:2px solid var(--border-color)}
+.search-wrap{flex:1;max-width:480px;min-width:200px}
+.search-bar{display:flex;align-items:center;background:var(--bg-body);border-radius:22px;padding:8px 18px;gap:8px;border:1.5px solid transparent;transition:all .25s}
+.search-bar:focus-within{background:var(--bg-white);border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,82,217,.08)}
+.search-bar input{flex:1;border:none;outline:none;background:transparent;font-size:14px;color:var(--text-primary);min-width:0}
+.clear-search{width:20px;height:20px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:15px;color:var(--text-tertiary);background:#ddd;cursor:pointer;flex-shrink:0}
+.net-search-btn{padding:5px 14px;border-radius:16px;font-size:12px;color:#00A870;background:#EDFAF3;border:1px solid #00A870;cursor:pointer;white-space:nowrap;font-weight:600;transition:all .2s;flex-shrink:0}
+.net-search-btn:hover{background:#00A870;color:white}
+.navbar-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.year-select{padding:6px 12px;border-radius:var(--radius-sm);border:1px solid var(--border-color);font-size:13px;color:var(--text-secondary);background:var(--bg-white);cursor:pointer}
+.refresh-btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);transition:all .25s}
+.refresh-btn:hover{color:var(--primary);background:var(--primary-light)}
+
+/* Filter Bar */
+.filter-bar{max-width:1400px;margin:0 auto;padding:20px 24px 0}
+.filter-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.filter-label{font-size:13px;font-weight:600;color:var(--text-primary);white-space:nowrap;flex-shrink:0}
+.filter-group{display:flex;flex-wrap:wrap;gap:6px;flex:1;min-width:200px}
+
+.filter-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;font-size:13px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap;cursor:pointer;user-select:none}
+.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(0,82,217,.25)}
+.filter-btn .count{font-size:11px;background:rgba(255,255,255,.15);padding:1px 7px;border-radius:10px}
+.filter-btn:not(.active) .count{background:var(--bg-body);color:var(--text-tertiary)}
+
+.cat-btn{padding:4px 12px;border-radius:16px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap;cursor:pointer;user-select:none}
+.cat-btn:hover{border-color:var(--primary-hover);color:var(--primary-hover)}
+.cat-btn.active{background:linear-gradient(135deg,var(--primary),#2670F0);color:white;border-color:transparent}
+.cat-btn .count{font-size:10px;color:inherit;opacity:.8}
+
+.impact-filter-btn,.sort-btn,.toggle-btn{padding:5px 14px;border-radius:16px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap;cursor:pointer;user-select:none}
+.impact-filter-btn:hover,.sort-btn:hover,.toggle-btn:hover{border-color:var(--primary-hover)}
+.impact-filter-btn.active,.sort-btn.active{background:var(--primary-light);color:var(--primary);border-color:var(--primary);font-weight:600}
+.toggle-btn.active{background:var(--bg-white);color:var(--primary);box-shadow:var(--shadow-sm);font-weight:600}
+.view-toggle{display:flex;gap:2px;background:var(--bg-body);border-radius:var(--radius-sm);padding:3px}
+
+/* Stats */
+.stats-bar{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;background:linear-gradient(135deg,#fff,#f0f5ff);border-radius:var(--radius-md);padding:18px 28px;margin-bottom:20px;border:1px solid rgba(0,82,217,.08);box-shadow:var(--shadow-sm)}
+.stat-item{text-align:center;flex:1}
+.stat-number{font-size:28px;font-weight:900;color:var(--primary);line-height:1.2;letter-spacing:-.5px}
+.stat-number.highlight{color:var(--danger)}
+.stat-label{font-size:12px;color:var(--text-tertiary);margin-top:2px}
+.stat-divider{width:1px;height:40px;background:var(--border-color);margin:0 16px}
+
+/* News Grid */
+.news-section{max-width:1400px;margin:0 auto;padding:0 24px 60px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px}
+.news-card{background:var(--bg-white);border-radius:var(--radius-md);padding:24px;border:1px solid var(--border-color);cursor:pointer;transition:all .25s;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.news-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--primary-hover));opacity:0;transition:opacity .3s}
+.news-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:transparent}
+.news-card:hover::before{opacity:1}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.news-source{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;padding:3px 10px;border-radius:12px;white-space:nowrap}
+.news-date{font-size:12px;color:var(--text-tertiary);flex:1}
+.impact-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.card-title{font-size:17px;font-weight:700;line-height:1.45;color:var(--text-primary);margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:color .2s}
+.news-card:hover .card-title{color:var(--primary)}
+.card-summary{font-size:14px;line-height:1.65;color:var(--text-secondary);margin-bottom:14px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--bg-body);color:var(--text-secondary);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid #f0f0f0}
+.category-tag{font-size:12px;color:var(--primary);background:var(--primary-light);padding:3px 10px;border-radius:10px;font-weight:500}
+.visit-link{font-size:13px;color:var(--accent)!important;font-weight:500;transition:opacity .2s;opacity:0;white-space:nowrap}
+.news-card:hover .visit-link{opacity:1}
+
+/* Timeline */
+.timeline-view{display:none}
+.timeline-view.show{display:block}
+.timeline-year{font-size:22px;font-weight:900;color:var(--primary);margin-bottom:20px;padding-left:16px;border-left:4px solid var(--primary);letter-spacing:1px}
+.timeline-item{display:flex;gap:16px;background:var(--bg-white);border-radius:var(--radius-md);padding:20px 24px;border:1px solid var(--border-color);cursor:pointer;transition:all .25s;margin-bottom:12px}
+.timeline-item:hover{transform:translateX(4px);box-shadow:var(--shadow-md);border-color:var(--primary-hover)}
+.timeline-dot{width:12px;height:12px;border-radius:50%;margin-top:6px;flex-shrink:0;box-shadow:0 0 0 3px rgba(0,82,217,.15)}
+.timeline-meta{display:flex;align-items:center;gap:12px;margin-bottom:8px;font-size:12px;color:var(--text-tertiary)}
+.timeline-item h4{font-size:16px;font-weight:700;line-height:1.4;color:var(--text-primary);margin-bottom:6px;transition:color .2s}
+.timeline-item:hover h4{color:var(--primary)}
+.timeline-item>p{font-size:14px;color:var(--text-secondary);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Empty State */
+.empty-state{display:none;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px;text-align:center}
+.empty-state.show{display:flex}
+.empty-state .icon{font-size:64px;opacity:.3}
+.empty-state p{font-size:16px;color:var(--text-secondary);margin-top:16px}
+
+/* Pagination */
+.pagination{display:flex;justify-content:center;margin-top:32px}
+.pagination-inner{display:flex;align-items:center;gap:4px}
+.page-btn{min-width:38px;height:38px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);display:flex;align-items:center;justify-content:center;padding:0 12px;transition:all .2s;cursor:pointer;user-select:none}
+.page-btn:hover:not(:disabled){border-color:var(--primary);color:var(--primary)}
+.page-btn.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(0,82,217,.25)}
+.page-btn:disabled{opacity:.35;cursor:not-allowed}
+.page-dots{color:var(--text-tertiary);padding:0 6px;font-size:13px}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px}
+.modal-overlay.show{display:flex;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-dialog{background:var(--bg-white);border-radius:var(--radius-lg);max-width:720px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2);animation:slideUp .3s ease;margin:auto}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:16px;right:16px;z-index:5;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--text-tertiary);background:var(--bg-body);transition:all .2s;cursor:pointer}
+.modal-close:hover{background:var(--danger);color:white}
+.detail-body{padding:36px 36px 28px}
+.detail-header{margin-bottom:24px}
+.detail-meta-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.detail-date{font-size:13px;color:var(--text-tertiary);display:block;margin-bottom:10px}
+.detail-title{font-size:24px;font-weight:900;line-height:1.35;color:var(--text-primary);margin-bottom:12px;font-family:'Tencent Sans',sans-serif}
+.detail-summary{font-size:16px;color:var(--text-secondary);line-height:1.6}
+.detail-body-text{font-size:15px;line-height:1.85;color:var(--text-primary);white-space:pre-line;margin-bottom:20px}
+.detail-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;padding-top:16px;border-top:1px solid var(--border-color)}
+.detail-actions{display:flex;gap:12px;justify-content:flex-end}
+.action-btn{padding:10px 24px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;transition:all .2s;cursor:pointer;user-select:none}
+.action-btn.primary{background:var(--primary);color:white}
+.action-btn.primary:hover{background:var(--primary-hover)}
+.action-btn.visit{background:var(--accent)!important;color:white!important}
+.action-btn.visit:hover{background:#00915e!important}
+.action-btn.secondary{background:var(--bg-body);color:var(--text-secondary);border:1px solid var(--border-color)}
+.action-btn.secondary:hover{background:var(--border-color)}
+
+/* Toast */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);background:#333;color:white;padding:12px 28px;border-radius:24px;font-size:14px;font-weight:500;z-index:2000;opacity:0;pointer-events:none;transition:all .3s;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Footer */
+.footer{background:var(--text-primary);color:rgba(255,255,255,.55);padding:24px;text-align:center;font-size:13px;margin-top:auto}
+.footer strong{color:#fff}
+.footer a{color:rgba(255,255,255,.8)}
+
+/* Loading */
+.loading-overlay{position:fixed;inset:0;z-index:9999;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loading-spinner{width:44px;height:44px;border:4px solid var(--primary-light);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
+.loading-text{font-size:15px;color:var(--text-secondary);font-weight:500}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:1024px){
+    .news-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+    .navbar-inner{padding:10px 20px;gap:12px}
+    .search-wrap{order:3;max-width:100%;flex-basis:100%}
+    .search-bar{width:100%}
+}
+@media(max-width:768px){
+    .news-grid{grid-template-columns:1fr}
+    .stats-bar{flex-direction:column;gap:12px;padding:16px}
+    .stat-divider{display:none}
+    .modal-dialog{margin:10px;max-width:none}
+    .detail-body{padding:24px 20px}
+    .detail-title{font-size:20px}
+    .card-footer{flex-direction:column;align-items:flex-start;gap:8px}
+    .visit-link{opacity:1!important}
+    .filter-row{gap:10px}
+    .filter-label{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingState"><div class="loading-spinner"></div><div class="loading-text">ADADD 正在加载 {{ITEM_COUNT}} 条资讯...</div></div>
+
+<!-- Navbar -->
+<header class="navbar">
+<div class="navbar-inner">
+<div class="logo"><span class="logo-icon">📊</span><span class="logo-text">ADADD</span><span class="logo-sub">广告行业资讯聚合平台</span></div>
+<div class="search-wrap">
+<div class="search-bar" id="searchBar">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input type="text" id="searchInput" placeholder="搜索广告行业... (Enter本地搜 / 无结果自动全网)" autocomplete="off">
+<button class="clear-search" id="clearSearch">&times;</button>
+</div>
+<button class="net-search-btn" onclick="doNetSearch()" title="Google全网实时搜索">全网搜 🔍</button>
+</div>
+<div class="navbar-right">
+<select class="year-select" id="yearFilter">{{YEAR_OPTIONS}}</select>
+<span style="display:flex;align-items:center;gap:6px;color:var(--text-tertiary);font-size:12px"><span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block"></span>自包含 · {{ITEM_COUNT}}条</span>
+</div>
+</div>
+</header>
+
+<!-- Filters -->
+<section class="filter-bar">
+<div class="filter-row"><span class="filter-label">📌 来源：</span><div class="filter-group filter-btns" id="sourceFilters"></div></div>
+<div class="filter-row"><span class="filter-label">📂 分类：</span><div class="filter-group cat-btns" id="catFilters"></div></div>
+<div class="filter-row">
+<span class="filter-label">⚡ 影响力：</span><div class="filter-group impact-filters" id="impactFilters"></div>
+<span class="filter-label" style="margin-left:20px">🔄 排序：</span><div class="filter-group sort-options" id="sortOptions"></div>
+<span class="filter-label" style="margin-left:20px">👁 视图：</span><div class="view-toggle" id="viewToggle"></div>
+</div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar" id="statsBar"></div>
+
+<!-- Content -->
+<section class="news-section">
+<div class="news-grid" id="newsGrid"></div>
+<div class="timeline-view" id="timelineView"></div>
+<div class="empty-state" id="emptyState"><div class="icon">🔍</div><p>没有找到相关资讯</p><p style="font-size:13px!important;color:var(--text-tertiary);margin-top:8px">调整筛选条件或使用「全网搜」</p></div>
+<div class="pagination" id="pagination"></div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay"><div class="modal-dialog"><button class="modal-close" id="modalClose">&times;</button><div class="detail-body" id="detailBody"></div></div></div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Footer -->
+<footer class="footer"><div class="footer-inner" style="max-width:1400px;margin:0 auto"><strong>ADADD</strong> 广告行业资讯聚合平台 · Self-Contained Engine · Developed with ❤️ by <a href="https://github.com/nelsonmeng" target="_blank">nelsonmeng</a></div></footer>
+
+<script>
+// ==================== CONFIG ====================
+const SOURCE_CONFIG={
+'weibo':{name:'微博',icon:'📱',color:'#E6162D'},
+'zhihu':{name:'知乎',icon:'💡',color:'#0084FF'},
+'wechat':{name:'微信公众号',icon:'📨',color:'#07C160'},
+'github':{name:'GitHub',icon:'🐙',color:'#24292E'},
+'tech-media':{name:'技术社区',icon:'⚙️',color:'#ED7B2D'},
+'industry-media':{name:'行业媒体',icon:'📰',color:'#0052D9'},
+'36kr':{name:'36氪',icon:'🚀',color:'#0066CC'}
+};
+const IMPACT_MAP={high:{label:'高影响',bg:'#FFF0F0',clr:'#E02020'},medium:{label:'中影响',bg:'#FFF8F0',clr:'#ED7B2D'},low:{label:'一般',bg:'#F0FAF6',clr:'#00A870'}};
+
+// ==================== DATA ====================
+const ALL_DATA={{JS_DATA}};
+
+// ==================== STATE ====================
+const state={allData:[],filteredData:[],currentPage:1,pageSize:12,filters:{source:'',category:'',impact:'',year:''},sortBy:'date-desc',viewMode:'cards',searchQuery:'',sources:{},categories:{},years:new Set()};
+
+// ==================== UTILS ====================
+function escHtml(s){if(!s)return '';const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),2500)}
+function getNewsUrl(item){return 'https://www.google.com/search?q='+encodeURIComponent(item.title||item.category+' 广告')+'&tbs=qdr:y'}
+function doNetSearch(){const q=document.getElementById('searchInput').value.trim();if(q)window.open('https://www.google.com/search?q='+encodeURIComponent(q+' 广告 行业 资讯')+'&tbs=qdr:m','_blank');else document.getElementById('searchInput').focus()}
+
+// ==================== INDEX ====================
+function buildIndexes(){state.sources={};state.categories={};state.years=new Set();state.allData.forEach(function(it){if(!state.sources[it.source])state.sources[it.source]=0;state.sources[it.source]++;if(!state.categories[it.category])state.categories[it.category]=0;state.categories[it.category]++;var y=(it.date||'').substring(0,4);if(y)state.years.add(y)})}
+
+// ==================== FILTER ====================
+function applyFilters(){var data=[].concat(state.allData);var f=state.filters;if(f.source)data=data.filter(function(d){return d.source===f.source});if(f.category)data=data.filter(function(d){return d.category===f.category});if(f.impact)data=data.filter(function(d){return d.impact===f.impact});if(f.year)data=data.filter(function(d){return d.date&&d.date.startsWith(f.year)});if(state.searchQuery.trim()){var q=state.searchQuery.toLowerCase().trim();data=data.filter(function(d){return(d.title||'').toLowerCase().indexOf(q)>=0||(d.summary||'').toLowerCase().indexOf(q)>=0||(d.tags||[]).some(function(t){return t.toLowerCase().indexOf(q)>=0)})})switch(state.sortBy){case'date-desc':data.sort(function(a,b){return(b.date||'').localeCompare(a.date||'')});break;case'date-asc':data.sort(function(a,b){return(a.date||'').localeCompare(b.date||'')});break;case'impact-desc':var m={high:3,medium:2,low:1};data.sort(function(a,b){return(m[b.impact]||0)-(m[a.impact]||0)});break}state.filteredData=data;state.currentPage=1}
+function getPaginated(){var s=(state.currentPage-1)*state.pageSize;return state.filteredData.slice(s,s+state.pageSize)}
+function totalPages(){return Math.max(1,Math.ceil(state.filteredData.length/state.pageSize))}
+
+// ==================== RENDER SOURCES ====================
+function renderSources(){var c=document.getElementById('sourceFilters');var h='<button class="filter-btn'+(state.filters.source===''?' active':'')+'" data-src="">全部 <span class="count">'+state.allData.length+'</span></button>';Object.keys(state.sources).sort(function(a,b){return state.sources[b]-state.sources[a]}).forEach(function(k){var cfg=SOURCE_CONFIG[k]||{name:k,icon:'📌',color:'#999'};h+='<button class="filter-btn'+(state.filters.source===k?' active':'')+'" data-src="'+k+'">'+cfg.icon+' '+escHtml(cfg.name)+' <span class="count">'+state.sources[k]+'</span></button>'});c.innerHTML=h}
+
+// ==================== RENDER CATEGORIES ====================
+function renderCategories(){var c=document.getElementById('catFilters');var h='<button class="cat-btn'+(state.filters.category===''?' active':'')+'" data-cat="">全部</button>';Object.keys(state.categories).sort(function(a,b){return state.categories[b]-state.categories[a]}).forEach(function(ct){h+='<button class="cat-btn'+(state.filters.category===ct?' active':'')+'" data-cat="'+escHtml(ct)+'">'+escHtml(ct)+' <span class="count">('+state.categories[ct]+')</span></button>'});c.innerHTML=h}
+
+// ==================== RENDER IMPACT / SORT / VIEW ====================
+function renderImpactFilters(){var c=document.getElementById('impactFilters');var items=[{k:'',l:'全部影响力'},{k:'high',l:'高影响力 🔴'},{k:'medium',l:'中影响力 🟠'},{k:'low',l:'一般关注 🟢'}];var h='';items.forEach(function(it){var active=(it.k==''&&state.filters.impact=='')||(it.k!=''&&state.filters.impact===it.k);h+='<button class="impact-filter-btn'+(active?' active':'')+'" data-imp="'+it.k+'">'+it.l+'</button>'});c.innerHTML=h}
+function renderSortOptions(){var c=document.getElementById('sortOptions');var items=[{k:'date-desc',l:'最新优先 ⬇️'},{k:'date-asc',l:'最早优先 ⬆️'},{k:'impact-desc',l:'高影响力优先 ⭐'}];var h='';items.forEach(function(it){h+='<button class="sort-btn'+(state.sortBy===it.k?' active':'')+'" data-srt="'+it.k+'">'+it.l+'</button>'});c.innerHTML=h}
+function renderViewToggle(){var c=document.getElementById('viewToggle');var items=[{k:'cards',l:'📋 卡片'},{k:'timeline',l:'📅 时间轴'}];var h='';items.forEach(function(it){h+='<button class="toggle-btn'+(state.viewMode===it.k?' active':'')+'" data-vw="'+it.k+'">'+it.l+'</button>'});c.innerHTML=h}
+
+// ==================== STATS ====================
+function renderStats(){document.getElementById('statsBar').innerHTML='<div class="stat-item"><div class="stat-number">'+state.allData.length+'</div><div class="stat-label">总资讯数</div></div><div class="stat-divider"></div><div class="stat-item"><div class="stat-number highlight">'+state.years.size+'</div><div class="stat-label">覆盖年数</div></div><div class="stat-divider"></div><div class="stat-item"><div class="stat-number">'+Object.keys(state.categories).length+'</div><div class="stat-label">分类数量</div></div><div class="stat-divider"></div><div class="stat-item"><div class="stat-number">'+Object.keys(state.sources).length+'</div><div class="stat-label">数据源</div></div>'}
+
+// ==================== RENDER NEWS CARDS ====================
+function renderNews(){var its=getPaginated();var grid=document.getElementById('newsGrid');var tl=document.getElementById('timelineView');var empty=document.getElementById('emptyState');
+grid.style.display=state.viewMode==='cards'?'grid':'none';tl.className=state.viewMode==='timeline'?'timeline-view show':'timeline-view';
+if(!its.length){empty.classList.add('show');grid.innerHTML='';tl.innerHTML='';renderPagination();return}
+empty.classList.remove('show');
+
+if(state.viewMode==='cards'){var cardsHtml='';
+its.forEach(function(it){var sc=SOURCE_CONFIG[it.source]||{name:it.source,icon:'📌',color:'#999'};var imp=IMPACT_MAP[it.impact]||IMPACT_MAP.low;
+cardsHtml+='<div class="news-card" data-id="'+it.id+'"><div class="card-header">';
+cardsHtml+='<span class="news-source" style="background:'+sc.color+'15;color:'+sc.color+'">'+sc.icon+' '+sc.name+'</span>';
+cardsHtml+='<span class="news-date">'+escHtml(it.date)+'</span>';
+cardsHtml+='<span class="impact-badge" style="background:'+imp.bg+';color:'+imp.clr+'">'+imp.label+'</span>';
+cardsHtml+='</div><h3 class="card-title">'+escHtml(it.title)+'</h3>';
+cardsHtml+='<p class="card-summary">'+escHtml(it.summary)+'</p>';
+cardsHtml+='<div class="card-tags">';
+(it.tags||[]).forEach(function(t){cardsHtml+='<span class="tag">'+escHtml(t)+'</span>'});
+cardsHtml+='</div><div class="card-footer"><span class="category-tag">'+escHtml(it.category)+'</span>';
+cardsHtml+='<a class="visit-link" href="'+getNewsUrl(it)+'" target="_blank" onclick="event.stopPropagation()">访问原文 ↗</a></div></div>'});
+grid.innerHTML=cardsHtml}
+
+if(state.viewMode==='timeline'){var byYear={};its.forEach(function(it){var y=(it.date||'').substring(0,4)||'未知';if(!byYear[y])byYear[y]=[];byYear[y].push(it)});
+var tlHtml='';Object.keys(byYear).sort().reverse().forEach(function(y){tlHtml+='<div class="timeline-year">'+y+'年</div>';
+byYear[y].forEach(function(it){var sc=SOURCE_CONFIG[it.source]||{icon:'📌',color:'#999'};
+tlHtml+='<div class="timeline-item" data-id="'+it.id+'"><div class="timeline-dot" style="background:'+sc.color+'"></div>';
+tlHtml+='<div class="timeline-content"><div class="timeline-meta">';
+tlHtml+='<span class="news-source" style="background:'+sc.color+'15;color:'+sc.color+'">'+sc.icon+' '+sc.name+'</span>';
+tlHtml+='<span>'+escHtml(it.date)+'</span>';
+tlHtml+='<span class="impact-badge" style="background:'+(it.impact==='high'?'#FFF0F0':it.impact==='medium'?'#FFF8F0':'#F0FAF6')+';color:'+(it.impact==='high'?'#E02020':it.impact==='medium'?'#ED7B2D':'#00A870')+'">'+(it.impact==='high'?'高':it.impact==='medium'?'中':'低')+'</span></div>';
+tlHtml+='<h4>'+escHtml(it.title)+'</h4><p>'+escHtml(it.summary)+'</p>';
+tlHtml+='<a class="visit-link" href="'+getNewsUrl(it)+'" target="_blank" onclick="event.stopPropagation()" style="display:inline-block;margin-top:6px">访问原文 ↗</a></div></div>'})});
+tl.innerHTML=tlHtml}
+renderPagination();
+bindCardEvents()}
+
+// ==================== PAGINATION ====================
+function renderPagination(){var p=document.getElementById('pagination');var tp=totalPages();var cp=state.currentPage;
+if(tp<=1){p.innerHTML='';return}
+var h='<div class="pagination-inner">';
+h+='<button class="page-btn"+(cp<=1?" disabled":"")+' onclick="if('+cp+'>1){state.currentPage='+cp+'-1;renderNews()}">‹ 上一页</button>';
+var maxVis=7;var start=Math.max(1,cp-Math.floor(maxVis/2));var end=Math.min(tp,start+maxVis-1);
+if(start>1){h+='<button class="page-btn" onclick="state.currentPage=1;renderNews()">1</button><span class="page-dots">...</span>'}
+for(var i=start;i<=end;i++){h+='<button class="page-btn'+(i===cp?' active':'')+'" data-p="'+i+'" onclick="state.currentPage='+i+';renderNews()">'+i+'</button>'}
+if(end<tp){h+='<span class="page-dots">...</span><button class="page-btn" data-p="'+tp+'" onclick="state.currentPage='+tp+';renderNews()">'+tp+'</button>'}
+h+='<button class="page-btn"+(cp>=tp?" disabled":"")+' onclick="if('+cp+'<'+tp+'){state.currentPage='+cp+'+1;renderNews()}">下一页 ›</button>';
+h+='</div>';p.innerHTML=h}
+
+// ==================== CARD EVENTS ====================
+function bindCardEvents(){document.querySelectorAll('.news-card[data-id]').forEach(function(card){card.addEventListener('click',function(){openDetail(card.dataset.id)})});
+document.querySelectorAll('.timeline-item[data-id]').forEach(function(item){item.addEventListener('click',function(){openDetail(item.dataset.id)})})}
+
+// ==================== MODAL ====================
+function openDetail(id){var item=state.allData.find(function(d){return d.id==id});if(!item)return;
+var sc=SOURCE_CONFIG[item.source]||{name:item.source,icon:'📌',color:'#999'};
+var impLabel=item.impact==='high'?'高影响力':item.impact==='medium'?'中影响力':'一般关注';
+var impColor=item.impact==='high'?'#E02020':item.impact==='medium'?'#ED7B2D':'#00A870';
+var tagsHtml='';(item.tags||[]).forEach(function(t){tagsHtml+='<span class="tag">'+escHtml(t)+'</span>'});
+document.getElementById('detailBody').innerHTML=
+'<div class="detail-header"><div class="detail-meta-row">'+
+'<span class="news-source large" style="background:'+sc.color+'15;color:'+sc.color+'">'+sc.icon+' '+sc.name+'</span>'+
+'<span class="impact-badge large" style="background:'+impColor+'15;color:'+impColor+'">'+impLabel+'</span>'+
+'<span class="category-tag large">'+escHtml(item.category)+'</span></div>'+
+'<div class="detail-date">📅 '+escHtml(item.date)+' · 👁 '+(item.readCount||0)+' 阅读 · 💬 '+(item.commentCount||0)+' 评论</div>'+
+'<h2 class="detail-title">'+escHtml(item.title)+'</h2>'+
+'<p class="detail-summary">'+escHtml(item.summary)+'</p></div>'+
+'<div class="detail-body-text">'+escHtml(item.body)+'</div>'+
+'<div class="detail-tags">'+tagsHtml+'</div>'+
+'<div class="detail-actions">'+
+'<button class="action-btn visit" onclick="window.open(\''+getNewsUrl(item)+'\',\'_blank\')">访问原文 ↗</button>'+
+'<button class="action-btn secondary" onclick="closeModal()">关闭</button></div>';
+document.getElementById('modalOverlay').classList.add('show');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('show');document.body.style.overflow=''}
+
+// ==================== MAIN RENDER ====================
+function renderAll(){applyFilters();renderSources();renderCategories();renderStats();renderImpactFilters();renderSortOptions();renderViewToggle();renderNews()}
+
+// ==================== INIT (IIFE - 立即执行，不依赖DOMContentLoaded) ====================
+(function(){
+// 1. 来源筛选
+document.getElementById('sourceFilters').addEventListener('click',function(e){var btn=e.target.closest('.filter-btn[data-src]');if(!btn)return;state.filters.source=btn.dataset.src;this.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderAll()});
+// 2. 分类筛选
+document.getElementById('catFilters').addEventListener('click',function(e){var btn=e.target.closest('.cat-btn[data-cat]');if(!btn)return;state.filters.category=btn.dataset.cat;this.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderAll()});
+// 3. 影响力筛选
+document.getElementById('impactFilters').addEventListener('click',function(e){var btn=e.target.closest('.impact-filter-btn[data-imp]');if(!btn)return;state.filters.impact=btn.dataset.imp;this.querySelectorAll('.impact-filter-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderAll()});
+// 4. 排序切换
+document.getElementById('sortOptions').addEventListener('click',function(e){var btn=e.target.closest('.sort-btn[data-srt]');if(!btn)return;state.sortBy=btn.dataset.srt;this.querySelectorAll('.sort-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderAll()});
+// 5. 视图切换
+document.getElementById('viewToggle').addEventListener('click',function(e){var btn=e.target.closest('.toggle-btn[data-vw]');if(!btn)return;state.viewMode=btn.dataset.vw;this.querySelectorAll('.toggle-btn').forEach(function(b){b.classList.remove('active')});btn.classList.add('active');renderAll()});
+// 6. 年份筛选
+document.getElementById('yearFilter').addEventListener('change',function(){state.filters.year=this.value;renderAll()});
+// 7. 搜索
+var si=document.getElementById('searchInput');var cb=document.getElementById('clearSearch');var timer=null;
+si.addEventListener('input',function(){cb.style.display=si.value.length?'flex':'none';clearTimeout(timer);timer=setTimeout(function(){state.searchQuery=si.value;renderAll()},300)});
+si.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=si.value.trim();if(q){state.searchQuery=q;renderAll();setTimeout(function(){if(state.filteredData.length===0&&q.trim()){showToast('🔍 本地无结果 → 全网搜索');window.open('https://www.google.com/search?q='+encodeURIComponent(q+' 广告 行业 资讯')+'&tbs=qdr:m','_blank')}},400)}}if(e.key==='Escape'){si.value='';state.searchQuery='';cb.style.display='none';renderAll()}});
+cb.addEventListener('click',function(){si.value='';state.searchQuery='';cb.style.display='none';si.focus();renderAll()});
+// 8. Modal
+document.getElementById('modalClose').addEventListener('click',closeModal);
+document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+// 9. ★★ 加载数据并初始化 ★★
+state.allData=ALL_DATA;buildIndexes();renderAll();
+setTimeout(function(){document.getElementById('loadingState').style.display='none'},300);
+console.log('[ADADD V6] ✅ Loaded '+state.allData.length+' items | Years:'+Array.from(state.years).join(',')+' | Sources:'+Object.keys(state.sources).length+' | Cats:'+Object.keys(state.categories).length)
+})();
+</script>
+</body>
+</html>
