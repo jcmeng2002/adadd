@@ -66,7 +66,19 @@ var state={source:"",category:"",impact:"",sort:"latest",view:"cards",page:1,sea
 var $=function(id){return document.getElementById(id)};
 var filterBar=$("filterBar"),statsBar=$("statsBar"),newsSection=$("newsSection");
 var searchInput=$("searchInput"),clearSearch=$("clearSearch"),yearSelect=$("yearSelect");
-var modalOverlay=$("modalOverlay"),modalClose=$("modalClose"),modalBody=$("modalBody");
+/* Modal: dynamically created on first use, not in static HTML */
+var modalOverlay=null,modalClose=null,modalBody=null;
+function ensureModal(){
+  if(modalOverlay)return;
+  var ov=document.createElement("div");
+  ov.className="modal-overlay";ov.id="modalOverlay";
+  ov.innerHTML='<div class="modal-dialog"><button class="modal-close" id="modalClose" style="position:absolute;top:16px;right:16px;z-index:5;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#999;background:#f5f7fa;cursor:pointer;border:none;transition:all .2s">×</button><div class="modal-body" id="modalBody"></div></div>';
+  document.body.appendChild(ov);
+  modalOverlay=ov;modalClose=$("modalClose");modalBody=$("modalBody");
+  modalClose.addEventListener("click",function(){modalOverlay.style.display="none";modalOverlay.classList.remove("show")});
+  ov.addEventListener("click",function(e){if(e.target===ov){ov.style.display="none";ov.classList.remove("show")}});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"){ov.style.display="none";ov.classList.remove("show")}});
+}
 
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 var SOURCE_SEARCH_TPL={"zhihu":"https://www.zhihu.com/search?type=content&q=","36kr":"https://36kr.com/search/articles?q=","weibo":"https://s.weibo.com/weibo?q=","github":"https://github.com/search?q=","wechat":"https://weixin.sogou.com/weixin?type=2&query=","tech-media":"https://www.google.com/search?q=site:juejin.cn+","industry-media":"https://www.google.com/search?q=site:madisonboom.com+OR+site:meihua.info+OR+site:adquan.com+"};
@@ -203,12 +215,9 @@ document.getElementById("globalSearchBtn").addEventListener("click",function(){v
 searchInput.addEventListener("keydown",function(e){
   if(e.key==="Enter"){var q=e.target.value.trim();if(!q)return;if(getFilteredData().length===0)openRealSearch(q);else{state.search=q;state.page=1;renderAll()}}
 });
-modalClose.addEventListener("click",function(){modalOverlay.classList.remove("show")});
-modalOverlay.addEventListener("click",function(e){if(e.target===modalOverlay)modalOverlay.classList.remove("show")});
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modalOverlay.classList.contains("show"))modalOverlay.classList.remove("show")});
-
 /* ===== MODAL (template literal) ===== */
 function openModal(item){
+  ensureModal();
   var sr=SOURCES[item.source]||{name:item.source,icon:"📌",color:"#999"};
   var ip=IMPACTS[item.impact]||{label:item.impact,color:"#999"};
   var origTitle = item.original_title ? `<div style="font-size:13px;color:var(--t3);margin-bottom:6px;padding:8px 12px;background:var(--bg);border-radius:var(--r1);border-left:3px solid var(--p)"><span style="font-weight:600;color:var(--p)">📄 原文标题：</span>${esc(item.original_title)}</div>` : "";
@@ -230,7 +239,7 @@ function openModal(item){
       <a href="${item.url}" target="_blank" class="act-btn visit">访问原文 ↗</a>
       <button class="act-btn primary" onclick="navigator.clipboard.writeText(location.href)">复制链接</button>
     </div>`;
-  modalOverlay.classList.add("show");
+  modalOverlay.style.display="flex";
 }
 
 function fillYearSelect(){var ys={};ALL_DATA.forEach(function(x){ys[x.date.substring(0,4)]=1});Object.keys(ys).sort().reverse().forEach(function(y){var o=document.createElement("option");o.value=y;o.text=y+"年";yearSelect.add(o)})}
@@ -262,10 +271,6 @@ html_parts = [
     '<div class="fbar" id="filterBar"></div>',
     '<div class="stats" id="statsBar"></div>',
     '<section class="news-section" id="newsSection"></section>',
-    '<div class="modal-overlay" id="modalOverlay"><div class="modal-dialog">',
-    '<button class="modal-close" id="modalClose">×</button>',
-    '<div class="modal-body" id="modalBody"></div>',
-    '</div></div>',
     '<footer class="footer"><strong>AD+</strong> (Ad Add) · 广告行业资讯聚合平台 · Developed with ❤️ by nelsonmeng</footer>',
     '<script type="application/json" id="appData">'+data_safe+'</script>',
     '<script>'+js+'</script>',
