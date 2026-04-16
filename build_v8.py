@@ -24,7 +24,7 @@ print(f"Years: {years}")
 data_json = json.dumps(data_list, ensure_ascii=False)
 data_safe = data_json.replace('</script', '<\\/script').replace('</', '<\\/')
 
-css = r"""@font-face{font-family:"Tencent Sans";src:url("fonts/TencentSans-W7.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+css = r"""@font-face{font-family:"Tencent Sans";src:url("fonts/TencentSans-W7-subset.woff2") format("woff2"),url("fonts/TencentSans-W7.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
 :root{--p:#0052D9;--pl:#E8F0FE;--pd:#1a3c6e;--ph:#2670F0;--a:#00A870;--w:#ED7B2D;--d:#E02020;--t1:#1a1a1a;--t2:#666666;--t3:#999999;--bc:#e5e5e5;--bg:#f5f7fa;--wh:#ffffff;--ss:0 1px 3px rgba(0,0,0,.06);--sm:0 4px 12px rgba(0,0,0,.08);--sl:0 8px 30px rgba(0,0,0,.12);--r1:6px;--r2:10px;--r3:16px;--ff:"Tencent Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--ff);background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}a{color:var(--p);text-decoration:none}button{cursor:pointer;font-family:inherit;border:none;background:none}input,select{font-family:inherit}
