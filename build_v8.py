@@ -29,7 +29,16 @@ css = r"""@font-face{font-family:"Tencent Sans";src:url("fonts/TencentSans-W7.ot
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--ff);background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}a{color:var(--p);text-decoration:none}button{cursor:pointer;font-family:inherit;border:none;background:none}input,select{font-family:inherit}
 .navbar{position:sticky;top:0;z-index:100;background:var(--wh);border-bottom:1px solid var(--bc);box-shadow:var(--ss)}
-.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 24px}.logo{display:flex;align-items:center;gap:8px}.logo-icon{font-size:24px;color:var(--p)}.logo-text{font-size:22px;font-weight:900;color:var(--p);letter-spacing:2px;font-family:"Tencent Sans",sans-serif}.logo-sub{font-size:11px;color:var(--t3);padding-left:8px;border-left:1px solid var(--bc)}.nav-center{flex:1;max-width:480px}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:12px 24px}.logo{display:flex;align-items:center;gap:10px}
+.logo-icon-wrap{position:relative;width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo-ring{position:absolute;inset:0;border:2px solid transparent;border-top-color:#0052D9;border-right-color:#00A3FF;border-radius:50%;animation:spin 6s linear infinite}
+.logo-ring-inner{position:absolute;inset:4px;border:1.5px solid transparent;border-bottom-color:rgba(0,163,255,.5);border-left-color:rgba(0,82,217,.3);border-radius:50%;animation:spin 4s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.logo-center{font-family:"Tencent Sans",sans-serif;font-size:12px;font-weight:800;color:#1a1a1a;z-index:2;line-height:1}
+.logo-center .lp{font-weight:300;color:#0052D9}
+.logo-text{font-size:22px;font-weight:900;color:#0052D9;letter-spacing:2px;font-family:"Tencent Sans",sans-serif;position:relative}
+.logo-text::after{content:'';position:absolute;bottom:-3px;left:0;width:100%;height:2px;background:linear-gradient(90deg,#0052D9,#00A3FF,transparent);border-radius:1px}
+.logo-sub{font-size:11px;color:var(--t3);padding-left:8px;border-left:1px solid var(--bc)}.nav-center{flex:1;max-width:480px}
 .search-bar{display:flex;align-items:center;background:var(--bg);border-radius:20px;padding:8px 16px;gap:8px;transition:all .25s;border:1.5px solid transparent}.search-bar:focus-within{background:var(--wh);border-color:var(--p);box-shadow:0 0 0 3px rgba(0,82,217,.08)}.search-bar input{flex:1;border:none;outline:none;background:transparent;font-size:14px;color:var(--t1)}.clear-search{width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:14px;color:var(--t3);background:#ddd}.nav-right{display:flex;align-items:center;gap:10px}.year-select{padding:6px 12px;border-radius:var(--r1);border:1px solid var(--bc);font-size:13px;color:var(--t2);background:var(--wh);cursor:pointer}
 .fbar{max-width:1400px;margin:0 auto;padding:20px 24px 0}.frow{display:flex;align-items:center;gap:24px;margin-bottom:14px;flex-wrap:wrap}.flab{font-size:13px;font-weight:500;color:var(--t2);white-space:nowrap;flex-shrink:0}.btns{display:flex;flex-wrap:wrap;gap:6px}.fbtn{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:13px;color:var(--t2);background:var(--wh);border:1px solid var(--bc);transition:all .2s;white-space:nowrap;cursor:pointer}.fbtn:hover{border-color:var(--p);color:var(--p)}.fbtn.active{background:var(--p);color:white;border-color:var(--p);box-shadow:0 2px 8px rgba(0,82,217,.25)}.cbtn{padding:4px 12px;border-radius:16px;font-size:12px;color:var(--t2);background:var(--wh);border:1px solid var(--bc);transition:all .2s;white-space:nowrap;cursor:pointer}.cbtn:hover{border-color:var(--ph);color:var(--ph)}.cbtn.active{background:linear-gradient(135deg,var(--p),#2670F0);color:white;border-color:transparent}.inline-group{display:flex;align-items:center;gap:8px}.inline-group label{font-size:13px;font-weight:500;color:var(--t2);white-space:nowrap}.btn-group{display:flex;gap:4px}.bg-btn{padding:4px 12px;border-radius:14px;font-size:12px;color:var(--t2);background:var(--wh);border:1px solid var(--bc);transition:all .2s;cursor:pointer}.bg-btn:hover{border-color:var(--ph)}.bg-btn.active{background:var(--pl);color:var(--p);border-color:var(--p);font-weight:600}
 .stats{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;background:linear-gradient(135deg,#fff,#f0f5ff);border-radius:var(--r2);padding:18px 28px;margin-bottom:20px;border:1px solid rgba(0,82,217,.08);box-shadow:var(--ss)}.st-item{text-align:center;flex:1}.st-num{font-size:26px;font-weight:900;color:var(--p);line-height:1.2;letter-spacing:-.5px}.st-lbl{font-size:12px;color:var(--t3);margin-top:2px}.st-div{width:1px;height:40px;background:var(--bc);margin:0 16px}
@@ -96,7 +105,7 @@ function renderFilters(){
   var cb=`<button class="cbtn${state.category===''?' active':''}" data-a="cat" data-v="">全部</button>`;
   cats.forEach(function(c){cb+=`<button class="cbtn${state.category===c?' active':''}" data-a="cat" data-v="${esc(c)}">${esc(c)} <span style="font-size:10px;color:#999">${cc[c]||0}</span></button>`});
 
-  var ia=state.impact===""?"":"",ih=state.impact==="high"?" active":"",im=state.impact==="medium"?" active":"",il=state.impact==="low"?" active":"";
+  var ia=state.impact===""?" active":"",ih=state.impact==="high"?" active":"",im=state.impact==="medium"?" active":"",il=state.impact==="low"?" active":"";
   var sl=state.sort==="latest"?" active":"",so=state.sort==="oldest"?" active":"",si=state.sort==="impact"?" active":"";
   var vc=state.view==="cards"?" active":"",vt=state.view==="timeline"?" active":"";
 
@@ -234,7 +243,7 @@ html_parts = [
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">',
     '<style>'+css+'</style>', '</head>', '<body>',
     '<header class="navbar"><div class="nav-inner">',
-    '<div class="logo"><span class="logo-icon">📊</span><span class="logo-text">ADADD</span><span class="logo-sub">广告行业资讯聚合</span></div>',
+    '<div class="logo"><div class="logo-icon-wrap"><div class="logo-ring"></div><div class="logo-ring-inner"></div><div class="logo-center">AD<span class="lp">+</span></div></div><span class="logo-text">ADADD</span><span class="logo-sub">广告行业资讯聚合</span></div>',
     '<div class="nav-center"><div class="search-bar" id="searchBar">',
     '🔍 <input type="text" id="searchInput" placeholder="搜索广告行业资讯、技术、趋势... (Enter本地 / 无结果自动全网搜)" autocomplete="off">',
     '<button class="clear-search" id="clearSearch">×</button>',
