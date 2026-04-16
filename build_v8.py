@@ -138,8 +138,9 @@ function renderStats(){
 function renderNews(){
   var d=getFilteredData();
   if(d.length===0){newsSection.innerHTML=`<div class="empty-state"><p style="font-size:48px">🔍</p><p style="font-size:16px;color:var(--t2)">没有找到相关资讯</p><p style="font-size:13px;color:var(--t3)">调整筛选条件或点击「全网搜」按钮搜索互联网</p></div>`;return;}
-  var total=Math.ceil(d.length/PAGE_SIZE);if(state.page>total)state.page=total;if(state.page<1)state.page=1;
+    var total=Math.ceil(d.length/PAGE_SIZE);if(state.page>total)state.page=total;if(state.page<1)state.page=1;
   var start=(state.page-1)*PAGE_SIZE,pg=d.slice(start,start+PAGE_SIZE);
+  var pageOptions="";for(var pi=1;pi<=total;pi++){pageOptions+=`<option value="${pi}"${pi===state.page?" selected":""}>第${pi}页</option>`;}
 
   if(state.view==="timeline"){
     var grps={};pg.forEach(function(x){var y=x.date.substring(0,4);if(!grps[y])grps[y]=[];grps[y].push(x)});
@@ -175,7 +176,7 @@ filterBar.addEventListener("click",function(e){
   if(a==="src")state.source=v;else if(a==="cat")state.category=v;
   else if(a==="imp")state.impact=v;else if(a==="sort")state.sort=v;
   else if(a==="view")state.view=v;
-  else if(a==="jump"){var sel=document.getElementById("pageJumpSelect");if(sel){var jp=parseInt(sel.value);if(!isNaN(jp)&&jp>=1&&jp<=totalPages){state.page=jp-1;renderAll();return;}}}
+  else if(a==="jump"){var sel=document.getElementById("pageJumpSelect");if(sel){var jp=parseInt(sel.value);if(!isNaN(jp)&&jp>=1&&jp<=total){state.page=jp-1;renderAll();return;}}}
   state.page=1;renderAll();
 });
 
