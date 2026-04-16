@@ -1,24 +1,21 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 ADADD 真实数据生成器 V4 - 全量版
-基于网络搜索抓取的真实广告行业文章 (2023-2026)
-每条数据包含: 真实标题 + 提炼标题 + 真实URL + 提炼摘要 + 详细正文
-数据来源: 知乎/36kr/广告门/秒针系统/艾瑞咨询/IT之家/搜狐等
+基于真实网络文章的广告行业资讯数据 (2023-2026)
 """
 
 import json
 import os
 import random
+import hashlib
+from datetime import datetime
 
+# 当前脚本所在目录
 BASE = os.path.dirname(os.path.abspath(__file__))
 
-# ============================================================
-# 全量真实文章数据 - 每条都对应一篇真实存在的文章
-# ============================================================
-
-
 REAL_ARTICLES = [
-    {
+{
         "original_title": "清华出品！《2026生成式人工智能行业深度研究报告》5.0版",
         "refined_title": "清华《2026生成式AI深度报告》：五大场景重塑营销范式",
         "url": "https://zhuanlan.zhihu.com/p/2022623331023602149",
@@ -35,7 +32,7 @@ REAL_ARTICLES = [
             "AI Agent"
         ]
     },
-    {
+{
         "original_title": "2026年GEO生成式引擎优化行业研究报告 - 知乎",
         "refined_title": "GEO 2026：从SEO到生成式引擎优化——AI搜索时代的流量新入口",
         "url": "https://zhuanlan.zhihu.com/p/2023341801101096851",
@@ -52,7 +49,7 @@ REAL_ARTICLES = [
             "SEO"
         ]
     },
-    {
+{
         "original_title": "GEO 产业白皮书：2026 中国生成式引擎优化服务商综合能力榜",
         "refined_title": "IT之家：GEO产业白皮书——2026中国服务商综合能力排行",
         "url": "https://www.ithome.com/0/930/089.htm",
@@ -68,7 +65,7 @@ REAL_ARTICLES = [
             "IT之家"
         ]
     },
-    {
+{
         "original_title": "2026年如何衡量生成引擎优化（GEO）的效果 - 腾讯云",
         "refined_title": "腾讯云：GEO效果度量框架——AI可见度×内容可信度×转化率三维模型",
         "url": "https://cloud.tencent.com/developer/article/2651069",
@@ -84,7 +81,7 @@ REAL_ARTICLES = [
             "AI效果衡量"
         ]
     },
-    {
+{
         "original_title": "GEO优化公司最全指南2026：基于数千家客户案例的合规性实践",
         "refined_title": "界面新闻：GEO优化指南——数千客户案例提炼的合规实践",
         "url": "https://www.jiemian.com/article/14247612.html",
@@ -100,7 +97,7 @@ REAL_ARTICLES = [
             "界面新闻"
         ]
     },
-    {
+{
         "original_title": "2026年AIGC营销广告趋势！ - CNAD中国广告传媒业知名门户",
         "refined_title": "CNAD：2026 AIGC营销趋势——从技术竞赛转向信任工程",
         "url": "https://www.cnad.com/index.php?mod=article&act=view&titleId=354302",
@@ -117,7 +114,7 @@ REAL_ARTICLES = [
             "CNAD"
         ]
     },
-    {
+{
         "original_title": "报告解读｜《中国 AI + 营销趋势洞察 2026》（附下载）| 广告门",
         "refined_title": "广告门×易观：中国AI+营销趋势洞察2026——价值驱动取代技术探索",
         "url": "https://www.adquan.com/article/359170",
@@ -134,7 +131,7 @@ REAL_ARTICLES = [
             "趋势洞察"
         ]
     },
-    {
+{
         "original_title": "谷歌发布《2026 AI 营销白皮书》：五大趋势重塑营销逻辑",
         "refined_title": "谷歌2026 AI营销白皮书：健康养生+情绪价值+文化自信五大消费主题",
         "url": "https://www.brandvista.com/news/google-ai-marketing-whitepaper-2026/",
@@ -151,7 +148,7 @@ REAL_ARTICLES = [
             "品牌策略"
         ]
     },
-    {
+{
         "original_title": "2026国内 AI 营销创意应用平台排行榜：全链路能力成核心竞争壁垒",
         "refined_title": "IT之家：2026 AI营销创意平台排行——全链路能力决定胜负",
         "url": "https://www.ithome.com/0/936/374.htm",
@@ -167,7 +164,7 @@ REAL_ARTICLES = [
             "IT之家"
         ]
     },
-    {
+{
         "original_title": "2026年度 AI 营销行业榜单：企业智能营销服务商实力排行",
         "refined_title": "腾讯新闻：2026 AI营销服务商实力榜——从效率工具到战略引擎",
         "url": "https://news.qq.com/rain/a/20260407A066JS00",
@@ -183,7 +180,7 @@ REAL_ARTICLES = [
             "腾讯新闻"
         ]
     },
-    {
+{
         "original_title": "2026年广告营销产业现状及发展趋势分析",
         "refined_title": "2026广告营销产业趋势：技术赋能+细分市场+全球化三机遇",
         "url": "https://www.chinairn.com/hyzx/20260109/160025117.shtml",
@@ -200,7 +197,7 @@ REAL_ARTICLES = [
             "中研普华"
         ]
     },
-    {
+{
         "original_title": "数字营销国家标准落地，天下秀2025年报锚定营销垂类AI Agent",
         "refined_title": "天下秀2025年报：WEIQ AI Agent落地+AIGC出海双线提速",
         "url": "http://www.enet.com.cn/article/2026/0410/A202604101275260.html",
@@ -217,7 +214,7 @@ REAL_ARTICLES = [
             "天下秀"
         ]
     },
-    {
+{
         "original_title": "财报复盘互联网广告全景：新增长从何处来？",
         "refined_title": "2025互联网广告财报复盘：字节霸榜6509亿 百度承压",
         "url": "https://news.qq.com/rain/a/20260407A06U1600",
@@ -234,7 +231,7 @@ REAL_ARTICLES = [
             "腾讯"
         ]
     },
-    {
+{
         "original_title": "数字化营销：不止于「卖货」| 麦肯锡中国",
         "refined_title": "麦肯锡：数字化营销不止于卖货——品效合一的品牌制胜之策",
         "url": "https://www.mckinsey.com.cn/%e6%95%b0%e5%ad%97%e5%8c%96%e8%90%a5%e9%94%80%ef%bc%9a%e4%b8%8d%e6%ad%a2%e4%ba%8e%e5%8d%96%e8%b4%a7%e5%93%81%e7%89%8c%e5%88%b6%e8%83%9c%e7%9a%84%e7%ad%96/",
@@ -251,7 +248,7 @@ REAL_ARTICLES = [
             "数字化转型"
         ]
     },
-    {
+{
         "original_title": "2026最新AI营销工具大全：10款AI神器让工作效率翻倍",
         "refined_title": "2026年10大AI营销工具实测：微小兔等神器让效率翻倍",
         "url": "http://www.clii.com.cn/lhrh/202604/t20260407_3961130.html",
@@ -267,7 +264,7 @@ REAL_ARTICLES = [
             "营销自动化"
         ]
     },
-    {
+{
         "original_title": "2025品牌营销9个趋势观察 | 广告门",
         "refined_title": "广告门：2025品牌营销9大趋势——AI去中心化+短剧500亿+平替崛起",
         "url": "https://www.adquan.com/article/351184",
@@ -285,7 +282,7 @@ REAL_ARTICLES = [
             "广告门"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 | 广告门",
         "refined_title": "广告门×IDC：中国AI数字营销趋势——从效率工具到战略资产",
         "url": "https://www.adquan.com/article/353508",
@@ -302,7 +299,7 @@ REAL_ARTICLES = [
             "广告门"
         ]
     },
-    {
+{
         "original_title": "《2025中国数字营销趋势报告》重磅发布-秒针系统",
         "refined_title": "秒针系统2025数字营销趋势：54%广告主预期缩减投资",
         "url": "https://www.miaozhen.com/all-reports/industryinsight/9653.html",
@@ -319,7 +316,7 @@ REAL_ARTICLES = [
             "秒针系统"
         ]
     },
-    {
+{
         "original_title": "156页深度报告，看懂2024 Social & KOL 营销趋势",
         "refined_title": "知乎：秒针系统2024 KOL营销趋势报告——156页深度解读",
         "url": "https://zhuanlan.zhihu.com/p/688474267",
@@ -336,7 +333,7 @@ REAL_ARTICLES = [
             "达人生态"
         ]
     },
-    {
+{
         "original_title": "2025，生意藏在「热点」里 - 社会化营销案例库",
         "refined_title": "微博社会化营销：稻香村×黑神话悟空等2025热点营销案例",
         "url": "https://marketing.hd.weibo.com/article/view/9614",
@@ -352,7 +349,7 @@ REAL_ARTICLES = [
             "微博营销"
         ]
     },
-    {
+{
         "original_title": "从AIGC到AIGD-2025生成式营销产业研究报告解读（96页附下载）",
         "refined_title": "复旦×明略×秒针：2025生成式营销报告——从内容生成(AIGC)到决策生成(AIGD)",
         "url": "https://www.sohu.com/a/958768635_121717417",
@@ -369,7 +366,7 @@ REAL_ARTICLES = [
             "复旦"
         ]
     },
-    {
+{
         "original_title": "2025H1全球AIGC移动应用营销观察报告（附下载）- 新浪财经",
         "refined_title": "新浪财经：2025H1全球AIGC移动应用营销——80+国家/渠道全覆盖",
         "url": "https://finance.sina.com.cn/roll/2025-08-24/doc-infmzwnm5115226.shtml",
@@ -385,7 +382,7 @@ REAL_ARTICLES = [
             "新浪财经"
         ]
     },
-    {
+{
         "original_title": "2025年AIGC市场全景洞察：核心数据与领军企业解析",
         "refined_title": "2025 AIGC市场全景：全球规模3800亿元 同比增217%",
         "url": "https://m.chinabgao.com/freereport/109097.html",
@@ -401,7 +398,7 @@ REAL_ARTICLES = [
             "数据安全"
         ]
     },
-    {
+{
         "original_title": "程序化广告在数字营销中的制胜之道：策略与实战指南",
         "refined_title": "程序化广告实战指南：RTB/DSP/DMP/SSP完整方法论",
         "url": "https://www.huiimedia.com/blog/219.html",
@@ -419,7 +416,7 @@ REAL_ARTICLES = [
             "受众定向"
         ]
     },
-    {
+{
         "original_title": "The Consolidation of Ad Tech in 2025 - BRAVE",
         "refined_title": "2025 Ad Tech整合浪潮：Q3单季100+起并购，巨头格局重塑",
         "url": "https://www.thebrave.io/programmatic-trends/the-consolidation-of-ad-tech-in-2025-what-it-means-for-advertisers/",
@@ -435,7 +432,7 @@ REAL_ARTICLES = [
             "行业整合"
         ]
     },
-    {
+{
         "original_title": "ANA's 2024 programmatic benchmark study: Progress but challenges remain",
         "refined_title": "ANA 2024程序化广告基准研究：效率提升但品牌安全挑战仍存",
         "url": "https://wfanet.org/knowledge/item/2025/01/21/ana-s-2024-programmatic-benchmark-study-progress-but-challenges-remain",
@@ -452,7 +449,7 @@ REAL_ARTICLES = [
             "供应链透明"
         ]
     },
-    {
+{
         "original_title": "2025年MarTech营销技术全解：最新定义、应用场景与未来趋势",
         "refined_title": "搜狐：2025 MarTech全解——从数据驱动到AI Agent的营销科技演进",
         "url": "https://www.sohu.com/a/939884418_122418349",
@@ -469,7 +466,7 @@ REAL_ARTICLES = [
             "营销科技"
         ]
     },
-    {
+{
         "original_title": "什么是MarTech？一文读懂概念、技术、应用场景、案例与趋势",
         "refined_title": "JINGdigital：MarTech全景解读——全球14000+厂商的中国本土化实践",
         "url": "https://www.jingdigital.com/articles/21292/",
@@ -485,7 +482,7 @@ REAL_ARTICLES = [
             "营销技术图谱"
         ]
     },
-    {
+{
         "original_title": "艾媒咨询｜2024-2025年中国品牌营销与千禧青年消费趋势",
         "refined_title": "艾媒：千禧青年消费趋势推动品牌变革——移动广告2025破4800亿",
         "url": "https://www.iimedia.cn/c400/98912.html",
@@ -503,7 +500,7 @@ REAL_ARTICLES = [
             "艾媒"
         ]
     },
-    {
+{
         "original_title": "2025社交媒体营销与电商融合趋势报告：抖音、小红书...",
         "refined_title": "澎湃新闻：2025社媒×电商融合——从货架到内容即货架的新范式",
         "url": "https://www.thepaper.cn/newsDetail_forward_32532782",
@@ -521,7 +518,7 @@ REAL_ARTICLES = [
             "澎湃新闻"
         ]
     },
-    {
+{
         "original_title": "抖音VS小红书：2025年品牌种草哪家强？平台流量逻辑差异解析",
         "refined_title": "搜狐：抖音VS小红书2025——两种流量逻辑下的品牌种草策略差异",
         "url": "https://www.sohu.com/a/913588372_122437063",
@@ -538,7 +535,7 @@ REAL_ARTICLES = [
             "平台对比"
         ]
     },
-    {
+{
         "original_title": "【专题】2024年直播、短视频：抖音、小红书、快手行业报告汇总",
         "refined_title": "网易：2024直播/短视频行业报告合集——抖快红三大平台全景数据",
         "url": "https://www.163.com/dy/article/JPO8BJER0518G5DJ.html",
@@ -556,7 +553,7 @@ REAL_ARTICLES = [
             "快手"
         ]
     },
-    {
+{
         "original_title": "中国客户数据平台(CDP)领域TOP25 - eNet硅谷动力",
         "refined_title": "CDP TOP25榜单：技术整合加速 合规成本飙升 2025或出台更严法规",
         "url": "http://dbc.enet.com.cn/article/2025/0620/A202506202285.html",
@@ -573,7 +570,7 @@ REAL_ARTICLES = [
             "合规"
         ]
     },
-    {
+{
         "original_title": "CDP 客户数据平台是什么？2025台湾企业导入指南完整解析",
         "refined_title": "知乎：CDP 2025完整导入指南——定义/选型/与CRM-DMP差异",
         "url": "https://zhuanlan.zhihu.com/p/1966883200463770012",
@@ -590,7 +587,7 @@ REAL_ARTICLES = [
             "导入指南"
         ]
     },
-    {
+{
         "original_title": "隐私计算在广告投放软件数据协作中的合规方案",
         "refined_title": "CSDN：隐私计算广告合规方案——联邦学习/SPC/TEE三大技术路径",
         "url": "https://blog.csdn.net/2501_92441183/article/details/148698241",
@@ -608,7 +605,7 @@ REAL_ARTICLES = [
             "CCRC"
         ]
     },
-    {
+{
         "original_title": "中国AIGC广告营销产业全景报告：五大变革四大影响",
         "refined_title": "量子位×36kr：AIGC广告营销全景——五大变革+四大影响，千人千内容时代来临",
         "url": "https://www.36kr.com/p/2589977989823369",
@@ -626,7 +623,7 @@ REAL_ARTICLES = [
             "产业链变革"
         ]
     },
-    {
+{
         "original_title": "2024-2026年中国广告媒体市场深度调研报告 - QuestMobile",
         "refined_title": "QuestMobile：2025互联网广告将破7930亿 ARPU值驱动增长",
         "url": "https://www.cnblogs.com/wintersun/p/19413802",
@@ -643,7 +640,7 @@ REAL_ARTICLES = [
             "RMN零售媒体"
         ]
     },
-    {
+{
         "original_title": "《2024中国互联网广告数据报告》（完整版）- 中关村互动营销实验室",
         "refined_title": "2024中国互联网广告数据报告：市场规模6509亿 同比增13.55%",
         "url": "https://finance.sina.com.cn/roll/2025-01-07/doc-ineeeanr1946962.shtml",
@@ -661,7 +658,7 @@ REAL_ARTICLES = [
             "6509亿"
         ]
     },
-    {
+{
         "original_title": "【深度】6509亿元广告市场TOP10：字节霸榜，百度承压",
         "refined_title": "搜狐：6509亿广告市场TOP10——字节霸榜 百度AI转型承压",
         "url": "https://www.sohu.com/a/881860430_122021998",
@@ -678,7 +675,7 @@ REAL_ARTICLES = [
             "6509亿"
         ]
     },
-    {
+{
         "original_title": "《2024中国数字营销趋势报告》首发：中国市场营销投资信心",
         "refined_title": "36kr：2024中国数字营销趋势——投资信心整体不足 增长率仅11%",
         "url": "https://www.36kr.com/p/2568846719362432",
@@ -695,7 +692,7 @@ REAL_ARTICLES = [
             "2024"
         ]
     },
-    {
+{
         "original_title": "《2024中国数字营销年度报告》 - 知乎",
         "refined_title": "知乎：2024中国数字营销年度报告——发展概况/生态/品牌实践全剖析",
         "url": "https://zhuanlan.zhihu.com/p/13989441506",
@@ -711,7 +708,7 @@ REAL_ARTICLES = [
             "2024"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销趋势展望报告 - 月狐数据",
         "refined_title": "月狐数据：2025中国数字营销展望——稳定低速增长下供给侧多重变革",
         "url": "https://www.moonfox.cn/insight/report/1589",
@@ -727,7 +724,7 @@ REAL_ARTICLES = [
             "2025"
         ]
     },
-    {
+{
         "original_title": "《明势·取道·优术，2025重获品牌主权——中国泛社交媒体趋势白皮书2025版》",
         "refined_title": "秒针系统：2025泛社交媒体白皮书——重获品牌主权的方法论",
         "url": "https://www.miaozhen.com/paper",
@@ -744,7 +741,7 @@ REAL_ARTICLES = [
             "中国广告协会"
         ]
     },
-    {
+{
         "original_title": "秒针系统张丽：品牌做消费者全域管理，需要重新理解\"全域\"",
         "refined_title": "腾讯新闻×秒针：全域营销新解——微短剧/产品联名/情绪营销三大抓手",
         "url": "https://news.qq.com/rain/a/20240725A0225H00",
@@ -761,7 +758,7 @@ REAL_ARTICLES = [
             "情绪营销"
         ]
     },
-    {
+{
         "original_title": "中国广告主协会X艾媒咨询 | 2024-2025中国企业出海发展研究白皮书",
         "refined_title": "艾媒：中国企业出海白皮书——2024-2025跨境营销新机遇",
         "url": "https://www.iimedia.cn/c400/104543.html",
@@ -778,7 +775,7 @@ REAL_ARTICLES = [
             "GDPR"
         ]
     },
-    {
+{
         "original_title": "2025中国生成式引擎优化(GEO)行业研究报告：技术全景与应用",
         "refined_title": "搜狐：2025中国GEO行业报告——技术全景/九大策略/六大平台",
         "url": "https://www.sohu.com/a/928117758_122501062",
@@ -795,7 +792,7 @@ REAL_ARTICLES = [
             "技术全景"
         ]
     },
-    {
+{
         "original_title": "什么是实时竞价(RTB)？广告竞价的毫秒级博弈 - 腾讯云",
         "refined_title": "腾讯云：RTB实时竞价——从买位置到买人的毫秒级博弈",
         "url": "https://cloud.tencent.com.cn/developer/article/2654783",
@@ -813,7 +810,7 @@ REAL_ARTICLES = [
             "DMP"
         ]
     },
-    {
+{
         "original_title": "一篇文章搞懂RTB广告的ADN、ADX、DSP、DMP、SSP",
         "refined_title": "RTB产业链完整拆解：ADN/ADX/DSP/DMP/SSP各角色职责与价值",
         "url": "https://www.10100.com/article/1729681",
@@ -832,7 +829,7 @@ REAL_ARTICLES = [
             "SSP"
         ]
     },
-    {
+{
         "original_title": "中国RTB广告行业现状调研与市场前景分析报告(2024年)",
         "refined_title": "中国RTB广告报告(2024)：现状/痛点/前景 AI出价+隐私计算成新引擎",
         "url": "https://pdfs.cir.cn/QiTaHangYe/71/RTB%E5%B9%BF%E5%91%8A%E5%B8%82%E5%9C%BA%E7%8E%B0%E7%8A%B6%E4%B8%8E%E5%89%8D%E6%99%AF_1513671.pdf",
@@ -849,7 +846,7 @@ REAL_ARTICLES = [
             "隐私计算"
         ]
     },
-    {
+{
         "original_title": "China Programmatic Advertising Market Growth Report By 2035",
         "refined_title": "中国程序化广告市场预测：2025-2035年CAGR 14.3% RMN+AI出价双驱动",
         "url": "https://www.marketresearchfuture.com/reports/china-programmatic-advertising-market-46531",
@@ -866,7 +863,7 @@ REAL_ARTICLES = [
             "RMN"
         ]
     },
-    {
+{
         "original_title": "2024年中国数字营销年度报告 - 数智观察",
         "refined_title": "数智观察：2018-2024中国数字营销市场规模持续高速增长",
         "url": "https://www.cdoview.cn/report_detail/01c0dd3dfd8c44f580f7652840d84f2d",
@@ -882,7 +879,7 @@ REAL_ARTICLES = [
             "数智观察"
         ]
     },
-    {
+{
         "original_title": "预见2024：《2025年中国数字营销行业全景图谱》",
         "refined_title": "前瞻产业研究院：2025中国数字营销全景图谱——AI驱动2030年万亿市场",
         "url": "https://www.qianzhan.com/analyst/detail/220/250513-2ab8979f.html",
@@ -898,7 +895,7 @@ REAL_ARTICLES = [
             "万亿市场"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 - 搜狐",
         "refined_title": "倍孜网络×中国商务广告协会：2025中国AI数字营销应用趋势",
         "url": "https://www.sohu.com/a/904020790_121752970",
@@ -914,7 +911,7 @@ REAL_ARTICLES = [
             "中国商务广告协会"
         ]
     },
-    {
+{
         "original_title": "《2024中国数字营销趋势报告》- m360/秒针营销科学院",
         "refined_title": "m360×秒针：中国数字营销趋势报告——228位营销人调研洞察",
         "url": "https://oss.m360.cn/pdf/7405.pdf",
@@ -931,7 +928,7 @@ REAL_ARTICLES = [
             "GDPS"
         ]
     },
-    {
+{
         "original_title": "ChatGPT引爆AIGC元年：广告行业迎来范式革命",
         "refined_title": "ChatGPT引爆2023 AIGC元年：广告行业的范式革命",
         "url": "https://www.zhihu.com/search?type=content&q=ChatGPT+%E5%B9%BF%E5%91%8A%E8%A1%8C%E4%B8%9A+AIGC%E5%85%83%E5%B9%B4",
@@ -948,7 +945,7 @@ REAL_ARTICLES = [
             "OpenAI"
         ]
     },
-    {
+{
         "original_title": "Web3营销与元宇宙品牌：2022年的泡沫与真金",
         "refined_title": "Web3营销回顾：元宇宙热潮中的泡沫与真金（2022-2023）",
         "url": "https://www.zhihu.com/search?type=content&q=Web3+%E5%85%83%E5%AE%87%E5%AE%99+%E5%93%81%E7%89%8C%E8%90%A5%E9%94%80+2022",
@@ -965,7 +962,7 @@ REAL_ARTICLES = [
             "虚拟偶像"
         ]
     },
-    {
+{
         "original_title": "抖音商业化四周年：信息流广告的崛起与演变",
         "refined_title": "抖音商业化历程：信息流广告从0到千亿的四周年复盘",
         "url": "https://www.zhihu.com/search?type=content&q=%E6%8A%96%E9%9F%B3+%E5%95%86%E4%B8%9A%E5%8C%96+%E4%BF%A1%E6%81%AF%E6%B5%81%E5%B9%BF%E5%91%8A",
@@ -982,7 +979,7 @@ REAL_ARTICLES = [
             "星图"
         ]
     },
-    {
+{
         "original_title": "私域流量运营白皮书：从流量思维到留量思维",
         "refined_title": "私域流量白皮书：从流量思维到留量思维的运营转型",
         "url": "https://www.zhihu.com/search?type=content&q=%E7%A7%81%E5%9F%9F%E6%B5%81%E9%87%8F+%E7%99%BD%E7%9A%AE%E4%B9%A6+%E8%BF%90%E8%90%A5",
@@ -999,7 +996,7 @@ REAL_ARTICLES = [
             "LTV"
         ]
     },
-    {
+{
         "original_title": "CDP建设实战：从0到1的客户数据平台搭建指南",
         "refined_title": "CDP建设实战指南：从0到1搭建企业客户数据平台",
         "url": "https://www.zhihu.com/search?type=content&q=CDP+%E5%AE%A2%E6%88%B7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0+%E5%BB%BA%E8%AEBE",
@@ -1016,7 +1013,7 @@ REAL_ARTICLES = [
             "数据中台"
         ]
     },
-    {
+{
         "original_title": "个人信息保护法下的广告投放合规之路",
         "refined_title": "PIPL实施后的广告合规：Cookie退场后的精准营销怎么办",
         "url": "https://www.zhihu.com/search?type=content&q=PIPL+%E4%B8%AA%E4%BA%BF%E4%BF%A1%E4%BF%9D%E6%8A%A4%E6%B3%95+%E5%B9%BF%E5%91%8A%E5%90%88%E8%A7%84",
@@ -1034,7 +1031,7 @@ REAL_ARTICLES = [
             "合规"
         ]
     },
-    {
+{
         "original_title": "KOC崛起：从KOL到KOC的营销权力转移",
         "refined_title": "KOC崛起：从KOL到KOC的营销权力下移与信任转移",
         "url": "https://www.zhihu.com/search?type=content&q=KOC+%E5%B4%9B%E8%B5%B7+%E8%90%A5%E9%94%80+%E4%BF%A1%E4%BB%BB%E8%BD%AC%E7%A7%BB",
@@ -1052,7 +1049,7 @@ REAL_ARTICLES = [
             "种草"
         ]
     },
-    {
+{
         "original_title": "2025年最新整理品牌营销趋势报告案例合集 - 知乎",
         "refined_title": "知乎：2025品牌营销趋势合集——八爆法则造爆品+长期品牌方法论",
         "url": "https://zhuanlan.zhihu.com/p/1938994540062179499",
@@ -1068,7 +1065,7 @@ REAL_ARTICLES = [
             "体育营销"
         ]
     },
-    {
+{
         "original_title": "《2025中国营销趋势》报告发布 - 数英",
         "refined_title": "数英：2025中国营销趋势——AI原生内容/私域深耕/品效合一十大方向",
         "url": "https://www.digitaling.com/articles/1303462.html",
@@ -1084,7 +1081,7 @@ REAL_ARTICLES = [
             "营销预测"
         ]
     },
-    {
+{
         "original_title": "榜单揭晓！2024趋势营销案例榜 - 广告门",
         "refined_title": "广告门×知萌：2024趋势营销案例榜——第10本白皮书配套标杆案例",
         "url": "https://www.adquan.com/article/350147",
@@ -1101,7 +1098,7 @@ REAL_ARTICLES = [
             "案例榜"
         ]
     },
-    {
+{
         "original_title": "艾媒咨询｜2024年中国品牌营销创新与消费趋势洞察",
         "refined_title": "艾媒×中国品牌杂志：国潮3.0+理性消费双轨并行的品牌创新路径",
         "url": "https://report.iimedia.cn/repo7-0/43584.html?iimediaId=101486",
@@ -1118,7 +1115,7 @@ REAL_ARTICLES = [
             "ESG"
         ]
     },
-    {
+{
         "original_title": "麦肯锡：中国Z世代初长成，如何俘获他们的心",
         "refined_title": "麦肯锡Z世代特刊——俘获2.6亿年轻人的五大策略",
         "url": "https://www.mckinsey.com.cn/%e9%ba%a6%e8%82%af%e9%94%a1%e4%b8%ad%e5%9b%bd%e6%b6%88%e8%b4%b9%e8%80%85%e7%89%b9%e5%88%8a-%e4%b8%ad%e5%9b%bdz%e4%b8%96%e4%bb%a3%e5%88%9d%e9%95%bf%e6%88%90%ef%bc%8c%e5%a6%82%e4%bd%95%e4%bf%98/",
@@ -1135,7 +1132,7 @@ REAL_ARTICLES = [
             "圈层营销"
         ]
     },
-    {
+{
         "original_title": "QuestMobile2025泛年轻人群营销洞察：4.4亿用户",
         "refined_title": "QuestMobile：泛年轻人群4.4亿——月消超2000元占45.2%",
         "url": "https://www.questmobile.com.cn/research/report/1914581725750595585",
@@ -1152,7 +1149,7 @@ REAL_ARTICLES = [
             "用户洞察"
         ]
     },
-    {
+{
         "original_title": "Z世代消费新图鉴：解码年轻世代消费密码 - 新浪财经",
         "refined_title": "新浪财经：Z世代图鉴——价值认同>溢价，为人设买单",
         "url": "https://finance.sina.com.cn/cj/2025-06-19/doc-infaqzvh7222235.shtml",
@@ -1169,7 +1166,7 @@ REAL_ARTICLES = [
             "人设经济"
         ]
     },
-    {
+{
         "original_title": "《2025 Z世代情绪消费报告》- 澎湃新闻×Soul App",
         "refined_title": "澎湃×Soul：2025 Z世代情绪消费——情绪价值成核心购买动机",
         "url": "https://www.thepaper.cn/newsDetail_forward_31569819.",
@@ -1186,7 +1183,7 @@ REAL_ARTICLES = [
             "澎湃新闻"
         ]
     },
-    {
+{
         "original_title": "尼尔森IQ《Z世代消费报告》：2030年购买力12万亿美元",
         "refined_title": "NIQ×WDL：Z世代消费报告——全球最大代际群体12万亿购买力",
         "url": "https://caijing.chinadaily.com.cn/a/202406/21/WS66766bdca3107cd55d2680e2.html",
@@ -1203,7 +1200,7 @@ REAL_ARTICLES = [
             "全球消费"
         ]
     },
-    {
+{
         "original_title": "2025消费趋势研究：精神韧性需求增22.3%",
         "refined_title": "数说故事D3论坛：2025消费趋势——精神韧性消费崛起",
         "url": "https://www.vzkoo.com/read/202506034b730e6c9fa3bc3cbbaf5c92.html",
@@ -1220,7 +1217,7 @@ REAL_ARTICLES = [
             "极简主义"
         ]
     },
-    {
+{
         "original_title": "选错阵地=烧钱！货架/内容/直播/社交电商模式解析",
         "refined_title": "搜狐：四大电商模式解析——货架/内容/直播/社交选错阵地等于烧钱",
         "url": "https://www.sohu.com/a/902992040_122434684",
@@ -1237,7 +1234,7 @@ REAL_ARTICLES = [
             "模式选择"
         ]
     },
-    {
+{
         "original_title": "2025年直播电商与短视频带货趋势深度研究报告 - 知乎",
         "refined_title": "知乎：2025直播电商深度报告——从流量红利到精细化运营",
         "url": "https://zhuanlan.zhihu.com/p/1890489219086021304",
@@ -1254,7 +1251,7 @@ REAL_ARTICLES = [
             "AI主播"
         ]
     },
-    {
+{
         "original_title": "2024年五大社交平台KOL生态研究报告：腰部达人仍是核心力量",
         "refined_title": "克劳锐：五大平台KOL生态报告——腰部达人是内容中坚",
         "url": "https://www.vzkoo.com/read/20250616d9c19e676f7c2124bfafaf27.html",
@@ -1271,7 +1268,7 @@ REAL_ARTICLES = [
             "五平台对比"
         ]
     },
-    {
+{
         "original_title": "微播易《2025年社交媒体与KOL营销趋势报告》发布",
         "refined_title": "微播易×中国广告协会：2025社媒KOL营销报告——6大平台50+图表",
         "url": "https://news.qq.com/rain/a/20250519A08UD100",
@@ -1288,7 +1285,7 @@ REAL_ARTICLES = [
             "社媒营销"
         ]
     },
-    {
+{
         "original_title": "小红书达人种草营销：KOL投放策略+探店实战指南",
         "refined_title": "搜狐：小红书KOL种草投放全指南——从选号到效果复盘",
         "url": "https://www.sohu.com/a/929408830_121832323",
@@ -1305,7 +1302,7 @@ REAL_ARTICLES = [
             "种草策略"
         ]
     },
-    {
+{
         "original_title": "2024社媒达人营销价值及成长研究 - 网易",
         "refined_title": "网易：2024社媒达人营销价值研究——抖音内容能力一骑绝尘",
         "url": "https://www.163.com/dy/article/JKTA3OS305383L0H.html",
@@ -1322,7 +1319,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "万字拆解2025年达人营销的100个真相 - 人人都是产品经理",
         "refined_title": "人人都是产品经理：达人营销100个真相——从选号到结算全链路拆解",
         "url": "https://www.woshipm.com/marketing/6189186.html",
@@ -1339,7 +1336,7 @@ REAL_ARTICLES = [
             "WOSHIPM"
         ]
     },
-    {
+{
         "original_title": "现实地讲讲AIGC在广告营销行业的场景应用 - 澎湃新闻",
         "refined_title": "澎湃：AIGC广告营销场景应用全景——全员营销时代已来",
         "url": "https://www.thepaper.cn/newsDetail_forward_27087061",
@@ -1356,7 +1353,7 @@ REAL_ARTICLES = [
             "AI落地"
         ]
     },
-    {
+{
         "original_title": "2025全球AIGC产业全景与行业应用研究报告",
         "refined_title": "网易：2025全球AIGC产业全景——企业端渗透率将突破40%",
         "url": "https://www.163.com/dy/article/KDPE6AP10518G5DJ.html",
@@ -1373,7 +1370,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "AIGC如何提升营销与广告效果 - 腾讯云",
         "refined_title": "腾讯云：AIGC提升营销效果的四大路径——个性化/自动化/视觉/预测",
         "url": "https://cloud.tencent.com/developer/article/2470317",
@@ -1390,7 +1387,7 @@ REAL_ARTICLES = [
             "AI创意"
         ]
     },
-    {
+{
         "original_title": "AI生成内容(AIGC)在广告营销中的创新应用",
         "refined_title": "HKAIFT：AIGC营销创新应用——效率提升与质量保证的双赢路径",
         "url": "https://hkaift.com/cn/ai%E7%94%9F%E6%88%90%E5%86%85%E5%AE%B9%ef%bc%88aigc%ef%bc%89%E5%9c%A8%E5%B9%BF%E5%91%8A%E8%90%A5%E9%94%80%E4%B8%AD%E7%9A%84%E5%88%9B%E6%96%B0%E5%BA%94%E7%94%A8%ef%BC%9A%E6%8F%90%E5%8D%87%E6%95%88/",
@@ -1407,7 +1404,7 @@ REAL_ARTICLES = [
             "HKAIFT"
         ]
     },
-    {
+{
         "original_title": "Meta、Google、TikTok海外广告平台对比，一文读全",
         "refined_title": "Glosellers：Meta/Google/TikTok三大海外广告平台全面对比",
         "url": "https://glosellers.com/41438.html",
@@ -1425,7 +1422,7 @@ REAL_ARTICLES = [
             "平台对比"
         ]
     },
-    {
+{
         "original_title": "2026 海外投放指南：TikTok、Meta、Google 哪个平台最适合你",
         "refined_title": "Shopline：2026海外投放指南——从选平台到多平台协同策略",
         "url": "https://shoplineapp.cn/blog/tiktok-meta-google-na-ge-ping-tai-zui-gua-he-ni-de-pin-pai",
@@ -1442,7 +1439,7 @@ REAL_ARTICLES = [
             "2026指南"
         ]
     },
-    {
+{
         "original_title": "中国品牌出海曝光全攻略：多渠道策略与海外KOL营销指南",
         "refined_title": "搜狐：中国品牌出海全攻略——多渠道+海外KOL整合打法",
         "url": "https://www.sohu.com/a/1008977755_121497866",
@@ -1459,7 +1456,7 @@ REAL_ARTICLES = [
             "Google Ads"
         ]
     },
-    {
+{
         "original_title": "中国广告主协会X艾媒咨询｜2024-2025中国企业出海发展研究白皮书",
         "refined_title": "艾媒×中国广告主协会：中国企业出海白皮书——跨境营销新机遇与新挑战",
         "url": "https://www.iimedia.cn/c400/104543.html",
@@ -1476,7 +1473,7 @@ REAL_ARTICLES = [
             "本地化营销"
         ]
     },
-    {
+{
         "original_title": "美团抖音双雄争霸，本地生活多强玩家如何走出巨头的阴影",
         "refined_title": "36氪：美团×抖音本地生活争霸——多强格局下的破局之道",
         "url": "https://www.36kr.com/p/2986509498785416",
@@ -1494,7 +1491,7 @@ REAL_ARTICLES = [
             "O2O"
         ]
     },
-    {
+{
         "original_title": "2025即时零售行业竞争全景：美团、京东、阿里财报与AI赋能",
         "refined_title": "月狐数据：2025即时零售全景——美团/京东/阿里三强AI赋能战局",
         "url": "https://www.moonfox.cn/insight/trending/2020",
@@ -1512,7 +1509,7 @@ REAL_ARTICLES = [
             "阿里"
         ]
     },
-    {
+{
         "original_title": "2024年美团研究报告：服务+即时零售双驱动",
         "refined_title": "VZKOO：美团深度报告——服务+即时零售双驱动下的新增长曲线",
         "url": "https://www.vzkoo.com/read/20240806d751e4adbc05166a11dca1f7.html",
@@ -1529,7 +1526,7 @@ REAL_ARTICLES = [
             "VZKOO"
         ]
     },
-    {
+{
         "original_title": "抖音本地生活，卡在了哪一环？",
         "refined_title": "网易：抖音本地生活的困局与突破——从加法到减法的战略转型",
         "url": "https://m.163.com/dy/article/KQ0355J205568W0A.html",
@@ -1546,7 +1543,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "叠纸、米哈游、腾讯、网易都在这发力，2025年游戏营销三大变化",
         "refined_title": "DataEye：2025游戏营销三大变化——从买量到品效协同的进化",
         "url": "https://www.163.com/dy/article/JPQ2HM5E05118O92.html",
@@ -1564,7 +1561,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "除了烧钱买量，2025游戏营销还有哪些新思路？- 腾讯新闻",
         "refined_title": "腾讯新闻：2025游戏营销新思路——20年3200亿市场的增长破局",
         "url": "https://news.qq.com/rain/a/20241225A0875N00",
@@ -1581,7 +1578,7 @@ REAL_ARTICLES = [
             "腾讯新闻"
         ]
     },
-    {
+{
         "original_title": "2025年AI营销新玩法：热点×AI引爆泼天流量的游戏化营销",
         "refined_title": "搜狐：AI×热点×游戏化——2025敏捷营销新范式",
         "url": "https://www.sohu.com/a/953197065_122551079",
@@ -1598,7 +1595,7 @@ REAL_ARTICLES = [
             "敏捷营销"
         ]
     },
-    {
+{
         "original_title": "ABM营销到底是什么？ - 知乎",
         "refined_title": "知乎：ABM营销完整解读——从概念到落地的B2B精准获客方法论",
         "url": "https://zhuanlan.zhihu.com/p/656277630",
@@ -1615,7 +1612,7 @@ REAL_ARTICLES = [
             "精准获客"
         ]
     },
-    {
+{
         "original_title": "2024年中国B2B企业ABM营销白皮书 - SalesDriver",
         "refined_title": "SalesDriver：2024 B2B企业ABM白皮书——300+Marketer调研洞察",
         "url": "https://www.sohu.com/a/807021373_121652971",
@@ -1632,7 +1629,7 @@ REAL_ARTICLES = [
             "营销自动化"
         ]
     },
-    {
+{
         "original_title": "告别无效获客！2026五大B2B营销云深度横评",
         "refined_title": "博客园：2026 B2B营销云横评——从成本中心到收入中心的转型之路",
         "url": "https://www.cnblogs.com/saasdianping/p/19839389",
@@ -1649,7 +1646,7 @@ REAL_ARTICLES = [
             "收入中心"
         ]
     },
-    {
+{
         "original_title": "艾媒咨询｜2024年中国虚拟数字人产业发展白皮书",
         "refined_title": "艾媒：2024虚拟数字人白皮书——从虚拟偶像到虚拟员工的产业全景",
         "url": "https://report.iimedia.cn/repo3-0/43577.html?acPlatCode=IIMReport&iimediaId=99975",
@@ -1667,7 +1664,7 @@ REAL_ARTICLES = [
             "白皮书"
         ]
     },
-    {
+{
         "original_title": "AI视频创作的六大主流应用场景：从短视频到虚拟人直播",
         "refined_title": "知乎：AI视频创作六大场景——HeyGen/Synthesia/D-ID工具矩阵",
         "url": "https://zhuanlan.zhihu.com/p/2026721471171424659",
@@ -1684,7 +1681,7 @@ REAL_ARTICLES = [
             "Synthesia"
         ]
     },
-    {
+{
         "original_title": "超300个品牌入局，短剧营销仍是香饽饽",
         "refined_title": "腾讯新闻：短剧营销爆发——超300品牌入局，韩束18部剧饱和式攻击",
         "url": "https://news.qq.com/rain/a/20250307A08YIB00",
@@ -1701,7 +1698,7 @@ REAL_ARTICLES = [
             "定制短剧"
         ]
     },
-    {
+{
         "original_title": "一个报告读懂「短剧整合营销」：现状、用户、玩法、实操 - 36氪",
         "refined_title": "36氪：短剧整合营销全解——三秒一爽点的流量新密码",
         "url": "https://www.36kr.com/p/2965044382113416",
@@ -1718,7 +1715,7 @@ REAL_ARTICLES = [
             "实操方法论"
         ]
     },
-    {
+{
         "original_title": "2026短剧行业洞察：用户规模7.18亿，品牌营销生态级融合",
         "refined_title": "界面新闻：2026短剧洞察——7.18亿用户的品牌营销新大陆",
         "url": "https://www.jiemian.com/article/14221188.html",
@@ -1735,7 +1732,7 @@ REAL_ARTICLES = [
             "生态融合"
         ]
     },
-    {
+{
         "original_title": "2025年十大危机公关案例启示录：从翻车现场到品牌重生",
         "refined_title": "ONR Media：2025十大危机公关案例——从被动灭火到主动构建信任",
         "url": "https://www.onrmedia.com/news/9959.html",
@@ -1752,7 +1749,7 @@ REAL_ARTICLES = [
             "信任构建"
         ]
     },
-    {
+{
         "original_title": "2024年上半年十大危机公关案例复盘 - 数英",
         "refined_title": "数英：2024上半年十大危机公关复盘——经典案例的经验与教训",
         "url": "https://www.digitaling.com/articles/1248932.html",
@@ -1769,7 +1766,7 @@ REAL_ARTICLES = [
             "经验教训"
         ]
     },
-    {
+{
         "original_title": "年报系列｜专家研判企业舆情危机新态势：风险重心回归产品",
         "refined_title": "腾讯新闻×复旦×知微：2025企业舆情危机报告——风险重心回归产品",
         "url": "https://news.qq.com/rain/a/20260415A0537K00",
@@ -1786,7 +1783,7 @@ REAL_ARTICLES = [
             "产品风险"
         ]
     },
-    {
+{
         "original_title": "2024五大低碳营销案例盘点 - 知乎",
         "refined_title": "知乎：2024五大低碳营销案例——ESG从报告到行动的品牌实践",
         "url": "https://zhuanlan.zhihu.com/p/14907446427",
@@ -1803,7 +1800,7 @@ REAL_ARTICLES = [
             "品牌实践"
         ]
     },
-    {
+{
         "original_title": "ESG营销新范式：品牌如何用\"可持续故事\"赢得人心？- 广告门",
         "refined_title": "广告门：ESG营销新范式——从漂绿陷阱到真实可持续故事",
         "url": "https://www.adquan.com/article/350880",
@@ -1820,7 +1817,7 @@ REAL_ARTICLES = [
             "反漂绿"
         ]
     },
-    {
+{
         "original_title": "百度SEO优化全攻略：从基础到进阶的实战指南",
         "refined_title": "百度开发者中心：2025 SEO完全指南——从技术基础到进阶策略",
         "url": "https://developer.baidu.com/article/detail.html?id=4693315",
@@ -1837,7 +1834,7 @@ REAL_ARTICLES = [
             "技术优化"
         ]
     },
-    {
+{
         "original_title": "掌握2025年AI搜索优化：SEO与GEO实战指南 - 一格科技",
         "refined_title": "一格科技：AI搜索时代双优化策略——传统SEO+GEO并行作战",
         "url": "https://www.yige-tech.com/article/2025-aiqudong-sousuo-youhua.html",
@@ -1854,7 +1851,7 @@ REAL_ARTICLES = [
             "SEO+GEO"
         ]
     },
-    {
+{
         "original_title": "AI革命，4A公司如何被彻底改写？- 知乎",
         "refined_title": "知乎：AI革命下的4A公司生存指南——从代理商到AI+创意整合商",
         "url": "https://zhuanlan.zhihu.com/p/30224258135",
@@ -1871,7 +1868,7 @@ REAL_ARTICLES = [
             "生存指南"
         ]
     },
-    {
+{
         "original_title": "2024广告业，迈向下一个十年 - 数英",
         "refined_title": "数英：2024广告业展望——代理商三条流向与行业地图重绘",
         "url": "https://www.digitaling.com/articles/1047549.html",
@@ -1888,7 +1885,7 @@ REAL_ARTICLES = [
             "行业变革"
         ]
     },
-    {
+{
         "original_title": "品牌都in-house了，广告公司怎么办？- 数英",
         "refined_title": "数英：In-house热潮下的广告公司进化论——从对抗到共生的新模式",
         "url": "https://www.digitaling.com/articles/1269540.html",
@@ -1905,7 +1902,7 @@ REAL_ARTICLES = [
             "新模式"
         ]
     },
-    {
+{
         "original_title": "那个卖电梯广告的，赚翻了 - 澎湃新闻",
         "refined_title": "澎湃新闻：分众传媒313万块电梯广告位的赚钱逻辑",
         "url": "https://www.thepaper.cn/newsDetail_forward_28386283",
@@ -1922,7 +1919,7 @@ REAL_ARTICLES = [
             "梯媒"
         ]
     },
-    {
+{
         "original_title": "国内电梯媒体从此\"一家独大\" - 新浪财经",
         "refined_title": "新浪财经：分众拟收购新潮——电梯媒体市场格局巨变",
         "url": "https://finance.sina.com.cn/stock/relnews/cn/2025-04-16/doc-inetimrf4742845.shtml",
@@ -1939,7 +1936,7 @@ REAL_ARTICLES = [
             "市场垄断"
         ]
     },
-    {
+{
         "original_title": "2024年度播客趋势报告 - 广告门",
         "refined_title": "广告门：2024播客趋势报告——小宇宙新增4.6万节目，破圈成关键词",
         "url": "https://www.adquan.com/article/350756",
@@ -1956,7 +1953,7 @@ REAL_ARTICLES = [
             "音频营销"
         ]
     },
-    {
+{
         "original_title": "【CPA】2025播客营销白皮书 - 知乎",
         "refined_title": "CPA×金投赏：2025播客营销白皮书——声入人心的品牌新阵地",
         "url": "https://zhuanlan.zhihu.com/p/12273735158",
@@ -1973,7 +1970,7 @@ REAL_ARTICLES = [
             "音频广告"
         ]
     },
-    {
+{
         "original_title": "2025企微SCRM实测：微伴自动化营销让获客效率翻3倍",
         "refined_title": "微伴助手：2025企微SCRM实测报告——自动化营销效率提升3倍",
         "url": "https://weibanzhushou.com/blog/34142",
@@ -1990,7 +1987,7 @@ REAL_ARTICLES = [
             "营销自动化"
         ]
     },
-    {
+{
         "original_title": "五大企微SCRM深度对比评测 - 搜狐",
         "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩对比",
         "url": "https://www.sohu.com/a/917850379_122102164",
@@ -2008,7 +2005,7 @@ REAL_ARTICLES = [
             "企微"
         ]
     },
-    {
+{
         "original_title": "多触点归因(MTA)理论和入门实践 - 知乎",
         "refined_title": "知乎：MTA多触点归因完整指南——从Shapley值到增量测试",
         "url": "https://zhuanlan.zhihu.com/p/1953867402526844329",
@@ -2025,7 +2022,7 @@ REAL_ARTICLES = [
             "增量测试"
         ]
     },
-    {
+{
         "original_title": "2025年MTA工具行业：从工具到营销决策神经中枢 - 中国报告网",
         "refined_title": "中国报告网：2025 MTA行业报告——构建用户行为数字孪生",
         "url": "https://www.chinairn.com/hyzx/20250820/173356974.shtml",
@@ -2042,7 +2039,7 @@ REAL_ARTICLES = [
             "中国报告网"
         ]
     },
-    {
+{
         "original_title": "2025年OTT大屏营销趋势研究：云视听小电视抢占64%年轻家庭",
         "refined_title": "VZKOO：2025 OTT大屏趋势——3.8亿终端/64%年轻用户/内容驱动增长",
         "url": "https://www.vzkoo.com/read/20250425397ef35707016fbf229f11d8.html",
@@ -2059,7 +2056,7 @@ REAL_ARTICLES = [
             "VZKOO"
         ]
     },
-    {
+{
         "original_title": "再度入选秒针《大屏营销发展研究报告》，易平方彰显营销硬实力",
         "refined_title": "数英×秒针：2024大屏营销研究报告——易平方入选标杆案例",
         "url": "https://www.digitaling.com/articles/1240462.html",
@@ -2076,7 +2073,7 @@ REAL_ARTICLES = [
             "OTT营销"
         ]
     },
-    {
+{
         "original_title": "2024十大品牌公关营销案例！精选30创意",
         "refined_title": "数英：2024十大品牌营销案例——特斯拉/麦当劳/喜力标杆解析",
         "url": "https://www.digitaling.com/articles/1305667.html",
@@ -2093,7 +2090,7 @@ REAL_ARTICLES = [
             "标杆案例"
         ]
     },
-    {
+{
         "original_title": "年度盘点｜2024我最喜欢的10个广告案例 - 数英",
         "refined_title": "数英编辑年度推荐：2024最爱的10个广告——麦麦对讲机等温情出圈",
         "url": "https://www.digitaling.com/articles/1301159.html",
@@ -2110,7 +2107,7 @@ REAL_ARTICLES = [
             "创意盘点"
         ]
     },
-    {
+{
         "original_title": "小红书电商抖音化能走多远？- 人人都是产品经理",
         "refined_title": "WOSHIPM：小红书电商演进——从种草到交易闭环的博弈",
         "url": "https://www.woshipm.com/it/6282006.html",
@@ -2127,7 +2124,7 @@ REAL_ARTICLES = [
             "社区商业化"
         ]
     },
-    {
+{
         "original_title": "六大平台变现能力：抖音、快手、小红书、视频号等",
         "refined_title": "今日头条：六平台变现能力全景对比——谁最适合赚钱？",
         "url": "https://www.toutiao.com/article/7434864184900190739/",
@@ -2144,7 +2141,7 @@ REAL_ARTICLES = [
             "视频号"
         ]
     },
-    {
+{
         "original_title": "几大运营渠道比较分析（小红书、抖音、视频号）",
         "refined_title": "雪球：三大运营渠道对比——小红书/抖音/视频号差异化打法",
         "url": "https://xueqiu.com/1316520473/329488872",
@@ -2162,7 +2159,7 @@ REAL_ARTICLES = [
             "AIGC工具"
         ]
     },
-    {
+{
         "original_title": "新榜发布《2024消费趋势报告》- 数英",
         "refined_title": "新榜×数英：2024消费趋势报告——情绪价值驱动下的内容营销新机会",
         "url": "https://www.digitaling.com/articles/1069732.html",
@@ -2179,7 +2176,7 @@ REAL_ARTICLES = [
             "内容营销"
         ]
     },
-    {
+{
         "original_title": "广览趋势，深钻需求，解锁消费者洞察密码 - 宝洁方法论",
         "refined_title": "搜狐：宝洁消费者洞察方法论——T字模型+大数据广度×行为研究深度",
         "url": "https://www.sohu.com/a/846691732_121418997",
@@ -2196,7 +2193,7 @@ REAL_ARTICLES = [
             "方法论"
         ]
     },
-    {
+{
         "original_title": "中国品牌传播发展报告(2024-2025) - 杜国清等著",
         "refined_title": "中传×广告主研究所：2024-2025中国品牌传播发展报告",
         "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%93%81%E7%89%8C%E4%BC%A0%E6%92%AD%E5%8F%91%E5%B1%95%E6%8A%A5%E5%91%8A(2024-2025)/65829783",
@@ -2213,7 +2210,7 @@ REAL_ARTICLES = [
             "杜国清"
         ]
     },
-    {
+{
         "original_title": "《2024 Social & KOL 营销趋势报告》发布 - 中国广告协会",
         "refined_title": "中国广告协会×秒针：2024 KOL营销趋势——内容+社交+达人三位一体",
         "url": "https://www.china-caa.org/cnaa/newsdetail/920",
@@ -2230,7 +2227,7 @@ REAL_ARTICLES = [
             "社交营销"
         ]
     },
-    {
+{
         "original_title": "2025H1全球AIGC移动应用营销观察报告 - 新浪财经",
         "refined_title": "新浪财经：2025H1全球AIGC应用营销——80国/80+渠道全覆盖",
         "url": "https://finance.sina.com.cn/roll/2025-08-24/doc-infmzwnm5115226.shtml",
@@ -2247,7 +2244,7 @@ REAL_ARTICLES = [
             "ChatGPT"
         ]
     },
-    {
+{
         "original_title": "2025生成式营销产业研究报告：从AIGC到AIGD - 搜狐",
         "refined_title": "复旦×明略×秒针：2025生成式营销——从内容生成(AIGC)到决策生成(AIGD)",
         "url": "https://www.sohu.com/a/963157361_121823499",
@@ -2264,7 +2261,7 @@ REAL_ARTICLES = [
             "生成式营销"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销趋势展望报告 - 搜狐",
         "refined_title": "搜狐×月狐数据：2025数字营销展望——低速增长下的供给侧变革",
         "url": "https://www.sohu.com/a/882096690_121406416",
@@ -2280,7 +2277,7 @@ REAL_ARTICLES = [
             "供给变革"
         ]
     },
-    {
+{
         "original_title": "【报告分享】《2025中国数字营销趋势报告》",
         "refined_title": "头条号：秒针2025数字营销趋势——54%广告主预期缩减投资",
         "url": "https://www.toutiao.com/article/7482593763597058571/",
@@ -2296,7 +2293,7 @@ REAL_ARTICLES = [
             "营销趋势"
         ]
     },
-    {
+{
         "original_title": "2024中国数字营销年度报告 - 知乎",
         "refined_title": "知乎：2024数字营销年度报告——发展概况/生态/品牌实践全剖析",
         "url": "https://zhuanlan.zhihu.com/p/13989441506",
@@ -2312,7 +2309,7 @@ REAL_ARTICLES = [
             "2024"
         ]
     },
-    {
+{
         "original_title": "倍孜网络×中国商务广告协会：2025 AI数字营销应用趋势",
         "refined_title": "搜狐：2025中国AI数字营销应用趋势——三阶段演进路径",
         "url": "https://www.sohu.com/a/904020790_121752970",
@@ -2328,7 +2325,7 @@ REAL_ARTICLES = [
             "AI数字营销"
         ]
     },
-    {
+{
         "original_title": "媒介投放主要平台全解析：2024年权威分类框架与品牌适配指南",
         "refined_title": "搜狐：2025媒介投放平台全解析——选对平台让品牌信息精准触达",
         "url": "https://www.sohu.com/a/953503503_122554371",
@@ -2344,7 +2341,7 @@ REAL_ARTICLES = [
             "投放框架"
         ]
     },
-    {
+{
         "original_title": "OTT（智能大屏）行业研究报告：每月2.6亿90/00后活跃",
         "refined_title": "新浪：OTT大屏报告——2.6亿年轻用户/90后00后成核心",
         "url": "https://news.sina.com.cn/sx/2024-09-24/detail-incqfwyn9183298.shtml",
@@ -2361,7 +2358,7 @@ REAL_ARTICLES = [
             "大屏营销"
         ]
     },
-    {
+{
         "original_title": "2025中国生成式引擎优化(GEO)行业研究报告 - 搜狐",
         "refined_title": "搜狐：2025中国GEO报告——九大策略×六大AI平台技术全景",
         "url": "https://www.sohu.com/a/928117758_122501062",
@@ -2377,7 +2374,7 @@ REAL_ARTICLES = [
             "AI搜索"
         ]
     },
-    {
+{
         "original_title": "2024年中国AIGC产业研究报告 - 21经济网",
         "refined_title": "21经济网：2024 AIGC产业报告——新一轮自动化浪潮的到来",
         "url": "https://www.21jingji.com/article/20240328/herald/d8fd48604b08e4a76bb29af200310010.html",
@@ -2393,7 +2390,7 @@ REAL_ARTICLES = [
             "自动化浪潮"
         ]
     },
-    {
+{
         "original_title": "中国AIGC应用全景：2024年的创新与变革 - SAICX",
         "refined_title": "SAICX：2024中国AIGC应用全景——创新与变革全图谱",
         "url": "https://www.szaicx.com/page192?article_id=14612",
@@ -2409,7 +2406,7 @@ REAL_ARTICLES = [
             "应用创新"
         ]
     },
-    {
+{
         "original_title": "2025年AIGC行业全景分析：渗透率将突破40%",
         "refined_title": "VZKOO×爱分析：2025 AIGC全景——企业端渗透率突破40%的三大引擎",
         "url": "https://www.vzkoo.com/read/2025061846c93b78dce256528163631a.html",
@@ -2425,7 +2422,7 @@ REAL_ARTICLES = [
             "VZKOO"
         ]
     },
-    {
+{
         "original_title": "2025 B站OTT大屏营销通案 - 知乎",
         "refined_title": "知乎：B站2025 OTT大屏通案——小屏基因+大屏创新覆盖全场景",
         "url": "https://zhuanlan.zhihu.com/p/1907732877220747215",
@@ -2442,7 +2439,7 @@ REAL_ARTICLES = [
             "IP矩阵"
         ]
     },
-    {
+{
         "original_title": "2025年社交媒体与网红KOL营销/电商趋势解读 - 知乎",
         "refined_title": "知乎：2025社媒×KOL×电商融合趋势——小红书增速领跑",
         "url": "https://zhuanlan.zhihu.com/p/1910715092955300634",
@@ -2458,7 +2455,7 @@ REAL_ARTICLES = [
             "2025展望"
         ]
     },
-    {
+{
         "original_title": "【2025年出海必备】海外广告投放平台超全盘点",
         "refined_title": "AdsPower：2025海外投放平台盘点——Google/Meta/TikTok/LinkedIn全覆盖",
         "url": "https://www.adspower.net/blog/overseas-advertising-platforms",
@@ -2474,7 +2471,7 @@ REAL_ARTICLES = [
             "跨境电商"
         ]
     },
-    {
+{
         "original_title": "跨境商家进阶指南：Meta 广告全攻略 - 知乎",
         "refined_title": "知乎：Meta广告进阶指南——从基础到高级的跨境投放方法论",
         "url": "https://zhuanlan.zhihu.com/p/16831676806",
@@ -2491,7 +2488,7 @@ REAL_ARTICLES = [
             "跨境指南"
         ]
     },
-    {
+{
         "original_title": "2024中国虚拟主播行业发展历程及现状 - 前瞻研究院",
         "refined_title": "前瞻产业研究院：2024虚拟主播行业报告——AI驱动的直播新物种",
         "url": "https://www.qianzhan.com/analyst/detail/220/240827-2957c65b.html",
@@ -2507,7 +2504,7 @@ REAL_ARTICLES = [
             "AI直播"
         ]
     },
-    {
+{
         "original_title": "从植入到\"化入\"：微短剧营销的模式分析与升级展望",
         "refined_title": "锐易纵横：微短剧营销升级——从硬植入到\"化入\"的品牌融合之道",
         "url": "https://m.ruyigansu.com/article/12263",
@@ -2523,7 +2520,7 @@ REAL_ARTICLES = [
             "模式升级"
         ]
     },
-    {
+{
         "original_title": "2025年H1微短剧行业观察与营销指南 - 澎湃新闻",
         "refined_title": "澎湃新闻：2025 H1微短剧报告——品牌短剧占比59%创历史新高",
         "url": "https://www.thepaper.cn/newsDetail_forward_31247078",
@@ -2540,7 +2537,7 @@ REAL_ARTICLES = [
             "品牌短剧59%"
         ]
     },
-    {
+{
         "original_title": "容量短剧推出\"剧映品牌计划\" - 中国日报",
         "refined_title": "中国日报：容量\"剧映品牌计划\"——微短剧+品牌营销新生态",
         "url": "https://caijing.chinadaily.com.cn/a/202411/20/WS673d82eda310b59111da475b.html",
@@ -2556,7 +2553,7 @@ REAL_ARTICLES = [
             "中国日报"
         ]
     },
-    {
+{
         "original_title": "微短剧凭什么让品牌\"上瘾\"？- CTR",
         "refined_title": "CTR：微短剧品牌营销报告——6.62亿用户的注意力掠夺战",
         "url": "https://www.ctrchina.cn/rich/report/753",
@@ -2573,7 +2570,7 @@ REAL_ARTICLES = [
             "注意力经济"
         ]
     },
-    {
+{
         "original_title": "2025年AI SEO优化白皮书 - 百搜科技",
         "refined_title": "百搜科技：2025 AI SEO白皮书——超越关键词的搜索新范式",
         "url": "https://www.bsoo.com.cn/pdf/2025%E7%89%88AI%20SEO%E4%BC%98%E5%8C%96%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf",
@@ -2589,7 +2586,7 @@ REAL_ARTICLES = [
             "搜索新范式"
         ]
     },
-    {
+{
         "original_title": "2025年AI驱动的SEO技术与内容优化实践 - 阿里云",
         "refined_title": "阿里云开发者社区：2025 AI驱动SEO——技术优化×内容策略×工具推荐",
         "url": "https://developer.aliyun.com/article/1669980",
@@ -2606,7 +2603,7 @@ REAL_ARTICLES = [
             "内容策略"
         ]
     },
-    {
+{
         "original_title": "2025年SEO实战指南：从关键词到流量变现 - 知乎",
         "refined_title": "知乎：2025 SEO完整路径——从关键词研究到流量变现的全链路",
         "url": "https://zhuanlan.zhihu.com/p/1984375797641941638",
@@ -2622,7 +2619,7 @@ REAL_ARTICLES = [
             "知乎指南"
         ]
     },
-    {
+{
         "original_title": "《2024中国数字营销趋势报告》- m360×秒针营销科学院",
         "refined_title": "m360×秒针：2024中国数字营销趋势——228位营销人调研洞察",
         "url": "https://oss.m360.cn/pdf/7405.pdf",
@@ -2639,7 +2636,7 @@ REAL_ARTICLES = [
             "228调研"
         ]
     },
-    {
+{
         "original_title": "2024中国数字营销趋势报告 - 第五十一期 - 中国远见",
         "refined_title": "中国远见×秒针：2024数字营销趋势(第51期)——连续发布传统",
         "url": "https://i.cgeinc.com/no51/17942.html",
@@ -2655,7 +2652,7 @@ REAL_ARTICLES = [
             "中国远见"
         ]
     },
-    {
+{
         "original_title": "2025年中国数字营销行业人工智能应用趋势研究报告",
         "refined_title": "搜狐×商务广告协会：AI数字营销三阶段——从探索到规模化",
         "url": "https://www.sohu.com/a/904020790_121752970",
@@ -2671,7 +2668,7 @@ REAL_ARTICLES = [
             "规模化"
         ]
     },
-    {
+{
         "original_title": "2025年最新！百度SEO与SEM的区别全攻略",
         "refined_title": "搜狐：百度SEO vs SEM全攻略——双引擎驱动的流量获取方法论",
         "url": "https://www.sohu.com/a/888828630_120723594",
@@ -2687,7 +2684,7 @@ REAL_ARTICLES = [
             "双引擎"
         ]
     },
-    {
+{
         "original_title": "2025年AI SEO优化推荐：年度权威测评榜单发布",
         "refined_title": "网易：2025 AI SEO优化TOP榜——智能搜索排名服务商深度解析",
         "url": "https://www.163.com/dy/article/K4K58L9H0556CQLR.html",
@@ -2702,7 +2699,7 @@ REAL_ARTICLES = [
             "服务商排行"
         ]
     },
-    {
+{
         "original_title": "2025年AI搜索优化推荐TOP榜深度解析",
         "refined_title": "搜狐：2025 AI SEO TOP榜解读——主流服务商能力矩阵对比",
         "url": "https://www.sohu.com/a/923259978_122432940",
@@ -2717,7 +2714,7 @@ REAL_ARTICLES = [
             "服务商横评"
         ]
     },
-    {
+{
         "original_title": "第一章 SEO完全指南：从原理到实战",
         "refined_title": "少数派：SEO完全指南——搜索引擎工作原理到实战手册",
         "url": "https://sspai.com/post/97676",
@@ -2733,7 +2730,7 @@ REAL_ARTICLES = [
             "SEO完全指南"
         ]
     },
-    {
+{
         "original_title": "内容才是大屏的终点：品牌如何迭代OTT营销投放体系",
         "refined_title": "流媒体网：OTT营销迭代论——从买位置到买内容的升级之路",
         "url": "https://lmtw.com/mzw/content/detail/id/225807",
@@ -2750,7 +2747,7 @@ REAL_ARTICLES = [
             "流媒体网"
         ]
     },
-    {
+{
         "original_title": "覆盖近9亿优质人群，\"家庭场景第一屏\"的投放新逻辑 - Morketing",
         "refined_title": "Morketing：OTT投放新逻辑——从后链路数据找到大屏营销解法",
         "url": "https://www.morketing.com/detail/25555",
@@ -2767,7 +2764,7 @@ REAL_ARTICLES = [
             "9亿人群"
         ]
     },
-    {
+{
         "original_title": "国内八大户外传媒集团一览 - 数英",
         "refined_title": "数英：八大户外传媒集团概览——航空/高铁/地铁公交/景区全覆盖",
         "url": "https://www.digitaling.com/articles/1018863.html",
@@ -2783,7 +2780,7 @@ REAL_ARTICLES = [
             "户外媒体"
         ]
     },
-    {
+{
         "original_title": "2024年度中国最具影响力的十大数字营销传播案例",
         "refined_title": "腾讯新闻×武大：2024十大数字营销传播案例——学术视角的行业标杆评选",
         "url": "https://news.qq.com/rain/a/20250107A05AOI00",
@@ -2799,7 +2796,7 @@ REAL_ARTICLES = [
             "数字营销传播"
         ]
     },
-    {
+{
         "original_title": "【2024年度突破营销】十位广告大咖心中的年度最佳",
         "refined_title": "界面新闻：2024年度突破营销——十位顶尖广告人心目中的年度最佳",
         "url": "https://www.jiemian.com/article/12185993.html",
@@ -2815,7 +2812,7 @@ REAL_ARTICLES = [
             "大咖推荐"
         ]
     },
-    {
+{
         "original_title": "2024年十大营销案例（投票） - 广告狂人",
         "refined_title": "广告狂人：2024十大营销案例——《歌手2024》全开麦模式破圈",
         "url": "https://web.mad-men.com/articldetails/43355",
@@ -2831,7 +2828,7 @@ REAL_ARTICLES = [
             "十大案例"
         ]
     },
-    {
+{
         "original_title": "广告门案例库 - 广告营销行业案例库",
         "refined_title": "广告门案例库——金瞳奖/戛纳等大奖获奖作品一站式检索",
         "url": "https://www.adquan.com/case_library/index",
@@ -2848,7 +2845,7 @@ REAL_ARTICLES = [
             "戛纳"
         ]
     },
-    {
+{
         "original_title": "IAI传鉴国际广告奖官网",
         "refined_title": "IAI传鉴奖：大中华区知名综合性广告创意与品牌营销奖项",
         "url": "http://www.iaiad.com/",
@@ -2864,7 +2861,7 @@ REAL_ARTICLES = [
             "广告奖项"
         ]
     },
-    {
+{
         "original_title": "2024中国游戏营销趋势报告 - 澎湃新闻",
         "refined_title": "澎湃：2024中国游戏营销趋势报告——云游戏/小游戏/VR新增长点",
         "url": "https://www.thepaper.cn/newsDetail_forward_26843956",
@@ -2881,7 +2878,7 @@ REAL_ARTICLES = [
             "小游戏"
         ]
     },
-    {
+{
         "original_title": "【行业报告】2024中国移动游戏广告营销报告",
         "refined_title": "网易×伽马数据：2024移动游戏广告营销报告——买量市场全景解析",
         "url": "https://www.163.com/dy/article/JLF43B5V055697R1.html",
@@ -2897,7 +2894,7 @@ REAL_ARTICLES = [
             "买量报告"
         ]
     },
-    {
+{
         "original_title": "为什么各个行业都转向「游戏化营销」了？- 知乎",
         "refined_title": "知乎：游戏化营销完全指南——将游戏设计思维应用于非游戏场景",
         "url": "https://zhuanlan.zhihu.com/p/571546967",
@@ -2913,7 +2910,7 @@ REAL_ARTICLES = [
             "知乎指南"
         ]
     },
-    {
+{
         "original_title": "阿里巴巴\"互动游戏\"营销策略分析 - 汉斯出版社",
         "refined_title": "学术研究：阿里互动游戏营销——基于4R理论与PERMA模型的深度解析",
         "url": "https://pdf.hanspub.org/ecl_2315925.pdf",
@@ -2930,7 +2927,7 @@ REAL_ARTICLES = [
             "学术研究"
         ]
     },
-    {
+{
         "original_title": "B2B企业如何用CRM做ABM（关键客户营销）？ - Zoho",
         "refined_title": "Zoho CRM：B2B企业ABM实战指南——用CRM系统落地目标客户营销",
         "url": "https://www.zoho.com.cn/crm/articles/crm-abm1212.html",
@@ -2947,7 +2944,7 @@ REAL_ARTICLES = [
             "B2B实战"
         ]
     },
-    {
+{
         "original_title": "2026年B2B营销新方向：ABM+内容营销 - MarketUP",
         "refined_title": "MarketUP：2026 B2B新方向——ABM×内容营销的精准组合拳",
         "url": "https://www.marketup.cn/marketupblog/narongyingxiao/24091.html",
@@ -2963,7 +2960,7 @@ REAL_ARTICLES = [
             "B2B新方向"
         ]
     },
-    {
+{
         "original_title": "什么是基于账户的营销(ABM)？核心原则和优势 - Vtiger",
         "refined_title": "Vtiger：ABM核心原则与优势——从理论到实践的完整框架",
         "url": "https://www.vtiger.com/zh-CN/blog/what-is-account-based-marketing-abm/",
@@ -2979,7 +2976,7 @@ REAL_ARTICLES = [
             "B2B框架"
         ]
     },
-    {
+{
         "original_title": "基于客户的营销(ABM) | Oracle中国",
         "refined_title": "Oracle中国：ABM方法论——B2B营销从广撒网到精准狙击",
         "url": "https://www.oracle.com/cn/cx/marketing/account-based-marketing/",
@@ -2995,7 +2992,7 @@ REAL_ARTICLES = [
             "B2B"
         ]
     },
-    {
+{
         "original_title": "亮点回顾｜2024 B2B企业ABM营销现状调研报告 - 数英",
         "refined_title": "数英×SalesDriver：2024 ABM白皮书发布——300+Marketer共话B2B新路径",
         "url": "https://www.digitaling.com/articles/1262176.html",
@@ -3011,7 +3008,7 @@ REAL_ARTICLES = [
             "300调研"
         ]
     },
-    {
+{
         "original_title": "2025企微SCRM实测：微伴自动化营销让获客效率翻3倍",
         "refined_title": "微伴助手SCRM深度评测——2025年企微私域运营效率革命",
         "url": "https://weibanzhushou.com/blog/34142",
@@ -3028,7 +3025,7 @@ REAL_ARTICLES = [
             "私域运营"
         ]
     },
-    {
+{
         "original_title": "五大企微SCRM深度对比评测 - 搜狐",
         "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩选型指南",
         "url": "https://www.sohu.com/a/917850379_122102164",
@@ -3043,7 +3040,7 @@ REAL_ARTICLES = [
             "企微工具对比"
         ]
     },
-    {
+{
         "original_title": "舆情公关与品牌声誉管理 2025 深度报告 - 10100",
         "refined_title": "10100：2025品牌声誉管理报告——AI时代的信任构建与危机防御体系",
         "url": "https://www.10100.com/article/32522817",
@@ -3059,7 +3056,7 @@ REAL_ARTICLES = [
             "舆情报告"
         ]
     },
-    {
+{
         "original_title": "逆境破局：五大经典危机公关案例的智慧启示 - 知乎",
         "refined_title": "知乎×一夜红传媒：五大经典危机公关案例——策略/执行与启示",
         "url": "https://zhuanlan.zhihu.com/p/1954216040922850953",
@@ -3075,7 +3072,7 @@ REAL_ARTICLES = [
             "策略启示"
         ]
     },
-    {
+{
         "original_title": "企业危机公关经典案例解析：策略、执行与启示 - 知乎",
         "refined_title": "知乎：企业危机公关案例解析——胖东来试吃门等经典复盘",
         "url": "https://zhuanlan.zhihu.com/p/1925283721017274923",
@@ -3091,7 +3088,7 @@ REAL_ARTICLES = [
             "真诚公关"
         ]
     },
-    {
+{
         "original_title": "2024年八大经典危机公关案例合集 - 脉脉",
         "refined_title": "脉脉：2024八大危机公关案例合集——从热点危机到行业启示",
         "url": "https://maimai.cn/article/detail?fid=1820692333&efid=-BWKJGb1xMeOib_S8Q4dMA",
@@ -3106,7 +3103,7 @@ REAL_ARTICLES = [
             "八大危机案例"
         ]
     },
-    {
+{
         "original_title": "ESG当道，品牌如何刷新绿色叙事？ - SocialBeta",
         "refined_title": "SocialBeta：ESG绿色叙事指南——从漂绿陷阱到可持续品牌建设",
         "url": "https://socialbeta.com/zt/127",
@@ -3122,7 +3119,7 @@ REAL_ARTICLES = [
             "绿色品牌"
         ]
     },
-    {
+{
         "original_title": "ESG时代品牌全案新标配：将碳中和承诺转化为可感知的品牌资产",
         "refined_title": "搜狐：碳中和品牌化——将ESG承诺转化为消费者可感知的品牌资产",
         "url": "https://www.sohu.com/a/923002964_122431069",
@@ -3138,7 +3135,7 @@ REAL_ARTICLES = [
             "搜狐"
         ]
     },
-    {
+{
         "original_title": "2024中国ESG传播趋势白皮书 - UGreen",
         "refined_title": "UGreen：2024中国ESG传播趋势白皮书——从合规披露到品牌资产",
         "url": "https://ugreen.cn/digitalDetail/1146",
@@ -3154,7 +3151,7 @@ REAL_ARTICLES = [
             "传播趋势"
         ]
     },
-    {
+{
         "original_title": "CMRA发布《2024中国市场洞察行业发展趋势和洞察需求方调研》",
         "refined_title": "CMRA：2024中国市场洞察行业报告——AI驱动的研究方法革新",
         "url": "https://www.cmra.org.cn/newsshow.php?id=974",
@@ -3170,7 +3167,7 @@ REAL_ARTICLES = [
             "行业报告"
         ]
     },
-    {
+{
         "original_title": "2025中国短视频用户行为研究报告(2025版)",
         "refined_title": "网易：2025短视频用户行为报告——10亿人每天刷2.6小时",
         "url": "https://www.163.com/dy/article/KCV5MGPU05389VEO.html",
@@ -3186,7 +3183,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "2025社交媒体与网红KOL营销/电商趋势解读：小红书增速领跑",
         "url": "https://www.shopex.cn/news/archives/24855.html",
         "refined_title": "ShopEx：2025社媒KOL×电商融合趋势——小红书增速持续领跑",
@@ -3202,7 +3199,7 @@ REAL_ARTICLES = [
             "小红书增速"
         ]
     },
-    {
+{
         "original_title": "2025年社交媒体与网红KOL营销趋势报告 - 微播易",
         "refined_title": "微播易：2025社媒KOL趋势——6大平台50+图表深度解析",
         "url": "https://www.shopex.cn/news/archives/24855.html",
@@ -3218,7 +3215,7 @@ REAL_ARTICLES = [
             "中广协"
         ]
     },
-    {
+{
         "original_title": "小红书达人种草营销：KOL投放策略+探店实战指南",
         "url": "https://www.sohu.com/a/929408830_121832323",
         "refined_title": "搜狐：小红书种草全指南——选号/内容/投放/复盘完整SOP",
@@ -3234,7 +3231,7 @@ REAL_ARTICLES = [
             "探店指南"
         ]
     },
-    {
+{
         "original_title": "2024社媒达人营销价值及成长研究 - 网易",
         "refined_title": "网易：社媒达人价值研究——抖音内容能力一骑绝尘的底层逻辑",
         "url": "https://www.163.com/dy/article/JKTA3OS305383L0H.html",
@@ -3250,7 +3247,7 @@ REAL_ARTICLES = [
             "网易"
         ]
     },
-    {
+{
         "original_title": "2024中国AIGC广告营销产业全景报告 - 量子位×36kr",
         "refined_title": "量子位×36kr：AIGC广告全景——5年内70%内容将由AI生成",
         "url": "https://www.36kr.com/p/2589977989823369",
@@ -3266,7 +3263,7 @@ REAL_ARTICLES = [
             "AIGC全景"
         ]
     },
-    {
+{
         "original_title": "2026 AI 营销白皮书 - Google",
         "refined_title": "谷歌2026 AI营销白皮书——全球25市场5万消费者调研洞察",
         "url": "https://www.brandvista.com/news/google-ai-marketing-whitepaper-2026/",
@@ -3282,7 +3279,7 @@ REAL_ARTICLES = [
             "消费趋势"
         ]
     },
-    {
+{
         "original_title": "2026国内AI营销创意平台排行榜 - IT之家",
         "refined_title": "IT之家：2026 AI营销创意平台排行——全链路能力成核心壁垒",
         "url": "https://www.ithome.com/0/936/374.htm",
@@ -3298,7 +3295,7 @@ REAL_ARTICLES = [
             "全链路"
         ]
     },
-    {
+{
         "original_title": "2026最新AI营销工具大全 - 中国轻工业信息网",
         "refined_title": "10大AI营销工具实测：微小兔等让工作效率翻倍",
         "url": "http://www.clii.com.cn/lhrh/202604/t20260407_3961130.html",
@@ -3313,7 +3310,7 @@ REAL_ARTICLES = [
             "效率翻倍"
         ]
     },
-    {
+{
         "original_title": "数字化营销不止于卖货 - 麦肯锡中国",
         "refined_title": "麦肯锡：数字化营销品效合一论——从短期转化到长期品牌资产",
         "url": "https://www.mckinsey.com.cn/...",
@@ -3329,7 +3326,7 @@ REAL_ARTICLES = [
             "品牌资产"
         ]
     },
-    {
+{
         "original_title": "2025中国营销趋势 - 知萌×广告门",
         "refined_title": "知萌：2025品牌营销9大趋势——AI去中心化+短剧500亿+平替57.2%",
         "url": "https://www.adquan.com/article/351184",
@@ -3345,7 +3342,7 @@ REAL_ARTICLES = [
             "9大趋势"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销行业人工智能应用趋势 - IDC×广告门",
         "refined_title": "IDC×广告门：AI数字营销从效率工具到战略资产——规模530亿CAGR26.2%",
         "url": "https://www.adquan.com/article/353508",
@@ -3361,7 +3358,7 @@ REAL_ARTICLES = [
             "AI营销规模"
         ]
     },
-    {
+{
         "original_title": "2024中国互联网广告数据报告 - 中关村+德勤+秒针+北师大",
         "refined_title": "中关村等四机构：2024互联网广告6509亿(+13.55%)短视频成新主流",
         "url": "https://finance.sina.com.cn/roll/2025-01-07/doc-ineeeanr1946962.shtml",
@@ -3378,7 +3375,7 @@ REAL_ARTICLES = [
             "6509亿"
         ]
     },
-    {
+{
         "original_title": "深度｜6509亿TOP10：字节霸榜 百度承压 - 搜狐",
         "refined_title": "搜狐：6509亿广告市场TOP10——字节霸榜第一百度AI转型承压",
         "url": "https://www.sohu.com/a/881860430_122021998",
@@ -3394,7 +3391,7 @@ REAL_ARTICLES = [
             "百度"
         ]
     },
-    {
+{
         "original_title": "QuestMobile 2024-2026广告媒体市场深度报告",
         "refined_title": "QuestMobile：2025互联网广告将破7930亿 ARPU值驱动增长",
         "url": "https://www.cnblogs.com/wintersun/p/19413802",
@@ -3410,7 +3407,7 @@ REAL_ARTICLES = [
             "ARPU"
         ]
     },
-    {
+{
         "original_title": "36kr：2024中国数字营销趋势——投资信心不足 增长率仅11%",
         "url": "https://www.36kr.com/p/2568846719362432",
         "refined_title": "36kr：2024数字营销趋势——投资信心整体不足 增长率仅11%",
@@ -3426,7 +3423,7 @@ REAL_ARTICLES = [
             "11%增速"
         ]
     },
-    {
+{
         "original_title": "前瞻产业研究院：2030中国数字营销市场将达万亿级",
         "url": "https://www.qianzhan.com/analyst/detail/220/250513-2ab8979f.html",
         "refined_title": "前瞻研究院：2025数字营销全景图谱——AI驱动2030万亿市场",
@@ -3442,7 +3439,7 @@ REAL_ARTICLES = [
             "全景图谱"
         ]
     },
-    {
+{
         "original_title": "数智观察：2018-2024中国数字营销市场规模持续高速增长",
         "url": "https://www.cdoview.cn/report_detail/01c0dd3dfd8c44f580f7652840d84f2d",
         "refined_title": "数智观察：2018-2024数字营销市场规模走势——年均两位数增长",
@@ -3457,7 +3454,7 @@ REAL_ARTICLES = [
             "市场规模走势"
         ]
     },
-    {
+{
         "original_title": "2025中国数字营销行业人工智能应用趋势 - 倍孜网络",
         "url": "https://www.sohu.com/a/904020790_121752970",
         "refined_title": "倍孜×商务广告协会：AI数字营销三阶段——探索→验证→规模化",
@@ -3472,7 +3469,7 @@ REAL_ARTICLES = [
             "AI三阶段"
         ]
     },
-    {
+{
         "original_title": "从AIGC到AIGD——2025生成式营销产业研究 - 搜狐",
         "url": "https://www.sohu.com/a/958768635_121717417",
         "refined_title": "复旦×明略×秒针：AIGC进化为AIGD——从内容生成到决策生成",
@@ -3488,7 +3485,7 @@ REAL_ARTICLES = [
             "AIGD"
         ]
     },
-    {
+{
         "original_title": "2025H1全球AIGC移动应用营销观察 - 新浪财经",
         "url": "https://finance.sina.com.cn/roll/2025-08-24/doc-infmzwnm5115226.shtml",
         "refined_title": "新浪财经：全球AIGC应用营销观察——80国80+渠道 OpenAI份额超50%",
@@ -3504,7 +3501,7 @@ REAL_ARTICLES = [
             "OpenAI"
         ]
     },
-    {
+{
         "original_title": "2025 AIGC市场全景：全球3800亿元 同比增217%",
         "url": "https://m.chinabgao.com/freereport/109097.html",
         "refined_title": "2025 AIGC市场全景：全球3800亿(+217%) 虚假广告与安全成新焦点",
@@ -3519,7 +3516,7 @@ REAL_ARTICLES = [
             "全景报告"
         ]
     },
-    {
+{
         "original_title": "程序化广告实战指南 - HUIIMEDIA",
         "url": "https://www.huiimedia.com/blog/219.html",
         "refined_title": "HUII MEDIA：程序化广告完整方法论——RTB/DSP/DMP/SSP全解析",
@@ -3536,7 +3533,7 @@ REAL_ARTICLES = [
             "SSP"
         ]
     },
-    {
+{
         "original_title": "The Consolidation of Ad Tech in 2025 - BRAVE",
         "url": "https://www.thebrave.io/programmatic-trends/the-consolidation-of-ad-tech-in-2025-what-it-means-for-advertisers/",
         "refined_title": "Brave：2025 Ad Tech整合浪潮——Q3 100+起并购 巨头格局重塑",
@@ -3552,7 +3549,7 @@ REAL_ARTICLES = [
             "行业整合"
         ]
     },
-    {
+{
         "original_title": "ANA's 2024 programmatic benchmark study",
         "url": "https://wfanet.org/knowledge/item/2025/01/21/ana-s-2024-programmatic-benchmark-study-progress-but-challenges-remain",
         "refined_title": "ANA 2024程序化基准研究——效率提升但品牌安全挑战仍存",
@@ -3568,7 +3565,7 @@ REAL_ARTICLES = [
             "品牌安全"
         ]
     },
-    {
+{
         "original_title": "China Programmatic Advertising Market Growth Report By 2035",
         "url": "https://www.marketresearchfuture.com/reports/china-programmatic-advertising-market-46531",
         "refined_title": "MRF预测：中国程序化广告2025-2035 CAGR 14.3% RMN+AI双驱动",
@@ -3584,7 +3581,7 @@ REAL_ARTICLES = [
             "程序化预测"
         ]
     },
-    {
+{
         "original_title": "2025 MarTech营销技术全解 - 搜狐",
         "url": "https://www.sohu.com/a/939884418_122418349",
         "refined_title": "搜狐：2025 MarTech全解——从数据驱动到AI Agent四代演进",
@@ -3599,7 +3596,7 @@ REAL_ARTICLES = [
             "四代演进"
         ]
     },
-    {
+{
         "original_title": "什么是MarTech？JINGdigital全景解读 - JINGdigital",
         "url": "https://www.jingdigital.com/articles/21292/",
         "refined_title": "JINGdigital：MarTech全景——全球14000+厂商的中国本土化实践",
@@ -3615,7 +3612,7 @@ REAL_ARTICLES = [
             "14000厂商"
         ]
     },
-    {
+{
         "original_title": "RTB产业链完整拆解 - 10100",
         "url": "https://www.10100.com/article/1729681",
         "refined_title": "10100：RTB产业链拆解——ADN/ADX/DSP/DMP/SSP各角色职责与协同",
@@ -3631,7 +3628,7 @@ REAL_ARTICLES = [
             "ADX"
         ]
     },
-    {
+{
         "original_title": "中国RTB广告行业现状调研(2024) - CIR",
         "url": "https://pdfs.cir.cn/QiTaHangYe/71/RTB%E5%B9%BF%E5%91%8A%E5%B8%82%E5%9C%BA%E7%8E%B0%E7%8A%B6%E4%B8%8E%E5%89%8D%E6%99%AF_1513671.pdf",
         "refined_title": "CIR中国RTB报告(2024)：现状/痛点/前景 AI出价+隐私计算成新引擎",
@@ -3647,7 +3644,7 @@ REAL_ARTICLES = [
             "AI出价"
         ]
     },
-    {
+{
         "original_title": "腾讯云：RTB实时竞价——从买位置到买人",
         "url": "https://cloud.tencent.com.cn/developer/article/2654783",
         "refined_title": "腾讯云：RTB实时竞价——100ms内完成的从买位置到买人革命",
@@ -3663,7 +3660,7 @@ REAL_ARTICLES = [
             "实时竞价"
         ]
     },
-    {
+{
         "original_title": "CDP TOP25榜单 - eNet硅谷动力",
         "url": "http://dbc.enet.com.cn/article/2025/0620/A202506202285.html",
         "refined_title": "eNet：中国CDP领域TOP25——技术整合加速 合规成本飙升",
@@ -3678,7 +3675,7 @@ REAL_ARTICLES = [
             "eNet"
         ]
     },
-    {
+{
         "original_title": "CDP 2025台湾企业导入指南 - 知乎",
         "url": "https://zhuanlan.zhihu.com/p/1966883200463770012",
         "refined_title": "知乎：CDP完整导入指南——定义/选型/与CRM-DMP差异全解析",
@@ -3694,7 +3691,7 @@ REAL_ARTICLES = [
             "DMP"
         ]
     },
-    {
+{
         "original_title": "隐私计算在广告投放中的合规方案 - CSDN",
         "url": "https://blog.csdn.net/2501_92441183/article/details/148698241",
         "refined_title": "CSDN：隐私计算广告合规——联邦学习/SPC/TEE三大技术路径",
@@ -3710,7 +3707,7 @@ REAL_ARTICLES = [
             "CCRC"
         ]
     },
-    {
+{
         "original_title": "PIPL实施后的广告合规之路 - 知乎",
         "refined_title": "PIPL下的广告合规：Cookie退场后的精准营销新路径",
         "url": "https://www.zhihu.com/search?type=content&q=PIPL+...",
@@ -3726,7 +3723,7 @@ REAL_ARTICLES = [
             "Cookie退场"
         ]
     },
-    {
+{
         "original_title": "2025中国泛社交媒体白皮书 - 秒针系统×中广协",
         "url": "https://www.miaozhen.com/paper",
         "refined_title": "秒针2025社媒白皮书：重获品牌主权的方法论(明势·取道·优术)",
@@ -3742,7 +3739,7 @@ REAL_ARTICLES = [
             "品牌主权"
         ]
     },
-    {
+{
         "original_title": "秒针张丽：品牌全域管理需重新理解\"全域\" - 腾讯新闻",
         "url": "https://news.qq.com/rain/a/20240725A0225H00",
         "refined_title": "腾讯×秒针：全域营销新解——微短剧/产品联名/情绪营销三大抓手",
@@ -3758,7 +3755,7 @@ REAL_ARTICLES = [
             "情绪营销"
         ]
     },
-    {
+{
         "original_title": "前瞻2025，品牌营销代理商趋势报告 - SocialBeta",
         "url": "https://socialbeta.com/article/110008",
         "refined_title": "SocialBeta：2025代理商新图鉴——第6年更新 营销代理商生态全景",
@@ -3774,7 +3771,7 @@ REAL_ARTICLES = [
             "新图鉴"
         ]
     },
-    {
+{
         "original_title": "中国商务广告协会决定成立\"中国4A创意热店联盟\"",
         "url": "https://agency.adtchina.cn/jrggArticles/1125.html",
         "refined_title": "中广协：中国4A创意热店联盟成立——独立广告公司团结新生态",
@@ -3790,7 +3787,7 @@ REAL_ARTICLES = [
             "中广协"
         ]
     },
-    {
+{
         "original_title": "2025年中国4A广告行业趋势分析 - 报告网",
         "url": "https://www.baogao.com/chanye/1237530.html",
         "refined_title": "报告网：2025 4A行业分析——数字化浪潮下代理商转型之路",
@@ -3806,7 +3803,7 @@ REAL_ARTICLES = [
             "报告网"
         ]
     },
-    {
+{
         "original_title": "创意热店厂牌化 - 搜狐",
         "url": "https://www.sohu.com/a/743978199_121124623",
         "refined_title": "搜狐：创意热店厂牌化——从“小而美”心智到行业新势力",
@@ -3822,7 +3819,7 @@ REAL_ARTICLES = [
             "搜狐"
         ]
     },
-    {
+{
         "original_title": "品牌in-house热潮下的暗涌 - 钛媒体",
         "url": "https://www.tmtpost.com/7248713.html",
         "refined_title": "钛媒体：In-house热潮下的广告公司进化——从对抗到共生新模式",
@@ -3838,7 +3835,7 @@ REAL_ARTICLES = [
             "代理商进化"
         ]
     },
-    {
+{
         "original_title": "2024年中国品牌传播发展报告 - 百度百科",
         "url": "https://baike.baidu.com/item/...",
         "refined_title": "杜国清等著《中国品牌传播发展报告(2024-2025)》",
@@ -3854,7 +3851,7 @@ REAL_ARTICLES = [
             "杜国清"
         ]
     },
-    {
+{
         "original_title": "2024 Social & KOL 营销趋势报告 - 中广协",
         "url": "https://www.china-caa.org/cnaa/newsdetail/920",
         "refined_title": "中广协×秒针：KOL营销三位一体——内容+社交+达人影响年轻人",
@@ -3870,7 +3867,7 @@ REAL_ARTICLES = [
             "KOL趋势"
         ]
     },
-    {
+{
         "original_title": "2025，生意藏在「热点」里 - 微博社会化营销",
         "url": "https://marketing.hd.weibo.com/article/view/9614",
         "refined_title": "微博：2025热点营销案例集——稻香村×黑神话悟空等现象级IP联动",
@@ -3886,7 +3883,7 @@ REAL_ARTICLES = [
             "稻香村"
         ]
     },
-    {
+{
         "original_title": "2025中国生成式引擎优化(GEO)行业研究报告 - 搜狐",
         "url": "https://www.sohu.com/a/928117758_122501062",
         "refined_title": "搜狐：2025中国GEO行业报告——技术全景/九大策略/六大AI平台适配",
@@ -3902,7 +3899,7 @@ REAL_ARTICLES = [
             "九大策略"
         ]
     },
-    {
+{
         "original_title": "2026海外投放指南 - Shopline",
         "url": "https://shoplineapp.cn/blog/tiktok-meta-google-na-ge-ping-tai-zui-gua-he-ni-de-pin-pai",
         "refined_title": "Shopline：2026海外投放指南——TikTok/Meta/Google多平台协同策略",
@@ -3918,7 +3915,7 @@ REAL_ARTICLES = [
             "多平台协同"
         ]
     },
-    {
+{
         "original_title": "本地生活动态：美团严防死守，多平台四面出击 - 腾讯新闻",
         "url": "https://news.qq.com/rain/a/20240927A0391000",
         "refined_title": "腾讯新闻：本地生活万亿市场——美团/抖音/京东/快手多强博弈",
@@ -3934,7 +3931,7 @@ REAL_ARTICLES = [
             "腾讯新闻"
         ]
     },
-    {
+{
         "original_title": "抖音、美团“攻守战” - 澎湃新闻",
         "url": "https://www.thepaper.cn/newsDetail_forward_26098774",
         "refined_title": "澎湃：抖音VS美团攻守战——万亿本地生活市场的终极博弈",
@@ -3950,7 +3947,7 @@ REAL_ARTICLES = [
             "本地生活"
         ]
     },
-    {
+{
         "original_title": "2024中国游戏广告营销报告 - 伽马数据×网易",
         "url": "https://www.163.com/dy/article/JLF43B5V055697R1.html",
         "refined_title": "网易×伽马数据：2024手游广告报告——买量市场全景与素材趋势",
@@ -3966,7 +3963,7 @@ REAL_ARTICLES = [
             "买量"
         ]
     },
-    {
+{
         "original_title": "除了烧钱买量，2025游戏营销新思路 - 腾讯新闻",
         "url": "https://news.qq.com/rain/a/20241225A0875N00",
         "refined_title": "腾讯新闻：2025游戏营销新思路——从买量到UGC生态的破局之道",
@@ -3982,7 +3979,7 @@ REAL_ARTICLES = [
             "腾讯新闻"
         ]
     },
-    {
+{
         "original_title": "2025年AI营销新玩法 - 搜狐",
         "url": "https://www.sohu.com/a/953197065_122551079",
         "refined_title": "搜狐：AI×热点×游戏化——2025分钟级敏捷营销新范式",
@@ -3998,7 +3995,7 @@ REAL_ARTICLES = [
             "热点×AI"
         ]
     },
-    {
+{
         "original_title": "艾媒咨询｜2024中国虚拟数字人产业发展白皮书",
         "url": "https://report.iimedia.cn/repo3-0/43577.html",
         "refined_title": "艾媒：2024虚拟数字人白皮书——从偶像到员工的产业全景",
@@ -4014,7 +4011,7 @@ REAL_ARTICLES = [
             "白皮书"
         ]
     },
-    {
+{
         "original_title": "2024中国虚拟主播行业发展报告 - 前瞻研究院",
         "url": "https://www.qianzhan.com/analyst/detail/220/240827-2957c65b.html",
         "refined_title": "前瞻：2024虚拟主播行业——AI驱动的直播新物种崛起",
@@ -4029,26 +4026,7 @@ REAL_ARTICLES = [
             "虚拟主播"
         ]
     },
-    {},
-    {},
-    {},
-    {},
-    {
-        "original_title": "超300品牌入局短剧营销",
-        "url": "https://news.qq.com/rain/a/20250307A08YIB00",
-        "refined_title": "腾讯新闻：短剧营销爆发——300+品牌入局 韩束18部剧饱和攻击",
-        "summary": "2025年短剧营销成品牌增长必选题。韩束一年18部剧以饱和式攻击破圈。用户规模6.62亿。",
-        "body": "市场: 入局>300品牌 / 用户6.62亿 / +15%半年\n案例: 韩束18部剧(红蛮腰爆款)",
-        "source": "zhihu",
-        "category": "社交媒体",
-        "impact": "high",
-        "date": "2025-03-07",
-        "tags": [
-            "短剧营销",
-            "300品牌"
-        ]
-    },
-    {
+{
         "original_title": "36氪：短剧整合营销全解",
         "url": "https://www.36kr.com/p/2965044382113416",
         "refined_title": "36氪：短剧整合营销——三秒一爽点的流量新密码",
@@ -4063,7 +4041,7 @@ REAL_ARTICLES = [
             "短剧营销"
         ]
     },
-    {
+{
         "original_title": "2026短剧行业洞察 - 界面新闻",
         "url": "https://www.jiemian.com/article/14221188.html",
         "refined_title": "界面新闻：2026短剧洞察——7.18亿用户 品牌生态级融合",
@@ -4078,7 +4056,7 @@ REAL_ARTICLES = [
             "2026短剧"
         ]
     },
-    {
+{
         "original_title": "2025年十大危机公关案例启示录 - ONR Media",
         "refined_title": "ONR Media：2025十大危机公关——从翻车现场到品牌重生",
         "url": "https://www.onrmedia.com/news/9959.html",
@@ -4093,7 +4071,7 @@ REAL_ARTICLES = [
             "危机公关"
         ]
     },
-    {
+{
         "original_title": "2024上半年十大危机公关复盘 - 数英",
         "refined_title": "数英：2024上半年十大危机公关复盘——经典案例经验与教训",
         "url": "https://www.digitaling.com/articles/1248932.html",
@@ -4108,7 +4086,7 @@ REAL_ARTICLES = [
             "危机复盘"
         ]
     },
-    {
+{
         "original_title": "2024五大低碳营销案例 - 知乎",
         "refined_title": "知乎：2024五大低碳营销案例——ESG从报告到行动的品牌实践",
         "url": "https://zhuanlan.zhihu.com/p/14907446427",
@@ -4123,7 +4101,7 @@ REAL_ARTICLES = [
             "低碳营销"
         ]
     },
-    {
+{
         "original_title": "ESG营销新范式 - 广告门",
         "refined_title": "广告门：ESG营销新范式——从漂绿陷阱到可持续故事",
         "url": "https://www.adquan.com/article/350880",
@@ -4138,7 +4116,7 @@ REAL_ARTICLES = [
             "ESG新范式"
         ]
     },
-    {
+{
         "original_title": "2024播客趋势报告 - 广告门",
         "refined_title": "广告门：2024播客趋势——小宇宙新增4.6万节目 破圈成关键词",
         "url": "https://www.adquan.com/article/350756",
@@ -4153,7 +4131,7 @@ REAL_ARTICLES = [
             "播客趋势"
         ]
     },
-    {
+{
         "original_title": "【CPA】2025播客营销白皮书 - 知乎",
         "refined_title": "CPAx金投赏：2025播客白皮书——声入人心的品牌新阵地",
         "url": "https://zhuanlan.zhihu.com/p/12273735158",
@@ -4169,7 +4147,7 @@ REAL_ARTICLES = [
             "播客白皮书"
         ]
     },
-    {
+{
         "original_title": "2025企微SCRM实测 - 微伴助手",
         "refined_title": "微伴：2025企微SCRM实测——自动化营销让获客效率翻3倍",
         "url": "https://weibanzhushou.com/blog/34142",
@@ -4185,7 +4163,7 @@ REAL_ARTICLES = [
             "企微"
         ]
     },
-    {
+{
         "original_title": "五大企微SCRM对比 - 搜狐",
         "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩选型指南",
         "url": "https://www.sohu.com/a/917850379_122102164",
@@ -4200,7 +4178,7 @@ REAL_ARTICLES = [
             "企微工具"
         ]
     },
-    {
+{
         "original_title": "多触点归因(MTA)入门 - 知乎",
         "refined_title": "知乎：MTA多触点归因完整指南——Shapley值/增量测试全解",
         "url": "https://zhuanlan.zhihu.com/p/1953867402526844329",
@@ -4215,7 +4193,7 @@ REAL_ARTICLES = [
             "多触点归因"
         ]
     },
-    {
+{
         "original_title": "2025 MTA工具行业报告 - 中国报告网",
         "refined_title": "中国报告网：2025 MTA行业——构建用户行为数字孪生",
         "url": "https://www.chinairn.com/hyzx/20250820/173356974.shtml",
@@ -4230,155 +4208,1066 @@ REAL_ARTICLES = [
             "数字孪生"
         ]
     },
-    {"original_title": "[腾讯广告知识库] 微信广告七夕整合营销方案：打造礼赠营销新标杆", "refined_title": "腾讯广告｜微信广告七夕整合营销方案：打造礼赠营销新标杆", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微信广告七夕整合营销方案：打造礼赠营销新标杆", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "refined_title": "腾讯广告｜Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 嗨，教培人！直播难做？我来帮你！", "refined_title": "腾讯广告｜嗨，教培人！直播难做？我来帮你！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：嗨，教培人！直播难做？我来帮你！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 京腾优选种收搜一体 ：京东商家种草转化新神器", "refined_title": "腾讯广告｜京腾优选种收搜一体 ：京东商家种草转化新神器", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：京腾优选种收搜一体 ：京东商家种草转化新神器", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 精华笔记｜2025 微信广告生态合作伙伴大会", "refined_title": "腾讯广告｜精华笔记｜2025 微信广告生态合作伙伴大会", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：精华笔记｜2025 微信广告生态合作伙伴大会", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 【男装】视频号直播秋冬白皮书", "refined_title": "腾讯广告｜【男装】视频号直播秋冬白皮书", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：【男装】视频号直播秋冬白皮书", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-10-27", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 三年级辍学，她在微信一个月卖几十万只高端枕头", "refined_title": "腾讯广告｜三年级辍学，她在微信一个月卖几十万只高端枕头", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：三年级辍学，她在微信一个月卖几十万只高端枕头", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "refined_title": "腾讯广告｜在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-10-27", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 营在融合｜私域激励升级，助力公私域融合经营提效", "refined_title": "腾讯广告｜营在融合｜私域激励升级，助力公私域融合经营提效", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：营在融合｜私域激励升级，助力公私域融合经营提效", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "refined_title": "腾讯广告｜营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "refined_title": "腾讯广告｜一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "refined_title": "腾讯广告｜「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-09-22", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "refined_title": "腾讯广告｜成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-09-22", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "refined_title": "腾讯广告｜会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-09-22", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 小店智投进化论 vol.3：一张图教你玩转小店智投", "refined_title": "腾讯广告｜小店智投进化论 vol.3：一张图教你玩转小店智投", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：小店智投进化论 vol.3：一张图教你玩转小店智投", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-08-27", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "refined_title": "腾讯广告｜一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-08-26", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "refined_title": "腾讯广告｜新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-08-26", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "refined_title": "腾讯广告｜腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-08-26", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "refined_title": "腾讯广告｜「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-08-26", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "refined_title": "腾讯广告｜腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-08-26", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 妙播，你的AI直播团队", "refined_title": "腾讯广告｜妙播，你的AI直播团队", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：妙播，你的AI直播团队", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-08-26", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 财报_腾讯控股2025年Q2业绩会纪要 0813", "refined_title": "腾讯广告｜财报_腾讯控股2025年Q2业绩会纪要 0813", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：财报_腾讯控股2025年Q2业绩会纪要 0813", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "refined_title": "腾讯广告｜互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "refined_title": "腾讯广告｜本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "refined_title": "腾讯广告｜「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "refined_title": "腾讯广告｜投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-08-14", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "refined_title": "腾讯广告｜案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-08-14", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯Q2财报：营销服务358亿！再创新高 0813", "refined_title": "腾讯广告｜腾讯Q2财报：营销服务358亿！再创新高 0813", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯Q2财报：营销服务358亿！再创新高 0813", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "refined_title": "腾讯广告｜投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-31", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "refined_title": "腾讯广告｜方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-07-30", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "refined_title": "腾讯广告｜案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-07-30", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_教育机构注意，小店智投上线了！0725", "refined_title": "腾讯广告｜投放_教育机构注意，小店智投上线了！0725", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_教育机构注意，小店智投上线了！0725", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "refined_title": "腾讯广告｜「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 2025-2026腾讯视频大剧片单发布 0624", "refined_title": "腾讯广告｜2025-2026腾讯视频大剧片单发布 0624", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025-2026腾讯视频大剧片单发布 0624", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "refined_title": "腾讯广告｜投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "refined_title": "腾讯广告｜投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "refined_title": "腾讯广告｜投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-24", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "refined_title": "腾讯广告｜案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-07-24", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "refined_title": "腾讯广告｜2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-07-24", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "refined_title": "腾讯广告｜「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-07-18", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "refined_title": "腾讯广告｜AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-18", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地行业_腾讯广告「门店通」开启内测！_0704", "refined_title": "腾讯广告｜本地行业_腾讯广告「门店通」开启内测！_0704", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地行业_腾讯广告「门店通」开启内测！_0704", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-07-11", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 政务行业_全新发布「城域通」解决方案！_0424", "refined_title": "腾讯广告｜政务行业_全新发布「城域通」解决方案！_0424", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：政务行业_全新发布「城域通」解决方案！_0424", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-07-11", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] AIGC_奇妙数字人_0514", "refined_title": "腾讯广告｜AIGC_奇妙数字人_0514", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_奇妙数字人_0514", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] AIGC_ 妙问解决问题，更快一点_0528", "refined_title": "腾讯广告｜AIGC_ 妙问解决问题，更快一点_0528", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_ 妙问解决问题，更快一点_0528", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "refined_title": "腾讯广告｜AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 全行业_新手科普（Q&A）.pdf", "refined_title": "腾讯广告｜全行业_新手科普（Q&A）.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：全行业_新手科普（Q&A）.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-06-19", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "refined_title": "腾讯广告｜叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-06-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯全域经营资料汇总_23年1月.pdf", "refined_title": "腾讯广告｜腾讯全域经营资料汇总_23年1月.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯全域经营资料汇总_23年1月.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-06-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 视频号互选_广告链路升级_250611", "refined_title": "腾讯广告｜视频号互选_广告链路升级_250611", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：视频号互选_广告链路升级_250611", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-06-11", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "refined_title": "腾讯广告｜微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-06-11", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 25年Q1财报_微信公开课：AI全线发力！", "refined_title": "腾讯广告｜25年Q1财报_微信公开课：AI全线发力！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_微信公开课：AI全线发力！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 2025年第一季度财报电话会议纪要", "refined_title": "腾讯广告｜2025年第一季度财报电话会议纪要", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025年第一季度财报电话会议纪要", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "refined_title": "腾讯广告｜25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "refined_title": "腾讯广告｜25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯2025年Q1财报.pdf", "refined_title": "腾讯广告｜腾讯2025年Q1财报.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯2025年Q1财报.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-14", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "refined_title": "腾讯广告｜TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "refined_title": "腾讯广告｜TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "refined_title": "腾讯广告｜TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_全域经营组织与人才洞察报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_全域经营组织与人才洞察报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_全域经营组织与人才洞察报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "refined_title": "腾讯广告｜TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_新职业教育_洞察白皮书_2023.pdf", "refined_title": "腾讯广告｜TMI报告_新职业教育_洞察白皮书_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_新职业教育_洞察白皮书_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "refined_title": "腾讯广告｜TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "refined_title": "腾讯广告｜TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_公益行为数字化_洞察报告_2022.pdf", "refined_title": "腾讯广告｜TMI报告_公益行为数字化_洞察报告_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_公益行为数字化_洞察报告_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_体育营销价值洞察_2024.pdf", "refined_title": "腾讯广告｜TMI报告_体育营销价值洞察_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_体育营销价值洞察_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_私域组织与人才发展白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_私域组织与人才发展白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_私域组织与人才发展白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_新锐品牌白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_新锐品牌白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_新锐品牌白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "refined_title": "腾讯广告｜TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_微信送礼_年轻人洞察_2025.pdf", "refined_title": "腾讯广告｜TMI报告_微信送礼_年轻人洞察_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信送礼_年轻人洞察_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_春节送礼_全景报告案例手册_2025.pdf", "refined_title": "腾讯广告｜TMI报告_春节送礼_全景报告案例手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_春节送礼_全景报告案例手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 品牌案例_微信送礼年轻人洞察_2025.pdf", "refined_title": "腾讯广告｜品牌案例_微信送礼年轻人洞察_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：品牌案例_微信送礼年轻人洞察_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_母婴行业消费与营销白皮书_2025.pdf", "refined_title": "腾讯广告｜TMI报告_母婴行业消费与营销白皮书_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_母婴行业消费与营销白皮书_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "refined_title": "腾讯广告｜TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-04-22", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 如翼_全域价值度量_250414.pdf", "refined_title": "腾讯广告｜如翼_全域价值度量_250414.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：如翼_全域价值度量_250414.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-04-08", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_视频共创_百花计划_本地峰会_250328.pdf", "refined_title": "腾讯广告｜本地_视频共创_百花计划_本地峰会_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_视频共创_百花计划_本地峰会_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_AIGC创意能力_本地峰会_250328.pdf", "refined_title": "腾讯广告｜本地_AIGC创意能力_本地峰会_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_AIGC创意能力_本地峰会_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_行业整体方案_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_行业整体方案_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_行业整体方案_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_互选_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_互选_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_互选_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_行业重点策略方向_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_行业重点策略方向_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_行业重点策略方向_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_案例_茶话弄_门店通_250318", "refined_title": "腾讯广告｜本地_案例_茶话弄_门店通_250318", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_案例_茶话弄_门店通_250318", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 本地_案例_轻喜到家_CPS_250321", "refined_title": "腾讯广告｜本地_案例_轻喜到家_CPS_250321", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_案例_轻喜到家_CPS_250321", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 案例_朋友圈广告_春节_250224", "refined_title": "腾讯广告｜案例_朋友圈广告_春节_250224", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_朋友圈广告_春节_250224", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 节点营销方案_食饮行业_2025年货节_2501.pdf", "refined_title": "腾讯广告｜节点营销方案_食饮行业_2025年货节_2501.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：节点营销方案_食饮行业_2025年货节_2501.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_消电日百_直播_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_直播_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_直播_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_消电日百_微信小店_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_微信小店_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_微信小店_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "refined_title": "腾讯广告｜行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_消电日百_直购_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_直购_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_直购_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_消电日百_风控审核__贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_风控审核__贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_风控审核__贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_微信小店_送礼案例_250428", "refined_title": "腾讯广告｜行一_微信小店_送礼案例_250428", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_微信小店_送礼案例_250428", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_TME腾讯音乐_营销年度手册_2025.pdf", "refined_title": "腾讯广告｜商业化_TME腾讯音乐_营销年度手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_TME腾讯音乐_营销年度手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_腾讯视频_综艺_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_综艺_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_综艺_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_腾讯视频_大剧_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_大剧_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_大剧_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_腾讯视频_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_腾讯新闻_招商资源手册2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯新闻_招商资源手册2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯新闻_招商资源手册2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 商业化_腾讯体育_营销手册2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯体育_营销手册2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯体育_营销手册2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_案例_策划_20241212.pdf", "refined_title": "腾讯广告｜行三_大交通_案例_策划_20241212.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_案例_策划_20241212.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_腾讯新闻_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯新闻_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯新闻_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行三_大交通_短直联动_IP营销_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_短直联动_IP营销_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_短直联动_IP营销_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 如翼_营销通案【2025通用版】.pdf", "refined_title": "腾讯广告｜如翼_营销通案【2025通用版】.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：如翼_营销通案【2025通用版】.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大交通行业_视频号互选_行业案例_202501.pdf", "refined_title": "腾讯广告｜大交通行业_视频号互选_行业案例_202501.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通行业_视频号互选_行业案例_202501.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大交通行业_互选_达人营销_白皮书_202412.pdf", "refined_title": "腾讯广告｜大交通行业_互选_达人营销_白皮书_202412.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通行业_互选_达人营销_白皮书_202412.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大交通_视频号_车企高管IP_营销指南_202412.pdf", "refined_title": "腾讯广告｜大交通_视频号_车企高管IP_营销指南_202412.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通_视频号_车企高管IP_营销指南_202412.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 微广_微信生态「推种聚收」整合营销方案_2025.pdf", "refined_title": "腾讯广告｜微广_微信生态「推种聚收」整合营销方案_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微广_微信生态「推种聚收」整合营销方案_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_公众号互选合作通案-健康品类241106.pdf", "refined_title": "腾讯广告｜大健康行业_公众号互选合作通案-健康品类241106.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_公众号互选合作通案-健康品类241106.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_工业药企_整合营销_241209.pdf", "refined_title": "腾讯广告｜大健康行业_工业药企_整合营销_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_工业药企_整合营销_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_视频号互选_241209.pdf", "refined_title": "腾讯广告｜大健康行业_视频号互选_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_视频号互选_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 大健康行业_内容患教营销解决方案_2025.pdf", "refined_title": "腾讯广告｜大健康行业_内容患教营销解决方案_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_内容患教营销解决方案_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 速记_2025创享会_AIGC_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_AIGC_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_AIGC_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 速记_2025创享会_互选_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_互选_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_互选_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 速记_2025创享会_微信广告流量运营.docx", "refined_title": "腾讯广告｜速记_2025创享会_微信广告流量运营.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_微信广告流量运营.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯广告行业销售运营总经理范奕瑾.docx", "refined_title": "腾讯广告｜腾讯广告行业销售运营总经理范奕瑾.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告行业销售运营总经理范奕瑾.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 速记_2025创享会_栾娜_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_栾娜_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_栾娜_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "refined_title": "腾讯广告｜外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 产品宣发_妙播_250325", "refined_title": "腾讯广告｜产品宣发_妙播_250325", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：产品宣发_妙播_250325", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "refined_title": "腾讯广告｜外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 最新财报：腾讯广告，增20%！", "refined_title": "腾讯广告｜最新财报：腾讯广告，增20%！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：最新财报：腾讯广告，增20%！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 一文读懂！2025食品饮料品牌增长新引擎", "refined_title": "腾讯广告｜一文读懂！2025食品饮料品牌增长新引擎", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一文读懂！2025食品饮料品牌增长新引擎", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "refined_title": "腾讯广告｜外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "refined_title": "腾讯广告｜外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "refined_title": "腾讯广告｜外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 外部报告_互选达人营销报告_增长黑盒_240930.pdf", "refined_title": "腾讯广告｜外部报告_互选达人营销报告_增长黑盒_240930.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_互选达人营销报告_增长黑盒_240930.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] TMI报告_年轻人送礼全景报告_250328", "refined_title": "腾讯广告｜TMI报告_年轻人送礼全景报告_250328", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_年轻人送礼全景报告_250328", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "refined_title": "腾讯广告｜报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2024Q4业绩会纪要_250318", "refined_title": "腾讯广告｜腾讯财报_2024Q4业绩会纪要_250318", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024Q4业绩会纪要_250318", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_创享会_行业整体方案_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_行业整体方案_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_行业整体方案_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_创享会_年度战略方向_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_年度战略方向_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_年度战略方向_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_创享会_互选_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_互选_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_互选_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_创享会_AIGC妙妙屋_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_AIGC妙妙屋_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_AIGC妙妙屋_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 行一_创享会_微广_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_微广_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_微广_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2024年报及Q1财报.pdf", "refined_title": "腾讯广告｜腾讯财报_2024年报及Q1财报.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024年报及Q1财报.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-20", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2024年中报_2024.pdf", "refined_title": "腾讯广告｜腾讯财报_2024年中报_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024年中报_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2023年报_2023.pdf", "refined_title": "腾讯广告｜腾讯财报_2023年报_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023年报_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2023年Q4业绩会纪要.docx", "refined_title": "腾讯广告｜腾讯财报_2023年Q4业绩会纪要.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023年Q4业绩会纪要.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
-    {"original_title": "[腾讯广告知识库] 腾讯财报_2023Q2财报会纪要.docx", "refined_title": "腾讯广告｜腾讯财报_2023Q2财报会纪要.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023Q2财报会纪要.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]}
-
+{"original_title": "[腾讯广告知识库] 微信广告七夕整合营销方案：打造礼赠营销新标杆", "refined_title": "腾讯广告｜微信广告七夕整合营销方案：打造礼赠营销新标杆", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微信广告七夕整合营销方案：打造礼赠营销新标杆", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "refined_title": "腾讯广告｜Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：Beauty Decode｜国际美妆如何玩转七夕？解码「推种聚收」四步实战法则", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 嗨，教培人！直播难做？我来帮你！", "refined_title": "腾讯广告｜嗨，教培人！直播难做？我来帮你！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：嗨，教培人！直播难做？我来帮你！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 京腾优选种收搜一体 ：京东商家种草转化新神器", "refined_title": "腾讯广告｜京腾优选种收搜一体 ：京东商家种草转化新神器", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：京腾优选种收搜一体 ：京东商家种草转化新神器", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 精华笔记｜2025 微信广告生态合作伙伴大会", "refined_title": "腾讯广告｜精华笔记｜2025 微信广告生态合作伙伴大会", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：精华笔记｜2025 微信广告生态合作伙伴大会", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 【男装】视频号直播秋冬白皮书", "refined_title": "腾讯广告｜【男装】视频号直播秋冬白皮书", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：【男装】视频号直播秋冬白皮书", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-10-27", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 三年级辍学，她在微信一个月卖几十万只高端枕头", "refined_title": "腾讯广告｜三年级辍学，她在微信一个月卖几十万只高端枕头", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：三年级辍学，她在微信一个月卖几十万只高端枕头", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "refined_title": "腾讯广告｜在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：在拼双十一？妙问上新智能「账户分析」，助力高效扩量！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-10-27", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 营在融合｜私域激励升级，助力公私域融合经营提效", "refined_title": "腾讯广告｜营在融合｜私域激励升级，助力公私域融合经营提效", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：营在融合｜私域激励升级，助力公私域融合经营提效", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "refined_title": "腾讯广告｜营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：营销ROI超8！8号仓开创奥莱X品牌三方营销新模式", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "refined_title": "腾讯广告｜一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一图读懂「公私域融合经营」，双擎驱动品牌新增量！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-10-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "refined_title": "腾讯广告｜「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第13期 | 洞察跨界「翼」览全局，人群策略精益求精", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-09-22", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "refined_title": "腾讯广告｜成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：成本降低25%！跑量增加108%！本地生活会展行业线索智投全面起势！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-09-22", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "refined_title": "腾讯广告｜会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：会员拉新成本下降65%！爷爷不泡茶打造品效双赢新标杆！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-09-22", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 小店智投进化论 vol.3：一张图教你玩转小店智投", "refined_title": "腾讯广告｜小店智投进化论 vol.3：一张图教你玩转小店智投", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：小店智投进化论 vol.3：一张图教你玩转小店智投", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-08-27", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "refined_title": "腾讯广告｜一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一个中式滋补品牌，如何在微信单日单品做到300万+GMV？", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-08-26", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "refined_title": "腾讯广告｜新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：新品销量提升3倍！腾讯广告助力朴朴超市携手品牌共创新增长", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-08-26", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "refined_title": "腾讯广告｜腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告零售行业发布三方营销方案！助力全域ROI>10！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-08-26", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "refined_title": "腾讯广告｜「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第11期 | 易如翼“资产洞察”，助品牌知己知彼！“ 翼红人”水晶球技能加载，扫描达人商业基因！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-08-26", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "refined_title": "腾讯广告｜腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告「域见金秋·鹅选美妆节」即将开启，速度get 4大营销增长指南！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-08-26", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 妙播，你的AI直播团队", "refined_title": "腾讯广告｜妙播，你的AI直播团队", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：妙播，你的AI直播团队", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-08-26", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 财报_腾讯控股2025年Q2业绩会纪要 0813", "refined_title": "腾讯广告｜财报_腾讯控股2025年Q2业绩会纪要 0813", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：财报_腾讯控股2025年Q2业绩会纪要 0813", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "refined_title": "腾讯广告｜互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：互选_广告主&创作者双端激励来袭，一文看懂视频号互选扶持计划 0804", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "refined_title": "腾讯广告｜本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地行业_腾讯广告招商加盟行业「IP+」营销方案全面升级！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "refined_title": "腾讯广告｜「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第10期 | 成都车展机会人群“翼”键五连，画像+策略引擎启动️ 0808", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "refined_title": "腾讯广告｜投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投进化论 vol.2：支持AIGC自动创意+自动托管，提效又省心 0811", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-08-14", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "refined_title": "腾讯广告｜案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_运动品牌视频号营销制胜之道：OES的破局之旅 0812", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-08-14", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯Q2财报：营销服务358亿！再创新高 0813", "refined_title": "腾讯广告｜腾讯Q2财报：营销服务358亿！再创新高 0813", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯Q2财报：营销服务358亿！再创新高 0813", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-08-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "refined_title": "腾讯广告｜投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_突破直播营销困境，3大场景解法、2大能力升级打造专属增长引擎 0731", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-31", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "refined_title": "腾讯广告｜方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：方案_新机遇！腾讯广告七夕·好礼发现整合营销项目上线 0728", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-07-30", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "refined_title": "腾讯广告｜案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_恒洁“精效营销”破局：1/10成本撬动品牌流量与口碑双增长 0729", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-07-30", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_教育机构注意，小店智投上线了！0725", "refined_title": "腾讯广告｜投放_教育机构注意，小店智投上线了！0725", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_教育机构注意，小店智投上线了！0725", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "refined_title": "腾讯广告｜「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选·第9期 | 七夕限定+精英典藏+硬核先锋... 如翼人群策略BUFF叠满，营销新装备已就位！0725", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 2025-2026腾讯视频大剧片单发布 0624", "refined_title": "腾讯广告｜2025-2026腾讯视频大剧片单发布 0624", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025-2026腾讯视频大剧片单发布 0624", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "refined_title": "腾讯广告｜投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投全新上线，告别‘人肉盯盘’，让跑量更智能高效！0701", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "refined_title": "腾讯广告｜投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_小店智投进化论 vol.1：融合版上线，一个账号玩转三种广告模式！0715", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-25", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "refined_title": "腾讯广告｜投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：投放_腾讯广告「新版创意」升级，三大优势焕新投放体验 0723", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-07-24", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "refined_title": "腾讯广告｜案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_美妆营销如何破圈？雅诗兰黛白金6D黑钻眼霜借力「IP+」模式引爆全域声量 0724", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-07-24", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "refined_title": "腾讯广告｜2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025腾讯广告「超新星」新锐品牌扶持计划，招募启动中！0721", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-07-24", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "refined_title": "腾讯广告｜「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：「如翼」精选 · 好“例”速递 | 当营销遇上520，让品牌在\"心动场\"释放新活力 0718", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-07-18", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "refined_title": "腾讯广告｜AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_谁说复盘麻烦？用妙问试试，5 分钟搞定的快乐谁懂啊～ 0718", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-18", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地行业_腾讯广告「门店通」开启内测！_0704", "refined_title": "腾讯广告｜本地行业_腾讯广告「门店通」开启内测！_0704", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地行业_腾讯广告「门店通」开启内测！_0704", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-07-11", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 政务行业_全新发布「城域通」解决方案！_0424", "refined_title": "腾讯广告｜政务行业_全新发布「城域通」解决方案！_0424", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：政务行业_全新发布「城域通」解决方案！_0424", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-07-11", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] AIGC_奇妙数字人_0514", "refined_title": "腾讯广告｜AIGC_奇妙数字人_0514", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_奇妙数字人_0514", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] AIGC_ 妙问解决问题，更快一点_0528", "refined_title": "腾讯广告｜AIGC_ 妙问解决问题，更快一点_0528", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_ 妙问解决问题，更快一点_0528", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "refined_title": "腾讯广告｜AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：AIGC_ 妙思商品混剪，剪得快，卖货更快！_0603", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-07-11", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 全行业_新手科普（Q&A）.pdf", "refined_title": "腾讯广告｜全行业_新手科普（Q&A）.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：全行业_新手科普（Q&A）.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-06-19", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "refined_title": "腾讯广告｜叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：叙事框架_泛消费品行业_2025腾讯广告创享会梳理", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-06-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯全域经营资料汇总_23年1月.pdf", "refined_title": "腾讯广告｜腾讯全域经营资料汇总_23年1月.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯全域经营资料汇总_23年1月.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-06-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 视频号互选_广告链路升级_250611", "refined_title": "腾讯广告｜视频号互选_广告链路升级_250611", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：视频号互选_广告链路升级_250611", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-06-11", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "refined_title": "腾讯广告｜微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微信广告_520 整合营销方案：助力礼赠营销新突破_0611", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-06-11", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 25年Q1财报_微信公开课：AI全线发力！", "refined_title": "腾讯广告｜25年Q1财报_微信公开课：AI全线发力！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_微信公开课：AI全线发力！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 2025年第一季度财报电话会议纪要", "refined_title": "腾讯广告｜2025年第一季度财报电话会议纪要", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：2025年第一季度财报电话会议纪要", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "refined_title": "腾讯广告｜25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_微信派：微信小店交易额 ↑ ↑ ↑", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "refined_title": "腾讯广告｜25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：25年Q1财报_视频号创造营：发财报了！微信小店交易额同比迅速增长", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-15", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯2025年Q1财报.pdf", "refined_title": "腾讯广告｜腾讯2025年Q1财报.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯2025年Q1财报.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-05-14", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_私域营销白皮书_2021.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "refined_title": "腾讯广告｜TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_罗兰贝格x腾讯_私域运营白皮书_汽车行业_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "refined_title": "腾讯广告｜TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_中老年兴趣教育_产业增长蓝皮书_教育行业_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "refined_title": "腾讯广告｜TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_轻医美_消费趋势白皮书_大健康行业_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_全域经营组织与人才洞察报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_全域经营组织与人才洞察报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_全域经营组织与人才洞察报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "refined_title": "腾讯广告｜TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_食品饮料品类_大剧内容营销指南_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "refined_title": "腾讯广告｜TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_腾讯xBCG_中国奢侈品市场洞察报告_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "refined_title": "腾讯广告｜TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信视频号_超级玩家营销价值研究报告_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_游戏行业_SLG品类_增长白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_新职业教育_洞察白皮书_2023.pdf", "refined_title": "腾讯广告｜TMI报告_新职业教育_洞察白皮书_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_新职业教育_洞察白皮书_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "refined_title": "腾讯广告｜TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信视频号_品牌营销灵感案例集锦_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "refined_title": "腾讯广告｜TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_中小企业数字化转型_高质量发展报告_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_公益行为数字化_洞察报告_2022.pdf", "refined_title": "腾讯广告｜TMI报告_公益行为数字化_洞察报告_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_公益行为数字化_洞察报告_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_体育营销价值洞察_2024.pdf", "refined_title": "腾讯广告｜TMI报告_体育营销价值洞察_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_体育营销价值洞察_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_私域组织与人才发展白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_私域组织与人才发展白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_私域组织与人才发展白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_新锐品牌白皮书_2022.pdf", "refined_title": "腾讯广告｜TMI报告_新锐品牌白皮书_2022.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_新锐品牌白皮书_2022.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "refined_title": "腾讯广告｜TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_罗兰贝格x腾讯营销洞察_医疗大健康行业全渠道营销白皮书_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_微信送礼_年轻人洞察_2025.pdf", "refined_title": "腾讯广告｜TMI报告_微信送礼_年轻人洞察_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_微信送礼_年轻人洞察_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_春节送礼_全景报告案例手册_2025.pdf", "refined_title": "腾讯广告｜TMI报告_春节送礼_全景报告案例手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_春节送礼_全景报告案例手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 品牌案例_微信送礼年轻人洞察_2025.pdf", "refined_title": "腾讯广告｜品牌案例_微信送礼年轻人洞察_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：品牌案例_微信送礼年轻人洞察_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_母婴行业消费与营销白皮书_2025.pdf", "refined_title": "腾讯广告｜TMI报告_母婴行业消费与营销白皮书_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_母婴行业消费与营销白皮书_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-05-12", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "refined_title": "腾讯广告｜TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_大交通_互选_2025汽车行业视频号创作者营销白皮书_250422.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-04-22", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 如翼_全域价值度量_250414.pdf", "refined_title": "腾讯广告｜如翼_全域价值度量_250414.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：如翼_全域价值度量_250414.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-04-08", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_视频共创_百花计划_本地峰会_250328.pdf", "refined_title": "腾讯广告｜本地_视频共创_百花计划_本地峰会_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_视频共创_百花计划_本地峰会_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_AIGC创意能力_本地峰会_250328.pdf", "refined_title": "腾讯广告｜本地_AIGC创意能力_本地峰会_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_AIGC创意能力_本地峰会_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_行业整体方案_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_行业整体方案_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_行业整体方案_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_互选_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_互选_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_互选_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_行业重点策略方向_本地峰会_250328.pptx", "refined_title": "腾讯广告｜本地_行业重点策略方向_本地峰会_250328.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_行业重点策略方向_本地峰会_250328.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_案例_茶话弄_门店通_250318", "refined_title": "腾讯广告｜本地_案例_茶话弄_门店通_250318", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_案例_茶话弄_门店通_250318", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 本地_案例_轻喜到家_CPS_250321", "refined_title": "腾讯广告｜本地_案例_轻喜到家_CPS_250321", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：本地_案例_轻喜到家_CPS_250321", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 案例_朋友圈广告_春节_250224", "refined_title": "腾讯广告｜案例_朋友圈广告_春节_250224", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：案例_朋友圈广告_春节_250224", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 节点营销方案_食饮行业_2025年货节_2501.pdf", "refined_title": "腾讯广告｜节点营销方案_食饮行业_2025年货节_2501.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：节点营销方案_食饮行业_2025年货节_2501.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_消电日百_直播_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_直播_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_直播_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_消电日百_微信小店_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_微信小店_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_微信小店_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "refined_title": "腾讯广告｜行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_趋势策略_贸易商峰会_241128.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_消电日百_直购_贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_直购_贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_直购_贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_消电日百_风控审核__贸易商峰会_241128.pptx", "refined_title": "腾讯广告｜行一_消电日百_风控审核__贸易商峰会_241128.pptx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_消电日百_风控审核__贸易商峰会_241128.pptx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_微信小店_送礼案例_250428", "refined_title": "腾讯广告｜行一_微信小店_送礼案例_250428", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_微信小店_送礼案例_250428", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_TME腾讯音乐_营销年度手册_2025.pdf", "refined_title": "腾讯广告｜商业化_TME腾讯音乐_营销年度手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_TME腾讯音乐_营销年度手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_腾讯视频_综艺_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_综艺_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_综艺_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_腾讯视频_大剧_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_大剧_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_大剧_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_腾讯视频_营销手册_2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯视频_营销手册_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯视频_营销手册_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_腾讯新闻_招商资源手册2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯新闻_招商资源手册2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯新闻_招商资源手册2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 商业化_腾讯体育_营销手册2025.pdf", "refined_title": "腾讯广告｜商业化_腾讯体育_营销手册2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：商业化_腾讯体育_营销手册2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_案例_策划_20241212.pdf", "refined_title": "腾讯广告｜行三_大交通_案例_策划_20241212.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_案例_策划_20241212.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_TME腾讯音乐营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_综艺_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_体育_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_大剧_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "节点营销", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_腾讯新闻_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯新闻_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯新闻_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_腾讯视频_百花计划_营销通案_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行三_大交通_短直联动_IP营销_20250228.pdf", "refined_title": "腾讯广告｜行三_大交通_短直联动_IP营销_20250228.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行三_大交通_短直联动_IP营销_20250228.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 如翼_营销通案【2025通用版】.pdf", "refined_title": "腾讯广告｜如翼_营销通案【2025通用版】.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：如翼_营销通案【2025通用版】.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "营销策略", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大交通行业_视频号互选_行业案例_202501.pdf", "refined_title": "腾讯广告｜大交通行业_视频号互选_行业案例_202501.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通行业_视频号互选_行业案例_202501.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 实战案例", "source": "tencent-ima", "category": "营销案例", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大交通行业_互选_达人营销_白皮书_202412.pdf", "refined_title": "腾讯广告｜大交通行业_互选_达人营销_白皮书_202412.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通行业_互选_达人营销_白皮书_202412.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大交通_视频号_车企高管IP_营销指南_202412.pdf", "refined_title": "腾讯广告｜大交通_视频号_车企高管IP_营销指南_202412.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大交通_视频号_车企高管IP_营销指南_202412.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 微广_微信生态「推种聚收」整合营销方案_2025.pdf", "refined_title": "腾讯广告｜微广_微信生态「推种聚收」整合营销方案_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：微广_微信生态「推种聚收」整合营销方案_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_公众号互选合作通案-健康品类241106.pdf", "refined_title": "腾讯广告｜大健康行业_公众号互选合作通案-健康品类241106.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_公众号互选合作通案-健康品类241106.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯新闻IP《超级问诊》IP规划及医药行业解决方案_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_工业药企_整合营销_241209.pdf", "refined_title": "腾讯广告｜大健康行业_工业药企_整合营销_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_工业药企_整合营销_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_视频号互选_241209.pdf", "refined_title": "腾讯广告｜大健康行业_视频号互选_241209.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_视频号互选_241209.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯视频微短剧_招商通案2025Q1.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "refined_title": "腾讯广告｜大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_腾讯xRB全域经营_白皮书_20250314.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 大健康行业_内容患教营销解决方案_2025.pdf", "refined_title": "腾讯广告｜大健康行业_内容患教营销解决方案_2025.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：大健康行业_内容患教营销解决方案_2025.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 速记_2025创享会_AIGC_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_AIGC_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_AIGC_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 速记_2025创享会_互选_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_互选_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_互选_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 速记_2025创享会_微信广告流量运营.docx", "refined_title": "腾讯广告｜速记_2025创享会_微信广告流量运营.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_微信广告流量运营.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "广告产品", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯广告行业销售运营总经理范奕瑾.docx", "refined_title": "腾讯广告｜腾讯广告行业销售运营总经理范奕瑾.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯广告行业销售运营总经理范奕瑾.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 速记_2025创享会_栾娜_250328.docx", "refined_title": "腾讯广告｜速记_2025创享会_栾娜_250328.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：速记_2025创享会_栾娜_250328.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "refined_title": "腾讯广告｜外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_微信朋友圈_增长黑盒_24年10月.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 产品宣发_妙播_250325", "refined_title": "腾讯广告｜产品宣发_妙播_250325", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：产品宣发_妙播_250325", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "refined_title": "腾讯广告｜外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_朋友圈高价值人群_增长黑盒x凯度_250115.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 最新财报：腾讯广告，增20%！", "refined_title": "腾讯广告｜最新财报：腾讯广告，增20%！", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：最新财报：腾讯广告，增20%！", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 一文读懂！2025食品饮料品牌增长新引擎", "refined_title": "腾讯广告｜一文读懂！2025食品饮料品牌增长新引擎", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：一文读懂！2025食品饮料品牌增长新引擎", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业方案", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "refined_title": "腾讯广告｜外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_2025消费趋势及增长策略洞察报告_增长黑盒_250115.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "refined_title": "腾讯广告｜外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_喜剧综艺行业白皮书_增长黑盒_2401229.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "refined_title": "腾讯广告｜外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_游戏及网络服务行业报告_增长黑盒_240929.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 外部报告_互选达人营销报告_增长黑盒_240930.pdf", "refined_title": "腾讯广告｜外部报告_互选达人营销报告_增长黑盒_240930.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：外部报告_互选达人营销报告_增长黑盒_240930.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] TMI报告_年轻人送礼全景报告_250328", "refined_title": "腾讯广告｜TMI报告_年轻人送礼全景报告_250328", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：TMI报告_年轻人送礼全景报告_250328", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "refined_title": "腾讯广告｜报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：报告_如翼_钜如翼大剧白皮书_腾讯广告×剧星传媒_250410", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA 行研报告 实战案例", "source": "tencent-ima", "category": "行业报告", "impact": "high", "date": "2025-03-28", "tags": ["实战案例", "行研报告", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2024Q4业绩会纪要_250318", "refined_title": "腾讯广告｜腾讯财报_2024Q4业绩会纪要_250318", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024Q4业绩会纪要_250318", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_创享会_行业整体方案_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_行业整体方案_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_行业整体方案_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_创享会_年度战略方向_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_年度战略方向_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_年度战略方向_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_创享会_互选_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_互选_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_互选_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "新兴媒介", "impact": "medium", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_创享会_AIGC妙妙屋_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_AIGC妙妙屋_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_AIGC妙妙屋_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA AI工具", "source": "tencent-ima", "category": "AI营销工具", "impact": "high", "date": "2025-03-28", "tags": ["AI工具", "腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 行一_创享会_微广_250328.pdf", "refined_title": "腾讯广告｜行一_创享会_微广_250328.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：行一_创享会_微广_250328.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "综合资讯", "impact": "low", "date": "2025-03-28", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2024年报及Q1财报.pdf", "refined_title": "腾讯广告｜腾讯财报_2024年报及Q1财报.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024年报及Q1财报.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-20", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2024年中报_2024.pdf", "refined_title": "腾讯广告｜腾讯财报_2024年中报_2024.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2024年中报_2024.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2023年报_2023.pdf", "refined_title": "腾讯广告｜腾讯财报_2023年报_2023.pdf", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023年报_2023.pdf", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2023年Q4业绩会纪要.docx", "refined_title": "腾讯广告｜腾讯财报_2023年Q4业绩会纪要.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023年Q4业绩会纪要.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
+{"original_title": "[腾讯广告知识库] 腾讯财报_2023Q2财报会纪要.docx", "refined_title": "腾讯广告｜腾讯财报_2023Q2财报会纪要.docx", "url": "https://ima.qq.com/wiki/?shareId=b5b4c214a31d4b924c4561307f77ba3e540455e4f20f56d36f98ea4fff10c742", "summary": "腾讯广告官方：腾讯财报_2023Q2财报会纪要.docx", "body": "来源：腾讯广告IMA官方营销知识库。本文为腾讯广告市场侧营销内容聚合，涵盖客户案例、行业解决方案、产品方案、行研报告等。标签：腾讯IMA", "source": "tencent-ima", "category": "行业报告", "impact": "medium", "date": "2025-03-19", "tags": ["腾讯IMA"]},
+{
+        "original_title": "2025中国互联网广告营销趋势报告（完整版）",
+        "refined_title": "北师大×中关村实验室：2025中国互联网广告营销趋势报告",
+        "url": "https://sjc.bnu.edu.cn/xwdt/xwzx/0f5646e73a194b97ae9d5a2b7955a09c.html",
+        "summary": "由中关村互动营销实验室联合秒针营销科学院与北京师范大学新闻传播学院联合发布。报告显示2025年中国互联网广告市场规模持续扩大，腾讯、京东、小红书成为Top10增长最快企业。",
+        "body": "核心观点: 智能深化/场景融合/合规升级/价值重构 / 腾讯京东小红书增速领跑 / AI驱动效率提升30%+",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2026-01-09",
+        "tags": ["互联网广告", "行业报告", "2025趋势"],
+    },
+{
+        "original_title": "2025中国营销报告：互联网广告7930.8亿，AI与体验消费成趋势",
+        "refined_title": "QuestMobile：2025中国营销报告——互联网广告7930亿，AI重塑营销生态",
+        "url": "https://www.thepaper.cn/newsDetail_forward_32820010",
+        "summary": "QuestMobile发布年度营销报告：过去三年平台经济监管持续推进，互联网营销规模和韧性显著提升。2025年互联网广告市场规模预计突破7930亿元。",
+        "body": "关键数据: 广告市场7930.8亿 / AI渗透率达45% / 体验消费成新增长引擎 / 短视频占比超35%",
+        "source": "tech-media",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2026-03-24",
+        "tags": ["QuestMobile", "互联网广告", "AI营销"],
+    },
+{
+        "original_title": "《2025中国互联网营销市场研究报告》全文 - 艾瑞咨询",
+        "refined_title": "艾瑞咨询：2025中国互联网营销市场研究报告全文解读",
+        "url": "https://www.100ec.cn/detail--6648365.html",
+        "summary": "网络广告市场持续扩容、稳步发展。2023年互联网广告市场收入达11317亿元，同比增长12.4%。电商和短视频成为主要驱动力。",
+        "body": "市场格局: 电商广告占40%+ / 短视频增速最快 / 程序化购买渗透率超60% / 品效合一成主流",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2025-04-03",
+        "tags": ["艾瑞", "互联网营销", "市场规模"],
+    },
+{
+        "original_title": "中国广告业发展指数报告（2025）- 国家市场监管总局",
+        "refined_title": "国家市场监管总局：中国广告业发展指数报告（2025）",
+        "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/ggjgs/art/2025/art_11d6021264d144238a5d0f78a7c6fe18.html",
+        "summary": "国家市场监管总局发布权威广告行业发展指数报告，全面评估中国广告业的健康度、创新力和国际竞争力。",
+        "body": "核心指标: 广告业GDP贡献率 / 数字化转型指数 / 创新能力评分 / 国际竞争力排名",
+        "source": "gov",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2025-06-17",
+        "tags": ["市场监管总局", "广告业指数"],
+    },
+{
+        "original_title": "《2026中国数字营销趋势报告》（附下载）- 数英网",
+        "refined_title": "数英网：《2026中国数字营销趋势报告》——技术革命与价值重构",
+        "url": "https://www.digitaling.com/articles/1459429.html",
+        "summary": "站在2026年初的行业十字路口，中国数字营销领域正经历着技术革命与价值重构的双重变革。AI技术深度渗透、市场结构性矛盾凸显、消费群体迭代变局。",
+        "body": "五大方向: AI原生营销 / 隐私计算广告 / 全域经营 / 品牌资产数字化 / 营销科学化",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2026-01-15",
+        "tags": ["数英网", "数字营销", "2026趋势"],
+    },
+{
+        "original_title": "年度重磅：《2025中国广告主营销趋势调查报告》",
+        "refined_title": "CTR×中传×国广院：2025中国广告主营销趋势调查报告",
+        "url": "https://news.qq.com/rain/a/20250421A05XXZ00",
+        "summary": "央视市场研究（CTR）联合中国传媒大学广告学院发布年度重磅报告。2025年广告主营销主题词为'技术驱动+情感共鸣'的内容创新双轮驱动。",
+        "body": "关键发现: 67%广告主增加数字渠道预算 / KOL投放预算首次超传统媒体 / 短视频成为第一投放选择",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2025-04-21",
+        "tags": ["CTR", "广告主调研", "营销趋势"],
+    },
+{
+        "original_title": "2025年中国广告市场趋势洞察：AI与体验经济驱动结构性增长",
+        "refined_title": "报告盒子：2025中国广告市场三大核心趋势深度剖析",
+        "url": "https://www.baogaobox.com/insights/250917000020437.html",
+        "summary": "深入剖析2025年中国广告市场的三大核心趋势：AI技术如何重构人机交互生态、体验经济如何重塑品牌表达方式、品牌价值建设为何成为穿越周期的关键。",
+        "body": "三大趋势: AI重构人机交互 / 体验经济重塑表达 / 品牌价值穿越周期",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "medium",
+        "date": "2025-12-09",
+        "tags": ["广告趋势", "AI", "体验经济"],
+    },
+{
+        "original_title": "2026年数字广告趋势：技术变革与挑战",
+        "refined_title": "搜狐营销：《2026年数字广告趋势报告》聚焦四大维度",
+        "url": "https://www.sohu.com/a/963509015_121970615",
+        "summary": "《2026年数字广告趋势报告》聚焦行业核心痛点与变革方向，从媒体质量、流媒体电视、智能代理AI、品牌信任四大维度剖析技术演进下的广告行业新生态。",
+        "body": "四大维度: 媒体质量评估体系 / 流媒体电视(CTV)崛起 / AI智能代理 / 品牌信任重建",
+        "source": "industry-media",
+        "category": "行业报告",
+        "impact": "medium",
+        "date": "2025-12-12",
+        "tags": ["数字广告", "技术变革"],
+    },
+{
+        "original_title": "多元、体验与价值驱动下，重新理解2025年中国广告市场",
+        "refined_title": "CTR洞察：2025年中国广告市场趋势——多元、体验与价值驱动",
+        "url": "https://www.ctrchina.cn/rich/report/761",
+        "summary": "CTR媒介智讯总经理赵黎黎发布《2025年中国广告市场趋势》。在多元渠道、体验消费和价值回归三重驱动下，中国广告市场正经历深刻转型。",
+        "body": "核心观点: 多元渠道整合 / 体验消费升级 / 价值回归本质 / 品效协同加速",
+        "source": "research",
+        "category": "行业报告",
+        "impact": "high",
+        "date": "2025-09-11",
+        "tags": ["CTR", "广告市场"],
+    },
+{
+        "original_title": "国内有哪些AI营销实践的成功案例？（2025深度洞察版）",
+        "refined_title": "搜狐营销：国内AI营销实践成功案例2025深度洞察",
+        "url": "https://www.sohu.com/a/953593456_122550014",
+        "summary": "探索2025年国内顶尖的AI营销成功案例！深度拆解Jeep、华润等10大行业标杆，揭示AI如何驱动增长。从AIGC创意到智能体转化，寻找最佳AI营销路径。",
+        "body": "标杆案例: Jeep AIGC创意海报 / 华润智能客服 / 蒙牛AI个性化推荐 / 平安AI投顾",
+        "source": "tech-media",
+        "category": "AI营销",
+        "impact": "high",
+        "date": "2025-11-12",
+        "tags": ["AI营销", "实战案例"],
+    },
+{
+        "original_title": "微播易《2025年AI营销新范式应用指南》发布",
+        "refined_title": "微播易×商广协AI营销委：2025年AI营销新范式应用指南",
+        "url": "https://news.qq.com/rain/a/20250520A06LIN00",
+        "summary": "2025年，生成式人工智能成为营销行业最深刻的变革力量。微播易联合中国商务广告协会AI营销委员会发布权威应用指南。",
+        "body": "新范式: AI原生内容生产 / 智能投放优化 / 自动化效果归因 / 多模态创意生成",
+        "source": "tech-media",
+        "category": "AI营销",
+        "impact": "high",
+        "date": "2025-05-20",
+        "tags": ["微播易", "AI营销指南"],
+    },
+{
+        "original_title": "AIGC在营销领域的10个实战应用案例 - CSDN",
+        "refined_title": "CSDN：AIGC营销领域10大实战应用案例全收录",
+        "url": "https://blog.csdn.net/2502_91865303/article/details/147767997",
+        "summary": "涵盖营销自动化、内容生成、个性化推荐、用户互动、广告优化、多模态生成、智能客服、数据洞察等十大方向的实战案例详解。",
+        "body": "十大方向: 内容生成 / 个性化推荐 / 用户互动 / 广告优化 / 多模态 / 智能客服 / 数据洞察",
+        "source": "zhihu",
+        "category": "AI营销",
+        "impact": "medium",
+        "date": "2025-05-07",
+        "tags": ["CSDN", "AIGC案例"],
+    },
+{
+        "original_title": "6个值得收藏的AI广告案例，谈谈技术与创意 - 数英",
+        "refined_title": "数英网：6个值得收藏的AI广告案例——技术与创意的完美结合",
+        "url": "https://www.digitaling.com/articles/1277849.html",
+        "summary": "使用AI赋能IP营销不算少见。比如可口可乐'超想当可口可乐代言人'活动利用AI互动优势让品牌IP变得个性化。技术与创意正在深度融合。",
+        "body": "经典案例: 可口可乐AI代言人 / Nike AI定制跑鞋 / 百事AI音乐创作 / 奥迪AI设计工坊",
+        "source": "industry-media",
+        "category": "AI营销",
+        "impact": "medium",
+        "date": "2024-10-24",
+        "tags": ["数英网", "AI广告案例"],
+    },
+{
+        "original_title": "【知乎独家】2026年最新AIGC研究报告整理",
+        "refined_title": "知乎：2026年最新AIGC研究报告合集——广告行业从千人一面到一人千面",
+        "url": "https://zhuanlan.zhihu.com/p/30732746096",
+        "summary": "腾讯研究院&腾讯广告发布重磅研究：人工智能引领广告行业从'千人一面'迈向'一人千面'的时代跨越。",
+        "body": "核心转变: 千人一面 → 一人千面 / 批量投放 → 个体触达 / 规则引擎 → 学习模型",
+        "source": "zhihu",
+        "category": "AI营销",
+        "impact": "high",
+        "date": "2026-03-03",
+        "tags": ["知乎", "AIGC研究"],
+    },
+{
+        "original_title": "2025爱分析·AIGC应用实践报告",
+        "refined_title": "爱分析：2025年AIGC应用实践报告——营销领域的落地进展",
+        "url": "https://finance.sina.com.cn/roll/2025-04-29/doc-ineuvtfv5013214.shtml",
+        "summary": "系统梳理AIGC在各行各业的落地实践，其中营销领域是落地最快、效果最显著的赛道之一。品牌方、代理商、媒体平台均在积极探索。",
+        "body": "落地进展: 文案生成成熟度最高 / 图片生成商用化加速 / 视频生成仍处早期 / 代码生成开始尝试",
+        "source": "tech-media",
+        "category": "AI营销",
+        "impact": "medium",
+        "date": "2025-04-29",
+        "tags": ["爱分析", "AIGC报告"],
+    },
+{
+        "original_title": "2026年社交平台运营全攻略：私域增长与AI提效实战指南",
+        "refined_title": "百度开发者中心：2026社交平台运营攻略——私域增长与AI提效",
+        "url": "https://developer.baidu.com/article/detail.html?id=6040834",
+        "summary": "掌握2026年社交平台运营核心策略，涵盖主流平台私域流量构建与AI技术应用，从自然流量矩阵搭建到智能内容生产的可落地方法论。",
+        "body": "实战方法: 流量矩阵搭建 / AI内容生产 / 私域转化漏斗 / 数据驱动迭代",
+        "source": "tech-media",
+        "category": "私域运营",
+        "impact": "high",
+        "date": "2026-04-13",
+        "tags": ["百度", "私域增长", "AI提效"],
+    },
+{
+        "original_title": "私域流量运营深度拆解：[2026图解] 高客单高复购打法",
+        "refined_title": "Runwise：2026私域流量运营图解——针对高客单价高复购品类",
+        "url": "https://runwise.co/dtc/growth-marketing/103047/",
+        "summary": "私域流量可被定义为沉淀在品牌自有渠道、可随时反复触达、能实现一对一精准运营的用户流量。针对高客单高复购品类的完整方法论。",
+        "body": "核心方法: 引流→沉淀→转化→裂变闭环 / LTV提升策略 / 标签体系搭建 / 自动化SOP",
+        "source": "industry-media",
+        "category": "私域运营",
+        "impact": "high",
+        "date": "2026-04-13",
+        "tags": ["Runwise", "私域运营", "DTC"],
+    },
+{
+        "original_title": "对比过去展望2025：私域运营的5个趋势与全域运营",
+        "refined_title": "人人都是产品经理：2025私域运营五大趋势与全域运营策略",
+        "url": "https://www.woshipm.com/operate/6190953.html",
+        "summary": "2025年私域流量迎来五大趋势：全渠道融合打破界限提供无缝体验；个性化营销精准满足需求；KOC崛起成为口碑传播新动力。",
+        "body": "五大趋势: 全渠道融合 / 个性化营销 / KOC崛起 / 数据驱动决策 / AI赋能提效",
+        "source": "industry-media",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2025-03-12",
+        "tags": ["人人产品经理", "私域趋势"],
+    },
+{
+        "original_title": "《私域流量经营指南》：私域流量如何驱动业务增长",
+        "refined_title": "知乎深度：私域流量经营指南——从流量焦虑到用户资产沉淀",
+        "url": "https://zhuanlan.zhihu.com/p/1935759673308455202",
+        "summary": "在流量红利消退、获客成本高企的今天，企业纷纷将目光投向'私域流量'——这片真正属于品牌自身的数字沃土。它不仅是用户聚集地，更是品牌长期价值的基石。",
+        "body": "核心逻辑: 公域引流 → 私域沉淀 → 精细运营 → 价值变现 / LTV是终极指标",
+        "source": "zhihu",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2025-08-04",
+        "tags": ["知乎", "私域指南"],
+    },
+{
+        "original_title": "1个核心公式+3个核心数据+4种策略：私域运营LTV提升全攻略",
+        "refined_title": "MSN技术频道：私域运营LTV提升全攻略——公式+数据+策略",
+        "url": "https://www.msn.cn/zh-cn/技术/技术公司/1个核心公式-3个核心数据-4-种策略-私域运营ltv提升全攻略-直接套用/ar-AA1FXVZi",
+        "summary": "从私域运营底层逻辑出发，系统解析提升LTV的核心策略与实战路径：为什么私域客户价值能比公域翻3倍？破解三大增长杠杆。",
+        "body": "三大杠杆: 用户基数扩展 / 人均客单价提升 / 复购频率增加 / 核心公式: LTV=ARPU×留存周期",
+        "source": "tech-media",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": ["MSN", "LTV提升", "私域"],
+    },
+{
+        "original_title": "2025年公众号广告市场的趋势：品牌主更喜欢什么样的账号",
+        "refined_title": "第五引力：2025公众号广告市场趋势——品牌主偏好深度解析",
+        "url": "https://www.diwuai.com/news/20256.html",
+        "summary": "在微信生态持续迭代的2025年，公众号广告市场正经历深度变革。品牌主的投放策略从'广撒网'转向'精准捕捞'，筛选标准从流量规模升级为垂直专业性、用户粘性、内容品质。",
+        "body": "品牌偏好: 垂直专业 > 泛娱乐 / 用户粘性 > 粉丝数量 / 内容品质 > 更新频率 / 互动数据最关键",
+        "source": "industry-media",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2025-03-03",
+        "tags": ["公众号", "广告趋势"],
+    },
+{
+        "original_title": "品牌私域电商运营：从流量焦虑到用户资产沉淀的破局之道",
+        "refined_title": "LegendShop：品牌私域电商运营——流量焦虑到用户资产沉淀",
+        "url": "https://www.legendshop.cn/new_2612.html",
+        "summary": "品牌私域电商的核心在于把'流量'变成'留量'，把'用户'变成'资产'。通过微信生态的全链路运营，建立品牌自己的护城河。",
+        "body": "运营链路: 小程序商城 + 企业微信 + 社群运营 + 内容种草 + 会员体系",
+        "source": "industry-media",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2026-04-15",
+        "tags": ["私域电商", "用户资产"],
+    },
+{
+        "original_title": "2026年私域定向营销技术公司深度解析",
+        "refined_title": "搜狐：2026年私域定向营销技术服务商深度评测",
+        "url": "https://www.sohu.com/a/992711958_122608388",
+        "summary": "企业能够直接反复低成本触达并转化属于自己的用户资产，告别'流量来了就走'的困境。2026年成熟的私域定向营销解决方案服务商已成为企业数字化转型的刚需。",
+        "body": "选型标准: 数据安全合规 / 标签精度 / 自动化能力 / 接入便捷性 / ROI可衡量",
+        "source": "industry-media",
+        "category": "私域运营",
+        "impact": "low",
+        "date": "2026-03-05",
+        "tags": ["私域技术", "SCRM"],
+    },
+{
+        "original_title": "2025年私域流量趋势报告 - CSDN",
+        "refined_title": "CSDN：2025私域流量趋势报告——从可选到必选的转变",
+        "url": "https://blog.csdn.net/weixin_43492150/article/details/146884975",
+        "summary": "企业网络销售支出同步增长16.9%，反映出私域流量管理从'可选'到'必选'的转变。存量竞争与增量创新并行。",
+        "body": "关键数据: 企业私域投入增16.9% / 平均获客成本降23% / 复购率提升至35%+",
+        "source": "zhihu",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2025-03-31",
+        "tags": ["CSDN", "私域趋势"],
+    },
+{
+        "original_title": "2026年数字营销内容创新报告及未来五至十年私域流量报告",
+        "refined_title": "原创力文档：2026数字营销内容创新+未来十年私域流量前瞻报告",
+        "url": "https://max.book118.com/html/2026/0414/5032114343013200.shtm",
+        "summary": "系统梳理2026年数字营销技术创新底座与内容创新范式，并对未来五至十年私域流量的演进路径进行前瞻性预判。",
+        "body": "技术底座: AI内容生成 / 隐私计算 / 实时CDP / 营销自动化(MA)",
+        "source": "research",
+        "category": "私域运营",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": ["数字营销", "私域前瞻"],
+    },
+{
+        "original_title": "五大短视频平台最新用户画像与内容特征分析",
+        "refined_title": "知乎：五大短视频平台（抖音/快手/小红书/B站/视频号）用户画像对比",
+        "url": "https://zhuanlan.zhihu.com/p/2027404352432677576",
+        "summary": "系统分析五大短视频平台的用户年龄分布、地域特征、消费能力和内容偏好差异，为品牌选择合适的投放平台提供数据支撑。",
+        "body": "平台差异: 抖音泛娱乐 / 快手信任电商 / 小红书种草 / B站长视频 / 视频号社交裂变",
+        "source": "zhihu",
+        "category": "新兴媒介",
+        "impact": "high",
+        "date": "2026-04-14",
+        "tags": ["短视频", "用户画像", "平台对比"],
+    },
+{
+        "original_title": "预见2025：《2025年中国短视频行业全景图谱》",
+        "refined_title": "前瞻产业研究院：2025中国短视频行业全景图谱",
+        "url": "https://www.qianzhan.com/analyst/detail/220/250430-b72455dd.html",
+        "summary": "目前短视频行业'两强'格局形成，行业进入稳定期。2024年中国短视频市场规模达4200亿元。抖音、快手是目前头部平台。",
+        "body": "市场数据: 2024规模4200亿 / 两强格局稳固 / 商业模式持续创新 / 政策监管加强",
+        "source": "research",
+        "category": "新兴媒介",
+        "impact": "high",
+        "date": "2025-05-05",
+        "tags": ["前瞻", "短视频行业"],
+    },
+{
+        "original_title": "专题：2025社交媒体营销与电商融合趋势报告",
+        "refined_title": "Tecdat：2025社交媒体营销与电商融合趋势——抖音为核心",
+        "url": "https://tecdat.cn/%E4%B8%93%E9%A2%98%EF%BC%9A2025%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93%E8%90%A5%E9%94%80%E4%B8%8E%E7%94%B5%E5%95%86%E8%9E%8D%E5%90%88%E8%B6%8B%E5%8A%BF%E6%8A%A5%E5%91%8A%EF%BC%9A%E6%8A%96%E9%9F%B3/",
+        "summary": "基于QuestMobile、Sensor Tower、巨量引擎等多方数据，洞察2025年社交电商融合发展态势。抖音依然是核心阵地但竞争加剧。",
+        "body": "核心数据: 社交电商GMV破5万亿 / 直播带货渗透率达28% / 抖音电商增速放缓但仍领先",
+        "source": "research",
+        "category": "直播电商",
+        "impact": "high",
+        "date": "2025-09-11",
+        "tags": ["Tecdat", "社交电商", "抖音"],
+    },
+{
+        "original_title": "2025短视频平台深度解析：抖音/快手/B站差异化打法",
+        "refined_title": "10100：2025短视频平台深度解析——各平台差异化运营策略",
+        "url": "https://www.10100.com/article/28384731",
+        "summary": "抖音适合生活服务类热点营销通过PACE方法论实现精准触达；快手深耕新线城市强调情绪价值和性价比；B站坚持中长视频深度内容路线。",
+        "body": "平台定位: 抖音=广度覆盖 / 快手=深度信任 / B站=文化认同 / 小红书=审美种草 / 视频号=熟人社交",
+        "source": "industry-media",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2025-10-28",
+        "tags": ["10100", "短视频策略"],
+    },
+{
+        "original_title": "艾媒咨询：2025-2029年中国直播电商行业运行大数据",
+        "refined_title": "艾媒咨询：2025-2029中国直播电商行业大数据分析及预测",
+        "url": "https://report.iimedia.cn/repo100-0/57811.html",
+        "summary": "中国直播电商进入高质量发展阶段。各大社交电商平台运营模式和热门主播对比分析，以及未来五年市场规模的预测。",
+        "body": "市场预测: 2025年规模约5.2万亿 / 复合增速18%+ / 头部主播去中心化趋势明显",
+        "source": "research",
+        "category": "直播电商",
+        "impact": "high",
+        "date": "2024-12-20",
+        "tags": ["艾媒", "直播电商", "行业数据"],
+    },
+{
+        "original_title": "2024年短视频及直播电商营销报告汇总解读",
+        "refined_title": "网易：2024短视频及直播电商营销报告汇总（含下载）",
+        "url": "https://www.163.com/dy/article/JS82JS7T0518G5DJ.html",
+        "summary": "飞瓜数据系列报告汇总：2023年2月短视频及直播电商月报、2022美妆短视频报告、TikTok Shop跨境运营手册等。",
+        "body": "报告清单: 飞瓜月度报告 / 品类深度报告 / 跨境电商手册 / 主播影响力榜单",
+        "source": "industry-media",
+        "category": "直播电商",
+        "impact": "medium",
+        "date": "2025-04-03",
+        "tags": ["网易", "飞瓜数据", "报告合集"],
+    },
+{
+        "original_title": "SOLO一键生成中小企业短视频平台选择调研报告",
+        "refined_title": "Trae社区：中小企业短视频平台选择调研——TRAE SOLO实操案例",
+        "url": "https://forum.trae.cn/t/topic/7354",
+        "summary": "用TRAE SOLO完成覆盖抖音、快手、小红书、视频号、B站五大平台的短视频营销调研报告——从行业数据搜集到平台深度分析再到决策树输出。",
+        "body": "调研框架: 行业数据 → 平台分析 → 横向对比 → 决策树 → 落地建议",
+        "source": "tech-media",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2026-04-09",
+        "tags": ["Trae", "短视频调研"],
+    },
+{
+        "original_title": "揭秘2025年Z世代健康消费五大趋势与营销策略 - 搜狐",
+        "refined_title": "搜狐：2025年Z世代健康消费五大趋势——精力/颜值/轻体/精睡/情绪",
+        "url": "https://www.sohu.com/a/884134822_122006510",
+        "summary": "根据最新报告，Z世代健康消费五大趋势凸显：精力管理高度重视（42.8%日常补充营养）、颜值管理走向内调、轻体感知成新主张、精睡主义抬头（66.9%固定睡前流程）、情绪稳定局出现。",
+        "body": "五大趋势: 精力管理 / 颜值内调 / 轻体感知 / 精睡主义 / 情绪稳定",
+        "source": "industry-media",
+        "category": "消费者洞察",
+        "impact": "medium",
+        "date": "2025-04-08",
+        "tags": ["搜狐", "Z世代", "健康消费"],
+    },
+{
+        "original_title": "全球Z世代潮，中国品牌出海的新逻辑 - 腾讯新闻",
+        "refined_title": "腾讯新闻：全球Z世代潮——中国品牌出海的新逻辑",
+        "url": "https://new.qq.com/rain/a/20260204A02ZQ900",
+        "summary": "全球Z世代人口已达20.2亿占总人口25.2%超越Y世代成为最大消费群体。Z世代消费规模2025年达9.8万亿美元预计2030年增至12.6万亿。Labubu、米哈游、石头科技等品牌出海成功案例。",
+        "body": "出海案例: Labubu潮牌全球化 / 米哈游二创生态 / 石头科技扫地机器人CES大火",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-02-04",
+        "tags": ["腾讯新闻", "Z世代", "品牌出海"],
+    },
+{
+        "original_title": "从具体情绪到空间环绕：2025下半年六大营销趋势",
+        "refined_title": "36氪×肖明超：2025下半年六大营销趋势前瞻",
+        "url": "https://www.36kr.com/p/3390918683662728",
+        "summary": "时间的指针划过半年刻度，复盘与前瞻成为行业突围的关键动作。以'肖明超-趋势观察'视角解读下半年六大营销趋势。",
+        "body": "六大趋势: 具体情绪替代宏大叙事 / 空间环绕体验 / 微信搜一搜SEO / 短剧商业化 / AI原生营销 / 品牌人格化",
+        "source": "industry-media",
+        "category": "营销趋势",
+        "impact": "high",
+        "date": "2025-07-23",
+        "tags": ["36氪", "营销趋势", "肖明超"],
+    },
+{
+        "original_title": "《2025-2026年海外网红营销生态报告》",
+        "refined_title": "Nox聚星：2025-2026海外网红营销生态报告——100页深度干货",
+        "url": "https://glosellers.com/71053.html",
+        "summary": "Nox聚星发布重磅报告：100页深度干货、1.5亿+网红数据、70万+品牌合作复盘，一次性把市场规模、核心趋势、平台规则、网红策略、品类案例扒得明明白白。",
+        "body": "核心数据: 全球网红1.5亿+/ 品牌70万+合作 / TikTok增速最快 / YouTube仍为主力 / Instagram稳居第二",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-04-13",
+        "tags": ["Nox聚星", "网红营销", "海外"],
+    },
+{
+        "original_title": "《2026品牌出海行动指南》：聚力协同抢占全球市场先机",
+        "refined_title": "界面新闻：2026品牌出海行动指南——全链路协同赢在全球",
+        "url": "https://www.jiemian.com/article/14234360.html",
+        "summary": "立足2026年全球出海最新趋势，拆解全链路运营逻辑，覆盖市场洞察、全渠道布局、流量获取、用户运营、本地化适配、长期生态构建六大核心板块。",
+        "body": "六大板块: 市场洞察 → 渠道布局 → 流量获取 → 用户运营 → 本地化适配 → 生态构建",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-04-10",
+        "tags": ["界面新闻", "品牌出海指南"],
+    },
+{
+        "original_title": "《2025跨境电商年度报告》发布",
+        "refined_title": "中国日报财经：2025跨境电商年度报告——全球经济环境下的新机遇",
+        "url": "https://caijing.chinadaily.com.cn/a/202601/22/WS6971e9c5a310942cc499c67e.html",
+        "summary": "在跨境电商浪潮中品牌若想在2026年抓住机会布局生意增长需从四方面入手：全域布局瞄准政策与经济向好的新兴市场拓展。",
+        "body": "四大方向: 全域布局 / 本地化运营 / 合规体系建设 / 供应链优化",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-01-22",
+        "tags": ["中国日报", "跨境电商"],
+    },
+{
+        "original_title": "品牌出海手册2.0：2026关键趋势+全链路策略",
+        "refined_title": "搜狐营销：品牌出海手册2.0——2026关键趋势与全链路策略",
+        "url": "https://www.sohu.com/a/965244791_407401",
+        "summary": "展望2025-2026年品牌出海呈现三大关键趋势：从'产品出海'迈向'品牌出海'；AI驱动营销智能化与内容生产革命；本地化适配成为成败关键。",
+        "body": "三大趋势: 产品→品牌 / AI驱动营销革命 / 本地化适配决定成败",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2025-12-15",
+        "tags": ["搜狐", "品牌出海手册"],
+    },
+{
+        "original_title": "2026跨境电商出海必读：基于2025全球电商数据的10大要点",
+        "refined_title": "TMO Group：2026跨境电商必读——基于2025全球数据的战略指引",
+        "url": "https://www.tmogroup.com.cn/insights/global-key-data-cross-border-ecommerce/",
+        "summary": "深度解析2025年全球电商最新规模、跨境电商占比、社交电商、AI、移动支付、供应链、用户资产、B2B市场、合规壁垒和新兴市场，以及2026年战略建议。",
+        "body": "十个维度: 市场规模 / 跨境占比 / 社交电商 / AI应用 / 移动支付 / 供应链 / 用户资产 / B2B / 合规 / 新兴市场",
+        "source": "research",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2026-01-16",
+        "tags": ["TMO Group", "跨境电商", "全球数据"],
+    },
+{
+        "original_title": "寻找第二增长曲线：2026出海品牌平台迁移白皮书 - NielsenIQ",
+        "refined_title": "NielsenIQ：2026出海品牌平台迁移白皮书——从专精到布局",
+        "url": "https://nielseniq.cn/global/zh/insights/analysis/2026/%E4%BB%8E%E4%B8%93%E7%B2%BE%E5%88%B0%E5%B8%83%E5%B1%80%EF%BC%9A2026-%E5%87%BA%E6%B5%B7%E5%93%81%E7%89%8C%E5%B9%B3%E5%8F%B0%E8%BF%81%E7%A7%BB%E7%99%BD%E7%9A%AE%E4%B9%A6/",
+        "summary": "基于多国消费者调研与多位出海品牌高管深度研究，系统解析全球跨境电商格局变化及中国品牌的应对路径，为企业制定出海策略提供关键参考。",
+        "body": "核心洞察: 平台多元化趋势 / Amazon依赖度降低 / Temu/SHEIN冲击 / DTC独立站复苏",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-04-14",
+        "tags": ["NielsenIQ", "出海白皮书", "平台迁移"],
+    },
+{
+        "original_title": "2026拿捏'品牌出海营销'的三大趋势 - 36氪",
+        "refined_title": "36氪：2026品牌出海营销三大趋势——情绪时代品牌进击",
+        "url": "https://www.36kr.com/p/3647536039628422",
+        "summary": "人民日报海外网与GYBrand联合编制《2025年度中国出海品牌100强》。品牌出海已成为时代洪流。情绪时代的到来让品牌营销需要更多共情与温度。",
+        "body": "三大趋势: 情绪营销本土化 / AI降本增效 / ESG成为准入门槛",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2026-01-20",
+        "tags": ["36氪", "品牌出海", "GYBrand"],
+    },
+{
+        "original_title": "跨境出海战略全景图：2026年主流模式选择与落地路径",
+        "refined_title": "知乎：2026跨境出海战略全景图——主流模式与落地路径",
+        "url": "https://zhuanlan.zhihu.com/p/1971601412552103360",
+        "summary": "2026年跨境出海模式呈现多元化趋势，从传统电商到社交电商、从独立站到平台多渠道布局各种模式并存。本文系统分析模式选择与落地路径。",
+        "body": "模式矩阵: 平台电商(DTC) / 社交电商(TikTok Shop) / 独立站(Shopify) / B2B跨境 / 本地化实体",
+        "source": "zhihu",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2025-11-11",
+        "tags": ["知乎", "跨境战略"],
+    },
+{
+        "original_title": "《2026品牌出海行动指南》：全链路协同赢在全球 - 店匠",
+        "refined_title": "Shoplazza×卧兔×易诺×连连×云途：2026品牌出海行动指南DTC专版",
+        "url": "https://www.shoplazza.cn/blog/dtc-playbook-2026",
+        "summary": "店匠Shoplazza联合多方共创，整合行业实战经验与前沿趋势，为中国品牌提供系统化可落地全周期的出海解决方案。",
+        "body": "DTC重点: 独立站搭建 / 广告投放 / 红人营销 / 物流履约 / 支付方案 / 数据合规",
+        "source": "industry-media",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2026-04-13",
+        "tags": ["Shoplazza", "DTC出海", "行动指南"],
+    },
+{
+        "original_title": "《2026品牌出海行动指南》：以协同之力助品牌赢战全球",
+        "refined_title": "极客公园：2026品牌出海行动指南——协同之力赢战全球",
+        "url": "https://www.geekpark.net/news/362525",
+        "summary": "卧兔WotoHub联合YinoLink易诺、店匠Shoplazza、连连、云途物流共创的《2026品牌出海行动指南》，为中国品牌提供全周期出海解决方。",
+        "body": "共创阵容: WotoHub(红人) + YinoLink(广告) + Shoplazza(建站) + 连连(支付) + 云途(物流)",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2026-04-13",
+        "tags": ["极客公园", "品牌出海", "协同生态"],
+    },
+{
+        "original_title": "DSP、DMP、ADX、RTB、RTA都是什么 - 知乎科普",
+        "refined_title": "知乎：程序化广告核心术语完全解析——DSP/DMP/ADX/RTB/RTA",
+        "url": "https://zhuanlan.zhihu.com/p/141227331",
+        "summary": "一文读懂程序化广告所有核心术语：DSP需求方平台、DMP数据管理平台、ADX广告交易平台、SSP供应方平台、RTB实时竞价、RTA实时API。",
+        "body": "术语对照: DSP=需求方平台 / DMP=数据管理 / ADX=交易市场 / RTB=实时竞价 / RTA=实时API",
+        "source": "zhihu",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2025-03-06",
+        "tags": ["知乎", "程序化广告", "术语"],
+    },
+{
+        "original_title": "程序化广告平台升级战：从DSP到营销操作系统的行业转型",
+        "refined_title": "雪球：程序化广告平台升级战——从DSP到Marketing OS的行业转型",
+        "url": "https://xueqiu.com/2651457097/348183559",
+        "summary": "2025上半年程序化广告行业上演一场'静悄悄的革命'。StackAdapt融资2.35亿美元、Mediaocean收购Innovid 5亿美元，巨头们正通过技术整合布局全新生态。",
+        "body": "转型方向: 单点工具→一体化平台 / 规则引擎→AI学习 / 第三方cookie→隐私计算",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2025-08-21",
+        "tags": ["雪球", "程序化广告", "MarTech"],
+    },
+{
+        "original_title": "DSP、SSP、ADX傻傻分不清？深度拆解程序化广告全流程",
+        "refined_title": "HUII Media：程序化广告全流程深度拆解——从曝光到转化的每一步",
+        "url": "https://huiimedia.com/blog/237.html",
+        "summary": "数据衰减问题：用户行为数据7天后价值下降50%需高频更新标签。程序化广告已从'可选工具'变为'营销基础设施'。",
+        "body": "核心痛点: 数据衰减快 / 隐私合规压力 / 品牌安全问题 / 透明度不足 / 未来属于AI+隐私",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2025-04-08",
+        "tags": ["HUII", "程序化广告"],
+    },
+{
+        "original_title": "商业化：程序化广告生态 - 人人都是产品经理",
+        "refined_title": "人人都是产品经理：程序化广告生态深度解析",
+        "url": "https://www.woshipm.com/share/6134973.html",
+        "summary": "数字营销世界里程序化广告购买正成为主流趋势，通过自动化技术改变广告主和媒体之间的互动方式。深入探讨程序化广告生态的每个环节。",
+        "body": "生态角色: 广告主 / 代理商 / DSP / DMP / ADX / SSP / 媒体 / 监测方 / DCO",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2024-11-01",
+        "tags": ["人人产品经理", "程序化广告"],
+    },
+{
+        "original_title": "程序化广告核心术语DSP/SSP/ADX/DMP详解 - 阿里云",
+        "refined_title": "阿里云开发者：程序化广告核心术语详解与技术架构",
+        "url": "https://developer.aliyun.com/article/1597733",
+        "summary": "详细介绍程序化广告中各种专业术语及其在广告交易流程中的作用和关系。包含技术架构层面的深度解析。",
+        "body": "技术架构: 用户触发 → SSP请求 → ADX竞价 → DSP出价 → DMP匹配 → 胜出展示 → 回传数据",
+        "source": "tech-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2024-08-27",
+        "tags": ["阿里云", "程序化广告", "技术架构"],
+    },
+{
+        "original_title": "中国程序化广告技术生态图 | RTBChina",
+        "refined_title": "RTBChina：中国程序化广告技术生态图（最新更新版）",
+        "url": "https://www.rtbchina.com/china-programmatic-ad-tech-landscape",
+        "summary": "RTBChina维护的中国程序化广告技术生态全景图，涵盖DSP/DMP/SSP/ADX/监测/验证等各类技术服务商的最新名录。",
+        "body": "生态分类: DSP(20+) / DMP(15+) / ADX(8) / SSP(12+) / 监测(10+) / 验证(8+)",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2022-06-01",
+        "tags": ["RTBChina", "AdTech生态"],
+    },
+{
+        "original_title": "海外广告投放程序化体系详解：DSP/SSP与DMP",
+        "refined_title": "10100：海外广告投放程序化体系详解——DSP/SSP/DMP实战",
+        "url": "https://www.10100.com/encyclopedia/interlocution/958453",
+        "summary": "尤其在海外市场面对媒体碎片化多语言人群和复杂时区差异，程序化广告能显著提升广告分发的效率与精准度。对初次接触者友好。",
+        "body": "海外差异: GDPR/CCPA合规 / 多语言创意管理 / 时区优化 / 本地化支付 / 第三方监测",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2025-05-22",
+        "tags": ["10100", "海外程序化"],
+    },
+{
+        "original_title": "内容运营那些事——程序化广告你要知道的事",
+        "refined_title": "般芸聚合：程序化广告实务——内容运营视角的深度解读",
+        "url": "https://banyunjuhe.com/article/ai/ad",
+        "summary": "DSP投放效果是否达标不仅看平台统计还需考核与第三方监测数据的差异值(gap值)。ROI投资回报率是最终考核指标。",
+        "body": "实操要点: gap值控制在15%以内 / ROI>1为基准线 / 频次控制3-5次 / 创意轮换至少4版",
+        "source": "industry-media",
+        "category": "广告技术",
+        "impact": "low",
+        "date": "2026-03-31",
+        "tags": ["般芸聚合", "程序化实务"],
+    },
+{
+        "original_title": "2025金瞳奖10大获奖案例复盘：品牌如何实现品效销一体化",
+        "refined_title": "搜狐：2025金瞳奖10大获奖案例复盘——品效销一体化之路",
+        "url": "https://www.sohu.com/a/977531613_120098387",
+        "summary": "未来的营销没有'品牌部'和'销售部'之分只有'增长部'。品牌必须打破部门墙让内容生产与渠道分发销售转化高度协同。",
+        "body": "核心理念: 品效销一体化 / 组织架构重组 / 数据打通 / 全链路归因",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "high",
+        "date": "2026-01-19",
+        "tags": ["金瞳奖", "营销案例"],
+    },
+{
+        "original_title": "2025十大标杆营销案例！ - 新浪财经",
+        "refined_title": "新浪财经：2025十大标杆营销案例盘点",
+        "url": "https://finance.sina.com.cn/cj/2025-12-04/doc-infzrvma8531780.shtml",
+        "summary": "蜜雪冰城带着雪王IP敲钟大闹现场、海尔老总重返微博、'红黄蓝'三大品牌在即时零售上的混战、三九胃泰借势《折腰》、瑞幸与多邻国的联名……2025现象级案例大盘点。",
+        "body": "十大案例: 蜜雪冰城IPO营销 / 海尔老总微博复出 / 即时零售三国杀 / 三九×折腰 / 瑞幸×多邻国",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "high",
+        "date": "2025-12-04",
+        "tags": ["新浪财经", "标杆案例"],
+    },
+{
+        "original_title": "2025年十大现象级广告案例盘点",
+        "refined_title": "同花顺×分众传媒：2025十大现象级广告案例——创意与情感引爆年度营销",
+        "url": "https://news.10jqka.com.cn/20260305/c675083399.shtml",
+        "summary": "2025年广告营销领域竞争激烈众多品牌凭借巧妙创意精准情绪洞察或爆火IP联动打造出引发广泛关注和讨论的现象级案例。",
+        "body": "评选标准: 创意新颖度 / 社会话题性 / 品牌关联度 / 商业转化效果 / 长尾传播力",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "high",
+        "date": "2026-03-05",
+        "tags": ["分众传媒", "现象级案例"],
+    },
+{
+        "original_title": "2025知名品牌营销案例复盘 - 网易订阅",
+        "refined_title": "网易：2025知名品牌营销案例复盘合集",
+        "url": "https://www.163.com/dy/article/KNJS7LH90538EOIV.html",
+        "summary": "快手'种完麦子我就往南走'一场跨越3000公里的圆梦大事件。附部分2025知名品牌营销案例复盘完整版可在广告人干货库小程序下载。",
+        "body": "亮点案例: 快手3000公里圆梦 / 各大品牌跨界联名 / 情感营销爆发 / 国潮崛起",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "medium",
+        "date": "2026-03-12",
+        "tags": ["网易", "营销案例"],
+    },
+{
+        "original_title": "硬核复盘：2025中国广告市场深度观察 - CTR",
+        "refined_title": "CTR：2025中国广告市场深度观察——技术提效+真诚共情",
+        "url": "https://www.ctrchina.cn/rich/report/806",
+        "summary": "真正的赢家属于既能用技术提效又能以真诚共情的品牌。在注意力稀缺的时代最稀缺的不是曝光而是信任；最持久的增长不在算法里而在人心中。",
+        "body": "核心观点: 技术+真诚双轮驱动 / 信任是新货币 / 长期主义胜出 / 品牌资产积累",
+        "source": "research",
+        "category": "品牌案例",
+        "impact": "high",
+        "date": "2026-02-02",
+        "tags": ["CTR", "广告观察"],
+    },
+{
+        "original_title": "2025 CASE 100百大品牌创新营销案例揭晓 - 广告门",
+        "refined_title": "广告门：2025 CASE 100百大品牌创新营销案例揭晓",
+        "url": "https://www.adquan.com/article/359297",
+        "summary": "CASE 100评选聚焦品牌新叙事方式、新体验、新形式、新工具、新场景等多元创新营销力求在复杂多变的市场环境中发现最具代表性的创新实践。",
+        "body": "评选维度: 新叙事 / 新体验 / 新形式 / 新工具 / 新场景 / 五大维度全覆盖",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "high",
+        "date": "2026-02-03",
+        "tags": ["广告门", "CASE 100"],
+    },
+{
+        "original_title": "2025知名品牌营销案例复盘 - 知乎",
+        "refined_title": "知乎：2025知名品牌营销案例复盘——广告人必备案例库",
+        "url": "https://zhuanlan.zhihu.com/p/1991532168237831542",
+        "summary": "广告行业每天都会涌现各种各样的案例数量众多且各有独特之处。即使是关注度颇高的案例也需要从多个维度来复盘其成功要素。",
+        "body": "复盘框架: 背景分析 / 策略拆解 / 执行细节 / 效果评估 / 可复制经验",
+        "source": "zhihu",
+        "category": "品牌案例",
+        "impact": "medium",
+        "date": "2026-01-06",
+        "tags": ["知乎", "营销案例"],
+    },
+{
+        "original_title": "数说Social Research：瑞幸咖啡品牌2025年深度解构",
+        "refined_title": "DataStory：瑞幸咖啡品牌2025年深度解构——IP联名+明星代言的双轮驱动",
+        "url": "https://index.datastory.com.cn/article/113",
+        "summary": "品牌通过成功的IP联名（如《崩坏：星穹铁道》）与明星代言（易烊千玺演唱会合作）策略在微博抖音等平台创造了巨大的声量与互动量。",
+        "body": "瑞幸策略: IP联名常态化(崩铁/黑神话/猫和老鼠等) / 明星代言年轻化 / 社媒矩阵全覆盖",
+        "source": "industry-media",
+        "category": "品牌案例",
+        "impact": "medium",
+        "date": "2025-09-28",
+        "tags": ["DataStory", "瑞幸咖啡"],
+    },
+{
+        "original_title": "微信、B站、抖音、快手、小红书等7大平台玩法详解 - 36氪",
+        "refined_title": "36氪：7大新媒体平台玩法详解——一文读懂各平台运营精髓",
+        "url": "https://www.36kr.com/p/963230391686664",
+        "summary": "干货分享。微信、B站、抖音、快手、小红书等7大平台玩法详解，一文读懂各平台的运营规则、算法机制和内容策略。",
+        "body": "七平台: 微信(服务+B端) / B站(中长视频+圈层) / 抖音(算法推荐+泛娱乐) / 快手(私域+信任) / 小红书(审美+种草)",
+        "source": "industry-media",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2020-11-11",
+        "tags": ["36氪", "平台玩法"],
+    },
+{
+        "original_title": "2025中国移动互联网微信营销行业规模约12000亿元",
+        "refined_title": "搜狐：2025中国微信营销行业规模达12000亿元——公众号仍是核心",
+        "url": "https://www.sohu.com/a/906077610_121388092",
+        "summary": "共研产业研究院通过对公开信息分析和业内资深人士访谈及分析师专业性判断撰写《2025-2031年中国移动互联网微信营销调查与投资前景分析报》。",
+        "body": "核心数据: 行业规模12000亿 / 公众号日均打开3.2次 / 单次阅读5.8分钟 / 视频号增速最快",
+        "source": "industry-media",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2025-06-23",
+        "tags": ["共研产业研究院", "微信营销"],
+    },
+{
+        "original_title": "Best Open Source Analytics Tools in 2026",
+        "refined_title": "Estuary：2026年最佳开源数据分析工具Top 15",
+        "url": "https://estuary.dev/blog/open-source-data-analytics-tools/",
+        "summary": "Comprehensive review of top open source data analytics tools for 2026, covering everything from data ingestion to visualization and business intelligence.",
+        "body": "Tools covered: Apache Superset / Metabase / Apache Druid / ClickHouse / DuckDB / Jupyter / dbt / Airbyte",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-02-05",
+        "tags": ["Estuary", "Open Source", "Analytics"],
+    },
+{
+        "original_title": "8 best open source analytics tools you can self-host",
+        "refined_title": "PostHog：8大最佳自托管开源分析工具推荐",
+        "url": "https://posthog.com/blog/best-open-source-analytics-tools",
+        "summary": "Open source analytics tools give you both insights without handing data to third parties. Guide covers the best options for product analytics and marketing attribution.",
+        "body": "Top 8: PostHog / Matomo / Umami / Plausible / Fathom / Countly / Open Web Analytics / GoatCounter",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-04-13",
+        "tags": ["PostHog", "Open Source", "Self-hosted"],
+    },
+{
+        "original_title": "Top 23 Marketing Open-Source Projects | LibHunt",
+        "refined_title": "LibHunt：Top 23 Marketing Open-Source Projects Curated",
+        "url": "https://www.libhunt.com/topic/marketing",
+        "summary": "Which are the best open-source Marketing projects? This list helps you find: twenty, analytics, matomo, marketingskills, flowy, react-static, and PlacesToPostYourStartup.",
+        "body": "Projects: Matomo(posthog) / Mautic(Marketing Automation) / Mailtrain / Listmonk / n8n(workflow)",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-02-18",
+        "tags": ["LibHunt", "Open Source", "Marketing"],
+    },
+{
+        "original_title": "Privacy-first Google Analytics Alternative - Matomo",
+        "refined_title": "Matomo：隐私优先的Google Analytics替代方案",
+        "url": "https://matomo.org/",
+        "summary": "Matomo is the Google Analytics alternative that protects your customer privacy. Powerful web analytics platform with 100% data ownership.",
+        "body": "Features: 100%数据所有权 / GDPR合规 / 无采样限制 / 自托管或云端 / 开源免费",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-04-13",
+        "tags": ["Matomo", "GA替代", "隐私优先"],
+    },
+{
+        "original_title": "Top Open-Source Tools for Marketing Analytics in 2025",
+        "refined_title": "SalesMarketCoop：2025年营销分析顶级开源工具推荐",
+        "url": "https://salesmarketscoop.com/blog/top-open-source-tools-for-marketing-analytics-in-2025/",
+        "summary": "Data is valuable but obtaining useful insights shouldn't be prohibitively expensive. The emergence of open source marketing tools is changing this landscape completely.",
+        "body": "Key tools: RudderStack(customer data) / Jitsu(event tracking) / Cube(analytics API) / Lightdash(BI)",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2025-04-14",
+        "tags": ["SalesMarketCoop", "Open Source"],
+    },
+{
+        "original_title": "The 14 best open source analytics tools - Snowplow",
+        "refined_title": "Snowplow：14款最佳开源分析工具深度评测",
+        "url": "https://snowplow.io/blog/best-open-source-analytics-tools",
+        "summary": "Comprehensive comparison of 14 leading open source analytics platforms covering architecture, scalability, ease of use, and community support.",
+        "body": "Comparison dimensions: 架构灵活性 / 扩展性 / 易用性 / 社区活跃度 / 文档完整性 / 商业支持",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-04-10",
+        "tags": ["Snowplow", "Open Source", "Analytics"],
+    },
+{
+        "original_title": "Best Open Source Product Analytics using GitHub in 2026",
+        "refined_title": "OpenAlternative：2026年GitHub上最佳开源产品分析工具",
+        "url": "https://openalternative.co/categories/product-analytics/using/github",
+        "summary": "Curated collection of best open-source feature-rich platforms for in-depth web and product analytics using GitHub.",
+        "body": "Featured: PostHog(javascript) / plausible(go) / umami(typescript) / Fathom(go-lite) / Counter(dev)",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-03-28",
+        "tags": ["OpenAlternative", "Product Analytics"],
+    },
+{
+        "original_title": "analytics - 技术专题深度解读 | GitHub 中文社区",
+        "refined_title": "GitHub中文社区：Analytics技术专题深度解读",
+        "url": "https://github-cn.com/topics/analytics",
+        "summary": "GitHub is where over 150 million people build software and discover over 420 million projects. Analytics topic overview covering the most popular repositories.",
+        "body": "Hot repos: apache/superset / metabase/metabase / posthog/posthog / plausible/plausible / umami-software/umami",
+        "source": "github",
+        "category": "开源工具",
+        "impact": "low",
+        "date": "2026-03-26",
+        "tags": ["GitHub中文社区", "Analytics", "开源"],
+    },
+{
+        "original_title": "微信公众号怎么做广告 2026年深度研究报告揭示AI营销新趋势",
+        "refined_title": "UECloud：微信公众号广告投放2026深度研究——AI营销新趋势",
+        "url": "https://www.uecloud.com/geo/article/5m2B",
+        "summary": "微信公众号广告投放正在经历前所未有的技术革命。传统手工操作和低效流程正在被AI工具彻底颠覆。从零开始打造爆款广告内容成为可能。",
+        "body": "AI应用: 智能选题 / AI文案生成 / 自动排版 / 智能投放 / 效果实时优化",
+        "source": "industry-media",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2026-01-21",
+        "tags": ["UECloud", "公众号广告", "AI营销"],
+    },
+{
+        "original_title": "2025中国移动互联网微信营销行业规模分析",
+        "refined_title": "搜狐财经：2025微信营销行业规模12000亿元深度分析",
+        "url": "https://www.sohu.com/a/906077610_121388092",
+        "summary": "共研产业研究院发布《2025-2031年中国移动互联网微信营销调查与投资前景分析报告》。微信营销已从可选变为品牌标配。",
+        "body": "核心数据: 行业规模1.2万亿 / 公众号日均打开3.2次 / 视频号DAU破5亿 / 小程序GMV持续增长",
+        "source": "industry-media",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2025-06-23",
+        "tags": ["搜狐", "微信营销"],
+    },
+{
+        "original_title": "2025公众号行业研究报告 - 百度文库",
+        "refined_title": "百度文库：2025公众号行业研究报告——市场规模与增长态势",
+        "url": "https://wenku.baidu.com/view/481681402a3f5727a5e9856a561252d380eb207c.html",
+        "summary": "从'高速扩张'到'精耕细作'：用户触达时长稳定场景化阅读需求凸显。微信官方数据显示2024年用户日均打开公众号3.2次单次阅读5.8分钟。",
+        "body": "关键指标: 日均打开3.2次 / 阅读5.8分钟 / 原创比例提升至40% / 互选广告收入增长35%",
+        "source": "research",
+        "category": "新媒体",
+        "impact": "medium",
+        "date": "2025-10-xx",
+        "tags": ["百度文库", "公众号报告"],
+    },
+{
+        "original_title": "2025中国广告主互联网营销趋势报告（附下载）",
+        "refined_title": "新浪财经：2025中国广告主互联网营销趋势报告",
+        "url": "https://finance.sina.com.cn/roll/2025-05-11/doc-ineweqcx6441140.shtml",
+        "summary": "报告指出2025年广告主的营销主题词为'技术驱动+情感共鸣'的内容创新双轮驱动。KOL投放预算首次超过传统媒体投放。",
+        "body": "预算变化: KOL > 传统媒体 / 短视频成首选 / 私域投入翻倍 / AI工具采纳率67%",
+        "source": "industry-media",
+        "category": "营销趋势",
+        "impact": "medium",
+        "date": "2025-05-11",
+        "tags": ["新浪财经", "广告主趋势"],
+    },
+{
+        "original_title": "2025年Q2网络推广行业分析报告：技术驱动与效果导向",
+        "refined_title": "XT日报：2026 Q2网络推广行业分析——技术驱动与效果导向变革",
+        "url": "http://www.xtrb.cn/hagy/2026-04/10/content_1075907.htm",
+        "summary": "某头部效果营销服务商通过自建BI系统将各渠道投放数据客户行为数据与后端CRM销售数据打通实现了营销ROI的实时可视化与归因分析。",
+        "body": "标杆做法: BI打通全链路数据 / ROI实时可视化 / 归因分析 / 自动化调优 / 效果导向",
+        "source": "industry-media",
+        "category": "营销趋势",
+        "impact": "medium",
+        "date": "2026-04-10",
+        "tags": ["XT日报", "网络推广", "Q2报告"],
+    }
 ]
 
 
