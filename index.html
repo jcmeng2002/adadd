@@ -132,21 +132,21 @@ function renderFilters(){
   filterBar.innerHTML=`<div class="frow"><div class="flab">📂 来源：</div><div class="btns${srcExpanded?'':' src-collapsed'}">${sb}${srcToggle}</div></div>`+
     `<div class="frow"><div class="flab">🏷 分类：</div><div class="btns cat-btns${catExpanded?'':' cat-collapsed'}">${cb}${catToggle}</div></div>`+
     `<div class="frow">
-      <div class="inline-group"><label>⚡ 影响力：</label><div class="btn-group">
+      <span class="flab">⚡ 影响力：</span><div class="btn-group">
         <button class="bg-btn${ia}" data-a="imp" data-v="">全部</button>
         <button class="bg-btn${ih}" data-a="imp" data-v="high">🔴 高</button>
         <button class="bg-btn${im}" data-a="imp" data-v="medium">🟠 中</button>
         <button class="bg-btn${il}" data-a="imp" data-v="low">🟢 低</button>
-      </div></div>
-      <div class="inline-group"><label>🔄 排序：</label><div class="btn-group">
+      </div>
+      <span class="flab" style="margin-left:16px">🔄 排序：</span><div class="btn-group">
         <button class="bg-btn${sl}" data-a="sort" data-v="latest">最新优先</button>
         <button class="bg-btn${so}" data-a="sort" data-v="oldest">最早优先</button>
         <button class="bg-btn${si}" data-a="sort" data-v="impact">高影响力</button>
-      </div></div>
-      <div class="inline-group"><label>👁 展示形式：</label><div class="btn-group">
+      </div>
+      <span class="flab" style="margin-left:16px">👁 展示形式：</span><div class="btn-group">
         <button class="bg-btn${vc}" data-a="view" data-v="cards">卡片</button>
         <button class="bg-btn${vt}" data-a="view" data-v="timeline">时间轴</button>
-      </div></div></div>`;
+      </div></div>`;
 }
 
 function renderStats(){

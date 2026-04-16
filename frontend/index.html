@@ -255,9 +255,8 @@ a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:in
 </div>
 </div>
 
-<!-- 操作栏：影响力 + 排序 + 视图 -->
+<!-- 操作栏：影响力 + 排序 + 视图（同行） -->
 <div class="filter-row">
-<div class="filter-group-inline">
 <span class="filter-label-inline">影响力：</span>
 <div class="impact-filters" id="impactFilters">
 <button class="impact-filter-btn" data-value="">全部</button>
@@ -265,17 +264,15 @@ a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:in
 <button class="impact-filter-btn" data-value="medium">🟠 中</button>
 <button class="impact-filter-btn" data-value="low">🟢 低</button>
 </div>
-</div>
 
-<div class="filter-group-inline">
-<span class="filter-label-inline">排序：</span>
+<span class="filter-label-inline" style="margin-left:20px">排序：</span>
 <div class="sort-options" id="sortOptions">
 <button class="sort-btn active" data-sort="latest">最新优先</button>
 <button class="sort-btn" data-sort="oldest">最早优先</button>
 <button class="sort-btn" data-sort="hot">热度最高</button>
 </div>
-</div>
 
+<span class="filter-label-inline" style="margin-left:20px">展示形式：</span>
 <div class="view-toggle" id="viewToggle">
 <button class="toggle-btn active" data-view="card">卡片视图</button>
 <button class="toggle-btn" data-view="timeline">时间轴视图</button>
