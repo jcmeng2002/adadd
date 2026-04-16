@@ -43,24 +43,51 @@ a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:in
 .filter-group-inline{display:flex;align-items:center;gap:8px}
 .filter-group-inline.wide{flex:1;min-width:300px}
 .filter-label-inline{font-size:13px;font-weight:500;color:var(--text-secondary);white-space:nowrap;flex-shrink:0}
-.filter-btns,.cat-btns{display:flex;flex-wrap:wrap;gap:6px}
-.filter-btn{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:13px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
-.filter-btn .count{font-size:11px;background:var(--bg-body);padding:1px 7px;border-radius:10px;color:var(--text-tertiary)}
-.filter-btn:hover{border-color:var(--primary);color:var(--primary)}
-.filter-btn.active{background:var(--primary);color:white;border-color:var(--primary);box-shadow:0 2px 8px rgba(0,82,217,.25)}
-.filter-btn.active .count{background:rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
-.cat-btn{padding:4px 12px;border-radius:16px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s;white-space:nowrap}
-.cat-btn:hover{border-color:var(--primary-hover);color:var(--primary-hover)}
-.cat-btn.active{background:linear-gradient(135deg,var(--primary),#2670F0);color:white;border-color:transparent}
+/* Filter Bar — 主筛选(来源/分类) vs 辅助操作(影响力/排序) 保持层次感 */
+.filter-btns,.cat-btns{display:flex;flex-wrap:wrap;gap:6px;position:relative}
+
+/* 主筛选：来源 + 分类 — 统一样式 */
+.filter-btn,.cat-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:20px;font-size:13px;
+  color:var(--text-secondary);background:var(--bg-white);
+  border:1px solid var(--border-color);transition:all .2s;
+  white-space:nowrap;
+}
+.filter-btn .count,.cat-btn .count{font-size:11px;background:var(--bg-body);padding:1px 7px;border-radius:10px;color:var(--text-tertiary)}
+.filter-btn:hover,.cat-btn:hover{border-color:var(--primary);color:var(--primary)}
+.filter-btn.active,.cat-btn.active{
+  background:var(--primary);color:white;border-color:var(--primary);
+  box-shadow:0 2px 8px rgba(0,82,217,.25)
+}
+.filter-btn.active .count,.cat-btn.active .count{
+  background:rgba(255,255,255,.2);color:rgba(255,255,255,.85)
+}
+
+/* 辅助操作：影响力 + 排序 — 稍小一号，保持组内一致 */
 .impact-filters,.sort-options{display:flex;gap:4px}
-.impact-filter-btn,.sort-btn{padding:4px 12px;border-radius:14px;font-size:12px;color:var(--text-secondary);background:var(--bg-white);border:1px solid var(--border-color);transition:all .2s}
-.impact-filter-btn:hover,.sort-btn:hover{border-color:var(--primary-hover)}
+.impact-filter-btn,.sort-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 12px;border-radius:16px;font-size:12px;
+  color:var(--text-secondary);background:var(--bg-white);
+  border:1px solid var(--border-color);transition:all .2s;
+  white-space:nowrap;
+}
+.impact-filter-btn:hover,.sort-btn:hover{border-color:var(--primary-hover);color:var(--primary)}
 .impact-filter-btn.active{background:var(--primary-light);color:var(--primary);border-color:var(--primary);font-weight:600}
 .sort-btn.active{color:var(--primary);border-color:var(--primary);background:var(--primary-light);font-weight:500}
+
+/* 视图切换保持独立样式 */
 .view-toggle{display:flex;gap:2px;background:var(--bg-body);border-radius:var(--radius-sm);padding:2px}
 .toggle-btn{padding:5px 14px;border-radius:6px;font-size:12px;color:var(--text-secondary);transition:all .2s}
 .toggle-btn:hover{color:var(--text-primary)}
 .toggle-btn.active{background:var(--bg-white);color:var(--primary);box-shadow:var(--shadow-sm);font-weight:600}
+
+/* 筛选栏展开/收起 */
+.filter-toggle{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:14px;font-size:11px;color:var(--primary);font-weight:600;background:rgba(0,82,217,.06);border:1px dashed rgba(0,82,217,.25);cursor:pointer;white-space:nowrap;transition:all .2s;margin-left:6px;flex-shrink:0}
+.filter-toggle:hover{background:rgba(0,82,217,.12)}
+.filter-btns.collapsed .filter-btn:nth-child(n+7){display:none}
+.cat-btns.collapsed .cat-btn:nth-child(n+7){display:none}
 
 /* Stats */
 .stats-bar{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:0;background:linear-gradient(135deg,#fff 0%,#f0f5ff 100%);border-radius:var(--radius-md);padding:18px 28px;margin-bottom:18px;border:1px solid rgba(0,82,217,.08);box-shadow:var(--shadow-sm)}
@@ -174,7 +201,7 @@ a{color:var(--primary);text-decoration:none}button{cursor:pointer;font-family:in
 .source-wechat{background:#e8faf0;color:#078c38}
 .source-github{background:#f0f0f0;color:#333}
 .source-tech-media{background:#fef3e8;color:#b8690b}
-.source-industry-media{background:#e8eeff;color:#0052d9}
+.source-industry{background:#e8eeff;color:#0052d9}
 .source-36kr{background:#e8f4fc;color:#066cbc}
 
 /* Impact badge colors */
@@ -342,7 +369,7 @@ const SOURCE_CONFIG = {
     'wechat': {name:'微信公众号',icon:'📨',color:'#07C160'},
     'github': {name:'GitHub',icon:'🐙',color:'#24292E'},
     'tech-media': {name:'技术社区',icon:'⚙️',color:'#ED7B2D'},
-    'industry-media': {name:'行业媒体',icon:'📰',color:'#0052D9'},
+    'industry': {name:'行业媒体',icon:'📰',color:'#0052D9'},
     '36kr': {name:'36氪',icon:'🚀',color:'#0066CC'},
 };
 
@@ -406,19 +433,42 @@ async function loadInitialData() {
 // ============================================================
 function renderSources() {
     const container = document.getElementById('sourceFilters');
+
+    // 从实际数据中动态提取所有来源及其计数
+    const sourceCountMap = {};
+    state.allData.forEach(d => {
+        const src = d.source || 'unknown';
+        sourceCountMap[src] = (sourceCountMap[src] || 0) + 1;
+    });
+
+    // 按SOURCE_CONFIG中的顺序排列，未配置的排最后
+    const sortedSources = Object.keys(sourceCountMap).sort((a, b) => {
+        const orderA = Object.keys(SOURCE_CONFIG).indexOf(a);
+        const orderB = Object.keys(SOURCE_CONFIG).indexOf(b);
+        return (orderA === -1 ? 999 : orderA) - (orderB === -1 ? 999 : orderB);
+    });
+
+    const isExpanded = state.srcExpanded === true;
     let html = `<button class="filter-btn active" data-source="">
-        <span>全部来源</span><span class="count">${state.allData.length}</span>
+        <span>全部</span><span class="count">${state.allData.length}</span>
     </button>`;
-    
-    Object.entries(SOURCE_CONFIG).forEach(([id, cfg]) => {
-        const count = state.allData.filter(d => d.source === id).length;
-        html += `<button class="filter-btn" data-source="${id}">
-            <span>${cfg.icon}${cfg.name}</span><span class="count">${count}</span>
+
+    sortedSources.forEach(srcId => {
+        const cfg = SOURCE_CONFIG[srcId] || {name: srcId, icon:'📄', color:'#999'};
+        html += `<button class="filter-btn" data-source="${srcId}">
+            <span>${cfg.icon}${cfg.name}</span><span class="count">${sourceCountMap[srcId]}</span>
         </button>`;
     });
-    
+
+    // 添加展开/收起按钮
+    const totalSrcs = sortedSources.length;
+    if (totalSrcs > 6) {
+        html += `<span class="filter-toggle" data-action="srcToggle">${isExpanded ? '▲ 收起' : '▼ 展开 (' + totalSrcs + '个)'}</span>`;
+    }
+
     container.innerHTML = html;
-    
+    container.classList.toggle('collapsed', !isExpanded && totalSrcs > 6);
+
     // 绑定事件
     container.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -429,11 +479,24 @@ function renderSources() {
             handleFilter();
         });
     });
+
+    // 绑定展开/收起
+    const toggleBtn = container.querySelector('[data-action="srcToggle"]');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            state.srcExpanded = !state.srcExpanded;
+            renderSources();
+        });
+    }
 }
 
 function renderCategories() {
     const container = document.getElementById('categoryFilters');
-    let html = '';
+    const isExpanded = state.catExpanded === true;
+
+    let html = `<button class="cat-btn ${state.activeCategories.size===0?'active':''}" data-category="">
+        <span>全部</span><span class="count">${state.allData.length}</span>
+    </button>`;
     
     state.categories.forEach(cat => {
         const count = state.allData.filter(d => d.category === cat.name).length;
@@ -442,14 +505,30 @@ function renderCategories() {
         }
     });
     
+    // 添加展开/收起按钮
+    const visibleCats = state.categories.filter(c => (state.allData.filter(d => d.category === c.name).length || 0) > 0);
+    if (visibleCats.length > 6) {
+        html += `<span class="filter-toggle" data-action="catToggle">${isExpanded ? '▲ 收起' : '▼ 展开 (' + visibleCats.length + '个)'}</span>`;
+    }
+
     container.innerHTML = html;
+    container.classList.toggle('collapsed', !isExpanded && visibleCats.length > 6);
     
     container.querySelectorAll('.cat-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const catName = btn.dataset.category;
-            if (state.activeCategories.has(catName)) {
+            if (!catName) {
+                // 点击"全部"，清除所有选中
+                state.activeCategories.clear();
+                container.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else if (state.activeCategories.has(catName)) {
                 state.activeCategories.delete(catName);
                 btn.classList.remove('active');
+                // 如果取消后无选中，激活"全部"
+                if (state.activeCategories.size === 0) {
+                    container.querySelector('.cat-btn[data-category=""]').classList.add('active');
+                }
             } else {
                 // 限制最多选3个分类
                 if (state.activeCategories.size >= 3) {
@@ -457,11 +536,22 @@ function renderCategories() {
                 }
                 state.activeCategories.add(catName);
                 btn.classList.add('active');
+                // 选中时取消"全部"
+                container.querySelectorAll('.cat-btn').forEach(b => { if(b.dataset.category==='') b.classList.remove('active'); });
             }
             state.page = 1;
             handleFilter();
         });
     });
+
+    // 绑定展开/收起
+    const catToggleBtn = container.querySelector('[data-action="catToggle"]');
+    if (catToggleBtn) {
+        catToggleBtn.addEventListener('click', () => {
+            state.catExpanded = !state.catExpanded;
+            renderCategories();
+        });
+    }
 }
 
 function renderStats() {
@@ -543,7 +633,7 @@ function renderTimeline() {
                     <div class="timeline-meta">
                         <span class="news-source source-${item.source}">${sc.icon||''}${sc.name||item.source}</span>
                         <span>${item.date}</span>
-                        <span class="impact-badge impact-${item impact-${item.impact}">${ic.label||''}</span>
+                        <span class="impact-badge impact-${item.impact}">${ic.label||''}</span>
                     </div>
                     <h4>${item.title}</h4>
                     <p>${item.summary}</p>
