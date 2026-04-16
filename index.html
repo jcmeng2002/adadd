@@ -57,7 +57,7 @@ body{font-family:var(--ff);background:var(--bg);color:var(--t1);line-height:1.6;
 var rawData=document.getElementById("appData").textContent;
 var ALL_DATA=JSON.parse(rawData);
 console.log("ADADD loaded:",ALL_DATA.length,"items");
-var SOURCES={weibo:{name:"微博",icon:"📱",color:"#E6162D"},zhihu:{name:"知乎",icon:"💡",color:"#0084FF"},wechat:{name:"微信公众号",icon:"📨",color:"#07C160"},github:{name:"GitHub",icon:"🐙",color:"#24292E"},"tech-media":{name:"技术社区",icon:"⚙️",color:"#ED7B2D"},"industry-media":{name:"行业媒体",icon:"📰",color:"#0052D9"},"36kr":{name:"36氪",icon:"🚀",color:"#0066CC"}};
+var SOURCES={weibo:{name:"微博",icon:"📱",color:"#E6162D"},zhihu:{name:"知乎",icon:"💡",color:"#0084FF"},wechat:{name:"微信公众号",icon:"📨",color:"#07C160"},github:{name:"GitHub",icon:"🐙",color:"#24292E"},"tech-media":{name:"技术社区",icon:"⚙️",color:"#ED7B2D"},"industry-media":{name:"行业媒体",icon:"📰",color:"#0052D9"},"36kr":{name:"36氪",icon:"🚀",color:"#0066CC"},"tencent-ima":{name:"腾讯IMA",icon:"🎯",color:"#0052D9"},"research":{name:"研究报告",icon:"📊",color:"#0052D9"},"gov":{name:"政府政策",icon:"🏛️",color:"#C41E3A"}};
 var IMPACTS={high:{label:"🔴 高",color:"#E02020"},medium:{label:"🟠 中",color:"#ED7B2D"},low:{label:"🟢 低",color:"#00A870"}};
 var PAGE_SIZE=12;
 var state={source:"",category:"",impact:"",sort:"latest",view:"cards",page:1,search:""};
@@ -79,7 +79,7 @@ function ensureModal(){
 }
 
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
-var SOURCE_SEARCH_TPL={"zhihu":"https://www.zhihu.com/search?type=content&q=","36kr":"https://36kr.com/search/articles?q=","weibo":"https://s.weibo.com/weibo?q=","github":"https://github.com/search?q=","wechat":"https://weixin.sogou.com/weixin?type=2&query=","tech-media":"https://www.google.com/search?q=site:juejin.cn+","industry-media":"https://www.google.com/search?q=site:madisonboom.com+OR+site:meihua.info+OR+site:adquan.com+"};
+var SOURCE_SEARCH_TPL={"zhihu":"https://www.zhihu.com/search?type=content&q=","36kr":"https://36kr.com/search/articles?q=","weibo":"https://s.weibo.com/weibo?q=","github":"https://github.com/search?q=","wechat":"https://weixin.sogou.com/weixin?type=2&query=","tech-media":"https://www.google.com/search?q=site:juejin.cn+","industry-media":"https://www.google.com/search?q=site:madisonboom.com+OR+site:meihua.info+OR+site:adquan.com+","tencent-ima":"https://www.google.com/search?q=site:ima.qq.com+","research":"https://www.google.com/search?q=","gov":"https://www.google.com/search?q=site:gov.cn+"};
 function getSearchQuery(item){var kw=item.category||"";if(item.tags&&item.tags.length>0)kw+=" "+item.tags[0];var t=item.title.replace(/\d{4}年.*?[白皮书|指南|观察|复盘|报告|洞察]/g,"").replace(/[：:].*/g,"");kw=t.trim()||kw;return kw}
 function getNewsUrl(item){if(item.url&&item.url.length>0&&(!item.url.includes("search?"))&&(!item.url.includes("/search/")))return item.url;var src=item.source||"",tpl=SOURCE_SEARCH_TPL[src],q=getSearchQuery(item);if(tpl)return tpl+encodeURIComponent(q);return "https://www.google.com/search?q="+encodeURIComponent(q)+" 广告 营销 2026"}
 function openRealSearch(q){window.open("https://www.google.com/search?q="+encodeURIComponent(q+" 广告 营销 AI 程序化 2026")+"&hl=zh-CN","_blank")}
