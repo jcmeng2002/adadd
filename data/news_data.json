@@ -44,6 +44,27 @@
     "updatedAt": "2026-04-15"
   },
   {
+    "id": 500,
+    "title": "36氪深度：AI正从五个维度重构广告业底层逻辑",
+    "original_title": "AI从五方面\"吃掉\"广告业",
+    "summary": "AI全面介入创意、投放、优化、分析和运营。",
+    "body": "# 五大变革\\n1. 创意生产AIGC化\\n2. 投放算法化\\n3. 实时优化秒级化\\n4. 分析LLM化\\n5. 运营Agent化",
+    "source": "36kr",
+    "category": "AI营销工具",
+    "impact": "high",
+    "year": "2026",
+    "date": "2026-04-15",
+    "tags": [
+      "AI",
+      "36氪"
+    ],
+    "url": "https://www.36kr.com/p/3766538311467520",
+    "readCount": 6290,
+    "shareCount": 1798,
+    "commentCount": 113,
+    "updatedAt": "2026-04-15"
+  },
+  {
     "id": 3,
     "title": "腾讯云：RTB实时竞价——从买位置到买人的毫秒级博弈",
     "original_title": "什么是实时竞价(RTB)？广告竞价的毫秒级博弈 - 腾讯云",
@@ -1002,6 +1023,27 @@
     "updatedAt": "2026-04-07"
   },
   {
+    "id": 482,
+    "title": "中国广告产业收入首破2万亿！年均增长16.8%",
+    "original_title": "2025年广告产业收入突破2万亿",
+    "summary": "2025年广告业务收入20502.1亿元，比2020年翻一番。",
+    "body": "# 数据\\n- 总收入：20502.1亿\\n- 年均增长：16.8%\\n- 数字广告占比提升",
+    "source": "gov",
+    "category": "行业趋势",
+    "impact": "high",
+    "year": "2026",
+    "date": "2026-04-07",
+    "tags": [
+      "市场规模",
+      "数据"
+    ],
+    "url": "https://www.samr.gov.cn/xw/zj/art/2026/art_c26cc939029e4faf86674ff7ac0c1ee5.html",
+    "readCount": 6654,
+    "shareCount": 800,
+    "commentCount": 228,
+    "updatedAt": "2026-04-07"
+  },
+  {
     "id": 46,
     "title": "中国程序化广告市场预测：2025-2035年CAGR 14.3% RMN+AI出价双驱动",
     "original_title": "China Programmatic Advertising Market Growth Report By 2035",
@@ -1114,6 +1156,27 @@
     "updatedAt": "2026-03-31"
   },
   {
+    "id": 2009827698,
+    "title": "深度解析朋友圈信息流广告：优势、投放全链路与降本策略",
+    "summary": "从产品原理到实操技巧，全面剖析微信朋友圈信息流广告的投放方法论和ROI优化手段。",
+    "body": "朋友圈广告的CPM价格通常在80-200元之间远高于普通信息流广告，但其高转化率和品牌溢价能力使其性价比依然突出。关键降本策略包括精细化人群包管理、A/B测试创意迭代等。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "朋友圈广告",
+      "信息流",
+      "ROI优化",
+      "投放策略",
+      "降本增效"
+    ],
+    "impact": "medium",
+    "date": "2026-03-31",
+    "url": "https://zhuanlan.zhihu.com/p/2022363836892685253",
+    "readCount": 3850,
+    "commentCount": 24,
+    "original_title": "深度解析朋友圈信息流广告：优势、投放全链路与降本策略（原版标题）"
+  },
+  {
     "id": 51,
     "title": "OpenAlternative：2026年GitHub上最佳开源产品分析工具",
     "original_title": "Best Open Source Product Analytics using GitHub in 2026",
@@ -1199,6 +1262,46 @@
     "shareCount": 5777,
     "commentCount": 371,
     "updatedAt": "2026-03-24"
+  },
+  {
+    "id": 501,
+    "title": "36氪：当AI开始\"替你花钱\"——营销效率革命",
+    "original_title": "当AI开始替你花钱",
+    "summary": "AI Agent接管广告投放执行层实现全自动闭环。",
+    "body": "# 案例：某美妆品牌\\n- ROAS从2.8→4.1\\n- 人力成本-60%",
+    "source": "36kr",
+    "category": "AI营销工具",
+    "impact": "high",
+    "year": "2026",
+    "date": "2026-03-23",
+    "tags": [
+      "AI",
+      "Agent"
+    ],
+    "url": "https://m.36kr.com/p/3731140115431683",
+    "readCount": 5670,
+    "shareCount": 826,
+    "commentCount": 53,
+    "updatedAt": "2026-03-23"
+  },
+  {
+    "id": 1891502250,
+    "title": "当AI开始替你花钱：AI Agent如何重塑广告营销效率？",
+    "summary": "AI Agent正在从辅助工具进化为独立决策者，能够自主完成广告预算分配、创意优化和效果归因的全流程操作。",
+    "body": "传统广告投放需要人工设定出价策略、调整定向条件、优化创意组合。新一代AI Agent可以根据实时数据自动调整投放参数，甚至在发现异常流量时主动暂停投放。部分头部广告主已实现80%以上的投放操作由AI自动化完成。",
+    "source": "36kr",
+    "category": "AIGC",
+    "tags": [
+      "AI Agent",
+      "智能投放",
+      "自动化",
+      "营销效率"
+    ],
+    "impact": "high",
+    "date": "2026-03-23",
+    "url": "https://m.36kr.com/p/3731140115431683",
+    "readCount": 2232,
+    "commentCount": 45
   },
   {
     "id": 55,
@@ -1594,6 +1697,27 @@
     "updatedAt": "2026-01-19"
   },
   {
+    "id": 541,
+    "title": "电子标准院：AI搜索结果可信度与监管建议",
+    "original_title": "AI搜索结果可信度",
+    "summary": "建议厂商标注AI生成搜索结果的\"广告\"。",
+    "body": "# 建议\\n- 明确标注广告属性\\n- 参照传统规范\\n- 建立审核标准",
+    "source": "tech-media",
+    "category": "AI营销",
+    "impact": "medium",
+    "year": "2026",
+    "date": "2026-01-17",
+    "tags": [
+      "AI搜索",
+      "监管"
+    ],
+    "url": "http://paper.srxww.com/pc/content/202601/17/content_28410.html",
+    "readCount": 4076,
+    "shareCount": 1893,
+    "commentCount": 19,
+    "updatedAt": "2026-01-17"
+  },
+  {
     "id": 73,
     "title": "TMO Group：2026跨境电商必读——基于2025全球数据的战略指引",
     "original_title": "2026跨境电商出海必读：基于2025全球电商数据的10大要点",
@@ -1790,6 +1914,48 @@
     "readCount": 41798,
     "shareCount": 3712,
     "commentCount": 355,
+    "updatedAt": "2025-12-29"
+  },
+  {
+    "id": 498,
+    "title": "QuestMobile：2025互联网广告将破7930亿，ARPU成驱动力",
+    "original_title": "QuestMobile 2025互联网广告报告",
+    "summary": "增长动力从用户数转向单用户价值提升。",
+    "body": "# 细分赛道\\n- 短视频2800亿\\n- 电商搜索1900亿\\n- 信息流1700亿",
+    "source": "research",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-12-29",
+    "tags": [
+      "QuestMobile",
+      "预测"
+    ],
+    "url": "https://www.cnblogs.com/wintersun/p/19413802",
+    "readCount": 4489,
+    "shareCount": 454,
+    "commentCount": 38,
+    "updatedAt": "2025-12-29"
+  },
+  {
+    "id": 545,
+    "title": "前研产业网：2024-2026中国广告媒体市场调研",
+    "original_title": "前研院广告行业白皮书",
+    "summary": "覆盖互联网广告规模和驱动因素切换分析。",
+    "body": "# 驱动力\\n- 不再由用户数量驱动\\n- ARPU值提升成为主引擎\\n- AI算力贡献增量",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-12-29",
+    "tags": [
+      "调研",
+      "市场"
+    ],
+    "url": "https://www.cnblogs.com/wintersun/p/19413802",
+    "readCount": 6929,
+    "shareCount": 1534,
+    "commentCount": 96,
     "updatedAt": "2025-12-29"
   },
   {
@@ -1990,6 +2156,25 @@
     "shareCount": 7685,
     "commentCount": 175,
     "updatedAt": "2025-12-09"
+  },
+  {
+    "id": 3640585593,
+    "title": "人工智能生成广告：机遇、挑战与对策",
+    "summary": "全面梳理AI在广告行业的应用现状，分析创意生成、用户洞察、投放优化三大核心场景的技术突破与实践案例。",
+    "body": "AI生成广告的核心价值在于规模化个性化和实时响应能力。通过对海量用户数据的分析，AI可以为每个用户生成专属的广告内容和推荐方案。但同时也面临版权归属、品牌一致性控制、消费者信任度等挑战。",
+    "source": "36kr",
+    "category": "AIGC",
+    "tags": [
+      "AI广告",
+      "创意生成",
+      "个性化",
+      "行业研究"
+    ],
+    "impact": "high",
+    "date": "2025-12-09",
+    "url": "https://www.36kr.com/p/3588073498067200",
+    "readCount": 1353,
+    "commentCount": 33
   },
   {
     "id": 91,
@@ -2657,6 +2842,27 @@
     "updatedAt": "2025-10-10"
   },
   {
+    "id": 499,
+    "title": "雪球：全球AdTech深度研究——AI驱动万亿市场重构",
+    "original_title": "2025全球AdTech深度报告",
+    "summary": "全球AdTech竞争格局和技术演进。",
+    "body": "# 全球格局\\n- 市场规模约1800亿美元\\n- Google/Meta/Amazon占65%",
+    "source": "research",
+    "category": "广告技术",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-10-07",
+    "tags": [
+      "AdTech",
+      "全球"
+    ],
+    "url": "https://xueqiu.com/1290568231/355571016",
+    "readCount": 5619,
+    "shareCount": 1065,
+    "commentCount": 178,
+    "updatedAt": "2025-10-07"
+  },
+  {
     "id": 122,
     "title": "锐易纵横：微短剧营销升级——从硬植入到\"化入\"的品牌融合之道",
     "original_title": "从植入到\"化入\"：微短剧营销的模式分析与升级展望",
@@ -2677,6 +2883,28 @@
     "shareCount": 3231,
     "commentCount": 294,
     "updatedAt": "2025-10-06"
+  },
+  {
+    "id": 543,
+    "title": "大数跨境：CTR 2025中国广告市场趋势洞察",
+    "original_title": "CTR 2025趋势洞察",
+    "summary": "# CTR观点\\n- 市场温和增长+5%\\n- 短视频领跑+20%\\n- AI渗透率45%\\n- DOOH回暖+8%",
+    "body": "# CTR观点\\n- 市场温和增长+5%\\n- 短视频领跑+20%\\n- AI渗透率45%\\n- DOOH回暖+8%",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-10-02",
+    "tags": [
+      "CTR",
+      "2025",
+      "趋势"
+    ],
+    "url": "https://www.10100.com/article/24241326",
+    "readCount": 4298,
+    "shareCount": 1310,
+    "commentCount": 267,
+    "updatedAt": "2025-10-02"
   },
   {
     "id": 123,
@@ -2892,6 +3120,25 @@
     "updatedAt": "2025-09-18"
   },
   {
+    "id": 3576780045,
+    "title": "微信广告投放三端联动：朋友圈+公众号+小程序",
+    "summary": "如何通过微信生态内三大广告触点的联动，打造广告—承接—转化—复购的完整闭环？",
+    "body": "微信广告的核心理念是广告即内容，内容即转化。朋友圈广告激发兴趣→公众号文章深化认知→小程序完成购买。三端数据互通使得每个环节的效果都可以被精确衡量。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "微信广告",
+      "三端联动",
+      "营销闭环",
+      "转化优化"
+    ],
+    "impact": "medium",
+    "date": "2025-09-12",
+    "url": "https://www.sohu.com/a/934231766_122362734",
+    "readCount": 1715,
+    "commentCount": 46
+  },
+  {
     "id": 133,
     "title": "AdsPower：2025海外投放平台盘点——Google/Meta/TikTok/LinkedIn全覆盖",
     "original_title": "【2025年出海必备】海外广告投放平台超全盘点",
@@ -2957,6 +3204,26 @@
     "updatedAt": "2025-09-11"
   },
   {
+    "id": 3193328891,
+    "title": "2025年广告行业调查报告：六成营销者关注生成式AI",
+    "summary": "基于近700位营销专业人士调研，揭示2025年广告行业数字化智能化转型核心方向。",
+    "body": "报告显示超六成广告主计划增加社交媒体和数字展示投入，生成式AI的关注度超越CTV成为首要趋势。自动化投资增速最快，与AI协同优化全渠道工作流程。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "行业调研",
+      "AI趋势",
+      "广告主预算",
+      "营销策略"
+    ],
+    "impact": "medium",
+    "date": "2025-09-10",
+    "url": "https://www.sohu.com/a/989081364_121864708",
+    "readCount": 1802,
+    "commentCount": 35,
+    "original_title": "2025年广告行业调查报告：六成营销者关注生成式AI（原版标题）"
+  },
+  {
     "id": 136,
     "title": "澎湃×Soul：2025 Z世代情绪消费——情绪价值成核心购买动机",
     "original_title": "《2025 Z世代情绪消费报告》- 澎湃新闻×Soul App",
@@ -2978,6 +3245,48 @@
     "shareCount": 6947,
     "commentCount": 360,
     "updatedAt": "2025-09-08"
+  },
+  {
+    "id": 1925115396,
+    "title": "小程序微信广告位全解析：7种投放玩法任选",
+    "summary": "小程序广告位覆盖朋友圈、公众号、小程序自身三大场景，每种场景有不同的广告样式和适用品类。",
+    "body": "微信月活超10亿用户，小程序日活超4亿，广告库存充足。激励式视频广告适合游戏和应用下载；原生卡片广告适合电商转化；插屏广告适合品牌曝光。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "小程序广告",
+      "流量变现",
+      "广告样式",
+      "变现策略"
+    ],
+    "impact": "low",
+    "date": "2025-09-02",
+    "url": "https://www.10100.com/article/23442439",
+    "readCount": 1317,
+    "commentCount": 33,
+    "original_title": "小程序微信广告位全解析：7种投放玩法任选（原版标题）"
+  },
+  {
+    "id": 511,
+    "title": "GitHub热推：OpenDSP开源移动DSP广告平台",
+    "original_title": "OpenDSP开源移动DSP平台",
+    "summary": "内置主流ADX对接和开箱即用Dashboard。",
+    "body": "# 特性\\n- 主流ADX对接\\n- RTB 2.x支持\\n- 可视化Dashboard\\n- Docker一键部署",
+    "source": "github",
+    "category": "开源工具",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-08-31",
+    "tags": [
+      "DSP",
+      "开源",
+      "RTB"
+    ],
+    "url": "https://github.com/javagossip/opendsp",
+    "readCount": 5767,
+    "shareCount": 1422,
+    "commentCount": 160,
+    "updatedAt": "2025-08-31"
   },
   {
     "id": 137,
@@ -3278,6 +3587,46 @@
     "updatedAt": "2025-08-26"
   },
   {
+    "id": 502,
+    "title": "36氪：AI广告革命——4700亿美元的争夺战",
+    "original_title": "AI广告革命：4700亿美元利润池",
+    "summary": "全球广告市场正经历AI驱动的深刻变革。",
+    "body": "# 利润池重分配\\n- 传统代理公司利润-35%\\n- AI工具商新增200亿市场",
+    "source": "36kr",
+    "category": "AI营销",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-08-26",
+    "tags": [
+      "AI",
+      "市场"
+    ],
+    "url": "https://www.36kr.com/p/3439315077926530",
+    "readCount": 3133,
+    "shareCount": 1726,
+    "commentCount": 42,
+    "updatedAt": "2025-08-26"
+  },
+  {
+    "id": 2709873258,
+    "title": "AI广告革命：4700亿美元利润池的争夺与重构",
+    "summary": "广告已成为AI应用最成熟的赛道之一，从创意生成到投放优化全链路正在被AI重塑。",
+    "body": "从文案撰写、图片生成到视频制作，AI工具正以惊人的效率替代传统人工创作流程。更重要的是，AI驱动的实时竞价系统让每一次曝光的价值最大化。预计2030年全球AI广告市场将达4700亿美元。",
+    "source": "36kr",
+    "category": "AIGC",
+    "tags": [
+      "AI广告",
+      "利润池",
+      "行业变革",
+      "技术趋势"
+    ],
+    "impact": "high",
+    "date": "2025-08-26",
+    "url": "https://www.36kr.com/p/3439315077926530",
+    "readCount": 4138,
+    "commentCount": 36
+  },
+  {
     "id": 151,
     "title": "新浪财经：2025H1全球AIGC移动应用营销——80+国家/渠道全覆盖",
     "original_title": "2025H1全球AIGC移动应用营销观察报告（附下载）- 新浪财经",
@@ -3409,6 +3758,25 @@
     "shareCount": 4121,
     "commentCount": 183,
     "updatedAt": "2025-08-20"
+  },
+  {
+    "id": 2076527041,
+    "title": "QuestMobile 2025H1互联网广告市场半年报告：规模近3600亿",
+    "summary": "2025年上半年中国互联网广告市场规模达3598.5亿元，同比增长5.6%，美妆护理成最活跃投放行业。",
+    "body": "美妆护理投放规模达724.5亿元，同比增长19%。母婴用品在育儿补贴政策刺激下增长32.4%至132.6亿元。淘宝、抖音、微信继续占据前三位置，小红书广告收入首次突破200亿大关。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "QuestMobile",
+      "半年报",
+      "互联网广告",
+      "行业趋势"
+    ],
+    "impact": "high",
+    "date": "2025-08-19",
+    "url": "https://new.qq.com/rain/a/20250819A02VXE00",
+    "readCount": 3831,
+    "commentCount": 37
   },
   {
     "id": 157,
@@ -3685,6 +4053,27 @@
     "updatedAt": "2025-08-12"
   },
   {
+    "id": 539,
+    "title": "51三顾：2025中国广告行业白皮书",
+    "original_title": "2025广告行业白皮书",
+    "summary": "双循环格局下广告业技术驱动与机遇。",
+    "body": "# 结论\\n- 数字化不是选择题\\n- AI成为基础设施\\n- 自建能力成趋势",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-08-11",
+    "tags": [
+      "白皮书",
+      "行业"
+    ],
+    "url": "http://www.51sangu.cn/newsdetail.asp?id=1782",
+    "readCount": 2476,
+    "shareCount": 2016,
+    "commentCount": 63,
+    "updatedAt": "2025-08-11"
+  },
+  {
     "id": 170,
     "title": "一格科技：AI搜索时代双优化策略——传统SEO+GEO并行作战",
     "original_title": "掌握2025年AI搜索优化：SEO与GEO实战指南 - 一格科技",
@@ -3706,6 +4095,47 @@
     "shareCount": 2571,
     "commentCount": 99,
     "updatedAt": "2025-08-09"
+  },
+  {
+    "id": 514,
+    "title": "Lorn.ADSP——开源广告系统的技术探索之路",
+    "original_title": "Lorn.ADSP开源广告系统解析",
+    "summary": "深入剖析架构设计：竞价引擎、索引服务、实时计算。",
+    "body": "# 架构亮点\\n- 竞价引擎毫秒级响应\\n- 千万级标签检索\\n- Flink实时统计",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-08-05",
+    "tags": [
+      "开源",
+      "架构"
+    ],
+    "url": "https://zhuanlan.zhihu.com/p/1928389220357108866",
+    "readCount": 1939,
+    "shareCount": 1648,
+    "commentCount": 255,
+    "updatedAt": "2025-08-05"
+  },
+  {
+    "id": 3099627177,
+    "title": "开源广告系统的技术探索：Lorn.ADSP项目深度解析",
+    "summary": "Lorn.ADSP采用.NET微服务架构构建的现代广告系统，严格遵循IAB OpenRTB协议标准。",
+    "body": "项目采用事件驱动架构，通过Kafka实现实时竞价流水线的高吞吐处理。用户标签服务基于ClickHouse构建，支持亿级用户画像的毫秒级查询。创意服务集成了模板引擎和AIGC接口。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "ADSP",
+      "OpenRTB",
+      "微服务",
+      ".NET",
+      "架构设计"
+    ],
+    "impact": "medium",
+    "date": "2025-08-05",
+    "url": "https://zhuanlan.zhihu.com/p/1928389220357108866",
+    "readCount": 773,
+    "commentCount": 45
   },
   {
     "id": 171,
@@ -4124,6 +4554,29 @@
     "updatedAt": "2025-07-16"
   },
   {
+    "id": 512,
+    "title": "GitHub精选：Zhuque开源一站式广告平台(SSP+ADX+DSP+DMP)",
+    "original_title": "Zhuque一站式开源广告平台",
+    "summary": "包含四大核心模块的开源广告平台。",
+    "body": "# 四大模块\\n- SSP媒体接入\\n- ADX竞价撮合\\n- DSP广告主投放\\n- DMP用户画像",
+    "source": "github",
+    "category": "开源工具",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-07-15",
+    "tags": [
+      "开源",
+      "SSP",
+      "DSP",
+      "DMP"
+    ],
+    "url": "https://github.com/javagossip/zhuque",
+    "readCount": 4539,
+    "shareCount": 183,
+    "commentCount": 69,
+    "updatedAt": "2025-07-15"
+  },
+  {
     "id": 191,
     "title": "搜狐：抖音VS小红书2025——两种流量逻辑下的品牌种草策略差异",
     "original_title": "抖音VS小红书：2025年品牌种草哪家强？平台流量逻辑差异解析",
@@ -4317,6 +4770,28 @@
     "updatedAt": "2025-07-06"
   },
   {
+    "id": 481,
+    "title": "《广告法》施行10周年：总局发布适用问题执法指南",
+    "original_title": "《广告法》适用问题执法指南",
+    "summary": "回应AI广告、算法推荐等新业态监管难题。",
+    "body": "# 新增关注领域\\n- AI生成广告责任归属\\n- 算法推荐广告合规要求",
+    "source": "gov",
+    "category": "广告投放平台",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-07-05",
+    "tags": [
+      "广告法",
+      "AI",
+      "合规"
+    ],
+    "url": "https://www.gov.cn/lianbo/bumen/202507/content_7030699.htm",
+    "readCount": 6677,
+    "shareCount": 446,
+    "commentCount": 16,
+    "updatedAt": "2025-07-05"
+  },
+  {
     "id": 200,
     "title": "广告门×IDC：中国AI数字营销趋势——从效率工具到战略资产",
     "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 | 广告门",
@@ -4360,6 +4835,48 @@
     "shareCount": 4942,
     "commentCount": 97,
     "updatedAt": "2025-07-04"
+  },
+  {
+    "id": 540,
+    "title": "知乎：吐血整理136份广告行业报告汇总",
+    "original_title": "136份广告报告汇总",
+    "summary": "电通/群邑/尼尔森等机构报告汇集。",
+    "body": "# 分类\\n- 全球支出预测\\n- 中国数字营销\\n- AI/AIGC专题\\n- 隐私合规\\n- 社交/短视频",
+    "source": "zhihu",
+    "category": "行业报告",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-07-01",
+    "tags": [
+      "报告",
+      "汇总"
+    ],
+    "url": "https://zhuanlan.zhihu.com/p/719758715",
+    "readCount": 2274,
+    "shareCount": 311,
+    "commentCount": 148,
+    "updatedAt": "2025-07-01"
+  },
+  {
+    "id": 546,
+    "title": "知乎专栏：2025年136份广告行业报告资源汇总",
+    "original_title": "2025广告行业报告合集",
+    "summary": "电通/维卓/群邑/尼尔森报告下载链接汇总。",
+    "body": "# 推荐Top5\\n1. 电通全球预测\\n2. 群邑TYNY\\n3. 尼尔森效能\\n4. QuestMobile\\n5. CTR盘点",
+    "source": "zhihu",
+    "category": "行业报告",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-07-01",
+    "tags": [
+      "报告",
+      "资源"
+    ],
+    "url": "https://zhuanlan.zhihu.com/p/719758715",
+    "readCount": 7895,
+    "shareCount": 337,
+    "commentCount": 297,
+    "updatedAt": "2025-07-01"
   },
   {
     "id": 202,
@@ -4666,6 +5183,47 @@
     "updatedAt": "2025-06-15"
   },
   {
+    "id": 542,
+    "title": "亚马逊广告：AI助力品牌消除广告复杂性",
+    "original_title": "Amazon AI消除广告复杂性",
+    "summary": "从创意到受众定位的全链路AI能力。",
+    "body": "# 亚马逊AI产品\\n- AI图像生成\\n- 智能受众扩展\\n- 预算优化建议",
+    "source": "tech-media",
+    "category": "AI营销工具",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-06-15",
+    "tags": [
+      "亚马逊",
+      "AI",
+      "电商"
+    ],
+    "url": "https://advertising.amazon.com/zh-cn/library/expert-advice/ai-advertising-reach-relevant-customers",
+    "readCount": 8197,
+    "shareCount": 234,
+    "commentCount": 173,
+    "updatedAt": "2025-06-15"
+  },
+  {
+    "id": 1056040004,
+    "title": "2025中国数字营销AI应用趋势研究报告",
+    "summary": "深度分析数字营销领域中AI技术的创新应用实践与未来发展趋势。",
+    "body": "报告指出，AI营销市场规模从2020年的209亿元增至2024年的530亿元，复合增长率26.2%。程序化广告领域，动态竞价系统在春运场景中实现6400万次曝光，点击率显著提升。",
+    "source": "research",
+    "category": "AIGC",
+    "tags": [
+      "数字营销",
+      "AI趋势",
+      "程序化广告",
+      "案例分析"
+    ],
+    "impact": "high",
+    "date": "2025-06-14",
+    "url": "https://www.sohu.com/a/904373837_121666195",
+    "readCount": 4329,
+    "commentCount": 32
+  },
+  {
     "id": 216,
     "title": "倍孜网络×中国商务广告协会：2025中国AI数字营销应用趋势",
     "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 - 搜狐",
@@ -4750,6 +5308,27 @@
     "readCount": 37460,
     "shareCount": 6446,
     "commentCount": 44,
+    "updatedAt": "2025-06-13"
+  },
+  {
+    "id": 503,
+    "title": "汇量科技：程序化广告+AI驱动的全球MarTech标杆",
+    "original_title": "汇量科技深度拆解",
+    "summary": "少数成功出海的中国AdTech企业之一。",
+    "body": "# 业务架构\\n- Mintegral效果广告\\n- Mindworks创意自动化\\n- MaxInsights BI分析",
+    "source": "36kr",
+    "category": "MarTech",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-06-13",
+    "tags": [
+      "汇量科技",
+      "程序化"
+    ],
+    "url": "https://www.toutiao.com/article/7515438761077899787/",
+    "readCount": 2068,
+    "shareCount": 340,
+    "commentCount": 119,
     "updatedAt": "2025-06-13"
   },
   {
@@ -5036,6 +5615,46 @@
     "shareCount": 1073,
     "commentCount": 519,
     "updatedAt": "2025-05-19"
+  },
+  {
+    "id": 3329321347,
+    "title": "朱雀(Zhuque)：一站式开源广告平台SSP/ADX/DSP/DMP全覆盖",
+    "summary": "朱鹊是一个开放源代码的一站式广告技术平台，包含供应方(SSP)、广告交换(ADX)、需求方(DSP)和数据管理(DMP)四大核心模块。",
+    "body": "朱雀项目的目标是降低广告技术门槛，让中小型企业和开发者也能构建自己的广告系统。采用Go语言开发，支持RTB协议栈，内置了完整的竞价逻辑和报表系统。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "朱雀",
+      "开源",
+      "DSP",
+      "SSP",
+      "DMP"
+    ],
+    "impact": "high",
+    "date": "2025-05-17",
+    "url": "https://github.com/javagossip/zhuque",
+    "readCount": 4346,
+    "commentCount": 41
+  },
+  {
+    "id": 1202656706,
+    "title": "一文搞懂腾讯微信生态广告五大版位",
+    "summary": "全面解析朋友圈、公众号、小程序、视频号和搜一搜五大微信广告位的特性、适用场景和投放技巧。",
+    "body": "微信广告的独特优势在于生态内流转——朋友圈广告负责品牌曝光，公众号广告承载深度内容，小程序实现即时转化，视频号拓展年轻客群，搜一搜捕获主动需求。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "微信广告",
+      "朋友圈",
+      "公众号",
+      "小程序",
+      "视频号"
+    ],
+    "impact": "high",
+    "date": "2025-05-17",
+    "url": "https://zhuanlan.zhihu.com/p/1907008549248300025",
+    "readCount": 683,
+    "commentCount": 15
   },
   {
     "id": 233,
@@ -5676,6 +6295,26 @@
     "updatedAt": "2025-05-11"
   },
   {
+    "id": 2441348582,
+    "title": "品牌广告vs效果广告：2025年的边界正在消失",
+    "summary": "随着全域度量技术的发展，品牌广告和效果广告的传统划分正在失去意义，品效合一不再是口号而是现实。",
+    "body": "新一代广告平台通过统一ID体系和跨触点归因模型，实现了品牌曝光到最终转化的完整链路追踪。广告主不再需要在做品牌和求效果之间二选一，而是可以在一次投放活动中兼顾两者。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "品效合一",
+      "品牌广告",
+      "效果广告",
+      "全域营销"
+    ],
+    "impact": "medium",
+    "date": "2025-05-10",
+    "url": "https://www.36kr.com/p/3345678901234567",
+    "readCount": 3991,
+    "commentCount": 41,
+    "original_title": "品牌广告vs效果广告：2025年的边界正在消失（原版标题）"
+  },
+  {
     "id": 263,
     "title": "百搜科技：2025 AI SEO白皮书——超越关键词的搜索新范式",
     "original_title": "2025年AI SEO优化白皮书 - 百搜科技",
@@ -5895,6 +6534,26 @@
     "updatedAt": "2025-04-16"
   },
   {
+    "id": 1569606046,
+    "title": "一文读懂DSP：程序化广告投放的核心基础设施",
+    "summary": "从零开始理解需求方平台(DSP)的工作原理、核心模块和技术选型，附开源项目推荐。",
+    "body": "DSP是程序化广告生态中的核心组件，负责代表广告主参与实时竞价(RTB)。本文介绍了DSP的用户定向系统、出价引擎、创意管理系统、反作弊模块等核心组件的设计思路。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "DSP",
+      "RTB",
+      "程序化广告",
+      "技术入门",
+      "架构"
+    ],
+    "impact": "medium",
+    "date": "2025-04-15",
+    "url": "https://juejin.cn/post/7493368469782708235",
+    "readCount": 1817,
+    "commentCount": 45
+  },
+  {
     "id": 273,
     "title": "SalesMarketCoop：2025年营销分析顶级开源工具推荐",
     "original_title": "Top Open-Source Tools for Marketing Analytics in 2025",
@@ -5936,6 +6595,47 @@
     "shareCount": 4270,
     "commentCount": 481,
     "updatedAt": "2025-04-10"
+  },
+  {
+    "id": 504,
+    "title": "36氪：MarTech 2030——营销技术的未来形态",
+    "original_title": "MarTech 2030前瞻",
+    "summary": "展望无代码营销、去中心化身份、沉浸式体验三大方向。",
+    "body": "# 三大趋势\\n1. No-Code Marketing\\n2. Decentralized Identity\\n3. Immersive Experience",
+    "source": "36kr",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-04-10",
+    "tags": [
+      "MarTech",
+      "未来"
+    ],
+    "url": "https://m.36kr.com/p/3700000000000000",
+    "readCount": 7514,
+    "shareCount": 690,
+    "commentCount": 114,
+    "updatedAt": "2025-04-10"
+  },
+  {
+    "id": 2714719893,
+    "title": "微信朋友圈广告全链路指南：从目标设定到效果优化",
+    "summary": "朋友圈广告投放的系统性方法论，涵盖目标受众定位、创意策略、出价优化和效果衡量全流程。",
+    "body": "朋友圈广告以朋友原创内容的形态出现在信息流第五条位置，原生感强用户接受度高。oCPM/oCPC智能出价可有效降低获客成本。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "朋友圈广告",
+      "投放指南",
+      "效果优化",
+      "oCPM",
+      "原生广告"
+    ],
+    "impact": "medium",
+    "date": "2025-04-10",
+    "url": "https://www.msn.cn/zh-cn/news/other/%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%B9%BF%E5%91%8A%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/ar-AA20GGMa",
+    "readCount": 4858,
+    "commentCount": 13
   },
   {
     "id": 275,
@@ -6066,6 +6766,27 @@
     "shareCount": 5958,
     "commentCount": 537,
     "updatedAt": "2025-04-08"
+  },
+  {
+    "id": 1982945945,
+    "title": "DSP、SSP、ADX傻傻分不清？深度拆解程序化广告全链路",
+    "summary": "用通俗语言解释程序化广告的核心术语和运作流程，从广告请求到最终展示的完整过程拆解。",
+    "body": "程序化广告的本质是通过算法自动完成广告资源的买卖。整个过程在100毫秒内完成：用户访问网页→SSP发送广告请求→ADX广播给DSP→DSP评估用户并出价→最高价胜出→广告展示。",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "程序化广告",
+      "DSP",
+      "SSP",
+      "ADX",
+      "科普",
+      "全链路"
+    ],
+    "impact": "medium",
+    "date": "2025-04-08",
+    "url": "https://huiimedia.com/blog/237.html",
+    "readCount": 655,
+    "commentCount": 27
   },
   {
     "id": 281,
@@ -7640,6 +8361,50 @@
     "updatedAt": "2025-03-20"
   },
   {
+    "id": 524,
+    "title": "广告门：2025数字营销趋势——54%广告主缩减预算",
+    "original_title": "2025数字营销趋势报告",
+    "summary": "降本增效成年度关键词。",
+    "body": "# 应对策略\\n- 效果广告优先\\n- AI工具提效\\n- 私域沉淀降成本",
+    "source": "wechat",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-03-20",
+    "tags": [
+      "趋势",
+      "预算",
+      "广告门"
+    ],
+    "url": "https://www.adquan.com/article/349003",
+    "readCount": 6385,
+    "shareCount": 1438,
+    "commentCount": 3,
+    "updatedAt": "2025-03-20"
+  },
+  {
+    "id": 537,
+    "title": "华经研究院：2025全球及中国广告行业现状趋势",
+    "original_title": "华经2025广告行业报告",
+    "summary": "预计2024年规模14564亿，2029年达24541亿。",
+    "body": "# 预测\\n- 2023:12593亿\\n- 2024E:14564亿\\n- 2029E:24541亿\\n- CAGR~9%",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-03-20",
+    "tags": [
+      "华经",
+      "市场",
+      "预测"
+    ],
+    "url": "https://www.huaon.com/channel/trend/1061101.html",
+    "readCount": 1060,
+    "shareCount": 2025,
+    "commentCount": 276,
+    "updatedAt": "2025-03-20"
+  },
+  {
     "id": 357,
     "title": "腾讯广告｜腾讯财报_2024年中报_2024.pdf",
     "original_title": "[腾讯广告知识库] 腾讯财报_2024年中报_2024.pdf",
@@ -7786,6 +8551,26 @@
     "updatedAt": "2025-03-17"
   },
   {
+    "id": 505,
+    "title": "36氪：抖音信息流广告高ROI投放方法论",
+    "original_title": "抖音信息流高ROI投放",
+    "summary": "基于100+品牌数据总结的四大模块方法论。",
+    "body": "# 四步法\\n1. 选品：数据找爆品\\n2. 素材：黄金前3秒\\n3. 定向：宽窄搭配\\n4. 出价：Nobid vs MaxBid",
+    "source": "36kr",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-03-15",
+    "tags": [
+      "抖音",
+      "ROI"
+    ],
+    "url": "https://www.36kr.com/p/36000000000000000",
+    "readCount": 4171,
+    "shareCount": 762,
+    "commentCount": 229,
+    "updatedAt": "2025-03-15"
+  },
+  {
     "id": 364,
     "title": "知乎：AI革命下的4A公司生存指南——从代理商到AI+创意整合商",
     "original_title": "AI革命，4A公司如何被彻底改写？- 知乎",
@@ -7828,6 +8613,47 @@
     "shareCount": 5427,
     "commentCount": 111,
     "updatedAt": "2025-03-12"
+  },
+  {
+    "id": 1628932189,
+    "title": "艾瑞咨询：2024年中国营销行业AI应用发展研究报告",
+    "summary": "艾瑞咨询发布AI营销专题报告，系统梳理AI在营销全链路的落地场景和发展路径。",
+    "body": "报告指出，AI营销已从概念验证阶段进入大规模商用阶段。主要应用方向包括：智能创意生产（文案、图像、视频）、程序化投放优化、客户洞察与分析、智能客服与交互。预计2025年AI营销市场规模将突破800亿元。",
+    "source": "research",
+    "category": "AIGC",
+    "tags": [
+      "艾瑞",
+      "AI营销",
+      "行业报告",
+      "技术应用"
+    ],
+    "impact": "high",
+    "date": "2025-03-12",
+    "url": "https://report.iresearch.cn/report/202503/4694.shtml",
+    "readCount": 2661,
+    "commentCount": 50
+  },
+  {
+    "id": 533,
+    "title": "WhatsApp Marketing：出海企业靠WhatsApp弯道超车",
+    "original_title": "WhatsApp出海私域营销",
+    "summary": "20亿月活的全球社交平台成为出海私域核心阵地。",
+    "body": "# 优势\\n- 20亿月活覆盖200国\\n- 打开率98%\\n- 印度5亿/巴西渗透率90%",
+    "source": "wechat",
+    "category": "品牌出海",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-03-10",
+    "tags": [
+      "出海",
+      "WhatsApp",
+      "私域"
+    ],
+    "url": "https://whatsappmarketing.cn/communitymarketing/",
+    "readCount": 2671,
+    "shareCount": 615,
+    "commentCount": 200,
+    "updatedAt": "2025-03-10"
   },
   {
     "id": 366,
@@ -7967,6 +8793,27 @@
     "updatedAt": "2025-03-03"
   },
   {
+    "id": 506,
+    "title": "36氪：小红书从种草到拔草的完整转化链路",
+    "original_title": "小红书种草到拔草全链路",
+    "summary": "拆解KOL/KOC投放策略和电商转化方法。",
+    "body": "# 链路设计\\n- 种草期：头部KOL定调+KOC铺量\\n- 孵化期：评论+SEO优化\\n- 拔草期：直播承接",
+    "source": "36kr",
+    "category": "社交媒体",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-02-28",
+    "tags": [
+      "小红书",
+      "种草"
+    ],
+    "url": "https://www.36kr.com/p/35500000000000000",
+    "readCount": 3615,
+    "shareCount": 448,
+    "commentCount": 197,
+    "updatedAt": "2025-02-28"
+  },
+  {
     "id": 372,
     "title": "脉脉：2024八大危机公关案例合集——从热点危机到行业启示",
     "original_title": "2024年八大经典危机公关案例合集 - 脉脉",
@@ -7986,6 +8833,48 @@
     "shareCount": 5650,
     "commentCount": 35,
     "updatedAt": "2025-02-24"
+  },
+  {
+    "id": 497,
+    "title": "CTR《硬核盘点2024广告市场》：行业分化加剧",
+    "original_title": "2024广告市场盘点",
+    "summary": "各行业广告投放呈现明显分化态势。",
+    "body": "# 行业分化\\n- 医药健康+15%\\n- 汽车+8%\\n- 房地产-12%",
+    "source": "research",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-02-17",
+    "tags": [
+      "CTR",
+      "行业报告"
+    ],
+    "url": "https://www.ctrchina.cn/rich/report/722",
+    "readCount": 1127,
+    "shareCount": 2087,
+    "commentCount": 299,
+    "updatedAt": "2025-02-17"
+  },
+  {
+    "id": 536,
+    "title": "微博广告中心：超粉DMP定向升级",
+    "original_title": "超粉DMP升级",
+    "summary": "人群包创建门槛降低，Lookalike精度提升。",
+    "body": "# 升级点\\n- 人群包门槛降低\\n- Lookalike扩量提升\\n- CDP对接便捷",
+    "source": "weibo",
+    "category": "CDP",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-02-14",
+    "tags": [
+      "微博",
+      "DMP"
+    ],
+    "url": "https://www.weibo-ad.com/jd/456.html",
+    "readCount": 8444,
+    "shareCount": 1655,
+    "commentCount": 27,
+    "updatedAt": "2025-02-14"
   },
   {
     "id": 373,
@@ -8125,6 +9014,27 @@
     "updatedAt": "2025-01-21"
   },
   {
+    "id": 507,
+    "title": "36氪：B站品牌营销——抓住Z世代注意力的正确姿势",
+    "original_title": "B站品牌营销与Z世代",
+    "summary": "分析B站社区文化和UP主生态的营销框架。",
+    "body": "# 成功要素\\n- 尊重社区文化\\n- 避免硬广植入\\n- 重视长尾效应",
+    "source": "36kr",
+    "category": "新兴媒介",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-01-20",
+    "tags": [
+      "B站",
+      "Z世代"
+    ],
+    "url": "https://www.36kr.com/p/35000000000000000",
+    "readCount": 2430,
+    "shareCount": 2067,
+    "commentCount": 34,
+    "updatedAt": "2025-01-20"
+  },
+  {
     "id": 379,
     "title": "艾媒：中国企业出海白皮书——2024-2025跨境营销新机遇",
     "original_title": "中国广告主协会X艾媒咨询 | 2024-2025中国企业出海发展研究白皮书",
@@ -8171,6 +9081,46 @@
     "updatedAt": "2025-01-19"
   },
   {
+    "id": 532,
+    "title": "界面新闻：2025长视频营销——10个剧综赞助复盘",
+    "original_title": "长视频营销剧综赞助案例",
+    "summary": "从内容植入到IP联动的完整方法论。",
+    "body": "# TOP案例\\n1. 《狂飙》×汽车：植入教科书\\n2. 《歌手》×饮料：音效记忆\\n3. 短剧×美妆：低成本高效转化",
+    "source": "wechat",
+    "category": "创意案例",
+    "impact": "medium",
+    "year": "2025",
+    "date": "2025-01-17",
+    "tags": [
+      "长视频",
+      "综艺",
+      "赞助"
+    ],
+    "url": "https://www.jiemian.com/article/12265155.html",
+    "readCount": 4803,
+    "shareCount": 122,
+    "commentCount": 76,
+    "updatedAt": "2025-01-17"
+  },
+  {
+    "id": 105385345,
+    "title": "中国广告业发展指数报告（2022年度）发布",
+    "summary": "市场监管总局发布2022年度中国广告业发展指数报告，从产业实力、环境、社会效益等多维度评估各地广告业发展水平。",
+    "body": "报告显示，2022年中国广告业在复杂环境下保持基本盘稳定，数字广告占比持续提升。北京、上海、广东等地广告业发展指数位居前列。",
+    "source": "gov",
+    "category": "行业报告",
+    "tags": [
+      "广告业发展指数",
+      "年度报告",
+      "市场监管总局"
+    ],
+    "impact": "medium",
+    "date": "2025-01-17",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/ggjgs/art/2025/art_1bd4d257219a41a19597ca8f3a6acce9.html",
+    "readCount": 4815,
+    "commentCount": 6
+  },
+  {
     "id": 381,
     "title": "广告门×知萌：2024趋势营销案例榜——第10本白皮书配套标杆案例",
     "original_title": "榜单揭晓！2024趋势营销案例榜 - 广告门",
@@ -8192,6 +9142,27 @@
     "shareCount": 5414,
     "commentCount": 580,
     "updatedAt": "2025-01-15"
+  },
+  {
+    "id": 1323305125,
+    "title": "2025年中国MarTech市场趋势预测",
+    "summary": "展望2025年营销技术领域的十大发展趋势，包括AI Agent普及、隐私计算落地、CDP与MA融合等。",
+    "body": "预测认为2025年将是营销技术从工具赋能向自主决策跨越的关键一年。AI Agent将从辅助角色变为投放决策的主导者；零方/一方数据的应用将超越三方数据；营销云平台的整合并购将进一步加剧。",
+    "source": "research",
+    "category": "MarTech",
+    "tags": [
+      "MarTech",
+      "2025趋势",
+      "AI Agent",
+      "CDP",
+      "营销自动化"
+    ],
+    "impact": "medium",
+    "date": "2025-01-15",
+    "url": "https://www.gartner.cn/reports/444444",
+    "readCount": 3435,
+    "commentCount": 40,
+    "original_title": "2025年中国MarTech市场趋势预测（原版标题）"
   },
   {
     "id": 382,
@@ -8418,6 +9389,49 @@
     "shareCount": 1480,
     "commentCount": 408,
     "updatedAt": "2025-01-07"
+  },
+  {
+    "id": 496,
+    "title": "中关村实验室《2024中国互联网广告数据报告》",
+    "original_title": "2024中国互联网广告数据报告",
+    "summary": "2024年互联网广告增长1.6%，电商广告占比超50%。",
+    "body": "# 数据\\n- 总规模约10500亿\\n- 同比+1.6%\\n- 电商广告52%",
+    "source": "research",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-01-07",
+    "tags": [
+      "行业报告",
+      "数据"
+    ],
+    "url": "https://finance.sina.com.cn/roll/2025-01-07/doc-ineeeanr1946962.shtml",
+    "readCount": 7330,
+    "shareCount": 229,
+    "commentCount": 135,
+    "updatedAt": "2025-01-07"
+  },
+  {
+    "id": 544,
+    "title": "中关村实验室：2024中国互联网广告数据报告(PDF)",
+    "original_title": "2024中国互联网广告报告PDF",
+    "summary": "完整版报告含详细数据和图表。",
+    "body": "# 报告亮点\\n- AI重塑数字营销场景\\n- 头部与中长尾分化\\n- 电商广告持续领跑",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "high",
+    "year": "2025",
+    "date": "2025-01-06",
+    "tags": [
+      "报告",
+      "PDF",
+      "数据"
+    ],
+    "url": "https://idea-cp.cnfin.com/ice/2025/01/07/3ce431e48c96411591d55c283b657a33.pdf",
+    "readCount": 3023,
+    "shareCount": 1422,
+    "commentCount": 198,
+    "updatedAt": "2025-01-06"
   },
   {
     "id": 392,
@@ -8710,6 +9724,67 @@
     "updatedAt": "2024-12-20"
   },
   {
+    "id": 525,
+    "title": "广告门：代理商新图鉴——AIGC+短剧+跨领域融合",
+    "original_title": "2025代理商趋势",
+    "summary": "独角联合年度代理商观察报告。",
+    "body": "# 新动向\\n- AIGC团队标配化\\n- 短剧营销规模化\\n- 播客营销崛起",
+    "source": "wechat",
+    "category": "营销策略",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-12-20",
+    "tags": [
+      "代理商",
+      "AIGC",
+      "短剧"
+    ],
+    "url": "https://www.adquan.com/article/348268",
+    "readCount": 6285,
+    "shareCount": 1824,
+    "commentCount": 56,
+    "updatedAt": "2024-12-20"
+  },
+  {
+    "id": 2696872839,
+    "title": "微博超粉上新！动态翻卡广告助力新年节点营销",
+    "summary": "微博超粉品牌信息流推出新年翻卡高级样式，趣味性强互动效果好，适用于节日营销场景。",
+    "body": "动态翻卡广告是一种创新的交互式广告形式，用户可以通过滑动卡片查看不同的品牌信息和优惠内容。品牌好感度平均提升18%。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "超粉",
+      "动态翻卡",
+      "互动广告",
+      "节日营销"
+    ],
+    "impact": "low",
+    "date": "2024-12-20",
+    "url": "https://weibo.com/5633596000/PbmTbnOFN",
+    "readCount": 800,
+    "commentCount": 31
+  },
+  {
+    "id": 798245414,
+    "title": "小红书商业化加速：从种草社区到广告平台的蜕变之路",
+    "summary": "小红书2024年广告收入突破百亿大关，但商业化加速的同时也在努力维持社区氛围与用户体验之间的平衡。",
+    "body": "小红书的广告形态经历了三个阶段：早期的纯原生笔记植入、中期推出薯条推广和蒲公英平台、现在的搜索广告+信息流广告+店播联动的全方位矩阵。最大的挑战在于如何在增加广告加载率的同时不让用户感到反感。",
+    "source": "36kr",
+    "category": "社交媒体",
+    "tags": [
+      "小红书",
+      "商业化",
+      "种草",
+      "社区广告"
+    ],
+    "impact": "medium",
+    "date": "2024-12-18",
+    "url": "https://www.36kr.com/p/3209876543210987",
+    "readCount": 4472,
+    "commentCount": 37
+  },
+  {
     "id": 405,
     "title": "数智观察：2018-2024中国数字营销市场规模持续高速增长",
     "original_title": "2024年中国数字营销年度报告 - 数智观察",
@@ -8751,6 +9826,46 @@
     "shareCount": 2504,
     "commentCount": 223,
     "updatedAt": "2024-12-15"
+  },
+  {
+    "id": 487,
+    "title": "新版反不正当竞争法：刷量造假入刑",
+    "original_title": "反不正当竞争法修订",
+    "summary": "虚假宣传、刷量造假、价格歧视加大处罚。",
+    "body": "# 修订重点\\n- 刷量/水军违法\\n- 虚假效果追责加重",
+    "source": "gov",
+    "category": "广告投放平台",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-12-15",
+    "tags": [
+      "反垄断",
+      "流量"
+    ],
+    "url": "https://www.samr.gov.cn/xw/zj/art/2024/art_xxx.html",
+    "readCount": 678,
+    "shareCount": 1462,
+    "commentCount": 11,
+    "updatedAt": "2024-12-15"
+  },
+  {
+    "id": 1348573683,
+    "title": "QuestMobile：2024中国互联网广告市场规模达7583.6亿元",
+    "summary": "QuestMobile最新报告显示，中国互联网广告市场突破7583.6亿元，同比增长6.1%，移动互联网广告占比88.8%。",
+    "body": "报告指出，淘宝、抖音和微信位居硬广收入前三，市场份额分别为22.5%、19.1%和10.8%。移动端仍是核心收入来源（88.9%），OTT及智能硬件占比升至9.1%。AI技术在广告创意中的应用渗透率达42%。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "QuestMobile",
+      "互联网广告",
+      "市场规模",
+      "AI广告"
+    ],
+    "impact": "high",
+    "date": "2024-12-15",
+    "url": "https://www.sohu.com/a/878494255_121798711",
+    "readCount": 176,
+    "commentCount": 32
   },
   {
     "id": 407,
@@ -8796,6 +9911,71 @@
     "shareCount": 415,
     "commentCount": 293,
     "updatedAt": "2024-12-12"
+  },
+  {
+    "id": 529,
+    "title": "2025 MarTech报告——AI应用的方方面面",
+    "original_title": "2025 MarTech全景108页报告",
+    "summary": "Frans Riemersma最新MarTech报告。",
+    "body": "# 趋势\\n- GenOps兴起\\n- Composable CDP流行\\n- PETs普及\\n- AI Agent自主营销",
+    "source": "wechat",
+    "category": "MarTech",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-12-11",
+    "tags": [
+      "MarTech",
+      "报告",
+      "AI"
+    ],
+    "url": "https://www.sohu.com/a/835531750_804309",
+    "readCount": 3290,
+    "shareCount": 1380,
+    "commentCount": 169,
+    "updatedAt": "2024-12-11"
+  },
+  {
+    "id": 522,
+    "title": "广告门：品牌AI广告频翻车，AIGC营销还有希望吗？",
+    "original_title": "品牌AI广告频翻车",
+    "summary": "Accenture预测2029年30%社媒广告将由AI生成。",
+    "body": "# 翻车案例\\n- AI模特审美争议\\n- AI文案常识错误\\n- AI视频穿帮",
+    "source": "wechat",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-12-10",
+    "tags": [
+      "AIGC",
+      "翻车",
+      "广告门"
+    ],
+    "url": "https://www.adquan.com/article/348398",
+    "readCount": 8065,
+    "shareCount": 2016,
+    "commentCount": 117,
+    "updatedAt": "2024-12-10"
+  },
+  {
+    "id": 508,
+    "title": "36氪：微信搜一搜广告——腾讯最后的流量金矿？",
+    "original_title": "微信搜一搜商业化潜力",
+    "summary": "微信搜一搜的广告商业化和潜在价值分析。",
+    "body": "# 优势\\n- 高意图用户群体\\n- 与微信生态深度打通\\n- 私域承接天然优势",
+    "source": "36kr",
+    "category": "广告投放平台",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-12-05",
+    "tags": [
+      "微信",
+      "搜索"
+    ],
+    "url": "https://www.36kr.com/p/34000000000000000",
+    "readCount": 1260,
+    "shareCount": 1035,
+    "commentCount": 166,
+    "updatedAt": "2024-12-05"
   },
   {
     "id": 409,
@@ -8865,6 +10045,83 @@
     "updatedAt": "2024-11-20"
   },
   {
+    "id": 4162571609,
+    "title": "零售媒体RMN崛起：沃尔玛们如何蚕食数字广告蛋糕",
+    "summary": "零售媒体网络正在重塑数字广告格局，亚马逊广告业务已超500亿美元，沃尔玛、Target纷纷入场。",
+    "body": "零售媒体的独特优势在于拥有真实的消费数据和闭环的购物场景。当消费者在浏览商品时看到基于其购买历史的个性化广告，转化率远高于通用广告位。预计2026年零售媒体市场规模将突破1000亿美元。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "零售媒体",
+      "RMN",
+      "亚马逊广告",
+      "零售电商"
+    ],
+    "impact": "high",
+    "date": "2024-11-20",
+    "url": "https://www.36kr.com/p/3156789012345678",
+    "readCount": 480,
+    "commentCount": 18
+  },
+  {
+    "id": 2747595099,
+    "title": "微信搜一搜SEO与SEM协同攻略",
+    "summary": "搜一搜既是搜索引擎也是广告位如何做好自然排名和付费推广配合？",
+    "body": "SEO需做好公众号基础建设和小程序SEM建议采用品牌词保护加竞品拦截策略组合",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "搜一搜",
+      "SEO",
+      "SEM"
+    ],
+    "impact": "medium",
+    "date": "2024-11-20",
+    "url": "https://mp.weixin.qq.com/s/eeeeee",
+    "readCount": 777,
+    "commentCount": 6
+  },
+  {
+    "id": 509,
+    "title": "36氪出海：跨境独立站Google/FB/TikTok投放攻略",
+    "original_title": "跨境电商独立站获客之道",
+    "summary": "三大平台的投放策略和最佳实践。",
+    "body": "# 冷启动→成长→成熟\\n- Broad Match + CPM\\n- Lookalike + ROAS优化\\n- DPA + 全渠道归因",
+    "source": "36kr",
+    "category": "品牌出海",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-11-18",
+    "tags": [
+      "跨境",
+      "TikTok"
+    ],
+    "url": "https://www.36kr.com/p/33500000000000000",
+    "readCount": 4572,
+    "shareCount": 223,
+    "commentCount": 273,
+    "updatedAt": "2024-11-18"
+  },
+  {
+    "id": 3791008795,
+    "title": "2024年内容创作者生态报告：四大平台全景对比",
+    "summary": "从创作者数量、变现模式、内容趋势等维度对比分析抖音/小红书/快手/B站的生态差异。",
+    "body": "抖音创作者数量最多但头部效应最强，小红书图文创作者变现效率最高，快手中腰部创作者生态最健康，B站长视频创作者最具专业性。",
+    "source": "tech-media",
+    "category": "内容营销",
+    "tags": [
+      "创作者生态",
+      "内容平台",
+      "变现代理",
+      "平台对比"
+    ],
+    "impact": "medium",
+    "date": "2024-11-15",
+    "url": "https://blog.csdn.net/qq_19600291/article/details/143793843",
+    "readCount": 2840,
+    "commentCount": 23
+  },
+  {
     "id": 412,
     "title": "今日头条：六平台变现能力全景对比——谁最适合赚钱？",
     "original_title": "六大平台变现能力：抖音、快手、小红书、视频号等",
@@ -8888,6 +10145,26 @@
     "updatedAt": "2024-11-08"
   },
   {
+    "id": 2411507393,
+    "title": "Flink CEP在广告反欺诈中的应用",
+    "summary": "基于Apache Flink的复杂事件处理(CEP)引擎，构建实时的广告流量反作弊检测系统。",
+    "body": "广告反欺诈需要在毫秒级别识别异常流量。本文介绍了使用Flink CEP定义点击fraud pattern的方法，包括频率异常检测、IP聚集检测、设备指纹聚类等典型场景的实现代码。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Flink",
+      "反欺诈",
+      "实时计算",
+      "CEP",
+      "风控"
+    ],
+    "impact": "medium",
+    "date": "2024-11-05",
+    "url": "https://github.com/apache/flink",
+    "readCount": 3962,
+    "commentCount": 13
+  },
+  {
     "id": 413,
     "title": "人人都是产品经理：程序化广告生态深度解析",
     "original_title": "商业化：程序化广告生态 - 人人都是产品经理",
@@ -8909,6 +10186,24 @@
     "updatedAt": "2024-11-01"
   },
   {
+    "id": 4201780089,
+    "title": "拼多多广告业务的低调崛起：低价背后的流量逻辑",
+    "summary": "拼多多广告收入增速远超GMV增速社交裂变加搜索广告组合值得研究",
+    "body": "拼多多广告模式与阿里京东完全不同依赖社交推荐流量自然溢出而非主动搜索",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "拼多多",
+      "社交电商"
+    ],
+    "impact": "medium",
+    "date": "2024-10-25",
+    "url": "https://www.36kr.com/p/325888888",
+    "readCount": 1241,
+    "commentCount": 0,
+    "original_title": "拼多多广告业务的低调崛起：低价背后的流量逻辑（原标题）"
+  },
+  {
     "id": 414,
     "title": "数英网：6个值得收藏的AI广告案例——技术与创意的完美结合",
     "original_title": "6个值得收藏的AI广告案例，谈谈技术与创意 - 数英",
@@ -8928,6 +10223,27 @@
     "shareCount": 4368,
     "commentCount": 583,
     "updatedAt": "2024-10-24"
+  },
+  {
+    "id": 510,
+    "title": "36氪前沿：RMN——下一个万亿美元广告赛道",
+    "original_title": "零售媒体网络RMN崛起",
+    "summary": "亚马逊/沃尔玛/美团构建自己的广告网络。",
+    "body": "# 主要玩家\\n- Amazon Advertising(最大)\\n- Walmart Connect\\n- 美团广告",
+    "source": "36kr",
+    "category": "广告投放平台",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-10-22",
+    "tags": [
+      "RMN",
+      "零售"
+    ],
+    "url": "https://www.36kr.com/p/33000000000000000",
+    "readCount": 679,
+    "shareCount": 582,
+    "commentCount": 139,
+    "updatedAt": "2024-10-22"
   },
   {
     "id": 415,
@@ -8952,6 +10268,26 @@
     "shareCount": 422,
     "commentCount": 183,
     "updatedAt": "2024-10-10"
+  },
+  {
+    "id": 1250415709,
+    "title": "企业微信私域运营与广告投放的联动打法",
+    "summary": "企业微信用户数破4亿，如何将广告获取的流量高效沉淀到企微私域并进行长期运营？",
+    "body": "企微+广告联动的核心方法论是：广告引流→企微承接→社群运营→复购转化。关键指标不是获客成本(CAC)而是客户终身价值(LTV)。成功的案例显示，企微私域客户的LTV是普通公域客户的3-5倍。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "企业微信",
+      "私域运营",
+      "广告联动",
+      "LTV",
+      "复购"
+    ],
+    "impact": "medium",
+    "date": "2024-10-08",
+    "url": "https://mp.weixin.qq.com/s/ddddd",
+    "readCount": 3170,
+    "commentCount": 4
   },
   {
     "id": 416,
@@ -9021,6 +10357,26 @@
     "updatedAt": "2024-09-27"
   },
   {
+    "id": 3034952438,
+    "title": "OpenDSP：开源移动DSP广告平台实战教程",
+    "summary": "OpenDSP是一款开源的移动端DSP广告平台，内置主流ADX对接能力和可视化Dashboard，适合学习程序化广告技术架构。",
+    "body": "项目支持多家主流ADX的bidding接口，内置了基础的CTR预估模型和频次控制模块。教程详细介绍部署流程、API对接方式和竞价策略调优。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "OpenDSP",
+      "DSP",
+      "开源",
+      "程序化广告",
+      "教程"
+    ],
+    "impact": "medium",
+    "date": "2024-09-26",
+    "url": "https://blog.csdn.net/gitblog_00410/article/details/142545669",
+    "readCount": 3182,
+    "commentCount": 38
+  },
+  {
     "id": 419,
     "title": "36氪：短剧整合营销全解——三秒一爽点的流量新密码",
     "original_title": "一个报告读懂「短剧整合营销」：现状、用户、玩法、实操 - 36氪",
@@ -9065,6 +10421,27 @@
     "updatedAt": "2024-09-25"
   },
   {
+    "id": 538,
+    "title": "前瞻产业研究院：2024中国广告行业市场规模",
+    "original_title": "预见2024中国广告",
+    "summary": "区域分布和细分市场分析。",
+    "body": "# 区域分布\\n- 北上广占全国50%\\n- 二线城市增速更快\\n- 下沉潜力巨大",
+    "source": "industry-media",
+    "category": "行业报告",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-09-25",
+    "tags": [
+      "前瞻",
+      "市场"
+    ],
+    "url": "https://bg.qianzhan.com/trends/detail/506/240925-b82c7abd.html",
+    "readCount": 4622,
+    "shareCount": 1665,
+    "commentCount": 42,
+    "updatedAt": "2024-09-25"
+  },
+  {
     "id": 421,
     "title": "新浪：OTT大屏报告——2.6亿年轻用户/90后00后成核心",
     "original_title": "OTT（智能大屏）行业研究报告：每月2.6亿90/00后活跃",
@@ -9088,6 +10465,27 @@
     "updatedAt": "2024-09-24"
   },
   {
+    "id": 535,
+    "title": "一秒推：微博营销五种广告模式完整解析",
+    "original_title": "微博五种广告模式",
+    "summary": "开屏/热搜/信息流/超粉通/粉丝头条对比。",
+    "body": "# 五种模式\\n| 类型 | 特点 | 适用 |\\n| 开屏 | 强曝光 | 声量 |\\n| 热搜 | 高话题度 | 事件 |\\n| 信息流 | 原生融入 | 效果 |",
+    "source": "weibo",
+    "category": "广告投放平台",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-09-20",
+    "tags": [
+      "微博",
+      "投放"
+    ],
+    "url": "https://www.yimiaotui.com/article-7515.html",
+    "readCount": 3791,
+    "shareCount": 622,
+    "commentCount": 156,
+    "updatedAt": "2024-09-20"
+  },
+  {
     "id": 422,
     "title": "钛媒体：In-house热潮下的广告公司进化——从对抗到共生新模式",
     "original_title": "品牌in-house热潮下的暗涌 - 钛媒体",
@@ -9108,6 +10506,44 @@
     "shareCount": 5980,
     "commentCount": 79,
     "updatedAt": "2024-09-13"
+  },
+  {
+    "id": 3542114932,
+    "title": "Kafka消息队列在广告数据管道中的最佳实践",
+    "summary": "Kafka在广告实时数据管道中的架构设计和生产环境运维经验总结。",
+    "body": "广告数据的实时性要求极高——从曝光点击到数据入库通常需要在秒级完成。本文介绍了Kafka的Topic分区策略、消费者组设计、 Exactly Once语义保证以及与Flink/Spark Streaming的集成方案。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Kafka",
+      "消息队列",
+      "数据管道",
+      "实时计算",
+      "流处理"
+    ],
+    "impact": "medium",
+    "date": "2024-09-12",
+    "url": "https://github.com/apache/kafka",
+    "readCount": 4433,
+    "commentCount": 30,
+    "original_title": "Kafka消息队列在广告数据管道中的最佳实践（原版标题）"
+  },
+  {
+    "id": 3156709578,
+    "title": "知乎好物推荐商业化：知识社区的广告困境与出路",
+    "summary": "知乎在商业化道路上探索如何在保持社区调性的同时实现营收增长",
+    "body": "好物推荐是知乎最成功的商业化产品通过内容带货实现广告与原生内容融合但整体商业化仍面临压力",
+    "source": "36kr",
+    "category": "社交媒体",
+    "tags": [
+      "知乎",
+      "商业化"
+    ],
+    "impact": "low",
+    "date": "2024-09-12",
+    "url": "https://www.36kr.com/p/318000000",
+    "readCount": 2466,
+    "commentCount": 47
   },
   {
     "id": 423,
@@ -9153,6 +10589,82 @@
     "shareCount": 7559,
     "commentCount": 395,
     "updatedAt": "2024-09-07"
+  },
+  {
+    "id": 1117409040,
+    "title": "2024年中国直播行业商业模式分析",
+    "summary": "直播行业已从单一打赏带货发展为多元化商业生态系统",
+    "body": "新增变现方式包括品牌专场知识付费IP授权线下活动承接等头部主播IP价值被系统性开发",
+    "source": "industry-media",
+    "category": "直播电商",
+    "tags": [
+      "直播行业",
+      "商业模式"
+    ],
+    "impact": "medium",
+    "date": "2024-09-06",
+    "url": "https://bg.qianzhan.com/report/detail/300/240906-a2f62dcc.html",
+    "readCount": 2226,
+    "commentCount": 17
+  },
+  {
+    "id": 3466633792,
+    "title": "抖音本地生活广告战火烧到美团家门口",
+    "summary": "抖音本地生活GMV突破3000亿，广告业务成为关键变现引擎，与美团在本地商家广告市场展开正面交锋。",
+    "body": "抖音本地生活通过短视频种草+直播转化+POI广告的三位一体模式，吸引了大批餐饮、丽人、休闲娱乐类商家入驻。相比美团的搜索驱动模式，抖音的内容驱动模式在拉新获客方面更具优势。",
+    "source": "36kr",
+    "category": "社交媒体",
+    "tags": [
+      "抖音",
+      "本地生活",
+      "美团",
+      "O2O广告"
+    ],
+    "impact": "high",
+    "date": "2024-09-05",
+    "url": "https://www.36kr.com/p/3109876543210987",
+    "readCount": 4071,
+    "commentCount": 13
+  },
+  {
+    "id": 485,
+    "title": "数据安全法三年：广告数据的合规边界",
+    "original_title": "数据安全法实施细则",
+    "summary": "广告行业用户数据收集处理面临更严格审查。",
+    "body": "# 风险点\\n- 第一方数据授权\\n- CDP脱敏要求\\n- 第三方共享边界",
+    "source": "gov",
+    "category": "CDP",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-09-01",
+    "tags": [
+      "数据安全",
+      "隐私"
+    ],
+    "url": "https://www.cac.gov.cn/2022-03/01/c-1652862788467891.htm",
+    "readCount": 820,
+    "shareCount": 1748,
+    "commentCount": 241,
+    "updatedAt": "2024-09-01"
+  },
+  {
+    "id": 4289389910,
+    "title": "字节跳动的全球化广告野心：TikTok Ads能否复制抖音神话？",
+    "summary": "TikTok Ads在全球市场的扩张势头迅猛，但面临Google/Meta双寡头的激烈竞争以及各国监管的不确定性。",
+    "body": "TikTok Shop的推出将电商能力与广告系统打通，形成类似抖音的闭环生态。但在欧美市场，隐私法规（如GDPR、CCPA）和数据本地化要求给其广告技术架构带来巨大挑战。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "TikTok",
+      "全球化",
+      "出海广告",
+      "字节跳动"
+    ],
+    "impact": "high",
+    "date": "2024-08-30",
+    "url": "https://www.36kr.com/p/318888888",
+    "readCount": 2189,
+    "commentCount": 33
   },
   {
     "id": 425,
@@ -9220,6 +10732,109 @@
     "updatedAt": "2024-08-27"
   },
   {
+    "id": 3756780995,
+    "title": "程序化广告核心术语DSP SSP ADX DMP详解",
+    "summary": "阿里云开发者社区出品的专业技术文档，逐一解释程序化广告中各核心组件的功能和作用。",
+    "body": "DSP帮广告主买流量，核心是用户定向和出价优化；SSP帮媒体卖流量，核心是填充率和eCPM最大化；ADX连接买卖双方；DMP管理和激活用户数据。",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "DSP",
+      "SSP",
+      "ADX",
+      "DMP",
+      "术语解释",
+      "技术文档"
+    ],
+    "impact": "low",
+    "date": "2024-08-27",
+    "url": "https://developer.aliyun.com/article/1597733",
+    "readCount": 4481,
+    "commentCount": 17
+  },
+  {
+    "id": 1858553196,
+    "title": "微信搜一搜广告：被低估的流量金矿",
+    "summary": "搜一搜是微信生态内唯一的搜索入口广告产品，捕获的是用户主动表达的需求信号，转化率极高。",
+    "body": "搜一搜广告的优势在于高意向用户和低竞争环境。相比朋友圈广告的被动触达，搜一搜的用户已经表达了明确的搜索意图。目前搜一搜广告仍处于早期发展阶段，CPM较低，是蓝海中的蓝海。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "搜一搜",
+      "搜索广告",
+      "微信生态",
+      "高转化",
+      "蓝海"
+    ],
+    "impact": "medium",
+    "date": "2024-08-25",
+    "url": "https://mp.weixin.qq.com/s/ccccc",
+    "readCount": 1585,
+    "commentCount": 13
+  },
+  {
+    "id": 480,
+    "title": "市场监管总局《可识别性执法指南》：告别模糊营销",
+    "original_title": "互联网广告可识别性执法指南",
+    "summary": "帮助消费者辨明互联网广告与非广告信息的新执法指南。",
+    "body": "# 执法要点\\n- 广告与内容的边界\\n- 软文种草需明确标注",
+    "source": "gov",
+    "category": "广告投放平台",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-08-22",
+    "tags": [
+      "监管",
+      "可识别性"
+    ],
+    "url": "https://www.samr.gov.cn/ggjgs/tzgg/art/2024/art_fb2f2f9b53f04dc294df2105b2e050a0.html",
+    "readCount": 7249,
+    "shareCount": 1638,
+    "commentCount": 225,
+    "updatedAt": "2024-08-22"
+  },
+  {
+    "id": 488,
+    "title": "个保法三年：广告追踪技术转型之路",
+    "original_title": "个人信息保护法落地实践",
+    "summary": "广告追踪从第三方Cookie转向第一方数据策略。",
+    "body": "# 转型方向\\n- Server-side Tracking替代Cookie\\n- Clean Room技术兴起\\n- CMP成为标配",
+    "source": "gov",
+    "category": "CDP",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-08-20",
+    "tags": [
+      "隐私",
+      "追踪"
+    ],
+    "url": "https://www.cac.gov.cn/2021-08/20/c-1632118822875523.htm",
+    "readCount": 5434,
+    "shareCount": 317,
+    "commentCount": 20,
+    "updatedAt": "2024-08-20"
+  },
+  {
+    "id": 1135544302,
+    "title": "微盟营销：微信生态广告一站式解决方案",
+    "summary": "微盟为企业提供基于微信生态的广告整合服务，覆盖朋友圈、公众号、小程序等多重广告资源。",
+    "body": "微盟依托多年微信生态深耕经验，为客户提供从策略规划到创意制作到投放优化的全案服务。其核心优势在于私域运营与广告投放的深度融合。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "微盟",
+      "微信广告",
+      "代运营",
+      "私域运营",
+      "全案服务"
+    ],
+    "impact": "low",
+    "date": "2024-08-20",
+    "url": "https://mj.weimob.com/ad/wechat",
+    "readCount": 4577,
+    "commentCount": 2
+  },
+  {
     "id": 428,
     "title": "广告狂人：2024十大营销案例——《歌手2024》全开麦模式破圈",
     "original_title": "2024年十大营销案例（投票） - 广告狂人",
@@ -9263,6 +10878,47 @@
     "shareCount": 3860,
     "commentCount": 74,
     "updatedAt": "2024-08-15"
+  },
+  {
+    "id": 583908218,
+    "title": "ClickHouse在广告数据分析中的实战应用",
+    "summary": "ClickHouse因其卓越的OLAP查询性能，被广泛用于广告点击流分析、实时报表和用户行为分析场景。",
+    "body": "某头部广告公司日均处理100亿+广告曝光数据，使用ClickHouse集群实现了秒级多维分析。本文分享了表结构设计、物化视图优化、数据分区策略等实践经验。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "ClickHouse",
+      "大数据",
+      "OLAP",
+      "广告分析",
+      "实时计算"
+    ],
+    "impact": "medium",
+    "date": "2024-08-15",
+    "url": "https://github.com/ClickHouse/ClickHouse",
+    "readCount": 427,
+    "commentCount": 47
+  },
+  {
+    "id": 513,
+    "title": "Revive Adserver——最成熟的开源广告管理系统",
+    "original_title": "Revive Adserver经典开源系统",
+    "summary": "支持Banner/视频/原生广告管理和定向投放。",
+    "body": "# 功能\\n- 多格式广告管理\\n- 定向投放\\n- 频次控制\\n- 效果统计",
+    "source": "github",
+    "category": "开源工具",
+    "impact": "low",
+    "year": "2024",
+    "date": "2024-08-13",
+    "tags": [
+      "AdServer",
+      "开源"
+    ],
+    "url": "https://blog.csdn.net/gitblog_00593/article/details/141148123",
+    "readCount": 3930,
+    "shareCount": 588,
+    "commentCount": 16,
+    "updatedAt": "2024-08-13"
   },
   {
     "id": 430,
@@ -9330,6 +10986,65 @@
     "shareCount": 7088,
     "commentCount": 264,
     "updatedAt": "2024-08-06"
+  },
+  {
+    "id": 531,
+    "title": "腾讯读书：MarTech原理——程序化广告未来展望",
+    "original_title": "MarTech原理与实践",
+    "summary": "国内大型广告主预算迁移至程序化广告。",
+    "body": "# 未来方向\\n1. AI增强竞价\\n2. 隐私计算\\n3. 全域贯通度量",
+    "source": "wechat",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-08-05",
+    "tags": [
+      "MarTech",
+      "程序化"
+    ],
+    "url": "https://weread.qq.com/web/reader/3a632bb071d07b1a3a60866kd9d320f022ed9d4f495e456",
+    "readCount": 4252,
+    "shareCount": 1324,
+    "commentCount": 204,
+    "updatedAt": "2024-08-05"
+  },
+  {
+    "id": 1751997016,
+    "title": "2024上半年抖音内容与电商数据报告",
+    "summary": "飞瓜数据出品：从内容热门趋势、创作者表现到电商带货复盘，全面透视抖音生态半年变化。",
+    "body": "报告显示，抖音电商GMV持续增长，货架场景（商城+搜索）占比提升至30%以上。直播电商中品牌自播比例上升，达人直播向专业化、垂类化发展。短剧成为新的流量入口。",
+    "source": "industry-media",
+    "category": "直播电商",
+    "tags": [
+      "抖音",
+      "电商数据",
+      "飞瓜数据",
+      "直播带货",
+      "短剧"
+    ],
+    "impact": "high",
+    "date": "2024-08-01",
+    "url": "https://dy.feigua.cn/article/detail/912.html",
+    "readCount": 3982,
+    "commentCount": 20,
+    "original_title": "2024上半年抖音内容与电商数据报告（原版标题）"
+  },
+  {
+    "id": 1028068196,
+    "title": "视频号互选平台操作手册",
+    "summary": "视频号互选平台连接品牌方和达人详解完整对接流程和效果评估标准",
+    "body": "相比星图蒲公英视频号互选仍处早期阶段达人报价相对较低适合中小品牌试水",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "视频号",
+      "互选平台"
+    ],
+    "impact": "low",
+    "date": "2024-07-30",
+    "url": "https://mp.weixin.qq.com/s/ffffff",
+    "readCount": 3311,
+    "commentCount": 37
   },
   {
     "id": 433,
@@ -9446,6 +11161,99 @@
     "updatedAt": "2024-07-19"
   },
   {
+    "id": 1389960462,
+    "title": "汇量科技深度拆解：出海广告中间商的生存之道",
+    "summary": "作为国内最大的第三方移动广告平台之一，汇量科技如何在Google和Facebook的夹缝中找到差异化竞争空间？",
+    "body": "汇量科技的护城河在于其覆盖新兴市场的媒体资源和自研的DSP引擎。相比巨头的一站式解决方案，Mintegral更注重垂直品类的深度优化能力，尤其在游戏和电商出海领域建立了显著优势。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "汇量科技",
+      "Mintegral",
+      "出海",
+      "程序化广告"
+    ],
+    "impact": "medium",
+    "date": "2024-07-15",
+    "url": "https://www.36kr.com/p/2987654321098675",
+    "readCount": 3553,
+    "commentCount": 29,
+    "original_title": "汇量科技深度拆解：出海广告中间商的生存之道（原版标题）"
+  },
+  {
+    "id": 3355274344,
+    "title": "Apache Kafka在广告实时数据管道中的架构演进",
+    "summary": "某头部广告平台Kafka集群从0.8到3.x的架构演进经验总结",
+    "body": "从简单消息队列发展到支撑日均万亿级消息吞吐的分布式流处理平台Exactly Once语义支持是关键里程碑",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Kafka",
+      "实时计算"
+    ],
+    "impact": "medium",
+    "date": "2024-07-15",
+    "url": "https://github.com/apache/kafka",
+    "readCount": 921,
+    "commentCount": 16
+  },
+  {
+    "id": 3559846002,
+    "title": "美团广告平台发力：本地生活的流量变现之战",
+    "summary": "美团从O2O平台转型为广告平台到店餐饮和即时零售成核心引擎",
+    "body": "美团广告库存主要来自商家列表页搜索结果页和团购详情页拥有真实消费决策数据和LBS能力",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "美团",
+      "本地生活"
+    ],
+    "impact": "medium",
+    "date": "2024-07-08",
+    "url": "https://www.36kr.com/p/312888888",
+    "readCount": 1081,
+    "commentCount": 2
+  },
+  {
+    "id": 1805500087,
+    "title": "Elasticsearch在广告日志分析与用户画像中的应用",
+    "summary": "ES在广告领域的典型应用场景：全链路日志检索、用户标签管理、创意效果分析等。",
+    "body": "广告系统的日志数据量大、维度多、检索模式复杂，Elasticsearch的倒排索引和聚合能力非常适合这类场景。本文介绍了索引模板设计、热温冷数据分层、查询DSL优化等实战经验。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Elasticsearch",
+      "日志分析",
+      "用户画像",
+      "搜索",
+      "ELK"
+    ],
+    "impact": "medium",
+    "date": "2024-06-30",
+    "url": "https://github.com/elastic/elasticsearch",
+    "readCount": 3066,
+    "commentCount": 2
+  },
+  {
+    "id": 855095067,
+    "title": "快手的信任电商实验：老铁经济能撑起多少广告想象空间？",
+    "summary": "快手电商GMV突破万亿，但广告货币化率仍低于行业平均水平，快手正在尝试用信任电商概念打开增量空间。",
+    "body": "快手独特的私域流量逻辑使其在复购率和客单价上有优势，但在广告库存和品牌溢价能力上弱于抖音。磁力引擎的不断升级和川流计划的推出，试图打通内容创作者、商家和消费者三方价值链。",
+    "source": "36kr",
+    "category": "直播电商",
+    "tags": [
+      "快手",
+      "信任电商",
+      "磁力引擎",
+      "老铁经济"
+    ],
+    "impact": "medium",
+    "date": "2024-06-22",
+    "url": "https://www.36kr.com/p/3067890123456789",
+    "readCount": 3566,
+    "commentCount": 49
+  },
+  {
     "id": 438,
     "title": "NIQ×WDL：Z世代消费报告——全球最大代际群体12万亿购买力",
     "original_title": "尼尔森IQ《Z世代消费报告》：2030年购买力12万亿美元",
@@ -9467,6 +11275,49 @@
     "shareCount": 3310,
     "commentCount": 251,
     "updatedAt": "2024-06-21"
+  },
+  {
+    "id": 515,
+    "title": "Prebid OpenRTB Python SDK——快速开发DSP/ADX",
+    "original_title": "OpenRTB Python SDK",
+    "summary": "Prebid维护的Python OpenRTB协议SDK。",
+    "body": "# 功能\\n- OpenRTB 2.x构建\\n- 数据验证器\\n- 序列化/反序列化",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "low",
+    "year": "2024",
+    "date": "2024-06-20",
+    "tags": [
+      "OpenRTB",
+      "SDK"
+    ],
+    "url": "https://github.com/prebid/openrtb-py",
+    "readCount": 2395,
+    "shareCount": 1706,
+    "commentCount": 162,
+    "updatedAt": "2024-06-20"
+  },
+  {
+    "id": 526,
+    "title": "广告门×微播易：AI社交营销进化报告",
+    "original_title": "AI时代的社交媒体营销进化",
+    "summary": "人×场×牌三维分析AI与社交营销融合。",
+    "body": "# 六大战术\\n1. AI种草内容\\n2. AI客服在线\\n3. AI舆情预警\\n4. AI达人匹配\\n5. AI投放优化\\n6. AI归因分析",
+    "source": "wechat",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-06-18",
+    "tags": [
+      "AI",
+      "社交",
+      "报告"
+    ],
+    "url": "https://www.adquan.com/article/345529",
+    "readCount": 4503,
+    "shareCount": 1650,
+    "commentCount": 133,
+    "updatedAt": "2024-06-18"
   },
   {
     "id": 439,
@@ -9492,6 +11343,108 @@
     "updatedAt": "2024-06-15"
   },
   {
+    "id": 483,
+    "title": "网信办解读《互联网信息服务管理办法》：算法透明化",
+    "original_title": "互联网信息服务管理办法",
+    "summary": "对算法推荐、用户画像、个性化推送的合规要求。",
+    "body": "# 关键条款\\n- 算法推荐需向用户说明\\n- 用户有权关闭个性化推送",
+    "source": "gov",
+    "category": "广告技术",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-06-15",
+    "tags": [
+      "网信办",
+      "算法"
+    ],
+    "url": "https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91%E4%BF%A1%E6%81%AF%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95/243355",
+    "readCount": 5361,
+    "shareCount": 914,
+    "commentCount": 119,
+    "updatedAt": "2024-06-15"
+  },
+  {
+    "id": 6604792,
+    "title": "微博超级粉丝通DMP全面升级：人群包投放信手拈来",
+    "summary": "微博超粉DMP定向产品完成重大升级，支持更多维度的数据圈选和更便捷的操作体验。",
+    "body": "升级后的DMP定向提供了人群覆盖更全面、操作更便捷、效果更好三方面改进。双十一期间电商行业主题人群包使用率超过20%。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "超粉",
+      "DMP",
+      "人群定向",
+      "精准营销"
+    ],
+    "impact": "medium",
+    "date": "2024-06-15",
+    "url": "https://weibo.com/6236537563/Nrk15lpKZ",
+    "readCount": 179,
+    "commentCount": 13
+  },
+  {
+    "id": 3174718853,
+    "title": "微信视频号商业化进展：广告产品与变现能力分析",
+    "summary": "视频号日活破5亿，商业化进程加速。本文分析视频号的广告产品和创作者变现能力。",
+    "body": "视频号广告产品包括信息流广告、原生广告和互选广告三种形态。互选平台连接品牌方与创作者，类似于抖音星图和小红书蒲公英。视频号在公域流量分发上的能力仍在提升中，是微信生态中最具增长潜力的广告位。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "视频号",
+      "商业化",
+      "互选平台",
+      "微信生态",
+      "创作者"
+    ],
+    "impact": "medium",
+    "date": "2024-06-15",
+    "url": "https://mp.weixin.qq.com/s/aaaaa",
+    "readCount": 1679,
+    "commentCount": 43
+  },
+  {
+    "id": 494,
+    "title": "央视市场研究AdMetric：全链路数字广告测量方案",
+    "original_title": "CTR AdMetric数字广告测量平台",
+    "summary": "实现排期管理、实时监控和标准报告一体化。",
+    "body": "# 产品能力\\n- 全渠道排期管理\\n- 实时监控仪表盘\\n- 归因分析模型",
+    "source": "research",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-06-10",
+    "tags": [
+      "CTR",
+      "效果测量"
+    ],
+    "url": "https://www.ctrchina.cn/product/MI/hlwggjc?lang=zh-CN",
+    "readCount": 1254,
+    "shareCount": 594,
+    "commentCount": 179,
+    "updatedAt": "2024-06-10"
+  },
+  {
+    "id": 3185878534,
+    "title": "Prebid Server部署指南：Header Bidding的服务器端实现",
+    "summary": "Prebid Server是目前最流行的开源Header Bidding解决方案，本文详解其在生产环境的部署和优化经验。",
+    "body": "相比客户端Header Bending，服务器端方案可以减少页面加载延迟并提升竞价成功率。本文分享了Prebid Server与Google Ad Manager、Amazon TAM等主流SSP的对接配置。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Prebid",
+      "Header Bidding",
+      "SSP",
+      "性能优化",
+      "部署"
+    ],
+    "impact": "medium",
+    "date": "2024-06-10",
+    "url": "https://github.com/prebid/prebid-server",
+    "readCount": 418,
+    "commentCount": 11
+  },
+  {
     "id": 440,
     "title": "SAICX：2024中国AIGC应用全景——创新与变革全图谱",
     "original_title": "中国AIGC应用全景：2024年的创新与变革 - SAICX",
@@ -9512,6 +11465,23 @@
     "shareCount": 6711,
     "commentCount": 378,
     "updatedAt": "2024-06-07"
+  },
+  {
+    "id": 3444603282,
+    "title": "TensorFlow Serving在广告CTR预估模型中的部署实践",
+    "summary": "大规模CTR预估模型的在线推理服务化方案从训练到上线的完整链路",
+    "body": "TF Serving提供多版本管理自动扩缩容GPU推理等企业级特性满足严格延迟约束",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "TensorFlow",
+      "CTR"
+    ],
+    "impact": "medium",
+    "date": "2024-06-05",
+    "url": "https://github.com/tensorflow/serving",
+    "readCount": 3039,
+    "commentCount": 41
   },
   {
     "id": 441,
@@ -9560,6 +11530,143 @@
     "updatedAt": "2024-06-01"
   },
   {
+    "id": 489,
+    "title": "暨南大学：程序化广告效果评估——超越CTR的新框架",
+    "original_title": "程序化购买广告效果评估体系建构",
+    "summary": "构建品牌认知、情感态度、行为意向三层级评估模型。",
+    "body": "# 三层模型\\n1. 品牌认知：知名/回忆/辨识\\n2. 情感态度：好感/信任/偏好\\n3. 行为意向：搜索/购买/分享",
+    "source": "research",
+    "category": "MarTech",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-05-20",
+    "tags": [
+      "学术",
+      "效果评估"
+    ],
+    "url": "https://d.wanfangdata.com.cn/thesis/D01030775",
+    "readCount": 3092,
+    "shareCount": 1124,
+    "commentCount": 54,
+    "updatedAt": "2024-05-20"
+  },
+  {
+    "id": 3258320693,
+    "title": "分众传媒的焦虑：梯媒霸主如何应对数字化冲击？",
+    "summary": "分众传媒作为梯媒龙头面临数字化转型的压力，楼宇广告如何融入数据驱动的营销体系成为关键问题。",
+    "body": "分众正在尝试通过LCD屏升级、程序化售卖系统和线下线上数据打通来提升竞争力。但核心挑战在于：电梯场景的被动触达特性与数字化营销的主动交互逻辑存在天然矛盾。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "分众传媒",
+      "梯媒",
+      "户外广告",
+      "数字化转型"
+    ],
+    "impact": "medium",
+    "date": "2024-05-20",
+    "url": "https://www.36kr.com/p/308888888",
+    "readCount": 4333,
+    "commentCount": 50
+  },
+  {
+    "id": 455478985,
+    "title": "Apache Flink在广告实时特征工程中的应用",
+    "summary": "基于Flink CEP构建实时的用户兴趣标签更新系统实现毫秒级标签刷新",
+    "body": "Flink CEP模块可高效定义复杂时序模式匹配规则根据用户近期浏览点击行为实时更新兴趣标签",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Flink",
+      "特征工程"
+    ],
+    "impact": "medium",
+    "date": "2024-05-20",
+    "url": "https://github.com/apache/flink",
+    "readCount": 2234,
+    "commentCount": 30
+  },
+  {
+    "id": 963667656,
+    "title": "Apache Druid：高性能实时分析数据库在广告BI中的应用",
+    "summary": "Druid是专为OLAP查询设计的列式分布式数据库，特别适合广告实时BI和监控大屏场景。",
+    "body": "某广告平台采用Druid集群支撑每秒10万+QPS的实时查询需求，P99延迟控制在500ms以内。本文介绍了Druid的数据摄入架构、索引设计原则和查询优化技巧。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Druid",
+      "实时分析",
+      "OLAP",
+      "BI",
+      "广告监控"
+    ],
+    "impact": "medium",
+    "date": "2024-05-15",
+    "url": "https://github.com/apache/druid",
+    "readCount": 745,
+    "commentCount": 12
+  },
+  {
+    "id": 516,
+    "title": "Prebid Server——业界最流行的开源Header Bidding",
+    "original_title": "Prebid Server Header Bidding方案",
+    "summary": "被数百家媒体和DSP采用的开源Header Bidding解决方案。",
+    "body": "# 为什么重要\\n- 解决Third-Party Cookie淘汰\\n- 提升媒体收益15-30%\\n- 支持多方公平竞价",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-05-10",
+    "tags": [
+      "Prebid",
+      "Header Bidding"
+    ],
+    "url": "https://github.com/prebid/prebid-server",
+    "readCount": 8142,
+    "shareCount": 305,
+    "commentCount": 158,
+    "updatedAt": "2024-05-10"
+  },
+  {
+    "id": 200808968,
+    "title": "微博明星代言与广告投放的协同策略",
+    "summary": "明星代言在微博平台的放大效应明显，如何将明星影响力转化为实际的广告投放效果？",
+    "body": "明星代言与微博广告投放的协同需要做好三点：代言人形象与品牌调性一致、代言内容与广告素材风格统一、投放时段与明星热度周期配合。数据表明，代言官宣日的广告点击率平均提升60%以上。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "明星代言",
+      "协同投放",
+      "品牌营销"
+    ],
+    "impact": "low",
+    "date": "2024-05-10",
+    "url": "https://weibo.com/5633596000/Pwwww",
+    "readCount": 2960,
+    "commentCount": 23,
+    "original_title": "微博明星代言与广告投放的协同策略（原版标题）"
+  },
+  {
+    "id": 2765489731,
+    "title": "2024年品牌出海营销白皮书：东南亚市场机会洞察",
+    "summary": "聚焦东南亚六国（印尼、越南、泰国、菲律宾、马来西亚、新加坡）的数字广告市场现状与机会。",
+    "body": "东南亚数字广告市场规模已超80亿美元，年均增长率25%以上。Shopee、Lazada等电商平台广告位最受中国出海品牌青睐。TikTok Shop在东南亚的爆发式增长创造了全新的社交电商广告形态。",
+    "source": "research",
+    "category": "出海",
+    "tags": [
+      "品牌出海",
+      "东南亚",
+      "跨境电商",
+      "海外广告"
+    ],
+    "impact": "medium",
+    "date": "2024-05-08",
+    "url": "https://www.meegoo.cn/reports/777777",
+    "readCount": 2498,
+    "commentCount": 7
+  },
+  {
     "id": 443,
     "title": "艾媒×中国品牌杂志：国潮3.0+理性消费双轨并行的品牌创新路径",
     "original_title": "艾媒咨询｜2024年中国品牌营销创新与消费趋势洞察",
@@ -9606,6 +11713,43 @@
     "updatedAt": "2024-05-06"
   },
   {
+    "id": 1069897890,
+    "title": "内容营销ROI测量方法论",
+    "summary": "内容营销效果长期难以量化本文提出可操作的ROI评估框架",
+    "body": "四层指标体系：曝光层互动层转化层营收层建议建立统一UTM参数追踪体系",
+    "source": "industry-media",
+    "category": "内容营销",
+    "tags": [
+      "内容营销",
+      "ROI"
+    ],
+    "impact": "medium",
+    "date": "2024-05-05",
+    "url": "https://www.digitaling.com/articles/1450000.html",
+    "readCount": 1465,
+    "commentCount": 26
+  },
+  {
+    "id": 1293442445,
+    "title": "微信公众号广告主增长趋势与投放建议",
+    "summary": "公众号广告生态的最新变化和投放策略建议，包括底部广告、文中贴片、互选广告等多种形式。",
+    "body": "公众号广告经历了从单纯的底部Banner发展到文中贴片、视频贴片、互选广告等多种形式的演进过程。优质公众号的eCPM持续走高，尤其是财经、汽车、母婴等垂直类账号的广告价值凸显。",
+    "source": "wechat",
+    "category": "MarTech",
+    "tags": [
+      "公众号",
+      "广告主",
+      "互选广告",
+      "垂直类目",
+      "eCPM"
+    ],
+    "impact": "medium",
+    "date": "2024-04-20",
+    "url": "https://mp.weixin.qq.com/s/bbbbb",
+    "readCount": 3763,
+    "commentCount": 3
+  },
+  {
     "id": 445,
     "title": "澎湃：AIGC广告营销场景应用全景——全员营销时代已来",
     "original_title": "现实地讲讲AIGC在广告营销行业的场景应用 - 澎湃新闻",
@@ -9629,6 +11773,105 @@
     "updatedAt": "2024-04-19"
   },
   {
+    "id": 517,
+    "title": "Matomo——GDPR友好的Google Analytics替代品",
+    "original_title": "Matomo开源Web Analytics",
+    "summary": "完全开源的Web analytics平台，数据自管。",
+    "body": "# vs GA\\n- 数据所有权在手\\n- 无采样限制\\n- GDPR合规开箱即用\\n- 免费无限用户",
+    "source": "github",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-04-18",
+    "tags": [
+      "Matomo",
+      "分析",
+      "隐私"
+    ],
+    "url": "https://github.com/matomo-org/matomo",
+    "readCount": 4514,
+    "shareCount": 1686,
+    "commentCount": 153,
+    "updatedAt": "2024-04-18"
+  },
+  {
+    "id": 601273068,
+    "title": "程序化广告的至暗时刻？IDFA变革后的行业大洗牌",
+    "summary": "苹果ATT政策实施三年后，程序化广告行业经历了怎样的阵痛与转型？哪些玩家成功活了下来？",
+    "body": "iOS端广告识别率下降约70%导致整个产业链被迫转型。以CAID为代表的国产替代方案昙花一现后被叫停。幸存者普遍转向概率模型+上下文信号混合方案，SKAN/SKN4.0成为新的效果衡量标准。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "程序化广告",
+      "IDFA",
+      "ATT",
+      "隐私计算"
+    ],
+    "impact": "high",
+    "date": "2024-04-18",
+    "url": "https://www.36kr.com/p/3056789012345678",
+    "readCount": 2570,
+    "commentCount": 7
+  },
+  {
+    "id": 1115788073,
+    "title": "阿里妈妈的新战场：从电商广告到全域营销",
+    "summary": "阿里广告系统从淘内生态向外延伸覆盖优酷饿了么高德等多端流量",
+    "body": "Uni Desk产品整合阿里系全部媒体资源支持跨端频控和统一归因反映全域营销趋势",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "阿里妈妈",
+      "全域营销"
+    ],
+    "impact": "medium",
+    "date": "2024-04-15",
+    "url": "https://www.36kr.com/p/303888888",
+    "readCount": 1431,
+    "commentCount": 32
+  },
+  {
+    "id": 1928162204,
+    "title": "微博粉丝通必杀技：三大定向产品精准捕捉流量力量",
+    "summary": "深度解析微博粉丝通的常规定向、DMP定向和智能定向三大产品能力及适用场景。",
+    "body": "常规定向基于7大基础属性进行圈选；DMP定向支持多方数据共建和定制建模；智能定向则包含重定向和自动扩量两大功能。三者组合使用可实现从广撒网到精捕鱼的完整策略。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "粉丝通",
+      "定向策略",
+      "DMP",
+      "智能扩量"
+    ],
+    "impact": "medium",
+    "date": "2024-04-10",
+    "url": "https://www.sohu.com/a/714602475_100085192",
+    "readCount": 275,
+    "commentCount": 47
+  },
+  {
+    "id": 962119352,
+    "title": "Prometheus + Grafana搭建广告监控系统",
+    "summary": "使用Prometheus采集广告系统核心指标，通过Grafana构建可视化监控大盘，实现异常告警和根因分析。",
+    "body": "监控指标包括：竞价成功率(QPS/Win Rate)、广告展示延迟(P99 Latency)、填充率(Fill Rate)、收入趋势(Revenue)等。告警规则覆盖系统健康度和业务指标两大类。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Prometheus",
+      "Grafana",
+      "监控",
+      "告警",
+      "可视化"
+    ],
+    "impact": "low",
+    "date": "2024-04-08",
+    "url": "https://github.com/prometheus/prometheus",
+    "readCount": 3344,
+    "commentCount": 0,
+    "original_title": "Prometheus + Grafana搭建广告监控系统（原版标题）"
+  },
+  {
     "id": 446,
     "title": "数英：八大户外传媒集团概览——航空/高铁/地铁公交/景区全覆盖",
     "original_title": "国内八大户外传媒集团一览 - 数英",
@@ -9649,6 +11892,23 @@
     "shareCount": 7427,
     "commentCount": 415,
     "updatedAt": "2024-04-03"
+  },
+  {
+    "id": 4146579288,
+    "title": "2024年CDP客户数据平台选型与实施指南",
+    "summary": "面向CMO和技术决策者的CDP选型指南对比国内外主流CDP产品的功能差异",
+    "body": "评估了Salesforce CDP、Adobe Real-Time CDP、神策数据、Convertlab等十余款主流产品",
+    "source": "research",
+    "category": "MarTech",
+    "tags": [
+      "CDP",
+      "选型指南"
+    ],
+    "impact": "high",
+    "date": "2024-04-01",
+    "url": "https://www.gartner.cn/reports/555555",
+    "readCount": 1360,
+    "commentCount": 27
   },
   {
     "id": 447,
@@ -9694,6 +11954,23 @@
     "shareCount": 3774,
     "commentCount": 179,
     "updatedAt": "2024-03-28"
+  },
+  {
+    "id": 1918962533,
+    "title": "微博话题运营方法论：如何打造亿级阅读量品牌话题",
+    "summary": "微博话题是品牌扩大声量的重要工具分享话题策划运营放大实战经验",
+    "body": "优质品牌话题平均参与度是普通话题5倍以上关键在于预埋热点关键词和联动KOL扩散",
+    "source": "weibo",
+    "category": "内容营销",
+    "tags": [
+      "微博",
+      "话题运营"
+    ],
+    "impact": "low",
+    "date": "2024-03-28",
+    "url": "https://weibo.com/5633596000/Paaaaa",
+    "readCount": 4126,
+    "commentCount": 17
   },
   {
     "id": 449,
@@ -9743,6 +12020,27 @@
     "updatedAt": "2024-03-27"
   },
   {
+    "id": 518,
+    "title": "Apache Druid——广告公司实时分析基础设施",
+    "original_title": "Apache Druid用于广告数据",
+    "summary": "专为OLAP优化的分布式数据库，广泛应用于广告BI。",
+    "body": "# 为什么用Druid?\\n- 亚秒级查询\\n- 百万QPS写入\\n- 时间序列原生优化",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-03-25",
+    "tags": [
+      "Druid",
+      "数据库"
+    ],
+    "url": "https://github.com/apache/druid",
+    "readCount": 6991,
+    "shareCount": 450,
+    "commentCount": 73,
+    "updatedAt": "2024-03-25"
+  },
+  {
     "id": 451,
     "title": "知乎：秒针系统2024 KOL营销趋势报告——156页深度解读",
     "original_title": "156页深度报告，看懂2024 Social & KOL 营销趋势",
@@ -9789,6 +12087,47 @@
     "updatedAt": "2024-03-21"
   },
   {
+    "id": 248735144,
+    "title": "Matomo：GDPR合规的开源网站分析平台",
+    "summary": "Matomo(原Piwik)是一款完全开源的网站分析工具，数据自托管，符合GDPR要求，适合注重用户隐私的企业。",
+    "body": "相比Google Analytics，Matomo的优势在于数据完全自主可控，无需担心跨境数据传输问题。它支持自定义维度和指标，可与广告投放数据进行关联分析。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Matomo",
+      "网站分析",
+      "GDPR",
+      "开源",
+      "数据隐私"
+    ],
+    "impact": "low",
+    "date": "2024-03-20",
+    "url": "https://github.com/matomo-org/matomo",
+    "readCount": 1128,
+    "commentCount": 41
+  },
+  {
+    "id": 3858644496,
+    "title": "Redis Cluster在高并发广告竞价中的缓存策略",
+    "summary": "Redis Cluster在广告RTB竞价场景下的架构设计和性能调优实践经验分享。",
+    "body": "广告竞价系统对缓存的要求极为苛刻——需要在几十毫秒内完成用户画像查询、频次检查、预算扣减等操作。本文分享了Redis集群的分片策略、Pipeline批量操作、Lua脚本原子计算等优化手段。",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Redis",
+      "高并发",
+      "缓存",
+      "竞价",
+      "RTB"
+    ],
+    "impact": "medium",
+    "date": "2024-03-18",
+    "url": "https://github.com/redis/redis",
+    "readCount": 4332,
+    "commentCount": 49,
+    "original_title": "Redis Cluster在高并发广告竞价中的缓存策略（原版标题）"
+  },
+  {
     "id": 453,
     "title": "中国广告协会×秒针：2024 KOL营销趋势——内容+社交+达人三位一体",
     "original_title": "《2024 Social & KOL 营销趋势报告》发布 - 中国广告协会",
@@ -9832,6 +12171,218 @@
     "shareCount": 6009,
     "commentCount": 258,
     "updatedAt": "2024-03-15"
+  },
+  {
+    "id": 279511068,
+    "title": "微博广告推广后台搭建实操及工具箱使用说明",
+    "summary": "从开户认证到广告系列创建，全面介绍微博广告后台的操作流程和实用技巧。",
+    "body": "微博广告后台采用三层结构：广告系列→广告计划→广告创意。营销目标分为品牌活动、内容推广、线索收集、APP推广和电商店铺五大类型。oCPX智能出价功能可大幅降低投放难度。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "广告投放",
+      "实操教程",
+      "oCPX",
+      "后台操作"
+    ],
+    "impact": "low",
+    "date": "2024-03-15",
+    "url": "https://www.sohu.com/a/714001130_100085192",
+    "readCount": 2704,
+    "commentCount": 26,
+    "original_title": "微博广告推广后台搭建实操及工具箱使用说明（原版标题）"
+  },
+  {
+    "id": 3368787928,
+    "title": "市场监管总局整治虚假违法广告专项行动成果通报",
+    "summary": "市监总局通报年度虚假违法广告典型案例涵盖医疗美容教育培训等高发领域",
+    "body": "本次专项行动查处虚假违法广告案件数量显著医疗美容投资理财是重灾区",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "监管",
+      "执法"
+    ],
+    "impact": "high",
+    "date": "2024-03-15",
+    "url": "https://www.samr.gov.cn/xw/zx/sjdt/202403/t20240315_390000.html",
+    "readCount": 4448,
+    "commentCount": 45,
+    "original_title": "市场监管总局整治虚假违法广告专项行动成果通报（原标题）"
+  },
+  {
+    "id": 2502155651,
+    "title": "B站破圈之后：Z世代广告主的新选择还是老难题？",
+    "summary": "B站月活破3亿，但广告收入增速始终不及预期，UP主商业化与用户体验的矛盾持续存在。",
+    "body": "B站的独特价值在于高粘性的年轻用户群体和优质的UGC内容生态。花火平台的推出为UP主接单提供了正规渠道，但恰饭视频的质量参差不齐仍影响用户体验。Story Mode的推出为信息流广告提供了更多空间。",
+    "source": "36kr",
+    "category": "社交媒体",
+    "tags": [
+      "B站",
+      "Z世代",
+      "UP主",
+      "花火平台"
+    ],
+    "impact": "medium",
+    "date": "2024-03-10",
+    "url": "https://www.36kr.com/p/3001234567890123",
+    "readCount": 162,
+    "commentCount": 9
+  },
+  {
+    "id": 3566752371,
+    "title": "中国直播电商行业研究报告（2023版）",
+    "summary": "专业机构深度报告：供给侧品牌商多平台布局、店播崛起，需求侧消费者决策趋于理性。",
+    "body": "2023年直播电商行业发生深刻变化。供给端品牌商从单一平台布局转向多平台矩阵运营，店播市场规模占比首超50%。需求侧消费者从冲动消费转向理性决策。",
+    "source": "industry-media",
+    "category": "直播电商",
+    "tags": [
+      "直播电商",
+      "行业报告",
+      "店播",
+      "多平台布局",
+      "消费趋势"
+    ],
+    "impact": "high",
+    "date": "2024-02-29",
+    "url": "https://source.ckcloud.busionline.com/izcoo/%EF%BC%880418%EF%BC%892023%E5%B9%B4%E4%B8%AD%E5%9B%BD%E7%9B%B4%E6%92%AD%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A.pdf",
+    "readCount": 1841,
+    "commentCount": 9
+  },
+  {
+    "id": 1604230185,
+    "title": "百度AI原生营销：文心一言如何改变搜索广告格局？",
+    "summary": "百度将大语言模型能力整合到搜索广告系统中，意图理解更精准、创意生成更高效、对话式交互开启新的广告形态。",
+    "body": "文心一言的接入让百度搜索广告从关键词匹配升级为语义理解匹配。广告主可以用自然语言描述目标受众，系统自动生成定向策略和创意方案。这对中小广告主的门槛降低尤为明显。",
+    "source": "36kr",
+    "category": "AIGC",
+    "tags": [
+      "百度",
+      "文心一言",
+      "搜索广告",
+      "AI原生"
+    ],
+    "impact": "medium",
+    "date": "2024-02-28",
+    "url": "https://www.36kr.com/p/298888888",
+    "readCount": 3065,
+    "commentCount": 36
+  },
+  {
+    "id": 1122628330,
+    "title": "CTR发布2023中国广告市场年度报告：整体增长6%，户外强势反弹",
+    "summary": "CTR媒介智讯数据显示，2023年中国广告市场同比上涨6.0%，电梯LCD、电梯海报和影院视频广告均呈双位数增长。",
+    "body": "根据CTR数据，2023年广告市场呈现明显的恢复态势。分渠道来看，户外媒介是最大亮点——机场、高铁站、地铁等交通枢纽广告花费均由负转正。食品、饮料、药品、化妆品等行业增投活跃。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "CTR",
+      "年度报告",
+      "广告市场",
+      "户外广告"
+    ],
+    "impact": "high",
+    "date": "2024-02-23",
+    "url": "http://otv.lmtw.com/data/202402/231570.html",
+    "readCount": 4619,
+    "commentCount": 25,
+    "original_title": "CTR发布2023中国广告市场年度报告：整体增长6%，户外强势反弹（原版标题）"
+  },
+  {
+    "id": 1600427697,
+    "title": "Sora横空出世对视频广告意味着什么？",
+    "summary": "OpenAI发布的Sora文生视频模型将彻底改变视频广告生产方式和成本结构",
+    "body": "AI生成高质量视频素材后TVC制作成本将从百万级降到千元级UGC视频广告质量门槛大幅降低",
+    "source": "36kr",
+    "category": "AIGC",
+    "tags": [
+      "Sora",
+      "AIGC",
+      "视频广告"
+    ],
+    "impact": "high",
+    "date": "2024-02-20",
+    "url": "https://www.36kr.com/p/297777777",
+    "readCount": 907,
+    "commentCount": 34
+  },
+  {
+    "id": 492,
+    "title": "维普期刊：大数据时代程序化广告的数据化传播特征",
+    "original_title": "大数据时代程序化购买研究",
+    "summary": "梳理RTB产业链结构和数据驱动决策流程。",
+    "body": "# 产业链\\n- DSP/SSP/DMP/ADX角色定位\\n- RTB竞价机制详解\\n- AI在竞价中应用",
+    "source": "research",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-02-18",
+    "tags": [
+      "学术",
+      "RTB",
+      "DMP"
+    ],
+    "url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=664505626",
+    "readCount": 811,
+    "shareCount": 1960,
+    "commentCount": 265,
+    "updatedAt": "2024-02-18"
+  },
+  {
+    "id": 4183068767,
+    "title": "SCRM选型指南：微盟有赞尘锋谁更适合你？",
+    "summary": "全面对比国内主流SCRM产品功能特点定价模式和适用场景",
+    "body": "微盟强在全案服务有赞优势在零售解决方案尘锋深耕企微SCRM领域多年",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "SCRM",
+      "选型"
+    ],
+    "impact": "medium",
+    "date": "2024-02-14",
+    "url": "https://developer.aliyun.com/article/888888",
+    "readCount": 443,
+    "commentCount": 15
+  },
+  {
+    "id": 519,
+    "title": "ClickHouse在广告数据分析中的最佳实践",
+    "original_title": "ClickHouse广告数据分析",
+    "summary": "列式存储数据库在广告行业的广泛应用。",
+    "body": "# 优势\\n- 压缩率10:1\\n- SQL查询快\\n- PB级数据支持",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-02-10",
+    "tags": [
+      "ClickHouse",
+      "数据仓库"
+    ],
+    "url": "https://github.com/ClickHouse/ClickHouse",
+    "readCount": 8154,
+    "shareCount": 1569,
+    "commentCount": 88,
+    "updatedAt": "2024-02-10"
+  },
+  {
+    "id": 841737727,
+    "title": "Nginx在广告网关层的高性能配置实践",
+    "summary": "广告网关承担流量入口鉴权限频路由分发等核心职责性能至关重要",
+    "body": "分享了OpenResty在高并发API网关中的优化经验包括Worker调整Keepalive连接池Lua缓存等",
+    "source": "github",
+    "category": "MarTech",
+    "tags": [
+      "Nginx",
+      "高性能"
+    ],
+    "impact": "low",
+    "date": "2024-02-10",
+    "url": "https://github.com/openresty/openresty",
+    "readCount": 4048,
+    "commentCount": 37
   },
   {
     "id": 455,
@@ -9901,6 +12452,112 @@
     "shareCount": 4269,
     "commentCount": 262,
     "updatedAt": "2024-01-18"
+  },
+  {
+    "id": 491566184,
+    "title": "2024年快手研究报告：高质量发展与商业化提速",
+    "summary": "快手从流量优先转向质量优先战略，商业化进程明显加速，广告和电商收入占比持续提升。",
+    "body": "2023年快手总营收达1135亿元，广告收入同比增长21%。电商GMV突破万亿，店播占比过半。磁力金牛产品的推出打通了广告投放与电商转化的链路。",
+    "source": "industry-media",
+    "category": "直播电商",
+    "tags": [
+      "快手",
+      "商业化",
+      "信任电商",
+      "磁力金牛",
+      "店播"
+    ],
+    "impact": "medium",
+    "date": "2024-01-16",
+    "url": "https://www.vzkoo.com/read/20240116045656970ae460ec65c5f9e9.html",
+    "readCount": 617,
+    "commentCount": 16,
+    "original_title": "2024年快手研究报告：高质量发展与商业化提速（原版标题）"
+  },
+  {
+    "id": 520,
+    "title": "MindsDB——SQL训练ML模型用于CTR/CVR预测",
+    "original_title": "MindsDB用SQL训练ML预测广告",
+    "summary": "让分析师用SQL就能训练ML模型。",
+    "body": "# 广告场景\\n- PREDICT click_probability\\n- PREDICT conversion_rate\\n- PREDICT optimal_bid",
+    "source": "github",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2024",
+    "date": "2024-01-15",
+    "tags": [
+      "MindsDB",
+      "ML",
+      "SQL"
+    ],
+    "url": "https://github.com/mindsdb/mindsdb",
+    "readCount": 1607,
+    "shareCount": 143,
+    "commentCount": 214,
+    "updatedAt": "2024-01-15"
+  },
+  {
+    "id": 523,
+    "title": "广告门：全域营销三大赛道——赢在2024",
+    "original_title": "三大全域营销趋势",
+    "summary": "微盟副总裁解读AIGC时代全域营销打法。",
+    "body": "# 三大趋势\\n1. AIGC全面落地\\n2. 公私域一体化\\n3. 科学度量体系",
+    "source": "wechat",
+    "category": "营销趋势",
+    "impact": "high",
+    "year": "2024",
+    "date": "2024-01-15",
+    "tags": [
+      "全域",
+      "AIGC",
+      "微盟"
+    ],
+    "url": "https://www.adquan.com/article/341725",
+    "readCount": 1987,
+    "shareCount": 997,
+    "commentCount": 229,
+    "updatedAt": "2024-01-15"
+  },
+  {
+    "id": 534,
+    "title": "微博@深度传播：斩获广告门数字营销代理TOP1",
+    "original_title": "深度传播集团获奖",
+    "summary": "整合营销服务荣获多项大奖。",
+    "body": "# 能力矩阵\\n- 品牌策略咨询\\n- 全案创意制作\\n- 数字媒介投放",
+    "source": "weibo",
+    "category": "综合资讯",
+    "impact": "low",
+    "year": "2024",
+    "date": "2024-01-15",
+    "tags": [
+      "奖项",
+      "代理商"
+    ],
+    "url": "https://weibo.com/1726838117/NDDQdtyb8",
+    "readCount": 8483,
+    "shareCount": 157,
+    "commentCount": 290,
+    "updatedAt": "2024-01-15"
+  },
+  {
+    "id": 1298098153,
+    "title": "2024年中国直播电商行业竞争格局及市场份额深度分析",
+    "summary": "前瞻产业研究院报告：抖音、快手、淘宝直播三足鼎立格局稳固，拼多多、视频号加速追赶。",
+    "body": "2023年中国直播电商市场规模约4.9万亿元，同比增长35.2%。抖音凭借内容生态优势占据最大市场份额，淘宝直播依靠供应链优势稳居第二，快手在下沉市场和信任电商领域保持领先。",
+    "source": "industry-media",
+    "category": "直播电商",
+    "tags": [
+      "直播电商",
+      "行业格局",
+      "抖音",
+      "淘宝直播",
+      "快手"
+    ],
+    "impact": "high",
+    "date": "2024-01-09",
+    "url": "https://bg.qianzhan.com/trends/detail/506/240109-b0e01da2.html",
+    "readCount": 3819,
+    "commentCount": 38
   },
   {
     "id": 458,
@@ -10061,6 +12718,27 @@
     "updatedAt": "2023-12-20"
   },
   {
+    "id": 521,
+    "title": "Flink在广告实时数据处理中的核心应用",
+    "original_title": "Flink广告实时计算框架",
+    "summary": "实现从曝光到归因的毫秒级实时链路。",
+    "body": "# 广告实时链路\\n1. 日志采集(Kafka)\\n2. 点击关联(Flink Join)\\n3. 反作弊检测(CEP)\\n4. 预算扣减",
+    "source": "github",
+    "category": "广告技术",
+    "impact": "medium",
+    "year": "2023",
+    "date": "2023-12-20",
+    "tags": [
+      "Flink",
+      "实时计算"
+    ],
+    "url": "https://github.com/apache/flink",
+    "readCount": 7269,
+    "shareCount": 1644,
+    "commentCount": 6,
+    "updatedAt": "2023-12-20"
+  },
+  {
     "id": 465,
     "title": "搜狐：创意热店厂牌化——从“小而美”心智到行业新势力",
     "original_title": "创意热店厂牌化 - 搜狐",
@@ -10081,6 +12759,211 @@
     "shareCount": 1014,
     "commentCount": 220,
     "updatedAt": "2023-12-14"
+  },
+  {
+    "id": 2786703638,
+    "title": "网络反不正当竞争暂行规定出炉",
+    "summary": "市监总局出台新规，重点规制流量劫持、恶意屏蔽、非法抓取数据等新型不正当竞争行为，影响搜索引擎和电商广告生态。",
+    "body": "新规对搜索引擎广告中的竞价排名操纵、电商平台内的搜索降权等行为进行了明确界定，对依赖SEO/SEM的广告公司产生直接影响。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "反不正当竞争",
+      "流量劫持",
+      "搜索引擎",
+      "电商"
+    ],
+    "impact": "medium",
+    "date": "2023-12-08",
+    "url": "https://www.samr.gov.cn/xxgk/zcfg/202312/t20231208_380000.html",
+    "readCount": 2946,
+    "commentCount": 25
+  },
+  {
+    "id": 2829063276,
+    "title": "如何在微博投放广告？超粉开户与样式全解析",
+    "summary": "微博广告投放全攻略：从资质认证开户到五种原生广告样式的选择策略。",
+    "body": "微博广告支持原生博文、卡片、长图按钮、竖版视频、正文页Banner等多种形式。原生博文广告融入信息流体验最好；竖版视频适合品牌故事讲述；卡片广告适合促销活动引流。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "广告投放",
+      "开户指南",
+      "广告样式",
+      "投放策略"
+    ],
+    "impact": "low",
+    "date": "2023-11-20",
+    "url": "https://www.sohu.com/a/732928430_100180191",
+    "readCount": 3809,
+    "commentCount": 44
+  },
+  {
+    "id": 527,
+    "title": "Digitaling：AIGC品牌营销3个前沿玩法与案例合辑",
+    "original_title": "AIGC赋能品牌数字营销",
+    "summary": "OpenAI DevDay后AIGC工具实际应用案例合集。",
+    "body": "# 案例\\n- 可口可乐300+变体海报\\n- 耐克定制运动鞋\\n- 星巴克AI咖啡师互动",
+    "source": "wechat",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-11-16",
+    "tags": [
+      "AIGC",
+      "创意",
+      "Digitaling"
+    ],
+    "url": "https://www.digitaling.com/articles/1003463.html",
+    "readCount": 4625,
+    "shareCount": 653,
+    "commentCount": 231,
+    "updatedAt": "2023-11-16"
+  },
+  {
+    "id": 491,
+    "title": "百度学术：理性vs感性诉求——科技品牌广告实证",
+    "original_title": "高科技品牌广告效果影响因素",
+    "summary": "对比LG/佳能/索尼等品牌在不同媒介的效果差异。",
+    "body": "# 结论\\n- B2B理性诉求更有效\\n- 消费电子感性胜出\\n- 社交放大感性创意",
+    "source": "research",
+    "category": "B2B营销",
+    "impact": "medium",
+    "year": "2023",
+    "date": "2023-11-15",
+    "tags": [
+      "学术",
+      "B2B"
+    ],
+    "url": "https://xueshu.baidu.com/usercenter/paper/show?paperid=7e5ee63e9e6c42adee0d41ce3ba1ffc0",
+    "readCount": 3260,
+    "shareCount": 318,
+    "commentCount": 275,
+    "updatedAt": "2023-11-15"
+  },
+  {
+    "id": 1514163423,
+    "title": "SaaS营销云赛道洗牌：谁能在企微生态中活下来？",
+    "summary": "企业微信SCRM市场竞争白热化，微盟、有赞、尘锋等玩家各显神通，广告投放与私域运营的融合成为胜负手。",
+    "body": "随着公域流量成本不断攀升，越来越多的广告主开始重视私域运营。SaaS营销云厂商纷纷推出广告+企微一体化解决方案，实现从广告投放到私域沉淀再到复购转化的全链路闭环。",
+    "source": "36kr",
+    "category": "MarTech",
+    "tags": [
+      "SCRM",
+      "企微",
+      "私域运营",
+      "SaaS营销"
+    ],
+    "impact": "medium",
+    "date": "2023-11-08",
+    "url": "https://www.36kr.com/p/2901234567890123",
+    "readCount": 2231,
+    "commentCount": 7
+  },
+  {
+    "id": 484,
+    "title": "《未成年人保护条例》：儿童广告投放新红线",
+    "original_title": "未成年人网络保护条例",
+    "summary": "对面向未成年人的广告内容和形式严格限制。",
+    "body": "# 广告禁令\\n- 不得诱导未成年人消费\\n- 游戏广告需适龄提示",
+    "source": "gov",
+    "category": "消费者洞察",
+    "impact": "medium",
+    "year": "2023",
+    "date": "2023-10-24",
+    "tags": [
+      "未成年人",
+      "合规"
+    ],
+    "url": "https://www.gov.cn/zhengce/zhengceku/202310/content_6908965.htm",
+    "readCount": 5623,
+    "shareCount": 349,
+    "commentCount": 194,
+    "updatedAt": "2023-10-24"
+  },
+  {
+    "id": 1529095470,
+    "title": "未成年人网络保护条例出台，儿童广告受严管",
+    "summary": "国务院公布《未成年人网络保护条例》，针对面向未成年人的广告营销活动作出专门规定。",
+    "body": "条例明确规定，网络产品和服务提供者不得向未成年人发送诱导其沉迷的产品或服务的广告。网络游戏、网络直播等服务应设置未成年人模式限制广告展示。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "未成年人保护",
+      "儿童广告",
+      "合规",
+      "网络游戏"
+    ],
+    "impact": "medium",
+    "date": "2023-10-24",
+    "url": "https://www.gov.cn/zhengce/content_5749000.htm",
+    "readCount": 2601,
+    "commentCount": 37
+  },
+  {
+    "id": 530,
+    "title": "搜狐智库：全球MarTech发展与中国机会",
+    "original_title": "全球及中国MarTech前景",
+    "summary": "从全球视野分析MarTech现状和中国特色。",
+    "body": "# 中国特色\\n- BAT主导生态\\n- SaaS接受度提升\\n- 私域工具爆发",
+    "source": "wechat",
+    "category": "MarTech",
+    "impact": "medium",
+    "year": "2023",
+    "date": "2023-10-12",
+    "tags": [
+      "MarTech",
+      "全球",
+      "搜狐"
+    ],
+    "url": "https://www.sohu.com/a/727613292_120737254",
+    "readCount": 2487,
+    "shareCount": 1515,
+    "commentCount": 149,
+    "updatedAt": "2023-10-12"
+  },
+  {
+    "id": 490,
+    "title": "国际期刊：神经营销学优化程序化广告投放效率",
+    "original_title": "神经营销学在程序化广告中的应用",
+    "summary": "EEG实验发现情绪唤起度高的创意RTB表现更好。",
+    "body": "# 结论\\n- 情绪唤起+10%，CPA-8%\\n- 视觉注意力与点击正相关\\n- 预测准确率76%",
+    "source": "research",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-09-25",
+    "tags": [
+      "神经营销",
+      "神经科学"
+    ],
+    "url": "https://www.x-mol.com/paper/1706890481936125952/t",
+    "readCount": 6849,
+    "shareCount": 1920,
+    "commentCount": 276,
+    "updatedAt": "2023-09-25"
+  },
+  {
+    "id": 1474193728,
+    "title": "微博热搜榜营销：品牌如何正确蹭热点",
+    "summary": "微博热搜是全网最具影响力的公共话题场，品牌如何有效利用热点话题进行营销推广？",
+    "body": "成功的热搜营销需要把握时机、角度和尺度。太快蹭会被认为投机取巧，太慢则失去热度。最好的方式是将品牌理念自然融入话题讨论，而非生硬地插入广告信息。",
+    "source": "weibo",
+    "category": "内容营销",
+    "tags": [
+      "微博",
+      "热搜",
+      "话题营销",
+      "借势",
+      "热点"
+    ],
+    "impact": "low",
+    "date": "2023-09-15",
+    "url": "https://weibo.com/5633596000/Pxxxxx",
+    "readCount": 1081,
+    "commentCount": 36,
+    "original_title": "微博热搜榜营销：品牌如何正确蹭热点（原版标题）"
   },
   {
     "id": 466,
@@ -10106,6 +12989,25 @@
     "updatedAt": "2023-09-01"
   },
   {
+    "id": 1868609223,
+    "title": "抖音、快手、小红书、B站广告投放平台的特点与选择策略",
+    "summary": "全面对比四大主流信息流广告平台的流量特征、用户画像和投放效果，给出选择建议。",
+    "body": "当前广告投放市场已告别野蛮生长，进入成熟稳定的流量生态期。抖音算法最强适合泛流量获取，快手私域粘性好适合复购运营，小红书种草能力强适合品牌建设，B站圈层精准适合垂直品类。",
+    "source": "tech-media",
+    "category": "信息流广告",
+    "tags": [
+      "信息流广告",
+      "平台对比",
+      "投放策略",
+      "流量生态"
+    ],
+    "impact": "medium",
+    "date": "2023-08-24",
+    "url": "https://cloud.tencent.com/developer/article/2317561",
+    "readCount": 1048,
+    "commentCount": 49
+  },
+  {
     "id": 467,
     "title": "知乎：游戏化营销完全指南——将游戏设计思维应用于非游戏场景",
     "original_title": "为什么各个行业都转向「游戏化营销」了？- 知乎",
@@ -10128,6 +13030,42 @@
     "updatedAt": "2023-08-15"
   },
   {
+    "id": 2597203130,
+    "title": "广告绝对化用语执法指南更新：这些词不能用",
+    "summary": "市场监管总局发布最新广告绝对化用语执法指南，明确国家级、最佳、第一等禁用词汇的判定标准。",
+    "body": "新版执法指南结合互联网广告特点，对社交媒体、直播场景中的绝对化用语认定标准进行了细化，为广告从业者提供了更清晰的合规指引。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "广告法",
+      "绝对化用语",
+      "合规指引",
+      "执法指南"
+    ],
+    "impact": "medium",
+    "date": "2023-08-15",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_5474cf75173c45d6a0379730fb4e8d97.html",
+    "readCount": 3594,
+    "commentCount": 11
+  },
+  {
+    "id": 4144899199,
+    "title": "未成年人模式暂行规定征求意见稿发布",
+    "summary": "针对未成年人接触的广告内容作出更严格限制保护青少年身心健康",
+    "body": "拟规定向未成年人分发广告不得含有诱导沉迷内容网络游戏直播广告需符合适龄提示要求",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "未成年保护",
+      "合规"
+    ],
+    "impact": "medium",
+    "date": "2023-08-15",
+    "url": "https://www.gov.cn/zhengce/2023-08/15/content_5780000.htm",
+    "readCount": 3465,
+    "commentCount": 4
+  },
+  {
     "id": 468,
     "title": "中广协：中国4A创意热店联盟成立——独立广告公司团结新生态",
     "original_title": "中国商务广告协会决定成立\"中国4A创意热店联盟\"",
@@ -10148,6 +13086,103 @@
     "shareCount": 6516,
     "commentCount": 401,
     "updatedAt": "2023-08-14"
+  },
+  {
+    "id": 1495206193,
+    "title": "联动多方数据！一文了解微博超级粉丝通DMP能力全景",
+    "summary": "超粉DMP整合自有数据、微博数据和第三方数据三大来源，为广告主提供强大的人群包管理能力。",
+    "body": "DMP支持多种格式数据包上传（单次最大1G）、丰富的人群包运算（合并/交叉/排除）、基于微博数据的相似扩展以及第三方数据市场接入。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "DMP",
+      "数据管理",
+      "人群包",
+      "Lookalike"
+    ],
+    "impact": "medium",
+    "date": "2023-08-10",
+    "url": "https://www.sohu.com/a/452130519_120058486",
+    "readCount": 3267,
+    "commentCount": 42,
+    "original_title": "联动多方数据！一文了解微博超级粉丝通DMP能力全景（原版标题）"
+  },
+  {
+    "id": 3807479674,
+    "title": "2023年消费者洞察报告：Z世代的消费观与品牌态度",
+    "summary": "基于大规模问卷调查，深入解读Z世代消费者的媒体接触习惯、品牌偏好和购物决策路径。",
+    "body": "Z世代日均触媒时长超8小时，其中短视频占比最高（约40%）。他们更看重品牌的价值观认同而非价格敏感度。国潮品牌在Z世代中的好感度显著高于国际品牌。广告形式上，他们最接受原生内容和互动式广告。",
+    "source": "research",
+    "category": "消费者洞察",
+    "tags": [
+      "Z世代",
+      "消费者洞察",
+      "年轻群体",
+      "消费观"
+    ],
+    "impact": "medium",
+    "date": "2023-07-20",
+    "url": "https://www.nielseniq.com/reports/555555",
+    "readCount": 2836,
+    "commentCount": 46
+  },
+  {
+    "id": 3400375526,
+    "title": "微博V+会员的商业价值与广告合作模式解析",
+    "summary": "V+会员作为微博高端创作者变现产品商业价值正被更多品牌认可",
+    "body": "V+会员受众具有更高付费意愿适合高客单价品类精准投放CPM高于普通信息流",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "V+会员"
+    ],
+    "impact": "low",
+    "date": "2023-07-20",
+    "url": "https://weibo.com/5633596000/Pbbbbb",
+    "readCount": 2734,
+    "commentCount": 7
+  },
+  {
+    "id": 1788088836,
+    "title": "CTR洞察：2023上半年广告市场同比增长4.8%",
+    "summary": "CTR数据显示2023年上半年中国广告市场同比上涨4.8%，电梯电视和海报领涨，影院视频广告翻倍增长。",
+    "body": "上半年饮料行业在影院视频广告投放翻倍，婴幼儿奶粉、蒸馏水等细分品类增长显著。化妆品/浴室用品行业重现正增长，洗发护发类电视广告投放前五品牌为海飞丝、舒肤佳、飘柔、力士、珍草堂。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "CTR",
+      "半年报",
+      "广告市场",
+      "行业分析"
+    ],
+    "impact": "medium",
+    "date": "2023-07-15",
+    "url": "https://www.163.com/dy/article/IC3BRQ5L0511A9GS.html",
+    "readCount": 2032,
+    "commentCount": 30
+  },
+  {
+    "id": 486,
+    "title": "AIGC广告内容合规：《生成式AI服务管理暂行办法》解读",
+    "original_title": "生成式AI服务管理暂行办法",
+    "summary": "AI生成的广告内容提出标识要求和内容安全责任。",
+    "body": "# 规定\\n- AI内容需显著标识\\n- 服务提供者承担内容责任",
+    "source": "gov",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-07-13",
+    "tags": [
+      "AI",
+      "合规"
+    ],
+    "url": "https://www.cac.gov.cn/2023-07/13/c-1690894369064945.htm",
+    "readCount": 3690,
+    "shareCount": 1121,
+    "commentCount": 34,
+    "updatedAt": "2023-07-13"
   },
   {
     "id": 469,
@@ -10173,6 +13208,64 @@
     "updatedAt": "2023-06-27"
   },
   {
+    "id": 495,
+    "title": "摩报：广告效果评估方法论——从AIDMA到5A",
+    "original_title": "广告效果评估方法论进展",
+    "summary": "介绍广告效果评估理论演进路径。",
+    "body": "# 演进路线\\n1. AIDMA (1898)\\n2. AISAS (2005)\\n3. 5A模型 (2014)\\n4. AI增强版(2025)",
+    "source": "research",
+    "category": "营销策略",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-06-26",
+    "tags": [
+      "方法论",
+      "效果评估"
+    ],
+    "url": "https://zhuanlan.zhihu.com/p/639553256",
+    "readCount": 6863,
+    "shareCount": 580,
+    "commentCount": 121,
+    "updatedAt": "2023-06-26"
+  },
+  {
+    "id": 1996863790,
+    "title": "《互联网广告管理办法》官方全文及政策解读",
+    "summary": "国家市场监督管理总局第72号令公布《互联网广告管理办法》，共31章，涵盖互联网广告定义、广告主责任、平台义务等内容。",
+    "body": "《办法》明确了互联网广告的定义范围，规定了广告主、广告经营者、广告发布者、互联网信息服务提供者的具体义务，并针对直播带货、算法推荐等新业态提出了针对性要求。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "互联网广告",
+      "管理办法",
+      "全文解读"
+    ],
+    "impact": "high",
+    "date": "2023-06-20",
+    "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzbmgz/202306/t20230620_481045.html",
+    "readCount": 1256,
+    "commentCount": 9
+  },
+  {
+    "id": 4073839843,
+    "title": "艾瑞：2023年中国网络广告市场研究——垂直行业广告主调查",
+    "summary": "艾瑞咨询52页深度报告，聚焦垂直行业广告主的线上营销偏好和预算分配策略。",
+    "body": "报告覆盖电商、金融、教育、游戏、汽车等八大行业，分析了各行业的广告投放特征。电商广告与短视频广告是份额最高的两大赛道，品牌广告主越来越重视内容营销和私域运营的结合。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "艾瑞",
+      "网络广告",
+      "垂直行业",
+      "广告主调研"
+    ],
+    "impact": "medium",
+    "date": "2023-06-20",
+    "url": "https://www.sohu.com/a/754451046_121713887",
+    "readCount": 1170,
+    "commentCount": 29
+  },
+  {
     "id": 470,
     "title": "私域流量白皮书：从流量思维到留量思维的运营转型",
     "original_title": "私域流量运营白皮书：从流量思维到留量思维",
@@ -10194,6 +13287,186 @@
     "shareCount": 2652,
     "commentCount": 378,
     "updatedAt": "2023-06-15"
+  },
+  {
+    "id": 2082654529,
+    "title": "2023年DTC品牌出海白皮书：全球数字广告机会地图",
+    "summary": "聚焦欧美东南亚中东三大区域市场的数字广告生态特点和进入策略",
+    "body": "TikTok For Business已成为出海品牌首选广告投放阵地各平台政策差异是主要挑战",
+    "source": "research",
+    "category": "出海",
+    "tags": [
+      "DTC",
+      "出海",
+      "全球化"
+    ],
+    "impact": "medium",
+    "date": "2023-06-15",
+    "url": "https://www.meegoo.cn/reports/88888888",
+    "readCount": 1059,
+    "commentCount": 37,
+    "original_title": "2023年DTC品牌出海白皮书：全球数字广告机会地图（原标题）"
+  },
+  {
+    "id": 528,
+    "title": "搜狐深度：AIGC开卷广告行业近2年营销案例研究",
+    "original_title": "AIGC开卷广告行业案例研究",
+    "summary": "从ChatGPT文案到Midjourney海报再到AI短视频。",
+    "body": "# 量化效果\\n- 创意产出↑400%\\n- 成本↓60%\\n- A/B测试↑500%",
+    "source": "wechat",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-06-02",
+    "tags": [
+      "AIGC",
+      "案例",
+      "搜狐"
+    ],
+    "url": "https://www.sohu.com/a/681537177_104036",
+    "readCount": 501,
+    "shareCount": 970,
+    "commentCount": 286,
+    "updatedAt": "2023-06-02"
+  },
+  {
+    "id": 4163819869,
+    "title": "网络安全法实施五周年：数据跨境传输新规影响广告行业",
+    "summary": "网络安全法实施五年以来，数据跨境流动监管框架逐步完善，对跨国广告公司的数据合规提出更高要求。",
+    "body": "数据出境安全评估办法的出台使得拥有全球用户的广告平台需要重新审视数据存储和处理策略。CDP/DMP中的用户标签数据是否构成重要数据成为争议焦点。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "网络安全法",
+      "数据跨境传输",
+      "合规",
+      "GDPR"
+    ],
+    "impact": "medium",
+    "date": "2023-06-01",
+    "url": "https://www.cac.gov.cn/2023-06/01/c_168888888.htm",
+    "readCount": 1975,
+    "commentCount": 9
+  },
+  {
+    "id": 199482003,
+    "title": "Midjourney/Stable Diffusion重塑创意设计工作流",
+    "summary": "AI绘图工具在设计行业的应用正在改变广告素材的生产方式和效率",
+    "body": "设计师的工作流从手绘草图变为提示词工程(Prompt Engineering)产出效率提升5-10倍但版权归属仍是灰色地带",
+    "source": "tech-media",
+    "category": "AIGC",
+    "tags": [
+      "Midjourney",
+      "Stable Diffusion",
+      "设计工具"
+    ],
+    "impact": "medium",
+    "date": "2023-05-20",
+    "url": "https://developer.aliyun.com/article/999999",
+    "readCount": 2021,
+    "commentCount": 2
+  },
+  {
+    "id": 1676978031,
+    "title": "CTR：2023中国广告主营销趋势调查报告",
+    "summary": "基于700+广告主调研，揭示2023年广告主预算走向、媒体偏好和营销痛点。",
+    "body": "调查显示四个核心增长点：新产品新服务带来新需求、个性化营销策略、出海市场拓展、线下媒体价值回归。ChatGPT掀起的AIGC浪潮受到超过60%的广告主青睐。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "CTR",
+      "广告主调研",
+      "营销趋势",
+      "AIGC"
+    ],
+    "impact": "medium",
+    "date": "2023-05-10",
+    "url": "https://www.163.com/dy/article/I6LMV486051998SC.html",
+    "readCount": 992,
+    "commentCount": 18,
+    "original_title": "CTR：2023中国广告主营销趋势调查报告（原版标题）"
+  },
+  {
+    "id": 479,
+    "title": "市场监管总局《互联网广告管理办法》：八大变化重塑行业规则",
+    "original_title": "互联网广告管理办法",
+    "summary": "2023年5月1日起施行的《互联网广告管理办法》带来八大关键变化：带货主播视为代言人、种草广告定义调整、电子烟成广告禁区等。",
+    "body": "# 核心变化\\n- 带货主播视为广告代言人\\n- 种草内容纳入广告监管\\n- 开屏广告三跳限制",
+    "source": "gov",
+    "category": "广告技术",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-03-24",
+    "tags": [
+      "政策",
+      "法规",
+      "互联网广告"
+    ],
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_d93a579afd45413e8576e4623fab348f.html",
+    "readCount": 4771,
+    "shareCount": 1659,
+    "commentCount": 252,
+    "updatedAt": "2023-03-24"
+  },
+  {
+    "id": 1769645288,
+    "title": "市场监管总局公布《互联网广告管理办法》5月1日起施行",
+    "summary": "市场监管总局修订发布《互联网广告管理办法》，规范互联网广告活动，保护消费者合法权益，明确弹出广告、开屏广告、算法推荐广告等行为规范。",
+    "body": "《办法》进一步明确和细化了互联网广告相关主体的义务，对弹出广告、开屏广告、利用互联网发布、发送广告等行为作出明确规定，并对直播营销、算法推荐等新型广告形式进行规范。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "互联网广告",
+      "管理办法",
+      "市场监管",
+      "合规"
+    ],
+    "impact": "high",
+    "date": "2023-03-24",
+    "url": "https://www.gov.cn/zhengce/2023-03/24/content_5748236.htm",
+    "readCount": 434,
+    "commentCount": 41
+  },
+  {
+    "id": 493,
+    "title": "《现代广告》：AIGC对广告产业的全方位重构",
+    "original_title": "现代广告学刊AIGC专题",
+    "summary": "围绕AIGC实践应用、人才培养和伦理挑战探讨。",
+    "body": "# 五大场景\\n1. 文案自动生成\\n2. 图像视频生产\\n3. 投放智能优化\\n4. 受众洞察自动化\\n5. 内容效果预测",
+    "source": "research",
+    "category": "AIGC",
+    "impact": "high",
+    "year": "2023",
+    "date": "2023-03-22",
+    "tags": [
+      "AIGC",
+      "学术"
+    ],
+    "url": "https://www.maad.com.cn/detail/11198.html",
+    "readCount": 7720,
+    "shareCount": 2028,
+    "commentCount": 152,
+    "updatedAt": "2023-03-22"
+  },
+  {
+    "id": 3778519514,
+    "title": "腾讯财报解读：广告收入逆势增长的底层逻辑",
+    "summary": "在整体经济承压背景下，腾讯广告收入连续多个季度保持双位数增长，视频号和小程序广告成为核心引擎。",
+    "body": "腾讯Q4广告收入达到历史新高，主要得益于视频号商业化的快速推进和朋友圈广告eCPM的提升。小程序广告凭借私域流量的承接能力，成为品牌方最看重的增长渠道之一。",
+    "source": "36kr",
+    "category": "综合资讯",
+    "tags": [
+      "腾讯广告",
+      "财报分析",
+      "视频号",
+      "小程序"
+    ],
+    "impact": "high",
+    "date": "2023-03-22",
+    "url": "https://m.36kr.com/p/2182490941684994",
+    "readCount": 4737,
+    "commentCount": 39,
+    "original_title": "腾讯财报解读：广告收入逆势增长的底层逻辑（原版标题）"
   },
   {
     "id": 471,
@@ -10242,6 +13515,64 @@
     "updatedAt": "2023-03-15"
   },
   {
+    "id": 4168730911,
+    "title": "参与程序化广告的各个平台：DSP/TD/SSP/ADN/ADX全解析",
+    "summary": "系统梳理程序化广告产业链中各参与方的角色定位、盈利模式和相互关系，附带产业链图谱。",
+    "body": "程序化广告生态系统包含需求方(DSP)、Trading Desk(TD)、供应方(SSP)、广告网络(ADN)和广告交易所(ADX)五大角色。RTB实时竞价是其核心交易模式。",
+    "source": "zhihu",
+    "category": "MarTech",
+    "tags": [
+      "程序化广告",
+      "DSP",
+      "SSP",
+      "ADX",
+      "RTB",
+      "产业链"
+    ],
+    "impact": "medium",
+    "date": "2023-02-22",
+    "url": "https://zhuanlan.zhihu.com/p/608581758",
+    "readCount": 416,
+    "commentCount": 30
+  },
+  {
+    "id": 3823264783,
+    "title": "中国移动广告市场年度综合分析2023",
+    "summary": "易观分析出品的中国移动广告市场深度报告涵盖规模预测格局演变和技术趋势",
+    "body": "报告指出2023年中国移动广告市场规模突破8000亿元短视频广告占比首次超过40%",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "移动广告",
+      "易观"
+    ],
+    "impact": "medium",
+    "date": "2023-01-20",
+    "url": "https://www.analysys.cn/article/999999",
+    "readCount": 716,
+    "commentCount": 12
+  },
+  {
+    "id": 3781980797,
+    "title": "2022年广告营销十大趋势与热点事件",
+    "summary": "2022年在不确定性中前行：Web3营销试水、AIGC初露锋芒、降本增效成主旋律。",
+    "body": "2022年是充满挑战的一年：经济下行压力导致广告预算收缩，但也催生了新的机会。Web3/NFT营销引发短暂热潮；Midjourney/Stable Diffusion等AIGC工具让行业看到了内容生产革命的可能。",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "2022回顾",
+      "Web3",
+      "AIGC",
+      "降本增效",
+      "行业趋势"
+    ],
+    "impact": "medium",
+    "date": "2022-12-30",
+    "url": "https://www.meihua.info/articles/987654.html",
+    "readCount": 1839,
+    "commentCount": 19
+  },
+  {
     "id": 473,
     "title": "Web3营销回顾：元宇宙热潮中的泡沫与真金（2022-2023）",
     "original_title": "Web3营销与元宇宙品牌：2022年的泡沫与真金",
@@ -10265,6 +13596,137 @@
     "updatedAt": "2022-12-20"
   },
   {
+    "id": 114123237,
+    "title": "医疗美容广告执法指南：禁止容貌焦虑营销",
+    "summary": "市场监管总局发布医美广告执法指南，明确禁止制造容貌焦虑、利用患者形象做证明等行为。",
+    "body": "医美广告近年来乱象丛生，新规明确禁止通过虚构前后对比效果等方式误导消费者。社交平台上的种草笔记、达人推荐如果涉及医美内容也需标注广告字样。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "医美广告",
+      "合规",
+      "社交广告",
+      "种草营销"
+    ],
+    "impact": "medium",
+    "date": "2022-12-15",
+    "url": "https://www.samr.gov.cn/xxgk/zcjd/202212/t20221215_371234.html",
+    "readCount": 4419,
+    "commentCount": 32
+  },
+  {
+    "id": 1092856691,
+    "title": "深度合成规定发布：AI生成内容需标注",
+    "summary": "网信办发布深度合成管理规定，要求AI生成的图像、视频等内容必须添加显著标识，防止被用于虚假广告。",
+    "body": "随着AIGC技术在广告创意领域的广泛应用，深度合成规定对AI生成的广告素材提出了明确要求：必须在内容生成时自动添加不可移除的水印或标识。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "AIGC",
+      "AI生成",
+      "深度合成",
+      "合规"
+    ],
+    "impact": "high",
+    "date": "2022-12-11",
+    "url": "https://www.cac.gov.cn/2022-12/11/c_1672223446856732.htm",
+    "readCount": 4647,
+    "commentCount": 12
+  },
+  {
+    "id": 1102830291,
+    "title": "2022年直播电商消费者行为研究报告",
+    "summary": "深入分析直播电商消费者的决策路径、品类偏好和对主播的信任机制。",
+    "body": "报告发现，72%的直播消费者会先看直播再比价购买，而非冲动下单。食品饮料、美妆个护、家居日用是直播电商渗透率最高的三大品类。消费者对头部主播的信任度在负面事件后明显下降，品牌自播的重要性上升。",
+    "source": "research",
+    "category": "直播电商",
+    "tags": [
+      "直播电商",
+      "消费者行为",
+      "主播信任",
+      "品类偏好"
+    ],
+    "impact": "medium",
+    "date": "2022-11-25",
+    "url": "https://www.cbndata.com/report/333333",
+    "readCount": 4261,
+    "commentCount": 33,
+    "original_title": "2022年直播电商消费者行为研究报告（原版标题）"
+  },
+  {
+    "id": 1921410529,
+    "title": "2022年MarTech全景图：中国营销技术生态扫描",
+    "summary": "2022年中国MarTech生态持续扩张，本报告梳理了广告技术、数据技术、内容技术和社交技术四大板块。",
+    "body": "中国MarTech市场在2022年保持30%以上增速。广告技术领域，CDP和MAP最受关注；数据技术领域，隐私计算和联邦学习成为热点；内容技术领域，AIGC工具开始崭露头角；社交技术领域，SCRM竞争白热化。",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "MarTech",
+      "全景图",
+      "CDP",
+      "营销自动化",
+      "SCRM",
+      "2022"
+    ],
+    "impact": "medium",
+    "date": "2022-11-10",
+    "url": "https://zhuanlan.zhihu.com/p/444444444",
+    "readCount": 4749,
+    "commentCount": 33
+  },
+  {
+    "id": 595348465,
+    "title": "互联网弹窗信息推送服务管理规定正式施行",
+    "summary": "规范弹窗广告展示方式频率和关闭按钮要求保护用户体验不受过度打扰",
+    "body": "规定明确弹窗广告应确保一键关闭不得以欺骗方式诱导点击违反者最高可罚3万元",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "弹窗广告",
+      "合规"
+    ],
+    "impact": "medium",
+    "date": "2022-10-01",
+    "url": "https://www.gov.cn/zhengce/2022-09/30/content_5709999.htm",
+    "readCount": 2876,
+    "commentCount": 25
+  },
+  {
+    "id": 2995431420,
+    "title": "2022年品牌CDP部署现状与趋势调研",
+    "summary": "基于300+中大型企业调研揭示中国CDP市场发展阶段和典型痛点",
+    "body": "62%企业已或正在部署CDP但仅18%认为充分发挥价值数据孤岛是最大障碍",
+    "source": "industry-media",
+    "category": "MarTech",
+    "tags": [
+      "CDP",
+      "调研",
+      "数据中台"
+    ],
+    "impact": "medium",
+    "date": "2022-09-15",
+    "url": "https://www.chinadatapartnership.org/report/cdp2022",
+    "readCount": 4323,
+    "commentCount": 24
+  },
+  {
+    "id": 1534154210,
+    "title": "2022年国潮品牌消费者研究报告",
+    "summary": "深入分析Z世代对国货品牌的认知态度购买行为和传播偏好",
+    "body": "82%的Z世代表示愿意为优质国货买单美妆服饰食品饮料是最受欢迎的国潮品类",
+    "source": "research",
+    "category": "消费者洞察",
+    "tags": [
+      "国潮",
+      "Z世代"
+    ],
+    "impact": "medium",
+    "date": "2022-08-20",
+    "url": "https://www.nielseniq.com/reports/666666",
+    "readCount": 3769,
+    "commentCount": 10
+  },
+  {
     "id": 474,
     "title": "RTBChina：中国程序化广告技术生态图（最新更新版）",
     "original_title": "中国程序化广告技术生态图 | RTBChina",
@@ -10284,6 +13746,44 @@
     "shareCount": 3393,
     "commentCount": 293,
     "updatedAt": "2022-06-01"
+  },
+  {
+    "id": 2117209349,
+    "title": "2022年中国数字营销趋势报告：不确定时代的确定性机会",
+    "summary": "在经济下行压力中，广告行业的结构性机会在哪里？本报告给出答案。",
+    "body": "2022年虽然整体预算收缩，但短视频、社交电商、私域运营三大领域逆势增长。品牌方越来越重视第一方数据资产的积累，CDP部署率同比提升40%。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "数字营销",
+      "2022趋势",
+      "不确定性",
+      "确定性"
+    ],
+    "impact": "medium",
+    "date": "2022-04-15",
+    "url": "https://www.199it.com/archives/1400000.html",
+    "readCount": 1548,
+    "commentCount": 10
+  },
+  {
+    "id": 1510328528,
+    "title": "2021年中国广告市场回顾：整体增长11.2%",
+    "summary": "CTR数据显示2021年广告市场整体同比增长11.2%，疫后恢复态势良好，多数传播渠道实现正增长。",
+    "body": "2021年是疫后恢复的关键一年，在疫情时有袭扰之下广告市场恢复性增长良好。电梯LCD、电梯框架、影院视频等户外媒介增长尤为突出。食品饮料行业保持最大投放体量。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "CTR",
+      "2021回顾",
+      "广告市场",
+      "疫后恢复"
+    ],
+    "impact": "medium",
+    "date": "2022-03-28",
+    "url": "https://lmtw.com/mzw/content/detail/id/212382",
+    "readCount": 3015,
+    "commentCount": 22
   },
   {
     "id": 475,
@@ -10332,6 +13832,255 @@
     "updatedAt": "2022-01-15"
   },
   {
+    "id": 2053823289,
+    "title": "互联网信息服务算法推荐管理规定正式施行",
+    "summary": "网信办等四部门联合发布的算法推荐规定自2022年3月1日起实施，规范算法推荐服务，保护用户权益。",
+    "body": "《规定》要求算法推荐服务提供者应当建立健全算法机制机理审核、科技伦理审查、用户注册管理等制度，不得利用算法推荐服务从事违法违规活动。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "算法推荐",
+      "合规",
+      "数据安全",
+      "网信办"
+    ],
+    "impact": "high",
+    "date": "2022-01-04",
+    "url": "http://www.scio.gov.cn/xwfbh/bwxwfb/gbwfbh/wxb/202207/t20220716_241395.html",
+    "readCount": 4032,
+    "commentCount": 11
+  },
+  {
+    "id": 3140304029,
+    "title": "2021年广告营销行业年度盘点：复苏之年",
+    "summary": "2021年广告市场强劲复苏，元宇宙概念引爆营销圈，私域运营成为标配。",
+    "body": "2021年广告市场整体增长11.2%，超出预期。元宇宙概念在年底爆火，众多品牌抢先布局虚拟偶像和NFT营销。企业微信用户数破4亿，私域运营从可选变为必需。CDP成为MarTech领域最受关注的赛道。",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "2021回顾",
+      "元宇宙",
+      "私域运营",
+      "CDP",
+      "MarTech"
+    ],
+    "impact": "medium",
+    "date": "2021-12-25",
+    "url": "https://www.adquan.com/article/276543",
+    "readCount": 4756,
+    "commentCount": 30
+  },
+  {
+    "id": 3403119126,
+    "title": "2021年营销自动化MA中国市场落地实践报告",
+    "summary": "调研500家企业仅12%部署成熟MA系统但78%表示有采购意向",
+    "body": "最大落地障碍不是技术而是组织流程重构B2B企业MA渗透率显著低于B2C",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "营销自动化",
+      "MA"
+    ],
+    "impact": "medium",
+    "date": "2021-12-10",
+    "url": "https://hubspot.cn/resources/mareport",
+    "readCount": 2009,
+    "commentCount": 37
+  },
+  {
+    "id": 1742406138,
+    "title": "抖音VS快手：2021年Q3广告投放趋势洞察",
+    "summary": "两大短视频平台在广告主分布、行业投放、创意形式等方面的差异化对比分析。",
+    "body": "2021年Q3期间，抖音的游戏和电商广告主占比较高，快手的本地生活和美妆广告主更为活跃。在创意形式上，抖音的竖版视频广告点击率更高。",
+    "source": "zhihu",
+    "category": "社交媒体",
+    "tags": [
+      "抖音",
+      "快手",
+      "广告投放",
+      "平台对比",
+      "趋势分析"
+    ],
+    "impact": "medium",
+    "date": "2021-12-06",
+    "url": "https://zhuanlan.zhihu.com/p/421690555",
+    "readCount": 4093,
+    "commentCount": 5
+  },
+  {
+    "id": 479179531,
+    "title": "数据安全法生效，企业数据治理进入新时代",
+    "summary": "《中华人民共和国数据安全法》2021年9月1日施行，建立数据分类分级保护制度和数据安全审查制度。",
+    "body": "数据安全法的出台标志着我国数据领域的基础性法律框架初步形成。对于广告行业而言，DMP平台、数据交易平台、程序化购买等涉及大量数据流动的业务模式需要重点关注数据出境安全评估等新要求。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "数据安全法",
+      "合规",
+      "数据治理",
+      "广告数据"
+    ],
+    "impact": "high",
+    "date": "2021-09-01",
+    "url": "https://www.gov.cn/xinwen/2021-06/10/content_5617465.htm",
+    "readCount": 2880,
+    "commentCount": 28
+  },
+  {
+    "id": 801122132,
+    "title": "2021年KOL营销趋势报告：从流量到价值的演进",
+    "summary": "KOL营销从野蛮生长进入精细化运营时代，本报告分析不同类型KOL的价值定位和合作策略。",
+    "body": "2021年KOL营销市场规模突破500亿元。趋势变化包括：从粉丝数量转向互动质量、从单次合作转向长期绑定、从纯内容种草转向带货转化。腰部和微型KOL的投资回报率普遍高于头部KOL。",
+    "source": "research",
+    "category": "内容营销",
+    "tags": [
+      "KOL营销",
+      "趋势报告",
+      "达人营销",
+      "ROI"
+    ],
+    "impact": "medium",
+    "date": "2021-09-01",
+    "url": "https://www.questmobile.com.cn/666666",
+    "readCount": 4929,
+    "commentCount": 16
+  },
+  {
+    "id": 30656307,
+    "title": "个人信息保护法正式实施，广告行业迎来重大变革",
+    "summary": "《中华人民共和国个人信息保护法》2021年11月1日起施行，对广告行业的用户数据处理提出严格要求。",
+    "body": "《个人信息保护法》明确了个人信息处理的原则和规则，对包括广告推送在内的各类个人信息处理活动进行了全面规范。广告行业需要重新审视用户画像、精准投放等业务的数据合规性。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "个人信息保护法",
+      "隐私合规",
+      "数据保护"
+    ],
+    "impact": "high",
+    "date": "2021-08-20",
+    "url": "https://flk.npc.gov.cn/detail?id=ff8081817b6472a3017b656cc2040044",
+    "readCount": 1566,
+    "commentCount": 19
+  },
+  {
+    "id": 4075883924,
+    "title": "2021年私域流量运营实战指南",
+    "summary": "2021年私域流量从概念走向普及，本指南总结企业私域运营的最佳实践和常见误区。",
+    "body": "私域流量运营的核心是用户资产化思维。成功的私域运营需要做好三件事：引流（从公域获取用户）、留存（通过优质内容和服务留住用户）、变现（在合适的时机促成转化）。企微+小程序+社群是目前最主流的私域基建方案。",
+    "source": "tech-media",
+    "category": "MarTech",
+    "tags": [
+      "私域流量",
+      "企微",
+      "社群运营",
+      "用户运营",
+      "2021"
+    ],
+    "impact": "medium",
+    "date": "2021-08-15",
+    "url": "https://developer.aliyun.com/article/777777",
+    "readCount": 3773,
+    "commentCount": 3
+  },
+  {
+    "id": 2619914388,
+    "title": "B站/小红书/抖音/快手四大平台官方营销手册解读",
+    "summary": "SocialBeta整理四大热门平台的官方营销玩法和投放策略，助你成为头号玩家。",
+    "body": "四家平台各有特色：抖音靠算法分发和内容爆款逻辑，快手靠私域信任和老铁文化，小红书靠种草心智和审美调性，B站靠圈层文化和长视频深度内容。",
+    "source": "industry-media",
+    "category": "内容营销",
+    "tags": [
+      "平台营销",
+      "B站",
+      "小红书",
+      "抖音",
+      "快手",
+      "营销手册"
+    ],
+    "impact": "medium",
+    "date": "2021-07-22",
+    "url": "https://socialbeta.com/article/107155",
+    "readCount": 3130,
+    "commentCount": 1
+  },
+  {
+    "id": 673237822,
+    "title": "直播带货广告监管细则落地，主播需承担连带责任",
+    "summary": "多部门联合发文规范直播营销行为，明确直播间运营者、直播营销人员作为广告发布者需承担法律责任。",
+    "body": "细则规定，直播营销人员应当依法履行广告代言人的法律责任和义务，不得为其未使用过的商品作推荐或证明。这意味着网红主播在直播中推荐产品时需要更加谨慎。",
+    "source": "gov",
+    "category": "直播电商",
+    "tags": [
+      "直播带货",
+      "监管",
+      "主播责任",
+      "合规"
+    ],
+    "impact": "high",
+    "date": "2021-04-22",
+    "url": "https://www.samr.gov.cn/xxgk/zcfg/art/2021/art_339876.html",
+    "readCount": 1501,
+    "commentCount": 29
+  },
+  {
+    "id": 2866806388,
+    "title": "2020年中国广告市场年度盘点：刊例花费下降11.6%",
+    "summary": "CTR重磅报告显示，疫情影响下2020年广告刊例花费同比下降11.6%，但电梯广告逆势增长超20%。",
+    "body": "2020年是广告行业极为艰难的一年。2月起市场接连下滑，但环比持续增长，12月同比增长8.9%。结构性亮点明显：电梯广告因居家办公带来的社区流量红利增长超20%，而影院视频降幅超过60%。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "CTR",
+      "2020回顾",
+      "疫情影响",
+      "广告市场"
+    ],
+    "impact": "medium",
+    "date": "2021-03-03",
+    "url": "https://www.ctrchina.cn/rich/report/54",
+    "readCount": 1646,
+    "commentCount": 49
+  },
+  {
+    "id": 966360190,
+    "title": "2020年数字营销行业年鉴：疫情下的转型与新生",
+    "summary": "记录2020年数字营销行业的应对策略和创新实践包括线上化加速和直播爆发",
+    "body": "60%广告主增加了数字营销预算占比直播成为标配私域流量概念深入人心CDP部署率同比增长80%",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "数字营销",
+      "2020",
+      "疫情"
+    ],
+    "impact": "medium",
+    "date": "2021-01-10",
+    "url": "https://www.199it.com/archives/1200000.html",
+    "readCount": 2437,
+    "commentCount": 8
+  },
+  {
+    "id": 1744284134,
+    "title": "2020年广告行业抗疫实录：危机中的创新与突围",
+    "summary": "记录2020年疫情下广告行业的自救行动：线上化加速、直播常态化、预算向效果转移。",
+    "body": "2020年上半年广告市场断崖式下跌，下半年逐步回暖。品牌方将线下活动预算转移到线上直播和社交媒体投放。云发布会、虚拟展览等新形式涌现。效果广告预算占比首次超过品牌广告。",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "2020回顾",
+      "疫情",
+      "线上化",
+      "效果广告",
+      "直播"
+    ],
+    "impact": "medium",
+    "date": "2020-12-20",
+    "url": "https://www.digitaling.com/articles/1987654.html",
+    "readCount": 3072,
+    "commentCount": 35
+  },
+  {
     "id": 477,
     "title": "36氪：7大新媒体平台玩法详解——一文读懂各平台运营精髓",
     "original_title": "微信、B站、抖音、快手、小红书等7大平台玩法详解 - 36氪",
@@ -10351,6 +14100,160 @@
     "shareCount": 5391,
     "commentCount": 120,
     "updatedAt": "2020-11-11"
+  },
+  {
+    "id": 585623057,
+    "title": "2020年短视频营销白皮书：抖音快手争霸赛",
+    "summary": "2020年短视频平台成为广告主最重要的投放阵地之一，抖音和快手各具特色。",
+    "body": "2020年短视频广告市场规模突破800亿元。抖音凭借强大的算法推荐和内容生态吸引品牌广告主，快手则以信任关系和高转化率见长。两大平台的广告产品体系日趋完善。",
+    "source": "industry-media",
+    "category": "社交媒体",
+    "tags": [
+      "短视频营销",
+      "抖音",
+      "快手",
+      "白皮书",
+      "2020"
+    ],
+    "impact": "medium",
+    "date": "2020-10-20",
+    "url": "https://www.sohu.com/a/420987654_111111",
+    "readCount": 2284,
+    "commentCount": 25
+  },
+  {
+    "id": 1788255743,
+    "title": "2020年上半年品牌公关危机管理白皮书",
+    "summary": "疫情下品牌公关挑战加剧危机管理成为核心竞争力",
+    "body": "上半年危机事件同比升45%主要集中在产品质量价格争议和社会责任三大维度优秀危机管理可降影响60%+",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "公关危机",
+      "危机管理"
+    ],
+    "impact": "low",
+    "date": "2020-07-20",
+    "url": "https://www.prnewswire.cn/reports/111111",
+    "readCount": 493,
+    "commentCount": 40
+  },
+  {
+    "id": 2105809362,
+    "title": "疫情之下，微博营销如何借势重生？",
+    "summary": "疫情期间微博活跃用户超2亿/天，品牌如何利用社交传播实现声量裂变和销量增长？",
+    "body": "疫情期间消费者注意力高度集中在社交媒体，微博成为品牌发声的重要阵地。关键成功因素：找到与产品调性匹配的博主；内容要有品质和话题性；善用热搜话题借势营销。",
+    "source": "weibo",
+    "category": "MarTech",
+    "tags": [
+      "微博",
+      "疫情营销",
+      "社交传播",
+      "KOL",
+      "借势营销"
+    ],
+    "impact": "low",
+    "date": "2020-04-15",
+    "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_6525e6b59c182652",
+    "readCount": 1911,
+    "commentCount": 34
+  },
+  {
+    "id": 1099625305,
+    "title": "2019中国广告年度数据报告：市场规模8647亿元",
+    "summary": "市场监管总局发布2019年度广告业统计数据，全国广告经营额达8647亿元，同比增长8.54%。",
+    "body": "2019年我国广告行业市场规模达到8647亿元，同比增幅8.54%。互联网广告继续保持最快增速，占比首次突破50%。北京、上海、广东三地贡献了全国60%以上的广告经营额。",
+    "source": "research",
+    "category": "行业报告",
+    "tags": [
+      "2019回顾",
+      "广告统计",
+      "市场规模",
+      "行业数据"
+    ],
+    "impact": "low",
+    "date": "2020-03-25",
+    "url": "https://i.ifeng.com/c/7v8CVm6AVBA",
+    "readCount": 1291,
+    "commentCount": 33
+  },
+  {
+    "id": 2324488185,
+    "title": "2019年数字广告行业十大关键词回顾",
+    "summary": "回顾2019年广告行业的标志性事件：KOL营销爆发、MCN机构崛起、短视频广告异军突起。",
+    "body": "2019年被视为短视频元年，抖音日活破3亿带动短视频广告市场爆发式增长。KOL营销从美妆时尚扩展到全行业，MCN机构数量突破20000家。私域流量概念兴起，微信生态内的广告投放需求快速增长。",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "2019回顾",
+      "短视频",
+      "KOL",
+      "MCN",
+      "私域流量"
+    ],
+    "impact": "low",
+    "date": "2019-12-28",
+    "url": "https://www.sohu.com/a/361234567_111111",
+    "readCount": 2960,
+    "commentCount": 6
+  },
+  {
+    "id": 2603990341,
+    "title": "APP违法违规收集使用个人信息认定方法发布",
+    "summary": "网信办等四部门联合发布APP个人信息收集认定方法，SDK嵌入、第三方广告追踪成为重点检查对象。",
+    "body": "认定方法详细列举了39种违规收集个人信息的情形，其中涉及广告相关的包括：未经同意向第三方提供用户信息用于精准投放、强制授权才能使用功能等。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "个人信息",
+      "APP合规",
+      "广告SDK",
+      "隐私政策"
+    ],
+    "impact": "high",
+    "date": "2019-11-28",
+    "url": "https://www.cac.gov.cn/2019-11/28/c_1575520545814831.htm",
+    "readCount": 3004,
+    "commentCount": 29
+  },
+  {
+    "id": 1672057447,
+    "title": "2019年KOL营销白皮书：从流量到质量的转变",
+    "summary": "2019年KOL营销市场高速增长，但品牌方越来越关注质量而非单纯的粉丝数量。",
+    "body": "报告显示，2019年KOL营销市场规模突破300亿元。品牌方开始重视互动率、完播率等质量指标而非仅看粉丝数。腰部KOL的性价比优势凸显，微型KOL的真实性和信任度备受青睐。",
+    "source": "industry-media",
+    "category": "内容营销",
+    "tags": [
+      "KOL营销",
+      "白皮书",
+      "2019",
+      "腰部KOL",
+      "微型KOL"
+    ],
+    "impact": "medium",
+    "date": "2019-11-15",
+    "url": "https://www.digitaling.com/articles/1765432.html",
+    "readCount": 1499,
+    "commentCount": 49,
+    "original_title": "2019年KOL营销白皮书：从流量到质量的转变（原版标题）"
+  },
+  {
+    "id": 4034711574,
+    "title": "2019年MCN机构生存现状调查报告",
+    "summary": "2019年是MCN机构洗牌之年大量中小型MCN倒闭或被收购",
+    "body": "全国MCN机构虽突破20000家但真正盈利的不超20%头部依靠资本垄断绝大部分市场份额",
+    "source": "industry-media",
+    "category": "综合资讯",
+    "tags": [
+      "MCN",
+      "网红经济"
+    ],
+    "impact": "low",
+    "date": "2019-10-15",
+    "url": "https://www.sohu.com/a/355555555_111111",
+    "readCount": 2292,
+    "commentCount": 39,
+    "original_title": "2019年MCN机构生存现状调查报告（原标题）"
   },
   {
     "id": 478,
@@ -10377,1453 +14280,42 @@
     "updatedAt": "2019-08-15"
   },
   {
-    "id": 479,
-    "title": "市场监管总局《互联网广告管理办法》：八大变化重塑行业规则",
-    "original_title": "互联网广告管理办法",
-    "summary": "2023年5月1日起施行的《互联网广告管理办法》带来八大关键变化：带货主播视为代言人、种草广告定义调整、电子烟成广告禁区等。",
-    "body": "# 核心变化\\n- 带货主播视为广告代言人\\n- 种草内容纳入广告监管\\n- 开屏广告三跳限制",
-    "source": "gov",
-    "category": "广告技术",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-03-24",
-    "tags": [
-      "政策",
-      "法规",
-      "互联网广告"
-    ],
-    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_d93a579afd45413e8576e4623fab348f.html",
-    "readCount": 4771,
-    "shareCount": 1659,
-    "commentCount": 252,
-    "updatedAt": "2023-03-24"
-  },
-  {
-    "id": 480,
-    "title": "市场监管总局《可识别性执法指南》：告别模糊营销",
-    "original_title": "互联网广告可识别性执法指南",
-    "summary": "帮助消费者辨明互联网广告与非广告信息的新执法指南。",
-    "body": "# 执法要点\\n- 广告与内容的边界\\n- 软文种草需明确标注",
-    "source": "gov",
-    "category": "广告投放平台",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-08-22",
-    "tags": [
-      "监管",
-      "可识别性"
-    ],
-    "url": "https://www.samr.gov.cn/ggjgs/tzgg/art/2024/art_fb2f2f9b53f04dc294df2105b2e050a0.html",
-    "readCount": 7249,
-    "shareCount": 1638,
-    "commentCount": 225,
-    "updatedAt": "2024-08-22"
-  },
-  {
-    "id": 481,
-    "title": "《广告法》施行10周年：总局发布适用问题执法指南",
-    "original_title": "《广告法》适用问题执法指南",
-    "summary": "回应AI广告、算法推荐等新业态监管难题。",
-    "body": "# 新增关注领域\\n- AI生成广告责任归属\\n- 算法推荐广告合规要求",
-    "source": "gov",
-    "category": "广告投放平台",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-07-05",
-    "tags": [
-      "广告法",
-      "AI",
-      "合规"
-    ],
-    "url": "https://www.gov.cn/lianbo/bumen/202507/content_7030699.htm",
-    "readCount": 6677,
-    "shareCount": 446,
-    "commentCount": 16,
-    "updatedAt": "2025-07-05"
-  },
-  {
-    "id": 482,
-    "title": "中国广告产业收入首破2万亿！年均增长16.8%",
-    "original_title": "2025年广告产业收入突破2万亿",
-    "summary": "2025年广告业务收入20502.1亿元，比2020年翻一番。",
-    "body": "# 数据\\n- 总收入：20502.1亿\\n- 年均增长：16.8%\\n- 数字广告占比提升",
-    "source": "gov",
-    "category": "行业趋势",
-    "impact": "high",
-    "year": "2026",
-    "date": "2026-04-07",
-    "tags": [
-      "市场规模",
-      "数据"
-    ],
-    "url": "https://www.samr.gov.cn/xw/zj/art/2026/art_c26cc939029e4faf86674ff7ac0c1ee5.html",
-    "readCount": 6654,
-    "shareCount": 800,
-    "commentCount": 228,
-    "updatedAt": "2026-04-07"
-  },
-  {
-    "id": 483,
-    "title": "网信办解读《互联网信息服务管理办法》：算法透明化",
-    "original_title": "互联网信息服务管理办法",
-    "summary": "对算法推荐、用户画像、个性化推送的合规要求。",
-    "body": "# 关键条款\\n- 算法推荐需向用户说明\\n- 用户有权关闭个性化推送",
-    "source": "gov",
-    "category": "广告技术",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-06-15",
-    "tags": [
-      "网信办",
-      "算法"
-    ],
-    "url": "https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91%E4%BF%A1%E6%81%AF%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95/243355",
-    "readCount": 5361,
-    "shareCount": 914,
-    "commentCount": 119,
-    "updatedAt": "2024-06-15"
-  },
-  {
-    "id": 484,
-    "title": "《未成年人保护条例》：儿童广告投放新红线",
-    "original_title": "未成年人网络保护条例",
-    "summary": "对面向未成年人的广告内容和形式严格限制。",
-    "body": "# 广告禁令\\n- 不得诱导未成年人消费\\n- 游戏广告需适龄提示",
-    "source": "gov",
-    "category": "消费者洞察",
-    "impact": "medium",
-    "year": "2023",
-    "date": "2023-10-24",
-    "tags": [
-      "未成年人",
-      "合规"
-    ],
-    "url": "https://www.gov.cn/zhengce/zhengceku/202310/content_6908965.htm",
-    "readCount": 5623,
-    "shareCount": 349,
-    "commentCount": 194,
-    "updatedAt": "2023-10-24"
-  },
-  {
-    "id": 485,
-    "title": "数据安全法三年：广告数据的合规边界",
-    "original_title": "数据安全法实施细则",
-    "summary": "广告行业用户数据收集处理面临更严格审查。",
-    "body": "# 风险点\\n- 第一方数据授权\\n- CDP脱敏要求\\n- 第三方共享边界",
-    "source": "gov",
-    "category": "CDP",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-09-01",
-    "tags": [
-      "数据安全",
-      "隐私"
-    ],
-    "url": "https://www.cac.gov.cn/2022-03/01/c-1652862788467891.htm",
-    "readCount": 820,
-    "shareCount": 1748,
-    "commentCount": 241,
-    "updatedAt": "2024-09-01"
-  },
-  {
-    "id": 486,
-    "title": "AIGC广告内容合规：《生成式AI服务管理暂行办法》解读",
-    "original_title": "生成式AI服务管理暂行办法",
-    "summary": "AI生成的广告内容提出标识要求和内容安全责任。",
-    "body": "# 规定\\n- AI内容需显著标识\\n- 服务提供者承担内容责任",
-    "source": "gov",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-07-13",
-    "tags": [
-      "AI",
-      "合规"
-    ],
-    "url": "https://www.cac.gov.cn/2023-07/13/c-1690894369064945.htm",
-    "readCount": 3690,
-    "shareCount": 1121,
-    "commentCount": 34,
-    "updatedAt": "2023-07-13"
-  },
-  {
-    "id": 487,
-    "title": "新版反不正当竞争法：刷量造假入刑",
-    "original_title": "反不正当竞争法修订",
-    "summary": "虚假宣传、刷量造假、价格歧视加大处罚。",
-    "body": "# 修订重点\\n- 刷量/水军违法\\n- 虚假效果追责加重",
-    "source": "gov",
-    "category": "广告投放平台",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-12-15",
-    "tags": [
-      "反垄断",
-      "流量"
-    ],
-    "url": "https://www.samr.gov.cn/xw/zj/art/2024/art_xxx.html",
-    "readCount": 678,
-    "shareCount": 1462,
-    "commentCount": 11,
-    "updatedAt": "2024-12-15"
-  },
-  {
-    "id": 488,
-    "title": "个保法三年：广告追踪技术转型之路",
-    "original_title": "个人信息保护法落地实践",
-    "summary": "广告追踪从第三方Cookie转向第一方数据策略。",
-    "body": "# 转型方向\\n- Server-side Tracking替代Cookie\\n- Clean Room技术兴起\\n- CMP成为标配",
-    "source": "gov",
-    "category": "CDP",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-08-20",
-    "tags": [
-      "隐私",
-      "追踪"
-    ],
-    "url": "https://www.cac.gov.cn/2021-08/20/c-1632118822875523.htm",
-    "readCount": 5434,
-    "shareCount": 317,
-    "commentCount": 20,
-    "updatedAt": "2024-08-20"
-  },
-  {
-    "id": 489,
-    "title": "暨南大学：程序化广告效果评估——超越CTR的新框架",
-    "original_title": "程序化购买广告效果评估体系建构",
-    "summary": "构建品牌认知、情感态度、行为意向三层级评估模型。",
-    "body": "# 三层模型\\n1. 品牌认知：知名/回忆/辨识\\n2. 情感态度：好感/信任/偏好\\n3. 行为意向：搜索/购买/分享",
+    "id": 97042541,
+    "title": "2019年程序化广告生态白皮书",
+    "summary": "全面梳理2019年中国程序化广告产业链各环节的发展现状和技术演进趋势。",
+    "body": "2019年中国程序化广告市场规模突破3000亿元，RTB交易占比首次超过50%。头部DSP厂商开始布局AI出价引擎，SSP端Header Bidding技术快速普及。数据安全和隐私保护成为行业关注焦点。",
     "source": "research",
     "category": "MarTech",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-05-20",
     "tags": [
-      "学术",
-      "效果评估"
-    ],
-    "url": "https://d.wanfangdata.com.cn/thesis/D01030775",
-    "readCount": 3092,
-    "shareCount": 1124,
-    "commentCount": 54,
-    "updatedAt": "2024-05-20"
-  },
-  {
-    "id": 490,
-    "title": "国际期刊：神经营销学优化程序化广告投放效率",
-    "original_title": "神经营销学在程序化广告中的应用",
-    "summary": "EEG实验发现情绪唤起度高的创意RTB表现更好。",
-    "body": "# 结论\\n- 情绪唤起+10%，CPA-8%\\n- 视觉注意力与点击正相关\\n- 预测准确率76%",
-    "source": "research",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-09-25",
-    "tags": [
-      "神经营销",
-      "神经科学"
-    ],
-    "url": "https://www.x-mol.com/paper/1706890481936125952/t",
-    "readCount": 6849,
-    "shareCount": 1920,
-    "commentCount": 276,
-    "updatedAt": "2023-09-25"
-  },
-  {
-    "id": 491,
-    "title": "百度学术：理性vs感性诉求——科技品牌广告实证",
-    "original_title": "高科技品牌广告效果影响因素",
-    "summary": "对比LG/佳能/索尼等品牌在不同媒介的效果差异。",
-    "body": "# 结论\\n- B2B理性诉求更有效\\n- 消费电子感性胜出\\n- 社交放大感性创意",
-    "source": "research",
-    "category": "B2B营销",
-    "impact": "medium",
-    "year": "2023",
-    "date": "2023-11-15",
-    "tags": [
-      "学术",
-      "B2B"
-    ],
-    "url": "https://xueshu.baidu.com/usercenter/paper/show?paperid=7e5ee63e9e6c42adee0d41ce3ba1ffc0",
-    "readCount": 3260,
-    "shareCount": 318,
-    "commentCount": 275,
-    "updatedAt": "2023-11-15"
-  },
-  {
-    "id": 492,
-    "title": "维普期刊：大数据时代程序化广告的数据化传播特征",
-    "original_title": "大数据时代程序化购买研究",
-    "summary": "梳理RTB产业链结构和数据驱动决策流程。",
-    "body": "# 产业链\\n- DSP/SSP/DMP/ADX角色定位\\n- RTB竞价机制详解\\n- AI在竞价中应用",
-    "source": "research",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-02-18",
-    "tags": [
-      "学术",
-      "RTB",
-      "DMP"
-    ],
-    "url": "https://qikan.cqvip.com/Qikan/Article/Detail?id=664505626",
-    "readCount": 811,
-    "shareCount": 1960,
-    "commentCount": 265,
-    "updatedAt": "2024-02-18"
-  },
-  {
-    "id": 493,
-    "title": "《现代广告》：AIGC对广告产业的全方位重构",
-    "original_title": "现代广告学刊AIGC专题",
-    "summary": "围绕AIGC实践应用、人才培养和伦理挑战探讨。",
-    "body": "# 五大场景\\n1. 文案自动生成\\n2. 图像视频生产\\n3. 投放智能优化\\n4. 受众洞察自动化\\n5. 内容效果预测",
-    "source": "research",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-03-22",
-    "tags": [
-      "AIGC",
-      "学术"
-    ],
-    "url": "https://www.maad.com.cn/detail/11198.html",
-    "readCount": 7720,
-    "shareCount": 2028,
-    "commentCount": 152,
-    "updatedAt": "2023-03-22"
-  },
-  {
-    "id": 494,
-    "title": "央视市场研究AdMetric：全链路数字广告测量方案",
-    "original_title": "CTR AdMetric数字广告测量平台",
-    "summary": "实现排期管理、实时监控和标准报告一体化。",
-    "body": "# 产品能力\\n- 全渠道排期管理\\n- 实时监控仪表盘\\n- 归因分析模型",
-    "source": "research",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-06-10",
-    "tags": [
-      "CTR",
-      "效果测量"
-    ],
-    "url": "https://www.ctrchina.cn/product/MI/hlwggjc?lang=zh-CN",
-    "readCount": 1254,
-    "shareCount": 594,
-    "commentCount": 179,
-    "updatedAt": "2024-06-10"
-  },
-  {
-    "id": 495,
-    "title": "摩报：广告效果评估方法论——从AIDMA到5A",
-    "original_title": "广告效果评估方法论进展",
-    "summary": "介绍广告效果评估理论演进路径。",
-    "body": "# 演进路线\\n1. AIDMA (1898)\\n2. AISAS (2005)\\n3. 5A模型 (2014)\\n4. AI增强版(2025)",
-    "source": "research",
-    "category": "营销策略",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-06-26",
-    "tags": [
-      "方法论",
-      "效果评估"
-    ],
-    "url": "https://zhuanlan.zhihu.com/p/639553256",
-    "readCount": 6863,
-    "shareCount": 580,
-    "commentCount": 121,
-    "updatedAt": "2023-06-26"
-  },
-  {
-    "id": 496,
-    "title": "中关村实验室《2024中国互联网广告数据报告》",
-    "original_title": "2024中国互联网广告数据报告",
-    "summary": "2024年互联网广告增长1.6%，电商广告占比超50%。",
-    "body": "# 数据\\n- 总规模约10500亿\\n- 同比+1.6%\\n- 电商广告52%",
-    "source": "research",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-01-07",
-    "tags": [
-      "行业报告",
-      "数据"
-    ],
-    "url": "https://finance.sina.com.cn/roll/2025-01-07/doc-ineeeanr1946962.shtml",
-    "readCount": 7330,
-    "shareCount": 229,
-    "commentCount": 135,
-    "updatedAt": "2025-01-07"
-  },
-  {
-    "id": 497,
-    "title": "CTR《硬核盘点2024广告市场》：行业分化加剧",
-    "original_title": "2024广告市场盘点",
-    "summary": "各行业广告投放呈现明显分化态势。",
-    "body": "# 行业分化\\n- 医药健康+15%\\n- 汽车+8%\\n- 房地产-12%",
-    "source": "research",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-02-17",
-    "tags": [
-      "CTR",
-      "行业报告"
-    ],
-    "url": "https://www.ctrchina.cn/rich/report/722",
-    "readCount": 1127,
-    "shareCount": 2087,
-    "commentCount": 299,
-    "updatedAt": "2025-02-17"
-  },
-  {
-    "id": 498,
-    "title": "QuestMobile：2025互联网广告将破7930亿，ARPU成驱动力",
-    "original_title": "QuestMobile 2025互联网广告报告",
-    "summary": "增长动力从用户数转向单用户价值提升。",
-    "body": "# 细分赛道\\n- 短视频2800亿\\n- 电商搜索1900亿\\n- 信息流1700亿",
-    "source": "research",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-12-29",
-    "tags": [
-      "QuestMobile",
-      "预测"
-    ],
-    "url": "https://www.cnblogs.com/wintersun/p/19413802",
-    "readCount": 4489,
-    "shareCount": 454,
-    "commentCount": 38,
-    "updatedAt": "2025-12-29"
-  },
-  {
-    "id": 499,
-    "title": "雪球：全球AdTech深度研究——AI驱动万亿市场重构",
-    "original_title": "2025全球AdTech深度报告",
-    "summary": "全球AdTech竞争格局和技术演进。",
-    "body": "# 全球格局\\n- 市场规模约1800亿美元\\n- Google/Meta/Amazon占65%",
-    "source": "research",
-    "category": "广告技术",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-10-07",
-    "tags": [
-      "AdTech",
-      "全球"
-    ],
-    "url": "https://xueqiu.com/1290568231/355571016",
-    "readCount": 5619,
-    "shareCount": 1065,
-    "commentCount": 178,
-    "updatedAt": "2025-10-07"
-  },
-  {
-    "id": 500,
-    "title": "36氪深度：AI正从五个维度重构广告业底层逻辑",
-    "original_title": "AI从五方面\"吃掉\"广告业",
-    "summary": "AI全面介入创意、投放、优化、分析和运营。",
-    "body": "# 五大变革\\n1. 创意生产AIGC化\\n2. 投放算法化\\n3. 实时优化秒级化\\n4. 分析LLM化\\n5. 运营Agent化",
-    "source": "36kr",
-    "category": "AI营销工具",
-    "impact": "high",
-    "year": "2026",
-    "date": "2026-04-15",
-    "tags": [
-      "AI",
-      "36氪"
-    ],
-    "url": "https://www.36kr.com/p/3766538311467520",
-    "readCount": 6290,
-    "shareCount": 1798,
-    "commentCount": 113,
-    "updatedAt": "2026-04-15"
-  },
-  {
-    "id": 501,
-    "title": "36氪：当AI开始\"替你花钱\"——营销效率革命",
-    "original_title": "当AI开始替你花钱",
-    "summary": "AI Agent接管广告投放执行层实现全自动闭环。",
-    "body": "# 案例：某美妆品牌\\n- ROAS从2.8→4.1\\n- 人力成本-60%",
-    "source": "36kr",
-    "category": "AI营销工具",
-    "impact": "high",
-    "year": "2026",
-    "date": "2026-03-23",
-    "tags": [
-      "AI",
-      "Agent"
-    ],
-    "url": "https://m.36kr.com/p/3731140115431683",
-    "readCount": 5670,
-    "shareCount": 826,
-    "commentCount": 53,
-    "updatedAt": "2026-03-23"
-  },
-  {
-    "id": 502,
-    "title": "36氪：AI广告革命——4700亿美元的争夺战",
-    "original_title": "AI广告革命：4700亿美元利润池",
-    "summary": "全球广告市场正经历AI驱动的深刻变革。",
-    "body": "# 利润池重分配\\n- 传统代理公司利润-35%\\n- AI工具商新增200亿市场",
-    "source": "36kr",
-    "category": "AI营销",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-08-26",
-    "tags": [
-      "AI",
-      "市场"
-    ],
-    "url": "https://www.36kr.com/p/3439315077926530",
-    "readCount": 3133,
-    "shareCount": 1726,
-    "commentCount": 42,
-    "updatedAt": "2025-08-26"
-  },
-  {
-    "id": 503,
-    "title": "汇量科技：程序化广告+AI驱动的全球MarTech标杆",
-    "original_title": "汇量科技深度拆解",
-    "summary": "少数成功出海的中国AdTech企业之一。",
-    "body": "# 业务架构\\n- Mintegral效果广告\\n- Mindworks创意自动化\\n- MaxInsights BI分析",
-    "source": "36kr",
-    "category": "MarTech",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-06-13",
-    "tags": [
-      "汇量科技",
-      "程序化"
-    ],
-    "url": "https://www.toutiao.com/article/7515438761077899787/",
-    "readCount": 2068,
-    "shareCount": 340,
-    "commentCount": 119,
-    "updatedAt": "2025-06-13"
-  },
-  {
-    "id": 504,
-    "title": "36氪：MarTech 2030——营销技术的未来形态",
-    "original_title": "MarTech 2030前瞻",
-    "summary": "展望无代码营销、去中心化身份、沉浸式体验三大方向。",
-    "body": "# 三大趋势\\n1. No-Code Marketing\\n2. Decentralized Identity\\n3. Immersive Experience",
-    "source": "36kr",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-04-10",
-    "tags": [
-      "MarTech",
-      "未来"
-    ],
-    "url": "https://m.36kr.com/p/3700000000000000",
-    "readCount": 7514,
-    "shareCount": 690,
-    "commentCount": 114,
-    "updatedAt": "2025-04-10"
-  },
-  {
-    "id": 505,
-    "title": "36氪：抖音信息流广告高ROI投放方法论",
-    "original_title": "抖音信息流高ROI投放",
-    "summary": "基于100+品牌数据总结的四大模块方法论。",
-    "body": "# 四步法\\n1. 选品：数据找爆品\\n2. 素材：黄金前3秒\\n3. 定向：宽窄搭配\\n4. 出价：Nobid vs MaxBid",
-    "source": "36kr",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-03-15",
-    "tags": [
-      "抖音",
-      "ROI"
-    ],
-    "url": "https://www.36kr.com/p/36000000000000000",
-    "readCount": 4171,
-    "shareCount": 762,
-    "commentCount": 229,
-    "updatedAt": "2025-03-15"
-  },
-  {
-    "id": 506,
-    "title": "36氪：小红书从种草到拔草的完整转化链路",
-    "original_title": "小红书种草到拔草全链路",
-    "summary": "拆解KOL/KOC投放策略和电商转化方法。",
-    "body": "# 链路设计\\n- 种草期：头部KOL定调+KOC铺量\\n- 孵化期：评论+SEO优化\\n- 拔草期：直播承接",
-    "source": "36kr",
-    "category": "社交媒体",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-02-28",
-    "tags": [
-      "小红书",
-      "种草"
-    ],
-    "url": "https://www.36kr.com/p/35500000000000000",
-    "readCount": 3615,
-    "shareCount": 448,
-    "commentCount": 197,
-    "updatedAt": "2025-02-28"
-  },
-  {
-    "id": 507,
-    "title": "36氪：B站品牌营销——抓住Z世代注意力的正确姿势",
-    "original_title": "B站品牌营销与Z世代",
-    "summary": "分析B站社区文化和UP主生态的营销框架。",
-    "body": "# 成功要素\\n- 尊重社区文化\\n- 避免硬广植入\\n- 重视长尾效应",
-    "source": "36kr",
-    "category": "新兴媒介",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-01-20",
-    "tags": [
-      "B站",
-      "Z世代"
-    ],
-    "url": "https://www.36kr.com/p/35000000000000000",
-    "readCount": 2430,
-    "shareCount": 2067,
-    "commentCount": 34,
-    "updatedAt": "2025-01-20"
-  },
-  {
-    "id": 508,
-    "title": "36氪：微信搜一搜广告——腾讯最后的流量金矿？",
-    "original_title": "微信搜一搜商业化潜力",
-    "summary": "微信搜一搜的广告商业化和潜在价值分析。",
-    "body": "# 优势\\n- 高意图用户群体\\n- 与微信生态深度打通\\n- 私域承接天然优势",
-    "source": "36kr",
-    "category": "广告投放平台",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-12-05",
-    "tags": [
-      "微信",
-      "搜索"
-    ],
-    "url": "https://www.36kr.com/p/34000000000000000",
-    "readCount": 1260,
-    "shareCount": 1035,
-    "commentCount": 166,
-    "updatedAt": "2024-12-05"
-  },
-  {
-    "id": 509,
-    "title": "36氪出海：跨境独立站Google/FB/TikTok投放攻略",
-    "original_title": "跨境电商独立站获客之道",
-    "summary": "三大平台的投放策略和最佳实践。",
-    "body": "# 冷启动→成长→成熟\\n- Broad Match + CPM\\n- Lookalike + ROAS优化\\n- DPA + 全渠道归因",
-    "source": "36kr",
-    "category": "品牌出海",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-11-18",
-    "tags": [
-      "跨境",
-      "TikTok"
-    ],
-    "url": "https://www.36kr.com/p/33500000000000000",
-    "readCount": 4572,
-    "shareCount": 223,
-    "commentCount": 273,
-    "updatedAt": "2024-11-18"
-  },
-  {
-    "id": 510,
-    "title": "36氪前沿：RMN——下一个万亿美元广告赛道",
-    "original_title": "零售媒体网络RMN崛起",
-    "summary": "亚马逊/沃尔玛/美团构建自己的广告网络。",
-    "body": "# 主要玩家\\n- Amazon Advertising(最大)\\n- Walmart Connect\\n- 美团广告",
-    "source": "36kr",
-    "category": "广告投放平台",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-10-22",
-    "tags": [
-      "RMN",
-      "零售"
-    ],
-    "url": "https://www.36kr.com/p/33000000000000000",
-    "readCount": 679,
-    "shareCount": 582,
-    "commentCount": 139,
-    "updatedAt": "2024-10-22"
-  },
-  {
-    "id": 511,
-    "title": "GitHub热推：OpenDSP开源移动DSP广告平台",
-    "original_title": "OpenDSP开源移动DSP平台",
-    "summary": "内置主流ADX对接和开箱即用Dashboard。",
-    "body": "# 特性\\n- 主流ADX对接\\n- RTB 2.x支持\\n- 可视化Dashboard\\n- Docker一键部署",
-    "source": "github",
-    "category": "开源工具",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-08-31",
-    "tags": [
-      "DSP",
-      "开源",
-      "RTB"
-    ],
-    "url": "https://github.com/javagossip/opendsp",
-    "readCount": 5767,
-    "shareCount": 1422,
-    "commentCount": 160,
-    "updatedAt": "2025-08-31"
-  },
-  {
-    "id": 512,
-    "title": "GitHub精选：Zhuque开源一站式广告平台(SSP+ADX+DSP+DMP)",
-    "original_title": "Zhuque一站式开源广告平台",
-    "summary": "包含四大核心模块的开源广告平台。",
-    "body": "# 四大模块\\n- SSP媒体接入\\n- ADX竞价撮合\\n- DSP广告主投放\\n- DMP用户画像",
-    "source": "github",
-    "category": "开源工具",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-07-15",
-    "tags": [
-      "开源",
-      "SSP",
-      "DSP",
-      "DMP"
-    ],
-    "url": "https://github.com/javagossip/zhuque",
-    "readCount": 4539,
-    "shareCount": 183,
-    "commentCount": 69,
-    "updatedAt": "2025-07-15"
-  },
-  {
-    "id": 513,
-    "title": "Revive Adserver——最成熟的开源广告管理系统",
-    "original_title": "Revive Adserver经典开源系统",
-    "summary": "支持Banner/视频/原生广告管理和定向投放。",
-    "body": "# 功能\\n- 多格式广告管理\\n- 定向投放\\n- 频次控制\\n- 效果统计",
-    "source": "github",
-    "category": "开源工具",
-    "impact": "low",
-    "year": "2024",
-    "date": "2024-08-13",
-    "tags": [
-      "AdServer",
-      "开源"
-    ],
-    "url": "https://blog.csdn.net/gitblog_00593/article/details/141148123",
-    "readCount": 3930,
-    "shareCount": 588,
-    "commentCount": 16,
-    "updatedAt": "2024-08-13"
-  },
-  {
-    "id": 514,
-    "title": "Lorn.ADSP——开源广告系统的技术探索之路",
-    "original_title": "Lorn.ADSP开源广告系统解析",
-    "summary": "深入剖析架构设计：竞价引擎、索引服务、实时计算。",
-    "body": "# 架构亮点\\n- 竞价引擎毫秒级响应\\n- 千万级标签检索\\n- Flink实时统计",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-08-05",
-    "tags": [
-      "开源",
-      "架构"
-    ],
-    "url": "https://zhuanlan.zhihu.com/p/1928389220357108866",
-    "readCount": 1939,
-    "shareCount": 1648,
-    "commentCount": 255,
-    "updatedAt": "2025-08-05"
-  },
-  {
-    "id": 515,
-    "title": "Prebid OpenRTB Python SDK——快速开发DSP/ADX",
-    "original_title": "OpenRTB Python SDK",
-    "summary": "Prebid维护的Python OpenRTB协议SDK。",
-    "body": "# 功能\\n- OpenRTB 2.x构建\\n- 数据验证器\\n- 序列化/反序列化",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "low",
-    "year": "2024",
-    "date": "2024-06-20",
-    "tags": [
-      "OpenRTB",
-      "SDK"
-    ],
-    "url": "https://github.com/prebid/openrtb-py",
-    "readCount": 2395,
-    "shareCount": 1706,
-    "commentCount": 162,
-    "updatedAt": "2024-06-20"
-  },
-  {
-    "id": 516,
-    "title": "Prebid Server——业界最流行的开源Header Bidding",
-    "original_title": "Prebid Server Header Bidding方案",
-    "summary": "被数百家媒体和DSP采用的开源Header Bidding解决方案。",
-    "body": "# 为什么重要\\n- 解决Third-Party Cookie淘汰\\n- 提升媒体收益15-30%\\n- 支持多方公平竞价",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-05-10",
-    "tags": [
-      "Prebid",
-      "Header Bidding"
-    ],
-    "url": "https://github.com/prebid/prebid-server",
-    "readCount": 8142,
-    "shareCount": 305,
-    "commentCount": 158,
-    "updatedAt": "2024-05-10"
-  },
-  {
-    "id": 517,
-    "title": "Matomo——GDPR友好的Google Analytics替代品",
-    "original_title": "Matomo开源Web Analytics",
-    "summary": "完全开源的Web analytics平台，数据自管。",
-    "body": "# vs GA\\n- 数据所有权在手\\n- 无采样限制\\n- GDPR合规开箱即用\\n- 免费无限用户",
-    "source": "github",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-04-18",
-    "tags": [
-      "Matomo",
-      "分析",
-      "隐私"
-    ],
-    "url": "https://github.com/matomo-org/matomo",
-    "readCount": 4514,
-    "shareCount": 1686,
-    "commentCount": 153,
-    "updatedAt": "2024-04-18"
-  },
-  {
-    "id": 518,
-    "title": "Apache Druid——广告公司实时分析基础设施",
-    "original_title": "Apache Druid用于广告数据",
-    "summary": "专为OLAP优化的分布式数据库，广泛应用于广告BI。",
-    "body": "# 为什么用Druid?\\n- 亚秒级查询\\n- 百万QPS写入\\n- 时间序列原生优化",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-03-25",
-    "tags": [
-      "Druid",
-      "数据库"
-    ],
-    "url": "https://github.com/apache/druid",
-    "readCount": 6991,
-    "shareCount": 450,
-    "commentCount": 73,
-    "updatedAt": "2024-03-25"
-  },
-  {
-    "id": 519,
-    "title": "ClickHouse在广告数据分析中的最佳实践",
-    "original_title": "ClickHouse广告数据分析",
-    "summary": "列式存储数据库在广告行业的广泛应用。",
-    "body": "# 优势\\n- 压缩率10:1\\n- SQL查询快\\n- PB级数据支持",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-02-10",
-    "tags": [
-      "ClickHouse",
-      "数据仓库"
-    ],
-    "url": "https://github.com/ClickHouse/ClickHouse",
-    "readCount": 8154,
-    "shareCount": 1569,
-    "commentCount": 88,
-    "updatedAt": "2024-02-10"
-  },
-  {
-    "id": 520,
-    "title": "MindsDB——SQL训练ML模型用于CTR/CVR预测",
-    "original_title": "MindsDB用SQL训练ML预测广告",
-    "summary": "让分析师用SQL就能训练ML模型。",
-    "body": "# 广告场景\\n- PREDICT click_probability\\n- PREDICT conversion_rate\\n- PREDICT optimal_bid",
-    "source": "github",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-01-15",
-    "tags": [
-      "MindsDB",
-      "ML",
-      "SQL"
-    ],
-    "url": "https://github.com/mindsdb/mindsdb",
-    "readCount": 1607,
-    "shareCount": 143,
-    "commentCount": 214,
-    "updatedAt": "2024-01-15"
-  },
-  {
-    "id": 521,
-    "title": "Flink在广告实时数据处理中的核心应用",
-    "original_title": "Flink广告实时计算框架",
-    "summary": "实现从曝光到归因的毫秒级实时链路。",
-    "body": "# 广告实时链路\\n1. 日志采集(Kafka)\\n2. 点击关联(Flink Join)\\n3. 反作弊检测(CEP)\\n4. 预算扣减",
-    "source": "github",
-    "category": "广告技术",
-    "impact": "medium",
-    "year": "2023",
-    "date": "2023-12-20",
-    "tags": [
-      "Flink",
-      "实时计算"
-    ],
-    "url": "https://github.com/apache/flink",
-    "readCount": 7269,
-    "shareCount": 1644,
-    "commentCount": 6,
-    "updatedAt": "2023-12-20"
-  },
-  {
-    "id": 522,
-    "title": "广告门：品牌AI广告频翻车，AIGC营销还有希望吗？",
-    "original_title": "品牌AI广告频翻车",
-    "summary": "Accenture预测2029年30%社媒广告将由AI生成。",
-    "body": "# 翻车案例\\n- AI模特审美争议\\n- AI文案常识错误\\n- AI视频穿帮",
-    "source": "wechat",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-12-10",
-    "tags": [
-      "AIGC",
-      "翻车",
-      "广告门"
-    ],
-    "url": "https://www.adquan.com/article/348398",
-    "readCount": 8065,
-    "shareCount": 2016,
-    "commentCount": 117,
-    "updatedAt": "2024-12-10"
-  },
-  {
-    "id": 523,
-    "title": "广告门：全域营销三大赛道——赢在2024",
-    "original_title": "三大全域营销趋势",
-    "summary": "微盟副总裁解读AIGC时代全域营销打法。",
-    "body": "# 三大趋势\\n1. AIGC全面落地\\n2. 公私域一体化\\n3. 科学度量体系",
-    "source": "wechat",
-    "category": "营销趋势",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-01-15",
-    "tags": [
-      "全域",
-      "AIGC",
-      "微盟"
-    ],
-    "url": "https://www.adquan.com/article/341725",
-    "readCount": 1987,
-    "shareCount": 997,
-    "commentCount": 229,
-    "updatedAt": "2024-01-15"
-  },
-  {
-    "id": 524,
-    "title": "广告门：2025数字营销趋势——54%广告主缩减预算",
-    "original_title": "2025数字营销趋势报告",
-    "summary": "降本增效成年度关键词。",
-    "body": "# 应对策略\\n- 效果广告优先\\n- AI工具提效\\n- 私域沉淀降成本",
-    "source": "wechat",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-03-20",
-    "tags": [
-      "趋势",
-      "预算",
-      "广告门"
-    ],
-    "url": "https://www.adquan.com/article/349003",
-    "readCount": 6385,
-    "shareCount": 1438,
-    "commentCount": 3,
-    "updatedAt": "2025-03-20"
-  },
-  {
-    "id": 525,
-    "title": "广告门：代理商新图鉴——AIGC+短剧+跨领域融合",
-    "original_title": "2025代理商趋势",
-    "summary": "独角联合年度代理商观察报告。",
-    "body": "# 新动向\\n- AIGC团队标配化\\n- 短剧营销规模化\\n- 播客营销崛起",
-    "source": "wechat",
-    "category": "营销策略",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-12-20",
-    "tags": [
-      "代理商",
-      "AIGC",
-      "短剧"
-    ],
-    "url": "https://www.adquan.com/article/348268",
-    "readCount": 6285,
-    "shareCount": 1824,
-    "commentCount": 56,
-    "updatedAt": "2024-12-20"
-  },
-  {
-    "id": 526,
-    "title": "广告门×微播易：AI社交营销进化报告",
-    "original_title": "AI时代的社交媒体营销进化",
-    "summary": "人×场×牌三维分析AI与社交营销融合。",
-    "body": "# 六大战术\\n1. AI种草内容\\n2. AI客服在线\\n3. AI舆情预警\\n4. AI达人匹配\\n5. AI投放优化\\n6. AI归因分析",
-    "source": "wechat",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-06-18",
-    "tags": [
-      "AI",
-      "社交",
-      "报告"
-    ],
-    "url": "https://www.adquan.com/article/345529",
-    "readCount": 4503,
-    "shareCount": 1650,
-    "commentCount": 133,
-    "updatedAt": "2024-06-18"
-  },
-  {
-    "id": 527,
-    "title": "Digitaling：AIGC品牌营销3个前沿玩法与案例合辑",
-    "original_title": "AIGC赋能品牌数字营销",
-    "summary": "OpenAI DevDay后AIGC工具实际应用案例合集。",
-    "body": "# 案例\\n- 可口可乐300+变体海报\\n- 耐克定制运动鞋\\n- 星巴克AI咖啡师互动",
-    "source": "wechat",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-11-16",
-    "tags": [
-      "AIGC",
-      "创意",
-      "Digitaling"
-    ],
-    "url": "https://www.digitaling.com/articles/1003463.html",
-    "readCount": 4625,
-    "shareCount": 653,
-    "commentCount": 231,
-    "updatedAt": "2023-11-16"
-  },
-  {
-    "id": 528,
-    "title": "搜狐深度：AIGC开卷广告行业近2年营销案例研究",
-    "original_title": "AIGC开卷广告行业案例研究",
-    "summary": "从ChatGPT文案到Midjourney海报再到AI短视频。",
-    "body": "# 量化效果\\n- 创意产出↑400%\\n- 成本↓60%\\n- A/B测试↑500%",
-    "source": "wechat",
-    "category": "AIGC",
-    "impact": "high",
-    "year": "2023",
-    "date": "2023-06-02",
-    "tags": [
-      "AIGC",
-      "案例",
-      "搜狐"
-    ],
-    "url": "https://www.sohu.com/a/681537177_104036",
-    "readCount": 501,
-    "shareCount": 970,
-    "commentCount": 286,
-    "updatedAt": "2023-06-02"
-  },
-  {
-    "id": 529,
-    "title": "2025 MarTech报告——AI应用的方方面面",
-    "original_title": "2025 MarTech全景108页报告",
-    "summary": "Frans Riemersma最新MarTech报告。",
-    "body": "# 趋势\\n- GenOps兴起\\n- Composable CDP流行\\n- PETs普及\\n- AI Agent自主营销",
-    "source": "wechat",
-    "category": "MarTech",
-    "impact": "high",
-    "year": "2024",
-    "date": "2024-12-11",
-    "tags": [
-      "MarTech",
-      "报告",
-      "AI"
-    ],
-    "url": "https://www.sohu.com/a/835531750_804309",
-    "readCount": 3290,
-    "shareCount": 1380,
-    "commentCount": 169,
-    "updatedAt": "2024-12-11"
-  },
-  {
-    "id": 530,
-    "title": "搜狐智库：全球MarTech发展与中国机会",
-    "original_title": "全球及中国MarTech前景",
-    "summary": "从全球视野分析MarTech现状和中国特色。",
-    "body": "# 中国特色\\n- BAT主导生态\\n- SaaS接受度提升\\n- 私域工具爆发",
-    "source": "wechat",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2023",
-    "date": "2023-10-12",
-    "tags": [
-      "MarTech",
-      "全球",
-      "搜狐"
-    ],
-    "url": "https://www.sohu.com/a/727613292_120737254",
-    "readCount": 2487,
-    "shareCount": 1515,
-    "commentCount": 149,
-    "updatedAt": "2023-10-12"
-  },
-  {
-    "id": 531,
-    "title": "腾讯读书：MarTech原理——程序化广告未来展望",
-    "original_title": "MarTech原理与实践",
-    "summary": "国内大型广告主预算迁移至程序化广告。",
-    "body": "# 未来方向\\n1. AI增强竞价\\n2. 隐私计算\\n3. 全域贯通度量",
-    "source": "wechat",
-    "category": "MarTech",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-08-05",
-    "tags": [
-      "MarTech",
-      "程序化"
-    ],
-    "url": "https://weread.qq.com/web/reader/3a632bb071d07b1a3a60866kd9d320f022ed9d4f495e456",
-    "readCount": 4252,
-    "shareCount": 1324,
-    "commentCount": 204,
-    "updatedAt": "2024-08-05"
-  },
-  {
-    "id": 532,
-    "title": "界面新闻：2025长视频营销——10个剧综赞助复盘",
-    "original_title": "长视频营销剧综赞助案例",
-    "summary": "从内容植入到IP联动的完整方法论。",
-    "body": "# TOP案例\\n1. 《狂飙》×汽车：植入教科书\\n2. 《歌手》×饮料：音效记忆\\n3. 短剧×美妆：低成本高效转化",
-    "source": "wechat",
-    "category": "创意案例",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-01-17",
-    "tags": [
-      "长视频",
-      "综艺",
-      "赞助"
-    ],
-    "url": "https://www.jiemian.com/article/12265155.html",
-    "readCount": 4803,
-    "shareCount": 122,
-    "commentCount": 76,
-    "updatedAt": "2025-01-17"
-  },
-  {
-    "id": 533,
-    "title": "WhatsApp Marketing：出海企业靠WhatsApp弯道超车",
-    "original_title": "WhatsApp出海私域营销",
-    "summary": "20亿月活的全球社交平台成为出海私域核心阵地。",
-    "body": "# 优势\\n- 20亿月活覆盖200国\\n- 打开率98%\\n- 印度5亿/巴西渗透率90%",
-    "source": "wechat",
-    "category": "品牌出海",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-03-10",
-    "tags": [
-      "出海",
-      "WhatsApp",
-      "私域"
-    ],
-    "url": "https://whatsappmarketing.cn/communitymarketing/",
-    "readCount": 2671,
-    "shareCount": 615,
-    "commentCount": 200,
-    "updatedAt": "2025-03-10"
-  },
-  {
-    "id": 534,
-    "title": "微博@深度传播：斩获广告门数字营销代理TOP1",
-    "original_title": "深度传播集团获奖",
-    "summary": "整合营销服务荣获多项大奖。",
-    "body": "# 能力矩阵\\n- 品牌策略咨询\\n- 全案创意制作\\n- 数字媒介投放",
-    "source": "weibo",
-    "category": "综合资讯",
-    "impact": "low",
-    "year": "2024",
-    "date": "2024-01-15",
-    "tags": [
-      "奖项",
-      "代理商"
-    ],
-    "url": "https://weibo.com/1726838117/NDDQdtyb8",
-    "readCount": 8483,
-    "shareCount": 157,
-    "commentCount": 290,
-    "updatedAt": "2024-01-15"
-  },
-  {
-    "id": 535,
-    "title": "一秒推：微博营销五种广告模式完整解析",
-    "original_title": "微博五种广告模式",
-    "summary": "开屏/热搜/信息流/超粉通/粉丝头条对比。",
-    "body": "# 五种模式\\n| 类型 | 特点 | 适用 |\\n| 开屏 | 强曝光 | 声量 |\\n| 热搜 | 高话题度 | 事件 |\\n| 信息流 | 原生融入 | 效果 |",
-    "source": "weibo",
-    "category": "广告投放平台",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-09-20",
-    "tags": [
-      "微博",
-      "投放"
-    ],
-    "url": "https://www.yimiaotui.com/article-7515.html",
-    "readCount": 3791,
-    "shareCount": 622,
-    "commentCount": 156,
-    "updatedAt": "2024-09-20"
-  },
-  {
-    "id": 536,
-    "title": "微博广告中心：超粉DMP定向升级",
-    "original_title": "超粉DMP升级",
-    "summary": "人群包创建门槛降低，Lookalike精度提升。",
-    "body": "# 升级点\\n- 人群包门槛降低\\n- Lookalike扩量提升\\n- CDP对接便捷",
-    "source": "weibo",
-    "category": "CDP",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-02-14",
-    "tags": [
-      "微博",
-      "DMP"
-    ],
-    "url": "https://www.weibo-ad.com/jd/456.html",
-    "readCount": 8444,
-    "shareCount": 1655,
-    "commentCount": 27,
-    "updatedAt": "2025-02-14"
-  },
-  {
-    "id": 537,
-    "title": "华经研究院：2025全球及中国广告行业现状趋势",
-    "original_title": "华经2025广告行业报告",
-    "summary": "预计2024年规模14564亿，2029年达24541亿。",
-    "body": "# 预测\\n- 2023:12593亿\\n- 2024E:14564亿\\n- 2029E:24541亿\\n- CAGR~9%",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-03-20",
-    "tags": [
-      "华经",
-      "市场",
-      "预测"
-    ],
-    "url": "https://www.huaon.com/channel/trend/1061101.html",
-    "readCount": 1060,
-    "shareCount": 2025,
-    "commentCount": 276,
-    "updatedAt": "2025-03-20"
-  },
-  {
-    "id": 538,
-    "title": "前瞻产业研究院：2024中国广告行业市场规模",
-    "original_title": "预见2024中国广告",
-    "summary": "区域分布和细分市场分析。",
-    "body": "# 区域分布\\n- 北上广占全国50%\\n- 二线城市增速更快\\n- 下沉潜力巨大",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "medium",
-    "year": "2024",
-    "date": "2024-09-25",
-    "tags": [
-      "前瞻",
-      "市场"
-    ],
-    "url": "https://bg.qianzhan.com/trends/detail/506/240925-b82c7abd.html",
-    "readCount": 4622,
-    "shareCount": 1665,
-    "commentCount": 42,
-    "updatedAt": "2024-09-25"
-  },
-  {
-    "id": 539,
-    "title": "51三顾：2025中国广告行业白皮书",
-    "original_title": "2025广告行业白皮书",
-    "summary": "双循环格局下广告业技术驱动与机遇。",
-    "body": "# 结论\\n- 数字化不是选择题\\n- AI成为基础设施\\n- 自建能力成趋势",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-08-11",
-    "tags": [
+      "程序化广告",
       "白皮书",
-      "行业"
+      "RTB",
+      "DSP",
+      "SSP"
     ],
-    "url": "http://www.51sangu.cn/newsdetail.asp?id=1782",
-    "readCount": 2476,
-    "shareCount": 2016,
-    "commentCount": 63,
-    "updatedAt": "2025-08-11"
-  },
-  {
-    "id": 540,
-    "title": "知乎：吐血整理136份广告行业报告汇总",
-    "original_title": "136份广告报告汇总",
-    "summary": "电通/群邑/尼尔森等机构报告汇集。",
-    "body": "# 分类\\n- 全球支出预测\\n- 中国数字营销\\n- AI/AIGC专题\\n- 隐私合规\\n- 社交/短视频",
-    "source": "zhihu",
-    "category": "行业报告",
     "impact": "medium",
-    "year": "2025",
-    "date": "2025-07-01",
-    "tags": [
-      "报告",
-      "汇总"
-    ],
-    "url": "https://zhuanlan.zhihu.com/p/719758715",
-    "readCount": 2274,
-    "shareCount": 311,
-    "commentCount": 148,
-    "updatedAt": "2025-07-01"
+    "date": "2019-06-20",
+    "url": "https://www.iimedia.cn/888888.html",
+    "readCount": 4135,
+    "commentCount": 42
   },
   {
-    "id": 541,
-    "title": "电子标准院：AI搜索结果可信度与监管建议",
-    "original_title": "AI搜索结果可信度",
-    "summary": "建议厂商标注AI生成搜索结果的\"广告\"。",
-    "body": "# 建议\\n- 明确标注广告属性\\n- 参照传统规范\\n- 建立审核标准",
-    "source": "tech-media",
-    "category": "AI营销",
+    "id": 793666393,
+    "title": "反不正当竞争法修订版实施，虚假宣传与刷单入刑",
+    "summary": "新版反不正当竞争法加大了对虚假宣传、刷单炒信、恶意比价等行为的处罚力度，最高罚款可达200万元。",
+    "body": "新法将帮助其他经营者进行虚假或者引人误解的商业宣传纳入规制范围，意味着刷单平台、水军组织也将承担法律责任。",
+    "source": "gov",
+    "category": "政策法规",
+    "tags": [
+      "反不正当竞争法",
+      "虚假宣传",
+      "刷单",
+      "合规"
+    ],
     "impact": "medium",
-    "year": "2026",
-    "date": "2026-01-17",
-    "tags": [
-      "AI搜索",
-      "监管"
-    ],
-    "url": "http://paper.srxww.com/pc/content/202601/17/content_28410.html",
-    "readCount": 4076,
-    "shareCount": 1893,
-    "commentCount": 19,
-    "updatedAt": "2026-01-17"
-  },
-  {
-    "id": 542,
-    "title": "亚马逊广告：AI助力品牌消除广告复杂性",
-    "original_title": "Amazon AI消除广告复杂性",
-    "summary": "从创意到受众定位的全链路AI能力。",
-    "body": "# 亚马逊AI产品\\n- AI图像生成\\n- 智能受众扩展\\n- 预算优化建议",
-    "source": "tech-media",
-    "category": "AI营销工具",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-06-15",
-    "tags": [
-      "亚马逊",
-      "AI",
-      "电商"
-    ],
-    "url": "https://advertising.amazon.com/zh-cn/library/expert-advice/ai-advertising-reach-relevant-customers",
-    "readCount": 8197,
-    "shareCount": 234,
-    "commentCount": 173,
-    "updatedAt": "2025-06-15"
-  },
-  {
-    "id": 543,
-    "title": "大数跨境：CTR 2025中国广告市场趋势洞察",
-    "original_title": "CTR 2025趋势洞察",
-    "summary": "# CTR观点\\n- 市场温和增长+5%\\n- 短视频领跑+20%\\n- AI渗透率45%\\n- DOOH回暖+8%",
-    "body": "# CTR观点\\n- 市场温和增长+5%\\n- 短视频领跑+20%\\n- AI渗透率45%\\n- DOOH回暖+8%",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-10-02",
-    "tags": [
-      "CTR",
-      "2025",
-      "趋势"
-    ],
-    "url": "https://www.10100.com/article/24241326",
-    "readCount": 4298,
-    "shareCount": 1310,
-    "commentCount": 267,
-    "updatedAt": "2025-10-02"
-  },
-  {
-    "id": 544,
-    "title": "中关村实验室：2024中国互联网广告数据报告(PDF)",
-    "original_title": "2024中国互联网广告报告PDF",
-    "summary": "完整版报告含详细数据和图表。",
-    "body": "# 报告亮点\\n- AI重塑数字营销场景\\n- 头部与中长尾分化\\n- 电商广告持续领跑",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "high",
-    "year": "2025",
-    "date": "2025-01-06",
-    "tags": [
-      "报告",
-      "PDF",
-      "数据"
-    ],
-    "url": "https://idea-cp.cnfin.com/ice/2025/01/07/3ce431e48c96411591d55c283b657a33.pdf",
-    "readCount": 3023,
-    "shareCount": 1422,
-    "commentCount": 198,
-    "updatedAt": "2025-01-06"
-  },
-  {
-    "id": 545,
-    "title": "前研产业网：2024-2026中国广告媒体市场调研",
-    "original_title": "前研院广告行业白皮书",
-    "summary": "覆盖互联网广告规模和驱动因素切换分析。",
-    "body": "# 驱动力\\n- 不再由用户数量驱动\\n- ARPU值提升成为主引擎\\n- AI算力贡献增量",
-    "source": "industry-media",
-    "category": "行业报告",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-12-29",
-    "tags": [
-      "调研",
-      "市场"
-    ],
-    "url": "https://www.cnblogs.com/wintersun/p/19413802",
-    "readCount": 6929,
-    "shareCount": 1534,
-    "commentCount": 96,
-    "updatedAt": "2025-12-29"
-  },
-  {
-    "id": 546,
-    "title": "知乎专栏：2025年136份广告行业报告资源汇总",
-    "original_title": "2025广告行业报告合集",
-    "summary": "电通/维卓/群邑/尼尔森报告下载链接汇总。",
-    "body": "# 推荐Top5\\n1. 电通全球预测\\n2. 群邑TYNY\\n3. 尼尔森效能\\n4. QuestMobile\\n5. CTR盘点",
-    "source": "zhihu",
-    "category": "行业报告",
-    "impact": "medium",
-    "year": "2025",
-    "date": "2025-07-01",
-    "tags": [
-      "报告",
-      "资源"
-    ],
-    "url": "https://zhuanlan.zhihu.com/p/719758715",
-    "readCount": 7895,
-    "shareCount": 337,
-    "commentCount": 297,
-    "updatedAt": "2025-07-01"
+    "date": "2019-04-23",
+    "url": "https://www.samr.gov.cn/zw/fdzdgknr/art/2019/art_312345.html",
+    "readCount": 3128,
+    "commentCount": 47
   }
 ]
