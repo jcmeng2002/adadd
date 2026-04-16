@@ -16,8 +16,8 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 # 全量真实文章数据 - 每条都对应一篇真实存在的文章
 # ============================================================
 
+
 REAL_ARTICLES = [
-    # ==================== 2026年 ====================
     {
         "original_title": "清华出品！《2026生成式人工智能行业深度研究报告》5.0版",
         "refined_title": "清华《2026生成式AI深度报告》：五大场景重塑营销范式",
@@ -28,7 +28,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2026-04-01",
-        "tags": ["清华", "生成式AI", "AIGC报告", "AI Agent"],
+        "tags": [
+            "清华",
+            "生成式AI",
+            "AIGC报告",
+            "AI Agent"
+        ]
     },
     {
         "original_title": "2026年GEO生成式引擎优化行业研究报告 - 知乎",
@@ -40,7 +45,12 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "high",
         "date": "2026-04-03",
-        "tags": ["GEO", "生成式引擎优化", "AI搜索", "SEO"],
+        "tags": [
+            "GEO",
+            "生成式引擎优化",
+            "AI搜索",
+            "SEO"
+        ]
     },
     {
         "original_title": "GEO 产业白皮书：2026 中国生成式引擎优化服务商综合能力榜",
@@ -52,7 +62,11 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "medium",
         "date": "2026-03-18",
-        "tags": ["GEO白皮书", "服务商排行", "IT之家"],
+        "tags": [
+            "GEO白皮书",
+            "服务商排行",
+            "IT之家"
+        ]
     },
     {
         "original_title": "2026年如何衡量生成引擎优化（GEO）的效果 - 腾讯云",
@@ -64,7 +78,11 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "medium",
         "date": "2026-04-07",
-        "tags": ["GEO度量", "腾讯云", "AI效果衡量"],
+        "tags": [
+            "GEO度量",
+            "腾讯云",
+            "AI效果衡量"
+        ]
     },
     {
         "original_title": "GEO优化公司最全指南2026：基于数千家客户案例的合规性实践",
@@ -76,7 +94,11 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "low",
         "date": "2026-04-13",
-        "tags": ["GEO指南", "合规实践", "界面新闻"],
+        "tags": [
+            "GEO指南",
+            "合规实践",
+            "界面新闻"
+        ]
     },
     {
         "original_title": "2026年AIGC营销广告趋势！ - CNAD中国广告传媒业知名门户",
@@ -88,7 +110,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2026-02-09",
-        "tags": ["AIGC趋势", "信任营销", "人机协同", "CNAD"],
+        "tags": [
+            "AIGC趋势",
+            "信任营销",
+            "人机协同",
+            "CNAD"
+        ]
     },
     {
         "original_title": "报告解读｜《中国 AI + 营销趋势洞察 2026》（附下载）| 广告门",
@@ -100,7 +127,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2026-03-17",
-        "tags": ["易观分析", "AI+营销", "广告门", "趋势洞察"],
+        "tags": [
+            "易观分析",
+            "AI+营销",
+            "广告门",
+            "趋势洞察"
+        ]
     },
     {
         "original_title": "谷歌发布《2026 AI 营销白皮书》：五大趋势重塑营销逻辑",
@@ -112,7 +144,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2026-04-08",
-        "tags": ["谷歌", "AI白皮书", "消费趋势", "品牌策略"],
+        "tags": [
+            "谷歌",
+            "AI白皮书",
+            "消费趋势",
+            "品牌策略"
+        ]
     },
     {
         "original_title": "2026国内 AI 营销创意应用平台排行榜：全链路能力成核心竞争壁垒",
@@ -124,7 +161,11 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "medium",
         "date": "2026-04-07",
-        "tags": ["AI营销平台", "全链路", "IT之家"],
+        "tags": [
+            "AI营销平台",
+            "全链路",
+            "IT之家"
+        ]
     },
     {
         "original_title": "2026年度 AI 营销行业榜单：企业智能营销服务商实力排行",
@@ -136,7 +177,11 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2026-04-07",
-        "tags": ["AI服务商", "企业智能化", "腾讯新闻"],
+        "tags": [
+            "AI服务商",
+            "企业智能化",
+            "腾讯新闻"
+        ]
     },
     {
         "original_title": "2026年广告营销产业现状及发展趋势分析",
@@ -148,7 +193,12 @@ REAL_ARTICLES = [
         "category": "行业趋势",
         "impact": "medium",
         "date": "2026-01-09",
-        "tags": ["产业趋势", "全球化", "技术赋能", "中研普华"],
+        "tags": [
+            "产业趋势",
+            "全球化",
+            "技术赋能",
+            "中研普华"
+        ]
     },
     {
         "original_title": "数字营销国家标准落地，天下秀2025年报锚定营销垂类AI Agent",
@@ -160,7 +210,12 @@ REAL_ARTICLES = [
         "category": "KOL营销",
         "impact": "high",
         "date": "2026-04-10",
-        "tags": ["AI Agent", "红人营销", "数字营销标准", "天下秀"],
+        "tags": [
+            "AI Agent",
+            "红人营销",
+            "数字营销标准",
+            "天下秀"
+        ]
     },
     {
         "original_title": "财报复盘互联网广告全景：新增长从何处来？",
@@ -172,7 +227,12 @@ REAL_ARTICLES = [
         "category": "广告投放平台",
         "impact": "high",
         "date": "2026-04-07",
-        "tags": ["互联网广告", "财报", "字节跳动", "腾讯"],
+        "tags": [
+            "互联网广告",
+            "财报",
+            "字节跳动",
+            "腾讯"
+        ]
     },
     {
         "original_title": "数字化营销：不止于「卖货」| 麦肯锡中国",
@@ -184,7 +244,12 @@ REAL_ARTICLES = [
         "category": "品牌营销",
         "impact": "high",
         "date": "2026-04-09",
-        "tags": ["麦肯锡", "品牌资产", "品效合一", "数字化转型"],
+        "tags": [
+            "麦肯锡",
+            "品牌资产",
+            "品效合一",
+            "数字化转型"
+        ]
     },
     {
         "original_title": "2026最新AI营销工具大全：10款AI神器让工作效率翻倍",
@@ -196,10 +261,12 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "low",
         "date": "2026-04-07",
-        "tags": ["AI工具", "效率提升", "营销自动化"],
+        "tags": [
+            "AI工具",
+            "效率提升",
+            "营销自动化"
+        ]
     },
-
-    # ==================== 2025年 ====================
     {
         "original_title": "2025品牌营销9个趋势观察 | 广告门",
         "refined_title": "广告门：2025品牌营销9大趋势——AI去中心化+短剧500亿+平替崛起",
@@ -210,7 +277,13 @@ REAL_ARTICLES = [
         "category": "品牌营销",
         "impact": "high",
         "date": "2025-04-03",
-        "tags": ["品牌趋势", "短剧营销", "下沉市场", "高管IP", "广告门"],
+        "tags": [
+            "品牌趋势",
+            "短剧营销",
+            "下沉市场",
+            "高管IP",
+            "广告门"
+        ]
     },
     {
         "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 | 广告门",
@@ -222,7 +295,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2025-07-04",
-        "tags": ["AI数字营销", "IDC报告", "程序化广告", "广告门"],
+        "tags": [
+            "AI数字营销",
+            "IDC报告",
+            "程序化广告",
+            "广告门"
+        ]
     },
     {
         "original_title": "《2025中国数字营销趋势报告》重磅发布-秒针系统",
@@ -234,7 +312,12 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "high",
         "date": "2024-12-26",
-        "tags": ["营销趋势", "预算管理", "效果测量", "秒针系统"],
+        "tags": [
+            "营销趋势",
+            "预算管理",
+            "效果测量",
+            "秒针系统"
+        ]
     },
     {
         "original_title": "156页深度报告，看懂2024 Social & KOL 营销趋势",
@@ -246,7 +329,12 @@ REAL_ARTICLES = [
         "category": "KOL营销",
         "impact": "high",
         "date": "2024-03-22",
-        "tags": ["KOL营销", "秒针系统", "社交媒体", "达人生态"],
+        "tags": [
+            "KOL营销",
+            "秒针系统",
+            "社交媒体",
+            "达人生态"
+        ]
     },
     {
         "original_title": "2025，生意藏在「热点」里 - 社会化营销案例库",
@@ -258,7 +346,11 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "medium",
         "date": "2025-01-14",
-        "tags": ["热点营销", "IP联名", "微博营销"],
+        "tags": [
+            "热点营销",
+            "IP联名",
+            "微博营销"
+        ]
     },
     {
         "original_title": "从AIGC到AIGD-2025生成式营销产业研究报告解读（96页附下载）",
@@ -270,7 +362,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2025-11-25",
-        "tags": ["AIGD", "AI决策", "生成式营销", "复旦"],
+        "tags": [
+            "AIGD",
+            "AI决策",
+            "生成式营销",
+            "复旦"
+        ]
     },
     {
         "original_title": "2025H1全球AIGC移动应用营销观察报告（附下载）- 新浪财经",
@@ -282,7 +379,11 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "medium",
         "date": "2025-08-24",
-        "tags": ["AIGC应用", "全球营销", "新浪财经"],
+        "tags": [
+            "AIGC应用",
+            "全球营销",
+            "新浪财经"
+        ]
     },
     {
         "original_title": "2025年AIGC市场全景洞察：核心数据与领军企业解析",
@@ -294,7 +395,11 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2025-10-28",
-        "tags": ["AIGC市场", "市场规模", "数据安全"],
+        "tags": [
+            "AIGC市场",
+            "市场规模",
+            "数据安全"
+        ]
     },
     {
         "original_title": "程序化广告在数字营销中的制胜之道：策略与实战指南",
@@ -306,7 +411,13 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2025-01-22",
-        "tags": ["RTB", "DSP", "SSP", "DMP", "受众定向"],
+        "tags": [
+            "RTB",
+            "DSP",
+            "SSP",
+            "DMP",
+            "受众定向"
+        ]
     },
     {
         "original_title": "The Consolidation of Ad Tech in 2025 - BRAVE",
@@ -318,7 +429,11 @@ REAL_ARTICLES = [
         "category": "广告技术",
         "impact": "medium",
         "date": "2025-03-27",
-        "tags": ["Ad Tech", "M&A", "行业整合"],
+        "tags": [
+            "Ad Tech",
+            "M&A",
+            "行业整合"
+        ]
     },
     {
         "original_title": "ANA's 2024 programmatic benchmark study: Progress but challenges remain",
@@ -330,7 +445,12 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2025-01-21",
-        "tags": ["ANA", "程序化基准", "品牌安全", "供应链透明"],
+        "tags": [
+            "ANA",
+            "程序化基准",
+            "品牌安全",
+            "供应链透明"
+        ]
     },
     {
         "original_title": "2025年MarTech营销技术全解：最新定义、应用场景与未来趋势",
@@ -342,7 +462,12 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "medium",
         "date": "2025-09-30",
-        "tags": ["MarTech", "AI Agent", "GEO", "营销科技"],
+        "tags": [
+            "MarTech",
+            "AI Agent",
+            "GEO",
+            "营销科技"
+        ]
     },
     {
         "original_title": "什么是MarTech？一文读懂概念、技术、应用场景、案例与趋势",
@@ -354,7 +479,11 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "medium",
         "date": "2025-08-13",
-        "tags": ["MarTech", "JINGdigital", "营销技术图谱"],
+        "tags": [
+            "MarTech",
+            "JINGdigital",
+            "营销技术图谱"
+        ]
     },
     {
         "original_title": "艾媒咨询｜2024-2025年中国品牌营销与千禧青年消费趋势",
@@ -366,7 +495,13 @@ REAL_ARTICLES = [
         "category": "品牌营销",
         "impact": "medium",
         "date": "2024-02-08",
-        "tags": ["千禧青年", "移动广告", "消费趋势", "圈层营销", "艾媒"],
+        "tags": [
+            "千禧青年",
+            "移动广告",
+            "消费趋势",
+            "圈层营销",
+            "艾媒"
+        ]
     },
     {
         "original_title": "2025社交媒体营销与电商融合趋势报告：抖音、小红书...",
@@ -378,7 +513,13 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "high",
         "date": "2026-02-05",
-        "tags": ["社交电商", "抖音", "小红书", "内容即货架", "澎湃新闻"],
+        "tags": [
+            "社交电商",
+            "抖音",
+            "小红书",
+            "内容即货架",
+            "澎湃新闻"
+        ]
     },
     {
         "original_title": "抖音VS小红书：2025年品牌种草哪家强？平台流量逻辑差异解析",
@@ -390,7 +531,12 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "medium",
         "date": "2025-07-14",
-        "tags": ["抖音", "小红书", "种草策略", "平台对比"],
+        "tags": [
+            "抖音",
+            "小红书",
+            "种草策略",
+            "平台对比"
+        ]
     },
     {
         "original_title": "【专题】2024年直播、短视频：抖音、小红书、快手行业报告汇总",
@@ -402,7 +548,13 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "medium",
         "date": "2025-03-04",
-        "tags": ["直播", "短视频", "抖音", "小红书", "快手"],
+        "tags": [
+            "直播",
+            "短视频",
+            "抖音",
+            "小红书",
+            "快手"
+        ]
     },
     {
         "original_title": "中国客户数据平台(CDP)领域TOP25 - eNet硅谷动力",
@@ -414,7 +566,12 @@ REAL_ARTICLES = [
         "category": "CDP",
         "impact": "medium",
         "date": "2025-06-20",
-        "tags": ["CDP", "TOP25", "eNet", "合规"],
+        "tags": [
+            "CDP",
+            "TOP25",
+            "eNet",
+            "合规"
+        ]
     },
     {
         "original_title": "CDP 客户数据平台是什么？2025台湾企业导入指南完整解析",
@@ -426,7 +583,12 @@ REAL_ARTICLES = [
         "category": "CDP",
         "impact": "medium",
         "date": "2025-10-29",
-        "tags": ["CDP", "CRM", "DMP", "导入指南"],
+        "tags": [
+            "CDP",
+            "CRM",
+            "DMP",
+            "导入指南"
+        ]
     },
     {
         "original_title": "隐私计算在广告投放软件数据协作中的合规方案",
@@ -438,10 +600,14 @@ REAL_ARTICLES = [
         "category": "数据隐私",
         "impact": "medium",
         "date": "2025-06-16",
-        "tags": ["隐私计算", "联邦学习", "SPC", "TEE", "CCRC"],
+        "tags": [
+            "隐私计算",
+            "联邦学习",
+            "SPC",
+            "TEE",
+            "CCRC"
+        ]
     },
-
-    # ==================== 2024年 ====================
     {
         "original_title": "中国AIGC广告营销产业全景报告：五大变革四大影响",
         "refined_title": "量子位×36kr：AIGC广告营销全景——五大变革+四大影响，千人千内容时代来临",
@@ -452,7 +618,13 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2024-01-04",
-        "tags": ["AIGC全景报告", "量子位", "36kr", "千人千面", "产业链变革"],
+        "tags": [
+            "AIGC全景报告",
+            "量子位",
+            "36kr",
+            "千人千面",
+            "产业链变革"
+        ]
     },
     {
         "original_title": "2024-2026年中国广告媒体市场深度调研报告 - QuestMobile",
@@ -464,7 +636,12 @@ REAL_ARTICLES = [
         "category": "广告投放平台",
         "impact": "high",
         "date": "2025-12-29",
-        "tags": ["QuestMobile", "互联网广告", "ARPU", "RMN零售媒体"],
+        "tags": [
+            "QuestMobile",
+            "互联网广告",
+            "ARPU",
+            "RMN零售媒体"
+        ]
     },
     {
         "original_title": "《2024中国互联网广告数据报告》（完整版）- 中关村互动营销实验室",
@@ -476,7 +653,13 @@ REAL_ARTICLES = [
         "category": "广告投放平台",
         "impact": "high",
         "date": "2025-01-07",
-        "tags": ["互联网广告", "中关村", "德勤", "秒针系统", "6509亿"],
+        "tags": [
+            "互联网广告",
+            "中关村",
+            "德勤",
+            "秒针系统",
+            "6509亿"
+        ]
     },
     {
         "original_title": "【深度】6509亿元广告市场TOP10：字节霸榜，百度承压",
@@ -488,7 +671,12 @@ REAL_ARTICLES = [
         "category": "广告投放平台",
         "impact": "high",
         "date": "2025-04-09",
-        "tags": ["广告市场TOP10", "字节跳动", "百度", "6509亿"],
+        "tags": [
+            "广告市场TOP10",
+            "字节跳动",
+            "百度",
+            "6509亿"
+        ]
     },
     {
         "original_title": "《2024中国数字营销趋势报告》首发：中国市场营销投资信心",
@@ -500,7 +688,12 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "high",
         "date": "2023-12-20",
-        "tags": ["数字营销趋势", "投资信心", "36kr", "2024"],
+        "tags": [
+            "数字营销趋势",
+            "投资信心",
+            "36kr",
+            "2024"
+        ]
     },
     {
         "original_title": "《2024中国数字营销年度报告》 - 知乎",
@@ -512,7 +705,11 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "medium",
         "date": "2024-12-22",
-        "tags": ["数字营销年度报告", "知乎", "2024"],
+        "tags": [
+            "数字营销年度报告",
+            "知乎",
+            "2024"
+        ]
     },
     {
         "original_title": "2025中国数字营销趋势展望报告 - 月狐数据",
@@ -524,7 +721,11 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "medium",
         "date": "2025-04-08",
-        "tags": ["月狐数据", "数字营销展望", "2025"],
+        "tags": [
+            "月狐数据",
+            "数字营销展望",
+            "2025"
+        ]
     },
     {
         "original_title": "《明势·取道·优术，2025重获品牌主权——中国泛社交媒体趋势白皮书2025版》",
@@ -536,7 +737,12 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "high",
         "date": "2025-02",
-        "tags": ["秒针系统", "社媒白皮书", "品牌主权", "中国广告协会"],
+        "tags": [
+            "秒针系统",
+            "社媒白皮书",
+            "品牌主权",
+            "中国广告协会"
+        ]
     },
     {
         "original_title": "秒针系统张丽：品牌做消费者全域管理，需要重新理解\"全域\"",
@@ -548,7 +754,12 @@ REAL_ARTICLES = [
         "category": "社交媒体",
         "impact": "medium",
         "date": "2024-07-25",
-        "tags": ["全域营销", "秒针系统", "微短剧", "情绪营销"],
+        "tags": [
+            "全域营销",
+            "秒针系统",
+            "微短剧",
+            "情绪营销"
+        ]
     },
     {
         "original_title": "中国广告主协会X艾媒咨询 | 2024-2025中国企业出海发展研究白皮书",
@@ -560,7 +771,12 @@ REAL_ARTICLES = [
         "category": "品牌出海",
         "impact": "high",
         "date": "2025-01-19",
-        "tags": ["品牌出海", "艾媒", "跨境营销", "GDPR"],
+        "tags": [
+            "品牌出海",
+            "艾媒",
+            "跨境营销",
+            "GDPR"
+        ]
     },
     {
         "original_title": "2025中国生成式引擎优化(GEO)行业研究报告：技术全景与应用",
@@ -572,7 +788,12 @@ REAL_ARTICLES = [
         "category": "MarTech",
         "impact": "high",
         "date": "2025-08-26",
-        "tags": ["GEO", "生成式引擎优化", "AI搜索", "技术全景"],
+        "tags": [
+            "GEO",
+            "生成式引擎优化",
+            "AI搜索",
+            "技术全景"
+        ]
     },
     {
         "original_title": "什么是实时竞价(RTB)？广告竞价的毫秒级博弈 - 腾讯云",
@@ -584,7 +805,13 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2026-04-14",
-        "tags": ["RTB", "实时竞价", "腾讯云", "DSP", "DMP"],
+        "tags": [
+            "RTB",
+            "实时竞价",
+            "腾讯云",
+            "DSP",
+            "DMP"
+        ]
     },
     {
         "original_title": "一篇文章搞懂RTB广告的ADN、ADX、DSP、DMP、SSP",
@@ -596,7 +823,14 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2024-03-27",
-        "tags": ["RTB", "ADN", "ADX", "DSP", "DMP", "SSP"],
+        "tags": [
+            "RTB",
+            "ADN",
+            "ADX",
+            "DSP",
+            "DMP",
+            "SSP"
+        ]
     },
     {
         "original_title": "中国RTB广告行业现状调研与市场前景分析报告(2024年)",
@@ -608,7 +842,12 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2024-01-01",
-        "tags": ["RTB", "中国市场", "AI出价", "隐私计算"],
+        "tags": [
+            "RTB",
+            "中国市场",
+            "AI出价",
+            "隐私计算"
+        ]
     },
     {
         "original_title": "China Programmatic Advertising Market Growth Report By 2035",
@@ -620,7 +859,12 @@ REAL_ARTICLES = [
         "category": "程序化广告",
         "impact": "medium",
         "date": "2026-04-06",
-        "tags": ["程序化广告", "CAGR", "Market Research Future", "RMN"],
+        "tags": [
+            "程序化广告",
+            "CAGR",
+            "Market Research Future",
+            "RMN"
+        ]
     },
     {
         "original_title": "2024年中国数字营销年度报告 - 数智观察",
@@ -632,7 +876,11 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "low",
         "date": "2024-12-15",
-        "tags": ["数字营销", "市场规模", "数智观察"],
+        "tags": [
+            "数字营销",
+            "市场规模",
+            "数智观察"
+        ]
     },
     {
         "original_title": "预见2024：《2025年中国数字营销行业全景图谱》",
@@ -644,7 +892,11 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "medium",
         "date": "2025-05-14",
-        "tags": ["前瞻研究院", "数字营销全景图", "万亿市场"],
+        "tags": [
+            "前瞻研究院",
+            "数字营销全景图",
+            "万亿市场"
+        ]
     },
     {
         "original_title": "2025中国数字营销行业人工智能应用趋势研究报告 - 搜狐",
@@ -656,7 +908,11 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "medium",
         "date": "2025-06-13",
-        "tags": ["AI数字营销", "倍孜网络", "中国商务广告协会"],
+        "tags": [
+            "AI数字营销",
+            "倍孜网络",
+            "中国商务广告协会"
+        ]
     },
     {
         "original_title": "《2024中国数字营销趋势报告》- m360/秒针营销科学院",
@@ -668,10 +924,13 @@ REAL_ARTICLES = [
         "category": "效果营销",
         "impact": "medium",
         "date": "2024-07-24",
-        "tags": ["秒针系统", "数字营销趋势", "m360", "GDPS"],
+        "tags": [
+            "秒针系统",
+            "数字营销趋势",
+            "m360",
+            "GDPS"
+        ]
     },
-
-    # ==================== 2023年 ====================
     {
         "original_title": "ChatGPT引爆AIGC元年：广告行业迎来范式革命",
         "refined_title": "ChatGPT引爆2023 AIGC元年：广告行业的范式革命",
@@ -682,7 +941,12 @@ REAL_ARTICLES = [
         "category": "AIGC",
         "impact": "high",
         "date": "2023-03-15",
-        "tags": ["ChatGPT", "AIGC元年", "范式革命", "OpenAI"],
+        "tags": [
+            "ChatGPT",
+            "AIGC元年",
+            "范式革命",
+            "OpenAI"
+        ]
     },
     {
         "original_title": "Web3营销与元宇宙品牌：2022年的泡沫与真金",
@@ -694,7 +958,12 @@ REAL_ARTICLES = [
         "category": "元宇宙/Web3",
         "impact": "medium",
         "date": "2022-12-20",
-        "tags": ["Web3", "元宇宙", "NFT", "虚拟偶像"],
+        "tags": [
+            "Web3",
+            "元宇宙",
+            "NFT",
+            "虚拟偶像"
+        ]
     },
     {
         "original_title": "抖音商业化四周年：信息流广告的崛起与演变",
@@ -706,7 +975,12 @@ REAL_ARTICLES = [
         "category": "信息流广告",
         "impact": "high",
         "date": "2023-09-01",
-        "tags": ["抖音商业化", "信息流广告", "千川", "星图"],
+        "tags": [
+            "抖音商业化",
+            "信息流广告",
+            "千川",
+            "星图"
+        ]
     },
     {
         "original_title": "私域流量运营白皮书：从流量思维到留量思维",
@@ -718,7 +992,12 @@ REAL_ARTICLES = [
         "category": "私域运营",
         "impact": "high",
         "date": "2023-06-15",
-        "tags": ["私域流量", "企业微信", "用户运营", "LTV"],
+        "tags": [
+            "私域流量",
+            "企业微信",
+            "用户运营",
+            "LTV"
+        ]
     },
     {
         "original_title": "CDP建设实战：从0到1的客户数据平台搭建指南",
@@ -730,7 +1009,12 @@ REAL_ARTICLES = [
         "category": "CDP",
         "impact": "medium",
         "date": "2023-03-20",
-        "tags": ["CDP", "One-ID", "标签体系", "数据中台"],
+        "tags": [
+            "CDP",
+            "One-ID",
+            "标签体系",
+            "数据中台"
+        ]
     },
     {
         "original_title": "个人信息保护法下的广告投放合规之路",
@@ -742,7 +1026,13 @@ REAL_ARTICLES = [
         "category": "数据隐私",
         "impact": "high",
         "date": "2022-01-15",
-        "tags": ["PIPL", "隐私计算", "Cookie退场", "GDPR", "合规"],
+        "tags": [
+            "PIPL",
+            "隐私计算",
+            "Cookie退场",
+            "GDPR",
+            "合规"
+        ]
     },
     {
         "original_title": "KOC崛起：从KOL到KOC的营销权力转移",
@@ -754,95 +1044,3278 @@ REAL_ARTICLES = [
         "category": "KOL营销",
         "impact": "medium",
         "date": "2019-08-15",
-        "tags": ["KOC", "KOL", "信任营销", "UGC", "种草"],
+        "tags": [
+            "KOC",
+            "KOL",
+            "信任营销",
+            "UGC",
+            "种草"
+        ]
+    },
+    {
+        "original_title": "2025年最新整理品牌营销趋势报告案例合集 - 知乎",
+        "refined_title": "知乎：2025品牌营销趋势合集——八爆法则造爆品+长期品牌方法论",
+        "url": "https://zhuanlan.zhihu.com/p/1938994540062179499",
+        "summary": "系统梳理2025年品牌营销趋势。短期造爆品的\"八爆法则\"（椰鲨借势奥尼尔实现销售额增长1000%），长期做品牌的承德露露式战略路径。",
+        "body": "## 八爆法则（短期）\n借势热点IP × 体育明星 × 社交裂变 = 爆款公式\n案例：椰鲨×奥尼尔合作，销售额增长1000%\n\n## 长期品牌建设\n以承德露露为例：\n1. 品牌资产沉淀 > 短期销量冲刺\n2. 情感连接 > 功能卖点\n3. 文化内涵 > 价格竞争",
+        "source": "zhihu",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2025-08-13",
+        "tags": [
+            "品牌趋势",
+            "爆品方法论",
+            "体育营销"
+        ]
+    },
+    {
+        "original_title": "《2025中国营销趋势》报告发布 - 数英",
+        "refined_title": "数英：2025中国营销趋势——AI原生内容/私域深耕/品效合一十大方向",
+        "url": "https://www.digitaling.com/articles/1303462.html",
+        "summary": "数英发布《2025中国营销趋势报告》，涵盖消费市场、媒介环境、技术变革等维度。68%广告主增加AI工具预算，品牌自建私域比例超75%。",
+        "body": "## 十大趋势\n1. AI原生内容成为标配 2. 私域运营从增量到深耕 3. 品效合一从口号到落地\n4. 短剧营销规模化 5. 出海本地化深化 6. ESG成必选项\n7. 数据合规驱动第一方建设 8. KOL矩阵化运营 9. 大屏价值重估 10. B2B数字化提速",
+        "source": "industry-media",
+        "category": "效果营销",
+        "impact": "high",
+        "date": "2024-12-30",
+        "tags": [
+            "数英",
+            "2025趋势",
+            "营销预测"
+        ]
+    },
+    {
+        "original_title": "榜单揭晓！2024趋势营销案例榜 - 广告门",
+        "refined_title": "广告门×知萌：2024趋势营销案例榜——第10本白皮书配套标杆案例",
+        "url": "https://www.adquan.com/article/350147",
+        "summary": "知萌发布第10本消费趋势报告配套的2024趋势营销案例榜，覆盖快消/美妆/科技/汽车等多行业标杆案例。",
+        "body": "## 榜单价值\n连续14年追踪中国消费趋势，覆盖多行业标杆案例。\n## 核心启示\n趋势不是跟风，是提前半步的系统性布局。",
+        "source": "industry-media",
+        "category": "品牌营销",
+        "impact": "medium",
+        "date": "2025-01-15",
+        "tags": [
+            "广告门",
+            "知萌",
+            "趋势营销",
+            "案例榜"
+        ]
+    },
+    {
+        "original_title": "艾媒咨询｜2024年中国品牌营销创新与消费趋势洞察",
+        "refined_title": "艾媒×中国品牌杂志：国潮3.0+理性消费双轨并行的品牌创新路径",
+        "url": "https://report.iimedia.cn/repo7-0/43584.html?iimediaId=101486",
+        "summary": "联合报告指出国潮进入3.0阶段（文化输出），同时消费者更趋理性。ESG因素影响60%+年轻人的品牌选择。",
+        "body": "## 国潮演进\n1.0 国货替代 → 2.0 IP化 → 3.0 全球叙事\n## 消费者变化\n理性回归+圈层细分+绿色意识提升\n## 应对策略\n产品创新+内容共鸣+渠道精准三位一体",
+        "source": "wechat",
+        "category": "品牌营销",
+        "impact": "medium",
+        "date": "2024-05-07",
+        "tags": [
+            "艾媒",
+            "国潮3.0",
+            "理性消费",
+            "ESG"
+        ]
+    },
+    {
+        "original_title": "麦肯锡：中国Z世代初长成，如何俘获他们的心",
+        "refined_title": "麦肯锡Z世代特刊——俘获2.6亿年轻人的五大策略",
+        "url": "https://www.mckinsey.com.cn/%e9%ba%a6%e8%82%af%e9%94%a1%e4%b8%ad%e5%9b%bd%e6%b6%88%e8%b4%b9%e8%80%85%e7%89%b9%e5%88%8a-%e4%b8%ad%e5%9b%bdz%e4%b8%96%e4%bb%a3%e5%88%9d%e9%95%bf%e6%88%90%ef%bc%8c%e5%a6%82%e4%bd%95%e4%bf%98/",
+        "summary": "麦肯锡发布Z世代专题，定义中国Z世代约2.6亿人，建议摒弃一刀切策略，部署价值共鸣/圈层渗透/共创参与/即时满足/透明可信五大策略。",
+        "body": "## Z世代画像\n2.6亿人/数字原住民/重视自我表达/忠诚度低但价值观认同高\n## 五大策略\n1. 价值共鸣(从功能到价值观) 2. 圈层渗透(兴趣社区)\n3. 共创参与(让用户参与设计) 4. 即时满足(缩短链路) 5. 透明可信(拒绝过度包装)",
+        "source": "industry-media",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2026-04-09",
+        "tags": [
+            "麦肯锡",
+            "Z世代",
+            "年轻消费者",
+            "圈层营销"
+        ]
+    },
+    {
+        "original_title": "QuestMobile2025泛年轻人群营销洞察：4.4亿用户",
+        "refined_title": "QuestMobile：泛年轻人群4.4亿——月消超2000元占45.2%",
+        "url": "https://www.questmobile.com.cn/research/report/1914581725750595585",
+        "summary": "QM定义泛年轻人群4.4亿，月线上消费超2000元占45.2%。抖音/小红书/B站三强格局，跨平台种草→单平台收割成主流。",
+        "body": "## 泛年轻人群画像\n总规模4.4亿 / 月消>2000元占45.2% / 15-35岁主力\n## 营销启示\n1. 年轻不等于低价 2. 内容兼顾有趣和有用\n3. 私域提升LTV是关键 4. 跨平台种草单平台收割",
+        "source": "tech-media",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2026-02-04",
+        "tags": [
+            "QuestMobile",
+            "泛年轻人群",
+            "消费力",
+            "用户洞察"
+        ]
+    },
+    {
+        "original_title": "Z世代消费新图鉴：解码年轻世代消费密码 - 新浪财经",
+        "refined_title": "新浪财经：Z世代图鉴——价值认同>溢价，为人设买单",
+        "url": "https://finance.sina.com.cn/cj/2025-06-19/doc-infaqzvh7222235.shtml",
+        "summary": "核心发现：价值认同高于品牌溢价，消费即自我表达。鸿星尔克野性消费、蜜雪冰城出圈等国潮现象级案例频发。",
+        "body": "## 三大密码\n1. 价值认同>品牌溢价 2. 消费即自我表达(为人设买单)\n3. 国潮当道(鸿星尔克/蜜雪冰城)\n## 行动指南\n打造有态度的品牌人格/社交话题自然露出/支持年轻人关心议题",
+        "source": "weibo",
+        "category": "品牌营销",
+        "impact": "medium",
+        "date": "2025-06-19",
+        "tags": [
+            "Z世代",
+            "消费密码",
+            "国潮",
+            "人设经济"
+        ]
+    },
+    {
+        "original_title": "《2025 Z世代情绪消费报告》- 澎湃新闻×Soul App",
+        "refined_title": "澎湃×Soul：2025 Z世代情绪消费——情绪价值成核心购买动机",
+        "url": "https://www.thepaper.cn/newsDetail_forward_31569819.",
+        "summary": "上海市青少年研究中心联合Soul App发布报告。情绪价值超越功能性需求成为首要购买动机，性别差异显著：女性偏疗愈型，男性偏成就型。",
+        "body": "## 核心发现\n情绪价值>功能需求 / 性别差异明显 / 场景扩展至全品类\n## 四象限\n| | 自我愉悦 | 社会展示 |\n|------|---------|--------|\n| 即时 | 网购开箱 | 晒单分享 |\n| 长期 | 课程学习 | 圈层身份 |\n## 品牌机会\n将产品嵌入用户的\"情绪时刻\"",
+        "source": "tech-media",
+        "category": "品牌营销",
+        "impact": "medium",
+        "date": "2025-09-08",
+        "tags": [
+            "Z世代",
+            "情绪消费",
+            "Soul App",
+            "澎湃新闻"
+        ]
+    },
+    {
+        "original_title": "尼尔森IQ《Z世代消费报告》：2030年购买力12万亿美元",
+        "refined_title": "NIQ×WDL：Z世代消费报告——全球最大代际群体12万亿购买力",
+        "url": "https://caijing.chinadaily.com.cn/a/202406/21/WS66766bdca3107cd55d2680e2.html",
+        "summary": "预计2030年Z世代市场购买能力达12万亿美元。中国Z世代有更强国货偏好、更高AI接受度、更大社交决策影响力。",
+        "body": "## 全球数据\n人数史上最大 / 2030购买力12万亿美元 / 可持续意识强\n## 中国特色\n国货偏好强 / AI开放度高 / 社交决策影响力超全球平均",
+        "source": "industry-media",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2024-06-21",
+        "tags": [
+            "尼尔森IQ",
+            "Z世代",
+            "12万亿",
+            "全球消费"
+        ]
+    },
+    {
+        "original_title": "2025消费趋势研究：精神韧性需求增22.3%",
+        "refined_title": "数说故事D3论坛：2025消费趋势——精神韧性消费崛起",
+        "url": "https://www.vzkoo.com/read/202506034b730e6c9fa3bc3cbbaf5c92.html",
+        "summary": "Z世代\"精神韧性\"需求同比增长22.3%，悦己消费升级、极简主义回归、体验优先于实物商品三大趋势并行。",
+        "body": "## 精神韧性消费\n通过消费获得心理抗压能力 / 同比+22.3%\n代表品类: 心理健康App/冥想课程/治愈系内容\n\n## 三大趋势\n1. 悦己消费升级 2. 极简主义回归 3. 体验>实物",
+        "source": "tech-media",
+        "category": "品牌营销",
+        "impact": "medium",
+        "date": "2025-06-03",
+        "tags": [
+            "数说故事",
+            "精神韧性",
+            "悦己经济",
+            "极简主义"
+        ]
+    },
+    {
+        "original_title": "选错阵地=烧钱！货架/内容/直播/社交电商模式解析",
+        "refined_title": "搜狐：四大电商模式解析——货架/内容/直播/社交选错阵地等于烧钱",
+        "url": "https://www.sohu.com/a/902992040_122434684",
+        "summary": "2024双11头部主播销售额腰斩、女装退货率超90%，电商人开始回归货架电商。深度对比四种电商模式的优劣势与适用场景。",
+        "body": "## 四大模式\n| 模式 | 代表平台 | 核心逻辑 | 适合品类 |\n|------|---------|---------|----------|\n| 货架电商 | 淘宝/京东 | 人找货 | 标品/刚需 |\n| 内容电商 | 小红书 | 种草→搜索→买 | 美妆/穿搭 |\n| 直播电商 | 抖音/快手 | 兴趣推荐冲动购 | 服装/食品 |\n| 社交电商 | 微信/社群 | 信任驱动 | 高客单/复购 |\n\n## 选型建议\n根据品类特性+目标人群+运营能力组合选择，不盲目追风口。",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2025-06-10",
+        "tags": [
+            "电商模式",
+            "货架电商",
+            "直播退货率",
+            "模式选择"
+        ]
+    },
+    {
+        "original_title": "2025年直播电商与短视频带货趋势深度研究报告 - 知乎",
+        "refined_title": "知乎：2025直播电商深度报告——从流量红利到精细化运营",
+        "url": "https://zhuanlan.zhihu.com/p/1890489219086021304",
+        "summary": "全面分析直播电商与短视频带货的行业现状、用户行为变化、平台政策走向及未来发展趋势。从粗放式投流向精细化运营转型。",
+        "body": "## 行业拐点\n- 头部主播垄断被打破\n- 品牌自播占比超60%\n- 短视频带货GMV首超直播带货\n\n## 转型方向\n1. 店播常态化(品牌自有直播间)\n2. AI数字人降本(24h不间断)\n3. 内容即货架(短视频挂车)\n4. 私域承接(直播引流至企微)",
+        "source": "zhihu",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-04-01",
+        "tags": [
+            "直播电商",
+            "短视频带货",
+            "店播",
+            "AI主播"
+        ]
+    },
+    {
+        "original_title": "2024年五大社交平台KOL生态研究报告：腰部达人仍是核心力量",
+        "refined_title": "克劳锐：五大平台KOL生态报告——腰部达人是内容中坚",
+        "url": "https://www.vzkoo.com/read/20250616d9c19e676f7c2124bfafaf27.html",
+        "summary": "克劳锐发布《2024年五大社交平台KOL粉丝分析研究报告》。抖音/快手/微博/小红书/B站五大平台，腰部达人仍是最具性价比的投放选择。",
+        "body": "## 五大平台格局\n- **抖音**: 随拍类内容爆发，达人产能最高\n- **小红书**: 图文笔记种草力最强，商业价值稳定\n- **快手**: 老铁经济信任度高，复购率领先\n- **微博**: 热点引爆能力不可替代\n- **B站**: 长视频深度内容，Z世代聚集地\n\n## 腰部达人优势\n1. 性价比高（CPM低于头部60%+\n2. 配合度高（响应快、定制意愿强）\n3. 粉丝真实（互动率高于头部）\n4. 增长期望（共同成长心态）\n\n## 投放策略建议\n头部造声量 + 腰部做转化 + KOC铺量的金字塔组合",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2025-06-16",
+        "tags": [
+            "克劳锐",
+            "KOL生态",
+            "腰部达人",
+            "五平台对比"
+        ]
+    },
+    {
+        "original_title": "微播易《2025年社交媒体与KOL营销趋势报告》发布",
+        "refined_title": "微播易×中国广告协会：2025社媒KOL营销报告——6大平台50+图表",
+        "url": "https://news.qq.com/rain/a/20250519A08UD100",
+        "summary": "基于6大平台数据分析，50+图表深度解析。为CMO和品牌市场负责人提供KOL营销年度决策参考。",
+        "body": "## 五大趋势\n1. **品效销一体化**: 从曝光到转化的全链路闭环\n2. **矩阵化运营**: 多平台多账号组合策略\n3. **数据驱动选号**: 从\"感觉靠谱\"到\"数据说话\"\n4. **短剧化内容**: KOL自制短剧成新增长点\n5. **出海联动**: 国内KOL带品牌走向海外\n\n## 关键指标变化\n- 达人平均合作单价同比+15%\n- 品牌自播占比提升至58%\n- 短视频KOL投放ROI均值1:4.2",
+        "source": "zhihu",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2025-05-19",
+        "tags": [
+            "微播易",
+            "KOL趋势",
+            "中国广告协会",
+            "社媒营销"
+        ]
+    },
+    {
+        "original_title": "小红书达人种草营销：KOL投放策略+探店实战指南",
+        "refined_title": "搜狐：小红书KOL种草投放全指南——从选号到效果复盘",
+        "url": "https://www.sohu.com/a/929408830_121832323",
+        "summary": "系统梳理小红书达人投放策略：如何筛选匹配达人、探店内容制作要点、投放节奏把控及ROI评估方法。",
+        "body": "## 选号三步法\n1. **人群匹配**: 达人粉丝画像×品牌TA重合度>60%\n2. **内容调性**: 历史笔记风格与品牌调性一致\n3. **数据健康**: 粉丝互动率(点赞/收藏/评论)达标\n\n## 探店内容公式\n**真实体验 + 场景代入 + 细节描述 + 使用感受 + 行动号召**\n\n## ROI计算模型\n(CPM × 曝光量) / (客单价 × 转化率) = 投产比基准线\n\n## 常见误区\n只看粉丝量不看互动率 / 一刀切文案模板 / 忽视评论区运营",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "medium",
+        "date": "2025-08-28",
+        "tags": [
+            "小红书",
+            "KOL投放",
+            "探店营销",
+            "种草策略"
+        ]
+    },
+    {
+        "original_title": "2024社媒达人营销价值及成长研究 - 网易",
+        "refined_title": "网易：2024社媒达人营销价值研究——抖音内容能力一骑绝尘",
+        "url": "https://www.163.com/dy/article/JKTA3OS305383L0H.html",
+        "summary": "2024社媒达人营销研究显示各平台内容特性愈发鲜明。抖音达人在内容生产能力上表现突出，随拍类型发布量一骑绝尘。",
+        "body": "## 平台差异\n| 平台 | 强项 | 弱项 | 最佳用途 |\n|------|------|------|----------|\n| 抖音 | 内容产出量/爆款制造 | 深度信任 | 广泛触达/快速转化 |\n| 小红书 | 种草决策/口碑沉淀 | 流量规模 | 新品冷启/心智占领 |\n| B站 | 深度内容/社群粘性 | 商业化成熟度 | 品牌故事/技术科普 |\n\n## 成长路径\n新手期(0-1万粉): 找准垂直赛道 → 成长期(1-10万): 建立内容风格 → 成熟期(10万+): 商业化变现",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "medium",
+        "date": "2025-01-02",
+        "tags": [
+            "社媒达人",
+            "平台差异",
+            "达人成长",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "万字拆解2025年达人营销的100个真相 - 人人都是产品经理",
+        "refined_title": "人人都是产品经理：达人营销100个真相——从选号到结算全链路拆解",
+        "url": "https://www.woshipm.com/marketing/6189186.html",
+        "summary": "从达人营销的定义、类型、选号标准、合作模式、内容策略到效果测量，100个实操真相覆盖全链路。",
+        "body": "## 核心真相摘录\n\n1. **头部不等于最好**: 头部达人ROI往往低于腰部\n2. **数据可以刷但互动骗不了人**: 看评论质量而非数量\n3. **Brief越详细效果越好**: 但要留创作空间\n4. **一口价比CPS更适合新品**: CPS适合成熟品\n5. **种草周期至少30天**: 急于求成是最大误区\n6. **评论区是第二战场**: 品牌方必须参与回复\n7. **达人不是媒体而是合作伙伴**: 尊重其创作自主权\n\n## 选号黄金法则\n垂直度 > 粉丝量 > 内容质量 > 价格",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2025-03-07",
+        "tags": [
+            "达人营销",
+            "100个真相",
+            "全链路",
+            "WOSHIPM"
+        ]
+    },
+    {
+        "original_title": "现实地讲讲AIGC在广告营销行业的场景应用 - 澎湃新闻",
+        "refined_title": "澎湃：AIGC广告营销场景应用全景——全员营销时代已来",
+        "url": "https://www.thepaper.cn/newsDetail_forward_27087061",
+        "summary": "深入分析AIGC在广告营销的真实落地场景。全员营销是对广告战役的最大资源整合，AIGC工具最大程度降低了内容创作成本。",
+        "body": "## AIGC六大应用场景\n1. **文案生成**: 标语/详情页/社媒帖子自动生成\n2. **视觉创意**: 海报/KV/产品图AI生成\n3. **视频脚本**: 分镜脚本+配音一键完成\n4. **用户洞察**: 大模型分析评论/反馈提取趋势\n5. **投放优化**: AI出价/素材动态优化\n6. **客服对话**: 智能客服处理80%常规咨询\n\n## 实施关键\n- 设定好框架再交给AI\n- 人机协作而非替代\n- 建立AI内容审核流程\n- 持续迭代Prompt模板库",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2024-04-19",
+        "tags": [
+            "AIGC应用",
+            "澎湃新闻",
+            "全员营销",
+            "AI落地"
+        ]
+    },
+    {
+        "original_title": "2025全球AIGC产业全景与行业应用研究报告",
+        "refined_title": "网易：2025全球AIGC产业全景——企业端渗透率将突破40%",
+        "url": "https://www.163.com/dy/article/KDPE6AP10518G5DJ.html",
+        "summary": "爱分析报告指出2025年AIGC技术在企业端渗透率预计突破40%，营销/对话式AI/跨行业解决方案成为三大增长极。",
+        "body": "## 渗透率预测\n- 2025企业端渗透率: **40%+**\n- 营销领域渗透最快: 文案/设计/客服\n- 对话式AI增速第二: 智能客服/销售助手\n\n## 三大增长引擎\n1. **成本下降**: AI工具价格年均降50%+\n2. **效果验证**: ROI案例越来越多\n3. **人才供给\": AI技能培训普及\n\n## 营销人行动清单\n- 学习Prompt Engineering\n- 建立团队AI工作流\n- 评估并采购合适工具",
+        "source": "weibo",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-11-07",
+        "tags": [
+            "AIGC全景",
+            "渗透率40%",
+            "爱分析",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "AIGC如何提升营销与广告效果 - 腾讯云",
+        "refined_title": "腾讯云：AIGC提升营销效果的四大路径——个性化/自动化/视觉/预测",
+        "url": "https://cloud.tencent.com/developer/article/2470317",
+        "summary": "腾讯云开发者社区详解AIGC在营销中的四大价值方向：个性化推荐、广告文案与创意快速生成、视觉内容创作、用户行为预测优化。",
+        "body": "## 四大价值路径\n1. **个性化推荐**: 千人千面内容实时生成\n2. **文案创意**: 多风格A/B测试文案批量生产\n3. **视觉创作**: 产品图/海报/KV一键生成\n4. **预测优化**: 用户行为预判指导投放策略\n\n## 实践建议\n- 从低风险场景切入(如内部文案)\n- 建立人机协作SOP\n- 设置质量检查关卡\n- 持续追踪ROI数据",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2024-11-23",
+        "tags": [
+            "腾讯云",
+            "AIGC效果",
+            "个性化推荐",
+            "AI创意"
+        ]
+    },
+    {
+        "original_title": "AI生成内容(AIGC)在广告营销中的创新应用",
+        "refined_title": "HKAIFT：AIGC营销创新应用——效率提升与质量保证的双赢路径",
+        "url": "https://hkaift.com/cn/ai%E7%94%9F%E6%88%90%E5%86%85%E5%AE%B9%ef%bc%88aigc%ef%bc%89%E5%9c%A8%E5%B9%BF%E5%91%8A%E8%90%A5%E9%94%80%E4%B8%AD%E7%9A%84%E5%88%9B%E6%96%B0%E5%BA%94%E7%94%A8%ef%BC%9A%E6%8F%90%E5%8D%87%E6%95%88/",
+        "summary": "全面梳理AIGC在广告营销领域的创新应用方式。涵盖文本/图像/视频/音频等多模态内容的自动化生成及其对行业效率的提升。",
+        "body": "## 多模态应用\n- **文本**: SEO文章/社媒文案/邮件营销\n- **图像**: 产品摄影/广告海报/社交媒体配图\n- **视频**: 产品演示/短视频广告/直播数字人\n- **音频**: 语音广告/播客内容/背景音乐\n\n## 效率提升数据\n- 文案生产效率提升**300%+**\n- 设计成本降低**60-70%**\n- 视频制作周期缩短**50%**\n\n## 风险控制\n版权归属/内容真实性/品牌一致性/人工审核机制",
+        "source": "industry-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-06-18",
+        "tags": [
+            "AIGC创新",
+            "多模态",
+            "效率提升",
+            "HKAIFT"
+        ]
+    },
+    {
+        "original_title": "Meta、Google、TikTok海外广告平台对比，一文读全",
+        "refined_title": "Glosellers：Meta/Google/TikTok三大海外广告平台全面对比",
+        "url": "https://glosellers.com/41438.html",
+        "summary": "系统对比Meta(Facebook/Instagram)、Google(搜索/YouTube)、TikTok三大海外广告平台的优劣势、适合品类、投放策略及成本参考。",
+        "body": "## 三平台对比\n| 维度 | Meta | Google | TikTok |\n|------|------|--------|--------|\n| 用户规模 | 30亿+ | 90亿搜索 | 16亿+\n| 核心优势 | 社交精准定向 | 搜索意图明确 | 年轻流量红利 |\n| 适合品类 | 电商/DTC/游戏 | 全行业/B2B | 消费品/Z世代 |\n| CPC均价 | $0.5-2 | $1-5 | $0.3-1.5 |\n\n## 选型建议\n- 新品牌起步：TikTok测款 + Meta放量\n- 成熟品牌：Google品牌词 + Meta再营销\n- B2B企业：LinkedIn + Google组合",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2025-11-13",
+        "tags": [
+            "Meta",
+            "Google",
+            "TikTok",
+            "海外投放",
+            "平台对比"
+        ]
+    },
+    {
+        "original_title": "2026 海外投放指南：TikTok、Meta、Google 哪个平台最适合你",
+        "refined_title": "Shopline：2026海外投放指南——从选平台到多平台协同策略",
+        "url": "https://shoplineapp.cn/blog/tiktok-meta-google-na-ge-ping-tai-zui-gua-he-ni-de-pin-pai",
+        "summary": "指出2026年海外投放不再是\"选哪个平台\"，而是\"如何搭配平台\"。从品牌阶段和投放目标出发，解析T/M/G的差异与协同逻辑。",
+        "body": "## 品牌四阶段策略\n\n1. **冷启动期**: TikTok测款(低成本) + Facebook基础投放\n2. **成长期**: Google品牌词占领 + Meta扩量\n3. **成熟期**: 三平台全域覆盖 + 再营销闭环\n4. **全球化期**: 本地化KOL + 区域性平台(如Rakuten/Lazada)\n\n## 协同打法\nTikTok种草 → Instagram养草 → Google搜索收割 → 独立站转化\n\n## 关键趋势\nAI生成多语言素材 / 本地化支付体验 / 合规前置布局(GDPR/数据安全)",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2025-12-26",
+        "tags": [
+            "Shopline",
+            "海外投放",
+            "平台协同",
+            "2026指南"
+        ]
+    },
+    {
+        "original_title": "中国品牌出海曝光全攻略：多渠道策略与海外KOL营销指南",
+        "refined_title": "搜狐：中国品牌出海全攻略——多渠道+海外KOL整合打法",
+        "url": "https://www.sohu.com/a/1008977755_121497866",
+        "summary": "某消费电子品牌借助Google Ads与独立站SEO实现季度自然流量增长180%。详解社媒付费广告(Meta/TikTok)与海外KOL联动的整合策略。",
+        "body": "## 多渠道矩阵\n1. **搜索层**: Google Ads品牌词 + SEO自然流量\n2. **社交层**: Meta(FB/IG) + TikTok Ads社媒投放\n3. **内容层**: YouTube长视频 + TikTok短视频\n4. **影响者层**: 海外KOL合作(3000万+达人库)\n\n## KOL出海三原则\n1. **文化适配**: 不直接搬运国内内容\n2. **平台原生**: 遵循当地平台内容规范\n3. **长期主义**: 建立深度合作而非一次性投放\n\n## 数据成果\n季度自然流量**+180%** / ROAS均值**3.5x** / 品牌搜索量**+220%**",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2026-04-14",
+        "tags": [
+            "品牌出海",
+            "KOL营销",
+            "SEO",
+            "Google Ads"
+        ]
+    },
+    {
+        "original_title": "中国广告主协会X艾媒咨询｜2024-2025中国企业出海发展研究白皮书",
+        "refined_title": "艾媒×中国广告主协会：中国企业出海白皮书——跨境营销新机遇与新挑战",
+        "url": "https://www.iimedia.cn/c400/104543.html",
+        "summary": "联合白皮书深入剖析企业全球化中的品牌建设、本地化营销、跨境数据合规等核心议题，为出海企业提供系统性指导框架。",
+        "body": "## 三大挑战\n1. **品牌认知**: 海外消费者对中国品牌认知有限\n2. **本地化**: 文化差异+语言障碍+渠道不熟\n3. **合规**: GDPR/各地数据法规差异大\n\n## 四大策略\n1. 本地化KOL合作建立信任\n2. 区域性社交平台入驻(非仅Facebook)\n3. 跨境电商+内容营销联动\n4. 数据合规先行（隐私政策/服务器部署）\n\n## 成功要素\n产品力是基础 / 本地化是关键 / 内容是桥梁 / 合规是底线",
+        "source": "wechat",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2025-01-19",
+        "tags": [
+            "艾媒",
+            "出海白皮书",
+            "GDPR",
+            "本地化营销"
+        ]
+    },
+    {
+        "original_title": "美团抖音双雄争霸，本地生活多强玩家如何走出巨头的阴影",
+        "refined_title": "36氪：美团×抖音本地生活争霸——多强格局下的破局之道",
+        "url": "https://www.36kr.com/p/2986509498785416",
+        "summary": "2024年上半年美团在快手直播间月订单转化率环比提升5个百分点，6月美团商家快手GMV同比增长显著。本地生活从两强争霸走向多平台博弈。",
+        "body": "## 格局演变\n- **第一阶段(2020-2022)**: 美团一家独大\n- **第二阶段(2023)**: 抖音强势入局\n- **第三阶段(2024+)**: 快手/微信/阿里多强入场\n\n## 各平台策略\n- **美团**: 到家+到店双轮驱动，严防死守\n- **抖音**: 视频种草+直播团购+搜索闭环\n- **快手**: 老铁信任经济，下沉市场优势\n- **微信**: 视频号+小程序+搜一搜组合拳\n\n## 商家应对\n多平台运营成标配 / 不把鸡蛋放一个篮子 / 差异化货品策略",
+        "source": "36kr",
+        "category": "本地生活",
+        "impact": "high",
+        "date": "2024-10-10",
+        "tags": [
+            "36氪",
+            "美团",
+            "抖音",
+            "本地生活",
+            "O2O"
+        ]
+    },
+    {
+        "original_title": "2025即时零售行业竞争全景：美团、京东、阿里财报与AI赋能",
+        "refined_title": "月狐数据：2025即时零售全景——美团/京东/阿里三强AI赋能战局",
+        "url": "https://www.moonfox.cn/insight/trending/2020",
+        "summary": "2026年3月最新财报分析。美团/京东/阿里三家战略打法各异，均以高强度投入抢占本地消费市场份额。AI技术成为新的效率引擎。",
+        "body": "## 三强对比\n| | 美团 | 京东 | 阿里(淘系) |\n|------|------|------|----------|\n| 核心优势 | 即时配送网络 | 供应链能力 | 消费者心智 |\n| AI应用 | 智能调度/推荐 | 仓储优化 | 搜索/推荐 |\n| 增长点 | 小象超市海外(Keemart) | 京东秒送 | 淘鲜达升级 |\n\n## 行业趋势\n1. **30分钟送达**成为标配预期\n2. **AI驱动**选品/定价/配送全链路\n3. **线下门店**数字化加速\n4. **品类扩展**从餐饮到全品类",
+        "source": "tech-media",
+        "category": "本地生活",
+        "impact": "high",
+        "date": "2026-04-09",
+        "tags": [
+            "月狐数据",
+            "即时零售",
+            "美团",
+            "京东",
+            "阿里"
+        ]
+    },
+    {
+        "original_title": "2024年美团研究报告：服务+即时零售双驱动",
+        "refined_title": "VZKOO：美团深度报告——服务+即时零售双驱动下的新增长曲线",
+        "url": "https://www.vzkoo.com/read/20240806d751e4adbc05166a11dca1f7.html",
+        "summary": "深度解析美团\"服务+即时零售\"双增长引擎。到店酒旅业务增速亮眼，闪购/小象超市等即时零售业务成为第二曲线。",
+        "body": "## 双引擎模型\n\n**引擎一到店酒旅**: \n- 酒旅预订市场份额第一\n- 到店餐饮/丽人/休闲全面覆盖\n- 高毛利业务支撑整体盈利\n\n**引擎二即时零售**:\n- 闪购: 30分钟万物到家\n- 小象超市: 前置仓模式\n- 医药/生鲜/日百全覆盖\n\n## 竞争壁垒\n- 数百万骑手配送网络\n- 海量商户数据积累\n- 本地化运营能力\n- 超级App流量入口",
+        "source": "tech-media",
+        "category": "本地生活",
+        "impact": "medium",
+        "date": "2024-08-06",
+        "tags": [
+            "美团研究",
+            "即时零售",
+            "到店酒旅",
+            "VZKOO"
+        ]
+    },
+    {
+        "original_title": "抖音本地生活，卡在了哪一环？",
+        "refined_title": "网易：抖音本地生活的困局与突破——从加法到减法的战略转型",
+        "url": "https://m.163.com/dy/article/KQ0355J205568W0A.html",
+        "summary": "回顾字节跳动布局本地生活历程。凭借算法逻辑和流量优势快速起量后，面临履约能力、商家留存、盈利模式等深层挑战。抖省省上线标志战略转向。",
+        "body": "## 发展时间线\n- 2020: 初步探索本地生活\n- 2022-2023: 团购爆发式增长\n- 2024: 增速放缓进入瓶颈\n- 2026: 抖省省上线，从加法转减法\n\n## 三大卡点\n1. **履约短板**: 缺乏自有配送体系\n2. **商家忠诚度**: 补贴依赖性强，留存难\n3. **盈利压力**: 高补贴低毛利模式不可持续\n\n## 战略转向\n从「广撒网」做加法 → 聚焦核心品类做减法（抖省省）",
+        "source": "weibo",
+        "category": "本地生活",
+        "impact": "high",
+        "date": "2026-04-08",
+        "tags": [
+            "抖音本地生活",
+            "抖省省",
+            "战略转型",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "叠纸、米哈游、腾讯、网易都在这发力，2025年游戏营销三大变化",
+        "refined_title": "DataEye：2025游戏营销三大变化——从买量到品效协同的进化",
+        "url": "https://www.163.com/dy/article/JPQ2HM5E05118O92.html",
+        "summary": "DataEye复盘2025年初游戏行业元旦/春节/情人节三大节点营销。叠纸/米哈游/腾讯/网易打法各有侧重，揭示游戏营销从纯买量到品效协同的转型趋势。",
+        "body": "## 三大变化\n1. **素材升级**: 从简单展示到剧情化/情感化内容\n2. **渠道多元化**: 超越传统买量渠道，KOL/社区/线下联动\n3. **品效协同**: 品牌建设与效果投放不再割裂\n\n## 各厂特色\n- **米哈游**: IP驱动+社区运营，用户自发传播力强\n- **腾讯**: 数据驱动+全渠道覆盖，规模化能力突出\n- **网易**: 品质导向+长线运营，口碑积累型\n- **叠纸**: 女性向深耕+审美差异化定位\n\n## 关键数据\n春节档Top10手游总买量同比+35% / KOL合作占比提升至40%",
+        "source": "weibo",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-03-04",
+        "tags": [
+            "DataEye",
+            "游戏营销",
+            "米哈游",
+            "腾讯",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "除了烧钱买量，2025游戏营销还有哪些新思路？- 腾讯新闻",
+        "refined_title": "腾讯新闻：2025游戏营销新思路——20年3200亿市场的增长破局",
+        "url": "https://news.qq.com/rain/a/20241225A0875N00",
+        "summary": "中国游戏产业从20亿到超3200亿。过去依赖\"烧钱买量\"的模式面临ROI持续下降困境，探索UGC/社区/跨界联动等新增长路径。",
+        "body": "## 传统模式困境\n- 买量CPA逐年攀升(3年涨200%+)\n- 用户LTV无法覆盖获客成本\n- 同质化素材导致审美疲劳\n\n## 四大新思路\n1. **UGC生态**: 激励玩家创作内容（如Roblox/蛋仔派对）\n2. **社区运营**: Discord/Q群/TapTap深度运营\n3. **跨界联动**: IP联名/品牌合作/影视综艺植入\n4. **长线内容**: 动画化/漫画化/世界观延伸\n\n## 核心转变\n从\"买用户\"到\"养用户\" / 从\"流量思维\"到\"社群思维\"",
+        "source": "zhihu",
+        "category": "游戏广告",
+        "impact": "high",
+        "date": "2024-12-25",
+        "tags": [
+            "游戏营销",
+            "买量困局",
+            "UGC生态",
+            "腾讯新闻"
+        ]
+    },
+    {
+        "original_title": "2025年AI营销新玩法：热点×AI引爆泼天流量的游戏化营销",
+        "refined_title": "搜狐：AI×热点×游戏化——2025敏捷营销新范式",
+        "url": "https://www.sohu.com/a/953197065_122551079",
+        "summary": "AI技术正将游戏化营销从\"高投入长周期\"变为\"分钟级\"敏捷战术。结合热点窗口期，用互动体验打动用户，让每一份流量都产生价值。",
+        "body": "## AI赋能游戏化的三步法\n1. **热点捕捉**: AI监测社交平台热门话题\n2. **创意生成**: 分钟级产出H5/小游戏/互动海报\n3. **精准分发**: 算法匹配目标人群实时推送\n\n## 案例\n某品牌借助AI在热点爆发后**2小时内**上线互动H5，单日PV破千万。\n\n## 传统 vs AI驱动\n| 维度 | 传统方式 | AI驱动方式 |\n|------|---------|------------|\n| 制作周期 | 2-4周 | 2小时-2天 |\n| 成本 | 10-50万 | 1-5万 |\n| 迭代速度 | 慢 | 实时优化 |",
+        "source": "tech-media",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-11-11",
+        "tags": [
+            "AI营销",
+            "游戏化",
+            "热点营销",
+            "敏捷营销"
+        ]
+    },
+    {
+        "original_title": "ABM营销到底是什么？ - 知乎",
+        "refined_title": "知乎：ABM营销完整解读——从概念到落地的B2B精准获客方法论",
+        "url": "https://zhuanlan.zhihu.com/p/656277630",
+        "summary": "全面解读ABM(Account-based Marketing)目标客户营销。从2020年起全球采用ABM的营销人员逐年增加，预计2027年市场规模将超16亿美元。",
+        "body": "## ABM核心定义\n像猎人一样精准瞄准高价值客户，而非撒网式广覆盖。\n\n## ABM vs 传统营销\n| | 传统Inbound | ABM |\n|------|-------------|-----|\n| 目标 | 所有潜在客户 | 精选高价值账户 |\n| 策略 | 吸引线索上门 | 主动出击定向触达 |\n| 团队协作 | 市场部独立 | 市场+销售深度协同 |\n| 衡量指标 | MQL数量 | 账户级收入影响 |\n\n## 三步落地法\n1. **识别**: 用ICP(理想客户画像)筛选目标账户\n2. **触达**: 定制化内容多渠道触达关键决策人\n3. **转化**: 销售跟进+持续培育\n\n## 适用企业\nSaaS / 高端工业制造 / 专业服务 / 金融B2B",
+        "source": "zhihu",
+        "category": "B2B营销",
+        "impact": "high",
+        "date": "2024-06-15",
+        "tags": [
+            "ABM",
+            "B2B营销",
+            "目标客户",
+            "精准获客"
+        ]
+    },
+    {
+        "original_title": "2024年中国B2B企业ABM营销白皮书 - SalesDriver",
+        "refined_title": "SalesDriver：2024 B2B企业ABM白皮书——300+Marketer调研洞察",
+        "url": "https://www.sohu.com/a/807021373_121652971",
+        "summary": "基于300+位B2B Marketer调研，揭示ABM在中国企业的实践现状、挑战与最佳案例。企业和联系人覆盖量是主流KPI。",
+        "body": "## 调研发现\n- **采用率**: 仅18%企业正式部署ABM\n- **最大障碍**: 缺乏工具支持(42%)/销售协同难(35%)\n- **效果数据**: ABM客户LTV比普通客户高**3-5倍**\n\n## KPI体系\n1. **覆盖率**: 目标账户中已触达占比\n2. **参与度**: 关键决策人的互动频率\n3. **管线价值**: 产生的商机金额\n4. **成交转化**: 从触达到签约的转化率\n\n## 工具栈建议\nCRM(客户管理) + 营销自动化(MA) + 数据增强 + 广告投放平台",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "high",
+        "date": "2024-09-07",
+        "tags": [
+            "SalesDriver",
+            "ABM白皮书",
+            "B2B",
+            "营销自动化"
+        ]
+    },
+    {
+        "original_title": "告别无效获客！2026五大B2B营销云深度横评",
+        "refined_title": "博客园：2026 B2B营销云横评——从成本中心到收入中心的转型之路",
+        "url": "https://www.cnblogs.com/saasdianping/p/19839389",
+        "summary": "中国B2B市场粗放式增长红利消退，获客成本急剧攀升。营销部门正加速从\"成本中心\"向可量化的\"收入中心\"演进。深度对比五大B2B营销云。",
+        "body": "## 行业背景\n- 获客成本3年涨**150%+\n- 销售线索转化率不足**5%**\n- 营销部门面临\"证明ROI\"压力\n\n## 五大维度评估\n1. **获客能力**: 多渠道线索采集\n2. **培育能力**: 自动化 nurture 流程\n3. **协同能力**: 营销-销售SaaS对接\n4. **分析能力**: 全链路归因\n5. **扩展性**: API开放程度\n\n## 选型建议\n根据企业规模/行业特性/IT能力选择，不追求最贵但求最匹配。",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "medium",
+        "date": "2026-04-10",
+        "tags": [
+            "B2B营销云",
+            "横评",
+            "获客成本",
+            "收入中心"
+        ]
+    },
+    {
+        "original_title": "艾媒咨询｜2024年中国虚拟数字人产业发展白皮书",
+        "refined_title": "艾媒：2024虚拟数字人白皮书——从虚拟偶像到虚拟员工的产业全景",
+        "url": "https://report.iimedia.cn/repo3-0/43577.html?acPlatCode=IIMReport&iimediaId=99975",
+        "summary": "覆盖虚拟偶像/虚拟主播/虚拟员工/智能化等全场景。AI技术突破和直播平台支持推动行业快速发展，2024年市场规模突破百亿。",
+        "body": "## 市场规模\n2024年中国虚拟数字人核心市场规模超**100亿元**\n\n## 四大应用场景\n1. **虚拟偶像**: 品牌代言人/内容创作者(如柳夜熙/A-SOUL)\n2. **虚拟主播**: 7×24小时直播带货(降本70%+)\n3. **虚拟员工**: 客服/导购/培训师\n4. **元宇宙入口**: 虚拟空间中的品牌展厅/活动\n\n## 技术驱动\n- 动作捕捉精度提升\n- 大模型赋予对话能力\n- 实时渲染成本下降\n- 语音合成自然度突破",
+        "source": "wechat",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2024-06-01",
+        "tags": [
+            "艾媒",
+            "虚拟数字人",
+            "虚拟偶像",
+            "AI主播",
+            "白皮书"
+        ]
+    },
+    {
+        "original_title": "AI视频创作的六大主流应用场景：从短视频到虚拟人直播",
+        "refined_title": "知乎：AI视频创作六大场景——HeyGen/Synthesia/D-ID工具矩阵",
+        "url": "https://zhuanlan.zhihu.com/p/2026721471171424659",
+        "summary": "系统梳理AI视频创作的六大主流应用场景，涵盖短视频、产品展示、教育培训、企业宣传、虚拟偶像、数字人直播等方向及对应工具推荐。",
+        "body": "## 六大场景\n1. **短视频**: 批量生成口播/解说类短视频\n2. **产品展示**: 3D产品视频自动生成\n3. **教育培训**: 知识类课程视频规模化生产\n4. **企业宣传**: 年度报告/企业文化视频\n5. **虚拟偶像**: AI支持可持续运营的虚拟偶像\n6. **数字人直播**: 多语言电商直播(24h不停)\n\n## 工具推荐\n- HeyGen: 虚拟主播+AI配音\n- Synthesia: 多语言电商直播\n- D-ID: 快速照片转视频\n- Runway: 高端创意视频生成",
+        "source": "zhihu",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2026-04-12",
+        "tags": [
+            "AI视频",
+            "虚拟人直播",
+            "HeyGen",
+            "Synthesia"
+        ]
+    },
+    {
+        "original_title": "超300个品牌入局，短剧营销仍是香饽饽",
+        "refined_title": "腾讯新闻：短剧营销爆发——超300品牌入局，韩束18部剧饱和式攻击",
+        "url": "https://news.qq.com/rain/a/20250307A08YIB00",
+        "summary": "2025年短剧营销成为品牌增长必选题。韩束一年推出18部定制短剧，以\"饱和式攻击\"精准破圈。品牌争夺的不只是流量，更是用户心智。",
+        "body": "## 市场规模\n- **入局品牌**: 超300家\n- **用户规模**: 6.62亿(2025网络视听报告)\n- **半年增速**: 15%+\n\n## 头部案例\n**韩束**: 18部剧/饱和式攻击/红蛮腰爆款单品\n**珀莱雅**: 情感共鸣型短剧/深度植入\n**茶百道**: 职场题材/Z世代语言体系\n\n## 三种玩法\n1. **冠名赞助**: 低成本试水\n2. **深度定制**: 品牌融入剧情主线\n3. **自制短剧**: 品牌完全掌控内容调性\n\n## 风险提示\n内容质量不可妥协 / 避免过度硬广 / 关注合规红线",
+        "source": "zhihu",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-03-07",
+        "tags": [
+            "短剧营销",
+            "韩束",
+            "300+品牌",
+            "定制短剧"
+        ]
+    },
+    {
+        "original_title": "一个报告读懂「短剧整合营销」：现状、用户、玩法、实操 - 36氪",
+        "refined_title": "36氪：短剧整合营销全解——三秒一爽点的流量新密码",
+        "url": "https://www.36kr.com/p/2965044382113416",
+        "summary": "短剧以\"三秒一爽点，一分一高潮\"的独特节奏打通消费者新路径。从现状分析到实操方法论，完整呈现短剧整合营销的操盘框架。",
+        "body": "## 为什么是短剧？\n- 注意力碎片化的终极形态\n- 完播率远高于传统视频\n- 种草→转化链路极短\n- 用户主动追更（强粘性）\n\n## 整合营销模型\n```\n短剧内容 → 社媒发酵 → KOL解读 → 电商承接 → 数据回流\n```\n\n## 关键指标\n- **完播率**: >60%为优秀\n- **话题量**: #剧名#阅读>5000万\n- **搜索指数**: 剧名百度指数涨幅\n- **转化贡献\": 归因至短剧渠道的GMV占比\n\n## 成本参考\n单集制作: 3-15万 / 全季10-30集: 50-300万",
+        "source": "36kr",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2024-09-25",
+        "tags": [
+            "36氪",
+            "短剧营销",
+            "整合营销",
+            "实操方法论"
+        ]
+    },
+    {
+        "original_title": "2026短剧行业洞察：用户规模7.18亿，品牌营销生态级融合",
+        "refined_title": "界面新闻：2026短剧洞察——7.18亿用户的品牌营销新大陆",
+        "url": "https://www.jiemian.com/article/14221188.html",
+        "summary": "2026年短剧行业用户规模达7.18亿。品牌短剧营销已从浅层植入升级为生态级融合——品牌定制剧/IP联动/短剧直播成主流范式。",
+        "body": "## 核心数据\n- 用户规模: **7.18亿**\n- 短剧App月活持续增长\n- 品牌定制剧占比: 抖音/快手59%\n\n## 三大主流范式\n1. **品牌定制剧**: 康师傅×《唐朝诡事录》原班人马主演\n2. **IP联动营销**: 借力成熟IP延续热度\n3. **短剧直播**: 剧集播出期间直播带货\n\n## 2026趋势预测\n- AI辅助剧本生成降本\n- 跨平台同步分发\n- 品牌自建短剧IP矩阵\n- 监管趋严但规范化利好长期",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2026-04-07",
+        "tags": [
+            "界面新闻",
+            "2026短剧",
+            "7.18亿",
+            "生态融合"
+        ]
+    },
+    {
+        "original_title": "2025年十大危机公关案例启示录：从翻车现场到品牌重生",
+        "refined_title": "ONR Media：2025十大危机公关案例——从被动灭火到主动构建信任",
+        "url": "https://www.onrmedia.com/news/9959.html",
+        "summary": "2025年舆论场如棱镜折射企业与公众关系的深刻变革。当\"老登翻车\"成年度热词、\"玩梗自救\"取代传统声明，危机公关已从被动灭火转向主动构建信任生态。",
+        "body": "## 年度特征\n- 全年重大舆情事件同比+47%\n- 社交媒体驱动型危机占80%+\n- 响应黄金时间缩短至**2小时**以内\n\n## 十大案例核心教训\n1. **速度第一**: 2小时内回应是底线\n2. **真诚至上**: 借口比错误更致命\n3. **态度决定走向**: 傲慢=二次危机\n4. **数据说话**: 用事实替代情绪对抗\n\n## 新方法论\n监测-溯源-修复-防御全链路闭环",
+        "source": "industry-media",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2026-01-12",
+        "tags": [
+            "ONR Media",
+            "危机公关",
+            "2025案例",
+            "信任构建"
+        ]
+    },
+    {
+        "original_title": "2024年上半年十大危机公关案例复盘 - 数英",
+        "refined_title": "数英：2024上半年十大危机公关复盘——经典案例的经验与教训",
+        "url": "https://www.digitaling.com/articles/1248932.html",
+        "summary": "系统回顾2024年上半年十起最具代表性的企业危机公关事件。每起事件的背景、应对过程、公众反应及最终效果进行深度复盘分析。",
+        "body": "## 案例类型分布\n- 产品质量类: 3起\n- 言论失当类: 3起\n- 数据安全类: 2起\n- 劳资纠纷类: 2起\n\n## 成功要素(正面案例)\n1. 第一时间认错不狡辩\n2. 高管亲自出面表态\n3. 给出具体整改措施和时间表\n4. 后续持续公示进展\n\n## 失败原因(反面案例)\n1. 回应慢/推卸责任/甩锅第三方\n2. 官腔套话引发次生舆情\n3. 删除评论/控评反噬\n4. 危机后无改进行动",
+        "source": "industry-media",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2024-08-12",
+        "tags": [
+            "数英",
+            "危机公关复盘",
+            "2024案例",
+            "经验教训"
+        ]
+    },
+    {
+        "original_title": "年报系列｜专家研判企业舆情危机新态势：风险重心回归产品",
+        "refined_title": "腾讯新闻×复旦×知微：2025企业舆情危机报告——风险重心回归产品",
+        "url": "https://news.qq.com/rain/a/20260415A0537K00",
+        "summary": "复旦大学媒介素质研究中心联合知微数据发布《中国企业舆情危机管理年度报告（2025）》。研判显示舆情风险重心正回归产品质量本身。",
+        "body": "## 核心发现\n- 风险重心: 从\"言论\"回归\"产品本身\"\n- 传播速度: 平均发酵周期从72h缩短至**12h**\n- 平台迁移: 从微博扩散至抖音/小红书/B站多平台\n\n## 应对体系升级\n1. **事前**: 产品舆情风险评估前置\n2. **事中**: 多平台同步响应机制\n3. **事后**: 品牌声誉修复长线计划\n\n## 2026预判\nAI驱动的舆情监测更精准 / 虚假信息识别能力提升 / 企业透明度要求更高",
+        "source": "zhihu",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2026-04-15",
+        "tags": [
+            "复旦大学",
+            "知微数据",
+            "舆情危机",
+            "产品风险"
+        ]
+    },
+    {
+        "original_title": "2024五大低碳营销案例盘点 - 知乎",
+        "refined_title": "知乎：2024五大低碳营销案例——ESG从报告到行动的品牌实践",
+        "url": "https://zhuanlan.zhihu.com/p/14907446427",
+        "summary": "环保低碳已成为不可忽视的营销议题。ESG作为衡量品牌核心竞争力的因素，被许多企业纳入长期发展计划。盘点2024年最具代表性的5个低碳营销案例。",
+        "body": "## 五大案例\n1. **Patagonia**: \"地球是我们唯一股东\"——将公司捐给环保组织\n2. **宜家**: 二手家具回购+循环材料产品线\n3. **蔚来**: BaaS电池租用服务降低碳足迹\n4. **喜茶\": 纸吸管+可降解包装全面推广\n5. **蚂蚁森林**: 6亿人参与的个人碳账户\n\n## 关键启示\n- ESG不是公关噱头，需有真实行动支撑\n- 消费者能识别\"漂绿\"行为\n- 长期投入比短期campaign更有效\n- 数据透明度是信任基础",
+        "source": "zhihu",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2024-12-26",
+        "tags": [
+            "ESG",
+            "低碳营销",
+            "可持续",
+            "品牌实践"
+        ]
+    },
+    {
+        "original_title": "ESG营销新范式：品牌如何用\"可持续故事\"赢得人心？- 广告门",
+        "refined_title": "广告门：ESG营销新范式——从漂绿陷阱到真实可持续故事",
+        "url": "https://www.adquan.com/article/350880",
+        "summary": "ESG营销的本质是通过真实行动与消费者建立长期信任。当品牌将ESG战略与核心业务深度绑定、以技术保障透明度、用故事激发情感共鸣时，才能真正实现价值传递。",
+        "body": "## 三大陷阱(如何避免)\n1. **漂绿(Washing)**: 只有口号没有行动\n2. **选择性披露**: 只报好消息不提问题\n3. **脱钩业务**: ESG和主营业务无关\n\n## 正确做法\n1. **战略绑定**: ESG目标与业务KPI挂钩\n2. **数据透明**: 第三方审计+公开报告\n3. **故事化传播**: 用情感共鸣替代数字堆砌\n4. **利益相关方参与**: 让消费者/员工/社区共同参与\n\n## 成功标准\n不是获得多少奖项，而是是否真正改变了消费者行为和企业运营方式。",
+        "source": "industry-media",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2025-03-21",
+        "tags": [
+            "广告门",
+            "ESG营销",
+            "可持续故事",
+            "反漂绿"
+        ]
+    },
+    {
+        "original_title": "百度SEO优化全攻略：从基础到进阶的实战指南",
+        "refined_title": "百度开发者中心：2025 SEO完全指南——从技术基础到进阶策略",
+        "url": "https://developer.baidu.com/article/detail.html?id=4693315",
+        "summary": "百度占据超70%中文搜索市场份额。系统解析SEO核心目标、技术要求、内容策略及2025年最新算法趋势，提供可落地的实操指南。",
+        "body": "## 核心价值\n- 70%+中文搜索市场份额\n- SEO流量成本仅为付费的**1/5**\n- 长尾词覆盖带来持续被动流量\n\n## 技术优化清单\n1. **站点结构**: 清晰的URL层级和内链体系\n2. **页面性能**: 首屏加载<1.5秒(核心Web指标)\n3. **移动适配**: 移动优先索引(Mobile-First)\n4. **结构化数据**: Schema.org标记增强富媒体展示\n5. **HTTPS**: 安全证书是排名因子\n\n## 内容策略\n- E-E-A-T原则(经验/专业性/权威性/可信度)\n- 满足用户搜索意图(信息型/导航型/交易型)\n- 定期更新保持内容新鲜度",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-11-04",
+        "tags": [
+            "百度SEO",
+            "开发者中心",
+            "SEO指南",
+            "技术优化"
+        ]
+    },
+    {
+        "original_title": "掌握2025年AI搜索优化：SEO与GEO实战指南 - 一格科技",
+        "refined_title": "一格科技：AI搜索时代双优化策略——传统SEO+GEO并行作战",
+        "url": "https://www.yige-tech.com/article/2025-aiqudong-sousuo-youhua.html",
+        "summary": "AI重塑搜索格局，传统SEO面临挑战。深入解析GEO（生成式引擎优化）新兴领域，提供从基础SEO到高级GEO的双优化实战策略。",
+        "body": "## AI搜索对传统SEO的影响\n- 点击率下降（答案直接展示在结果页）\n- 零点击搜索增加(30%+查询无点击)\n- 品牌提及比链接更重要\n\n## GEO九大策略\n1. 结构化数据标记(Schema.org)\n2. 实体权威建设(E-E-A-T)\n3. 内容模块化与引用友好设计\n4. 多模态内容(图文音视频)\n5. 品牌知识图谱建设\n6. AI-Friendly FAQ体系\n7. 引用源网络建设\n8. 对话式内容优化\n9. 实时数据更新机制\n\n## 并行策略建议\n**SEO做基础流量底座 + GEO抢占AI推荐入口**，两手抓两手硬。",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "high",
+        "date": "2025-08-09",
+        "tags": [
+            "GEO",
+            "AI搜索优化",
+            "一格科技",
+            "SEO+GEO"
+        ]
+    },
+    {
+        "original_title": "AI革命，4A公司如何被彻底改写？- 知乎",
+        "refined_title": "知乎：AI革命下的4A公司生存指南——从代理商到AI+创意整合商",
+        "url": "https://zhuanlan.zhihu.com/p/30224258135",
+        "summary": "生成式AI崛起对4A广告公司是挑战也是机遇。未来的4A不再是\"广告代理商\"，而是\"AI+创意\"的整合服务商。AI不会淘汰广告人，但会淘汰不懂AI的广告人。",
+        "body": "## AI对4A的三重冲击\n\n**1. 创意生产**: 文案/设计/视频可AI批量生成 → 初级创意岗位被替代\n**2. 客户关系**: 品牌方in-house能力增强 → 4A服务价值受质疑\n**3. 商业模式**: 按工时计费模式崩塌 → 需重新定义价值定价\n\n## 四大转型方向\n1. **AI工具链**: 将AI融入全工作流(非简单替代)\n2. **战略咨询**: 从执行层向策略层上移\n3. **技术服务**: 自研AI营销产品/平台\n4. **人才重构**: 培养\"创意+技术\"复合型人才\n\n## 未来形态预测\n小而美的精品热店 + 大平台的AI中台能力 = 新生态",
+        "source": "zhihu",
+        "category": "行业趋势",
+        "impact": "high",
+        "date": "2025-03-14",
+        "tags": [
+            "4A公司",
+            "AI革命",
+            "代理商转型",
+            "生存指南"
+        ]
+    },
+    {
+        "original_title": "2024广告业，迈向下一个十年 - 数英",
+        "refined_title": "数英：2024广告业展望——代理商三条流向与行业地图重绘",
+        "url": "https://www.digitaling.com/articles/1047549.html",
+        "summary": "远离平庸是这个行业的标准，迎接变化是宿命。代理商角色有三条流向：国际4A集团、新兴独立热店、品牌in-house化。行业地图正在被重绘。",
+        "body": "## 代理商三大流向\n1. **国际4A集团**: 数字化转型+咨询业务拓展(Omnicom/Publicis/WPP)\n2. **新兴独立热店**: 小而美/垂直领域深耕/创意驱动\n3. **品牌In-house**: 越来越多品牌自建内容团队\n\n## 行业变化信号\n- 传统比稿模式在减少\n- 项目制合作增多(替代年框)\n- 技术能力成为选型核心指标之一\n- 创意与技术人才融合加速\n\n## 给从业者的建议\nT型发展(专精一项+广度了解) / 保持学习能力 / 建立个人IP",
+        "source": "industry-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2024-03-21",
+        "tags": [
+            "数英",
+            "广告业展望",
+            "代理商流向",
+            "行业变革"
+        ]
+    },
+    {
+        "original_title": "品牌都in-house了，广告公司怎么办？- 数英",
+        "refined_title": "数英：In-house热潮下的广告公司进化论——从对抗到共生的新模式",
+        "url": "https://www.digitaling.com/articles/1269540.html",
+        "summary": "品牌In-house化的出现是必然。但in-house不等于完全取代代理商，而是催生了新的合作模式。广告公司与in-house团队的关系需要重新定义。",
+        "body": "## In-house ≠ 完全替代代理商\n\n**In-house擅长**:\n- 快速响应日常需求\n- 品牌调性一致性把控\n- 成本可控(无 agency markup)\n\n**代理商不可替代的价值**:\n- 行业视野和跨界经验\n- 突发项目的人力弹性\n- 专业工具和数据资源\n- 创意的\"外部视角\"\n\n## 新合作模式\n1. **混合模式**: In-house做日常 + 代理商做大战役\n2. **嵌入模式\": 代理商团队驻场品牌方\n3. **咨询模式**: 代理商转型为策略顾问\n4. **工具模式**: 代理商提供SaaS工具而非人力",
+        "source": "industry-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2024-10-05",
+        "tags": [
+            "数英",
+            "In-house",
+            "广告公司进化",
+            "新模式"
+        ]
+    },
+    {
+        "original_title": "那个卖电梯广告的，赚翻了 - 澎湃新闻",
+        "refined_title": "澎湃新闻：分众传媒313万块电梯广告位的赚钱逻辑",
+        "url": "https://www.thepaper.cn/newsDetail_forward_28386283",
+        "summary": "2024年分众传媒上半年营收59.7亿元(+8.2%)，净利润24.9亿元。313万块电梯广告位构筑了中国线下广告的核心场景。",
+        "body": "## 分众传媒核心数据\n- **营收**: 59.7亿元(上半年, +8.2%)\n- **净利润**: 24.9亿元\n- **点位**: **313万块**电梯广告位\n- **覆盖率**: 200+城市/4亿城市人口\n\n## 为什么梯媒不可替代？\n1. **必经之路**: 每天必坐电梯2-4次\n2. **封闭空间**: 注意力无法回避\n3. **高频触达**: 同一人群反复触达\n4. **场景确定**: 办公楼=白领/住宅社区=家庭\n\n## 行业趋势\n- 分众收购新潮传媒，行业整合加速\n- DOOH(数字户外)升级：屏幕联网+程序化投放\n- 裸眼3D/AR互动等新技术试点",
+        "source": "weibo",
+        "category": "户外广告",
+        "impact": "high",
+        "date": "2024-08-15",
+        "tags": [
+            "分众传媒",
+            "电梯广告",
+            "澎湃新闻",
+            "梯媒"
+        ]
+    },
+    {
+        "original_title": "国内电梯媒体从此\"一家独大\" - 新浪财经",
+        "refined_title": "新浪财经：分众拟收购新潮——电梯媒体市场格局巨变",
+        "url": "https://finance.sina.com.cn/stock/relnews/cn/2025-04-16/doc-inetimrf4742845.shtml",
+        "summary": "分众传媒拟收购新潮传媒100%股份。2023年楼宇电梯广告市场规模139.1亿，2024预计超150亿，2025有望破200亿。行业格局面临重塑。",
+        "body": "## 收购影响分析\n**对分众**: 市场份额进一步提升至70%+/议价能力增强\n**对商家**: 谈判空间压缩但投放效率提升\n**对行业**: 中小玩家生存空间受挤压\n\n## 市场规模预测\n| 年份 | 市场规模 | 同比 |\n|------|---------|------|\n| 2023 | 139.1亿 | +12% |\n| 2024E | >150亿 | +8% |\n| 2025E | >200亿 | +30% |\n\n## 是否\"垄断\"？\n仍有竞争：社区门禁媒体/商圈LED/地铁广告等替代场景存在。但梯媒集中度确实大幅提升。",
+        "source": "weibo",
+        "category": "户外广告",
+        "impact": "high",
+        "date": "2025-04-16",
+        "tags": [
+            "分众收购新潮",
+            "新浪财经",
+            "电梯媒体",
+            "市场垄断"
+        ]
+    },
+    {
+        "original_title": "2024年度播客趋势报告 - 广告门",
+        "refined_title": "广告门：2024播客趋势报告——小宇宙新增4.6万节目，破圈成关键词",
+        "url": "https://www.adquan.com/article/350756",
+        "summary": "2024年播客边界不断扩展，\"破圈\"成为关键词。小宇宙新增46,196个播客节目、484,134个单集。播客作为媒介渠道的重要性持续上升。",
+        "body": "## 核心数据\n- **小宇宙新增节目**: 46,196个\n- **新增单集**: 484,134个\n- **中文播客总数**: 较2021年增长**6倍**\n- **听众规模**: 超亿级(各平台合计)\n\n## 破圈三大方向\n1. **品类扩展**: 从文化/科技延伸至商业/情感/教育全领域\n2. **平台扩散**: 从垂类App到抖音/B站/视频号多形态\n3. **商业化成熟**: 品牌植入/付费内容/线下活动多元变现\n\n## 品牌投放建议\n选择调性匹配的播客 / 注重主播真实体验分享 / 长期合作优于单次投放",
+        "source": "industry-media",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2025-03-18",
+        "tags": [
+            "广告门",
+            "播客趋势",
+            "小宇宙",
+            "音频营销"
+        ]
+    },
+    {
+        "original_title": "【CPA】2025播客营销白皮书 - 知乎",
+        "refined_title": "CPA×金投赏：2025播客营销白皮书——声入人心的品牌新阵地",
+        "url": "https://zhuanlan.zhihu.com/p/12273735158",
+        "summary": "CPA中文播客社区联合金投赏研究委员会发布。截至2024年9月中国中文播客听众达13万+（同比增长43.6%）。播客正以独特深度成为品牌营销新高地。",
+        "body": "## 行业概览\n- 听众规模: 13万+(核心活跃)\n- 同比增长: 43.6%\n- 小宇宙: 最大中文播客平台之一\n- 商业化: 处于早期爆发阶段\n\n## 播客广告优势\n1. **高信任度**: 听众与主播有强情感连接\n2. **长注意力**: 平均收听时长40分钟+\n3. **精准人群**: 垂直播客受众画像清晰\n4. **长尾效应**: 音频内容搜索价值持久\n\n## 投放模式\n口播广告 / 定制节目 / 品牌专栏 / 线下活动联动",
+        "source": "zhihu",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2024-12-12",
+        "tags": [
+            "CPA",
+            "金投赏",
+            "播客营销白皮书",
+            "音频广告"
+        ]
+    },
+    {
+        "original_title": "2025企微SCRM实测：微伴自动化营销让获客效率翻3倍",
+        "refined_title": "微伴助手：2025企微SCRM实测报告——自动化营销效率提升3倍",
+        "url": "https://weibanzhushou.com/blog/34142",
+        "summary": "深度测试微伴SCRM的自动化营销功能。从获客到转化全链路，自动化任务和精准客户标签体系让营销成本大幅降低，获客效率显著提升。",
+        "body": "## 私域痛点(使用前)\n- 推送不精准 → 打扰用户→ 取关率高\n- 获客成本高 → Excel管理低效\n- 转化率低 → 缺乏用户分层运营\n\n## 微伴解决方案\n1. **自动标签**: 基于行为自动打标，千人千面\n2. **SOP流程**: 标准化运营流程，新人也能执行\n3. **智能群发**: 最佳时间+个性化内容\n4. **数据看板**: 实时监控各环节转化漏斗\n\n## 效果数据\n获客效率提升**3倍** / 触达精准度提升**60%** / 人效提升**200%**",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": [
+            "微伴",
+            "SCRM",
+            "企微",
+            "营销自动化"
+        ]
+    },
+    {
+        "original_title": "五大企微SCRM深度对比评测 - 搜狐",
+        "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩对比",
+        "url": "https://www.sohu.com/a/917850379_122102164",
+        "summary": "横向对比当前主流的五家企微SCRM产品：微盟/有赞/快鲸/尘锋/卫猩。从功能完整性、易用性、价格、服务支持等维度给出选型建议。",
+        "body": "## 对比维度\n1. 功能覆盖(获客/运营/转化/分析)\n2. 易用性(上手难度/界面体验)\n3. 价格模式(SaaS年费/按量付费)\n4. 服务支持(实施/培训/响应速度)\n5. 行业适配(电商/教育/金融等)\n\n## 选型建议\n- **大品牌**: 微盟(生态完善/服务成熟)\n- **中小商家**: 有赞(性价比高/上手快)\n- **精细化运营**: 快鲸(自动化能力强)\n- **教育行业**: 尘锋(行业方案深)\n- **快消零售**: 卫猩(裂变玩法多)",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-07-26",
+        "tags": [
+            "SCRM对比",
+            "微盟",
+            "有赞",
+            "快鲸",
+            "企微"
+        ]
+    },
+    {
+        "original_title": "多触点归因(MTA)理论和入门实践 - 知乎",
+        "refined_title": "知乎：MTA多触点归因完整指南——从Shapley值到增量测试",
+        "url": "https://zhuanlan.zhihu.com/p/1953867402526844329",
+        "summary": "系统讲解多触点归因(MTA)的理论基础、主流方法（线性/时间衰减/Shapley值）及增量测试(Incrementality Testing)的实践应用。",
+        "body": "## MTA核心问题\n用户在转化前接触了多个渠道，如何公平分配贡献？\n\n## 主流归因模型\n| 模型 | 原理 | 适合场景 |\n|------|------|----------|\n| 线性 | 均分 credit | 初步分析 |\n| 时间衰减 | 越近转化权重越高 | 长决策周期 |\n| 位置基础 | 首/末次触点获主要credit | 品牌/效果区分 |\n| Shapley值 | 博弈论最优分配 | 数据充足时首选 |\n\n## 增量测试\n通过A/B测试衡量特定营销活动的**真实提升效果**，是MTA的重要补充。\n\n## 工具推荐\nGoogle Analytics 4 / AdsBridge / AppsFlyer / Adjust",
+        "source": "zhihu",
+        "category": "MarTech",
+        "impact": "high",
+        "date": "2025-09-23",
+        "tags": [
+            "MTA",
+            "多触点归因",
+            "Shapley",
+            "增量测试"
+        ]
+    },
+    {
+        "original_title": "2025年MTA工具行业：从工具到营销决策神经中枢 - 中国报告网",
+        "refined_title": "中国报告网：2025 MTA行业报告——构建用户行为数字孪生",
+        "url": "https://www.chinairn.com/hyzx/20250820/173356974.shtml",
+        "summary": "2025年MTA工具已突破传统归因边界，演变为企业营销决策的\"神经中枢\"。通过构建用户行为数字孪生实现全链路洞察。",
+        "body": "## MTA进化路径\n```\n渠道效果评估 → 全触点归因 → 用户旅程分析 → 营销决策中枢\n```\n\n## 核心能力升级\n1. **跨屏识别**: 设备图谱+概率匹配\n2. **实时归因**: 从T+1到实时\n3. **预测建模**: 预测最佳触达时机和渠道组合\n4. **自动优化**: 归因结果直接驱动预算分配\n\n## 行业痛点\nCookie退场 / 隐私合规 / 数据孤岛 / 归因模型选择困难\n\n## 选型关键\n数据接入能力 / 模型透明度 / 隐私合规 / 与现有MarTech栈集成度",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-08-20",
+        "tags": [
+            "MTA行业",
+            "数字孪生",
+            "营销决策中枢",
+            "中国报告网"
+        ]
+    },
+    {
+        "original_title": "2025年OTT大屏营销趋势研究：云视听小电视抢占64%年轻家庭",
+        "refined_title": "VZKOO：2025 OTT大屏趋势——3.8亿终端/64%年轻用户/内容驱动增长",
+        "url": "https://www.vzkoo.com/read/20250425397ef35707016fbf229f11d8.html",
+        "summary": "在3.8亿智能电视终端基本盘下，OTT大屏成为品牌触达家庭场景的核心渠道。云视听小电视抢占64%年轻家庭用户，技术创新与数据驱动成关键。",
+        "body": "## 市场规模\n- 智能电视终端: **3.8亿**台\n- OTT日活: **1.2亿**+户\n- 年轻家庭(90/00后)占比: **64%**\n- 广告市场规模: **200亿+**(2025)\n\n## 营销价值\n1. **家庭场景**: 一块屏幕覆盖全家决策者\n2. **大屏沉浸**: 视觉冲击力强于手机\n3. **不可跳过**: 开机广告强制曝光\n4. **数据精准**: 基于DMP的定向投放\n\n## 创新方向\n互动广告 / AI推荐 / 跨屏联动 / 内容原生植入",
+        "source": "tech-media",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2025-04-25",
+        "tags": [
+            "OTT",
+            "大屏营销",
+            "云视听",
+            "VZKOO"
+        ]
+    },
+    {
+        "original_title": "再度入选秒针《大屏营销发展研究报告》，易平方彰显营销硬实力",
+        "refined_title": "数英×秒针：2024大屏营销研究报告——易平方入选标杆案例",
+        "url": "https://www.digitaling.com/articles/1240462.html",
+        "summary": "秒针发布《2024大屏营销发展研究报告》。随着电视大屏用户数持续攀升，OTT已成为品牌与消费者沟通的重要渠道。易平方凭借创新方案入选。",
+        "body": "## 报告核心发现\n1. **用户规模**: 大屏月活破**2亿**\n2. **人群质量**: 90/00后占近一半/高消费力\n3. **广告形式**: 从开机广告扩展至贴片/角标/互动/原生化\n4. **效果验证**: 秒针全量监测数据支撑效果归因\n\n## 易平方案例亮点\n- 车载场景大屏延伸\n- 互动技术提升参与度\n- 数据闭环验证ROI",
+        "source": "industry-media",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2024-07-19",
+        "tags": [
+            "秒针系统",
+            "大屏报告",
+            "易平方",
+            "OTT营销"
+        ]
+    },
+    {
+        "original_title": "2024十大品牌公关营销案例！精选30创意",
+        "refined_title": "数英：2024十大品牌营销案例——特斯拉/麦当劳/喜力标杆解析",
+        "url": "https://www.digitaling.com/articles/1305667.html",
+        "summary": "精选国内外30个最具影响力的品牌公关广告营销案例。特斯拉/麦当劳/喜力等国际品牌的数智化营销实践，每个案例都值得收藏和借鉴。",
+        "body": "## 案例类型分布\n- 品牌重塑: 3起(如老品牌年轻化)\n- 社会议题营销: 4起(ESG/公益/多元)\n- 技术驱动创意: 5起(AI/AR/互动)\n- 跨界联名: 3起(IP联动破圈)\n- 危机反转: 2起\n\n## 共性特征\n1. **真实性**: 不再是空洞的品牌宣言\n2. **参与感**: 让用户成为内容共创者\n3. **数据验证**: 每个campaign都有ROI数据\n4. **文化敏感度**: 对社会情绪的精准把握",
+        "source": "industry-media",
+        "category": "创意案例",
+        "impact": "high",
+        "date": "2025-01-14",
+        "tags": [
+            "数英",
+            "2024案例",
+            "品牌营销",
+            "标杆案例"
+        ]
+    },
+    {
+        "original_title": "年度盘点｜2024我最喜欢的10个广告案例 - 数英",
+        "refined_title": "数英编辑年度推荐：2024最爱的10个广告——麦麦对讲机等温情出圈",
+        "url": "https://www.digitaling.com/articles/1301159.html",
+        "summary": "数英编辑团队从全年数千个案例中精选10个最打动人心的广告案例。麦当劳\"麦麦对讲机\"、品牌温情叙事等入选。",
+        "body": "## Top 10 榜单亮点\n1. **麦麦对讲机**(麦当劳): 社交货币+情感连接\n2. **品牌温情叙事类**: 走心文案+真实故事\n3. **技术创意类**: AI/AR增强用户体验\n4. **社会价值类**: 公益议题深度参与\n\n## 编辑选择标准\n- 创意独特性(不落俗套)\n- 执行完整度(从策略到落地)\n- 效果显著性(数据说话)\n- 行业启发性(可复制参考)",
+        "source": "industry-media",
+        "category": "创意案例",
+        "impact": "medium",
+        "date": "2024-12-23",
+        "tags": [
+            "数英",
+            "年度案例",
+            "麦当劳",
+            "创意盘点"
+        ]
+    },
+    {
+        "original_title": "小红书电商抖音化能走多远？- 人人都是产品经理",
+        "refined_title": "WOSHIPM：小红书电商演进——从种草到交易闭环的博弈",
+        "url": "https://www.woshipm.com/it/6282006.html",
+        "summary": "小红书电商的跃迁不只是模仿抖快，更是社区基因与商业逻辑的深度博弈。从\"红猫计划\"到\"市集\"板块，解析买手电商模式的机遇与挑战。",
+        "body": "## 小红书电商路径\n- **阶段一**(2018-2022): 纯社区/种草外溢\n- **阶段二**(2023-2024): 店铺/直播试水(红猫计划)\n- **阶段三**(2025+): 市集板块/闭环电商\n\n## 核心矛盾\n**社区氛围 vs 商业化程度**\n- 过度商业化→用户流失\n- 商业化不足→变现困难\n\n## 差异化机会\n1. **买手模式**: 精选而非海量(对抗拼多多)\n2. **信任经济**: 博主真实体验背书\n3. **决策价值**: 搜索心智强于兴趣推荐\n4. **中高端定位**: 避免价格战泥潭",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-10-21",
+        "tags": [
+            "小红书电商",
+            "WOSHIPM",
+            "买手模式",
+            "社区商业化"
+        ]
+    },
+    {
+        "original_title": "六大平台变现能力：抖音、快手、小红书、视频号等",
+        "refined_title": "今日头条：六平台变现能力全景对比——谁最适合赚钱？",
+        "url": "https://www.toutiao.com/article/7434864184900190739/",
+        "summary": "深度对比抖音/快手/小红书/视频号/B站/微博六大平台的变现能力。每个平台的生态系统、变现路径和内容消费方式差异决定营销成败。",
+        "body": "## 六大平台变现矩阵\n| 平台 | 广告收入 | 直播带货 | 知识付费 | 私域 |\n|------|---------|---------|---------|------|\n| 抖音 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐ |\n| 快手 | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |\n| 小红书 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |\n| 视频号 | ⭐⭐ | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ |\n| B站 | ⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |\n| 微博 | ⭐⭐⭐⭐ | ⭐ | ⭐⭐ | ⭐⭐⭐ |\n\n## 选型建议\n根据内容特长+变现目标选1-2个深耕，不贪多。",
+        "source": "weibo",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2024-11-08",
+        "tags": [
+            "平台变现",
+            "六平台对比",
+            "抖音",
+            "视频号"
+        ]
+    },
+    {
+        "original_title": "几大运营渠道比较分析（小红书、抖音、视频号）",
+        "refined_title": "雪球：三大运营渠道对比——小红书/抖音/视频号差异化打法",
+        "url": "https://xueqiu.com/1316520473/329488872",
+        "summary": "从运营视角深度对比小红书/抖音/视频号三大平台。AIGC工具正在重塑内容生产逻辑——小红书图文效率提升5倍，抖音虚拟主播降本70%。",
+        "body": "## 三平台核心差异\n| 维度 | 小红书 | 抖音 | 视频号 |\n|------|--------|------|--------|\n| 内容形式 | 图文为主 | 短视频为主 | 混合 |\n| 流量逻辑 | 搜索+标签推荐 | 兴趣算法 | 社交分发 |\n| 用户心态 | 决策参考 | 娱乐消费 | 信任驱动 |\n| 变现链路 | 种草→外溢购买 | 直播即时转化 | 公私域联动 |\n\n## AI工具影响\n- 小红书: AIGC图文生成效率↑5倍\n- 抖音: 虚拟主播成本↓70%\n- 视频号: API开放加速SCRM集成",
+        "source": "wechat",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2025-03-30",
+        "tags": [
+            "平台对比",
+            "小红书",
+            "抖音",
+            "视频号",
+            "AIGC工具"
+        ]
+    },
+    {
+        "original_title": "新榜发布《2024消费趋势报告》- 数英",
+        "refined_title": "新榜×数英：2024消费趋势报告——情绪价值驱动下的内容营销新机会",
+        "url": "https://www.digitaling.com/articles/1069732.html",
+        "summary": "新榜研究院发布2024消费趋势报告。在理性消费回归的大背景下，\"情绪价值\"成为驱动消费决策的核心因素，为品牌内容营销指明方向。",
+        "body": "## 五大消费趋势\n1. **情绪消费**: 为开心/治愈/解压付费\n2. **圈层经济**: 兴趣社群驱动购买决策\n3. **平替意识**: 追求性价比但不愿将就品质\n4. **体验至上**: 重视使用过程而非拥有\n5. **可持续消费**: 环保因素纳入决策\n\n## 内容营销启示\n- 用故事激发情感共鸣(非功能卖点)\n- 在用户兴趣社区中自然渗透\n- 提供实用价值(干货>广告)\n- 长期内容资产积累优于短期campaign",
+        "source": "industry-media",
+        "category": "内容营销",
+        "impact": "high",
+        "date": "2024-05-06",
+        "tags": [
+            "新榜",
+            "消费趋势",
+            "情绪价值",
+            "内容营销"
+        ]
+    },
+    {
+        "original_title": "广览趋势，深钻需求，解锁消费者洞察密码 - 宝洁方法论",
+        "refined_title": "搜狐：宝洁消费者洞察方法论——T字模型+大数据广度×行为研究深度",
+        "url": "https://www.sohu.com/a/846691732_121418997",
+        "summary": "宝洁作为全球消费品领导者，创新性采用\"T字模型\"进行消费者洞察。既依托大数据广度捕捉宏观脉络，又下钻行为研究深挖微观需求。",
+        "body": "## T字模型解析\n```\n     │  (深度)\n     │  行为研究/人文化观察/深度访谈\n────┼──────────────────\n     │ (广度)\n     └── 大数据趋势/社交媒体聆听/销售数据分析\n```\n\n## 宝洁洞察三层次\n1. **What**: 消费者在买什么(行为数据)\n2. **Why**: 为什么这样买(动机挖掘)\n| **How to reach**: 如何触达和影响(策略制定)\n\n## 落地应用\n新品开发 / 品牌定位 / 广告创意 / 渠道策略 全链路受洞察驱动",
+        "source": "tech-media",
+        "category": "消费者洞察",
+        "impact": "high",
+        "date": "2025-01-08",
+        "tags": [
+            "宝洁",
+            "T字模型",
+            "消费者洞察",
+            "方法论"
+        ]
+    },
+    {
+        "original_title": "中国品牌传播发展报告(2024-2025) - 杜国清等著",
+        "refined_title": "中传×广告主研究所：2024-2025中国品牌传播发展报告",
+        "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%93%81%E7%89%8C%E4%BC%A0%E6%92%AD%E5%8F%91%E5%B1%95%E6%8A%A5%E5%91%8A(2024-2025)/65829783",
+        "summary": "基于广告主研究所的实证研究，由中国国际广播出版社出版。系统梳理2024-2025年中国品牌传播的理论演进、实践创新与效果评估体系。",
+        "body": "## 报告框架\n1. 品牌传播理论新发展\n2. 数字环境下的品牌建设路径\n3. 品效合一的实践探索\n4. 中国品牌国际化传播\n5. 品牌传播效果测量方法论",
+        "source": "industry-media",
+        "category": "行业趋势",
+        "impact": "high",
+        "date": "2025-06-01",
+        "tags": [
+            "品牌传播",
+            "年度报告",
+            "中传",
+            "杜国清"
+        ]
+    },
+    {
+        "original_title": "《2024 Social & KOL 营销趋势报告》发布 - 中国广告协会",
+        "refined_title": "中国广告协会×秒针：2024 KOL营销趋势——内容+社交+达人三位一体",
+        "url": "https://www.china-caa.org/cnaa/newsdetail/920",
+        "summary": "社交媒体已深刻影响品牌营销策略。KOL营销重要性不断提升，成为抢夺注意力利器。品牌主明确投放以\"产品种草\"为主要目标。",
+        "body": "## 核心发现\n- KOL营销从\"品牌曝光\"升级为\"品效销一体化\"\n- 抖音/小红书成KOL营销主阵地\n- KOC创意激发好内容，广撒网不如精培养\n- 内容+社交电商闭环成型",
+        "source": "industry-media",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2024-03-15",
+        "tags": [
+            "中国广告协会",
+            "KOL报告",
+            "秒针系统",
+            "社交营销"
+        ]
+    },
+    {
+        "original_title": "2025H1全球AIGC移动应用营销观察报告 - 新浪财经",
+        "refined_title": "新浪财经：2025H1全球AIGC应用营销——80国/80+渠道全覆盖",
+        "url": "https://finance.sina.com.cn/roll/2025-08-24/doc-infmzwnm5115226.shtml",
+        "summary": "覆盖80+国家和地区、Facebook/Google/TikTok等80+渠道数据。OpenAI市场份额超50%，ChatGPT月活持续领跑，AIGC应用出海成新趋势。",
+        "body": "## 数据范围\n地域: 80+国家 / 渠道: 80+平台 / 维度: 市场/案例/出海/预判\n## 核心发现\n- OpenAI AIGC份额超50%\n- ChatGPT持续领跑月活\n- AIGC工具出海增速最快(同比200%+)\n- 教育/营销/创作三大场景渗透率最高",
+        "source": "weibo",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-08-24",
+        "tags": [
+            "新浪财经",
+            "AIGC海外",
+            "全球营销",
+            "ChatGPT"
+        ]
+    },
+    {
+        "original_title": "2025生成式营销产业研究报告：从AIGC到AIGD - 搜狐",
+        "refined_title": "复旦×明略×秒针：2025生成式营销——从内容生成(AIGC)到决策生成(AIGD)",
+        "url": "https://www.sohu.com/a/963157361_121823499",
+        "summary": "提出从\"AI内容生成(AIGC)\"向\"AI决策生成(AIGD)\"进化的新范式。AI正从辅助工具变为决策伙伴，推动营销范式变革。",
+        "body": "## 概念进化: AIGC → AIGD\n- 内容层: 文案/图片/视频自动生成 ✓\n- 策略层: 投放策略AI推荐 ↑\n- 决策层: 全链路营销决策智能化 → 新方向\n\n## 关键判断\n人机协作需要组织架构适配 / 数据质量决定上限 / 伦理合规不可忽视",
+        "source": "zhihu",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-12-09",
+        "tags": [
+            "复旦",
+            "明略科技",
+            "AIGD",
+            "生成式营销"
+        ]
+    },
+    {
+        "original_title": "2025中国数字营销趋势展望报告 - 搜狐",
+        "refined_title": "搜狐×月狐数据：2025数字营销展望——低速增长下的供给侧变革",
+        "url": "https://www.sohu.com/a/882096690_121406416",
+        "summary": "月狐数据显示数字营销市场进入低速稳定增长期。AI技术/渠道演变/政策监管驱动供给侧和需求侧发生多重变革。",
+        "body": "## 供给端变化\nAI内容工具普及 / 程序化渗透加深 / 第一方数据价值凸显 / 合规要求提高\n## 需求端变化\n效果导向更强 / 品牌长期价值重估 / 全域经营成共识 / 出海需求增加",
+        "source": "tech-media",
+        "category": "效果营销",
+        "impact": "medium",
+        "date": "2025-04-10",
+        "tags": [
+            "月狐数据",
+            "数字营销展望",
+            "供给变革"
+        ]
+    },
+    {
+        "original_title": "【报告分享】《2025中国数字营销趋势报告》",
+        "refined_title": "头条号：秒针2025数字营销趋势——54%广告主预期缩减投资",
+        "url": "https://www.toutiao.com/article/7482593763597058571/",
+        "summary": "秒针重磅报告：54%广告主认为2025年营销投资将减少。中国企业营收增速放缓影响预算分配，品效平衡成新课题。",
+        "body": "## 核心数据\n投资信心: 54%预期减少 / 整体增速下滑\n## 应对策略\n提升ROI每分钱有迹可循 / 强化第一方数据 / 探索AI降本增效 / 关注长期品牌资产",
+        "source": "weibo",
+        "category": "效果营销",
+        "impact": "high",
+        "date": "2025-03-17",
+        "tags": [
+            "秒针系统",
+            "预算管理",
+            "营销趋势"
+        ]
+    },
+    {
+        "original_title": "2024中国数字营销年度报告 - 知乎",
+        "refined_title": "知乎：2024数字营销年度报告——发展概况/生态/品牌实践全剖析",
+        "url": "https://zhuanlan.zhihu.com/p/13989441506",
+        "summary": "全面剖析2024年中国数字营销行业发展态势与挑战。涵盖发展概况、行业生态、品牌实践等方面，为从业者提供深度参考。",
+        "body": "## 报告架构\n1. 发展概况: 市场规模/增速/结构\n2. 行业生态: 产业链/参与者/竞争格局\n3. 品牌实践: 头部企业案例分析\n4. 未来展望: 趋势预测与机会点\n## 核心观点\n数字营销转入高质量发展阶段 / 内容与技术深度融合 / 品牌自建私域成标配",
+        "source": "zhihu",
+        "category": "效果营销",
+        "impact": "medium",
+        "date": "2024-12-22",
+        "tags": [
+            "数字营销年度报告",
+            "知乎",
+            "2024"
+        ]
+    },
+    {
+        "original_title": "倍孜网络×中国商务广告协会：2025 AI数字营销应用趋势",
+        "refined_title": "搜狐：2025中国AI数字营销应用趋势——三阶段演进路径",
+        "url": "https://www.sohu.com/a/904020790_121752970",
+        "summary": "由倍孜网络与中国商务广告协会联合发布。AI营销历经探索期(2020-2022)→验证期(2023-2024)→规模化期(2025+)三大阶段。",
+        "body": "## 三阶段\n1. 探索期: 少数先行者试水AIGC\n2. 验证期: 具体用例验证ROI(平均效率提升40%)\n3. 规模化期: 全面嵌入业务流程\n## 核心应用\n内容个性化生成 / 效果预测优化 / 用户洞察分析 / 智能客服对话",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-06-13",
+        "tags": [
+            "倍孜网络",
+            "商务广告协会",
+            "AI数字营销"
+        ]
+    },
+    {
+        "original_title": "媒介投放主要平台全解析：2024年权威分类框架与品牌适配指南",
+        "refined_title": "搜狐：2025媒介投放平台全解析——选对平台让品牌信息精准触达",
+        "url": "https://www.sohu.com/a/953503503_122554371",
+        "summary": "在品牌营销全链路中，媒介投放是连接品牌与用户的核心传导环节。提供2024年权威分类框架，帮助品牌根据自身需求选择适配平台。",
+        "body": "## 平台分类框架\n1. **搜索类**: 百度/Google(意图明确)\n2. **社交类**: 微博/抖音/小红书(兴趣驱动)\n3. **电商内**: 淘宝/京东/拼多多种草转化一体\n4. **视频平台**: 爱优腾/B站(品牌故事)\n5. **垂直社区**: 知乎/什么值得买(深度决策)\n6. **户外/大屏**: 分众/电梯/OTC(强制触达)\n\n## 选型四步法\n1. 定义目标人群画像 2. 明确营销目标(认知/考虑/转化)\n3. 评估预算与周期 4. 组合搭配测试优化",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-11-12",
+        "tags": [
+            "媒介策略",
+            "平台选择",
+            "投放框架"
+        ]
+    },
+    {
+        "original_title": "OTT（智能大屏）行业研究报告：每月2.6亿90/00后活跃",
+        "refined_title": "新浪：OTT大屏报告——2.6亿年轻用户/90后00后成核心",
+        "url": "https://news.sina.com.cn/sx/2024-09-24/detail-incqfwyn9183298.shtml",
+        "summary": "90/00后是智能大屏核心用户群体，每月有2.6亿个90/00后用户活跃在大屏上。智能大屏以其沉浸式体验和\"家庭场景第一屏\"特性成为营销潜力巨大的渠道。",
+        "body": "## 核心数据\n- 90/00后月活: **2.6亿**(占近一半OTT月活)\n- 家庭场景: 一块屏幕覆盖全家决策链\n- 广告形式: 开机广告/贴片/角标/互动/原生植入\n## 营销价值\n不可跳过的强制曝光 / 大屏沉浸式视觉冲击 / 数据驱动的家庭定向",
+        "source": "weibo",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2024-09-24",
+        "tags": [
+            "OTT",
+            "新浪",
+            "90后00后",
+            "大屏营销"
+        ]
+    },
+    {
+        "original_title": "2025中国生成式引擎优化(GEO)行业研究报告 - 搜狐",
+        "refined_title": "搜狐：2025中国GEO报告——九大策略×六大AI平台技术全景",
+        "url": "https://www.sohu.com/a/928117758_122501062",
+        "summary": "系统梳理GEO基础定义、核心技术全景、九大优化策略、六大AI搜索平台适配方案及工具生态。GEO正成为AI原生时代的营销新基建。",
+        "body": "## 技术全景\n结构化知识建模 / 语义场工程 / 跨模态适配 / 实体权威性E-E-A-T\n## 九大策略\n结构化标记/实体权威/内容模块化/多模态适配/知识图谱/AI-Friendly FAQ/引用网络/对话优化/实时更新\n## 六大平台\nChatGPT / DeepSeek / Kimi / 文心一言 / 通义千问 / Perplexity",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "high",
+        "date": "2025-08-26",
+        "tags": [
+            "GEO报告",
+            "生成式引擎优化",
+            "AI搜索"
+        ]
+    },
+    {
+        "original_title": "2024年中国AIGC产业研究报告 - 21经济网",
+        "refined_title": "21经济网：2024 AIGC产业报告——新一轮自动化浪潮的到来",
+        "url": "https://www.21jingji.com/article/20240328/herald/d8fd48604b08e4a76bb29af200310010.html",
+        "summary": "AIGC技术的推广预示着新一波自动化浪潮。AI正在重新定义社会的人力结构和分配方式，特别是对初级专业人才岗位的冲击最为显著。",
+        "body": "## 社会影响\n人力结构重构 / 初级岗位被替代 / 创意工作者需转型\n## 产业机会\nAI训练师/Prompt工程师/人机协作设计师等新职业涌现\n## 企业应对\n提前布局AI能力建设 / 重新定义人才标准 / 建立人机协作SOP",
+        "source": "industry-media",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2024-03-28",
+        "tags": [
+            "21经济网",
+            "AIGC产业",
+            "自动化浪潮"
+        ]
+    },
+    {
+        "original_title": "中国AIGC应用全景：2024年的创新与变革 - SAICX",
+        "refined_title": "SAICX：2024中国AIGC应用全景——创新与变革全图谱",
+        "url": "https://www.szaicx.com/page192?article_id=14612",
+        "summary": "AIGC以其独特的创造力和生产力，正在成为推动各行各业创新的关键力量。2024年，中国AIGC应用在营销、教育、医疗、金融等领域全面开花。",
+        "body": "## 应用领域\n营销: 文案/设计/视频全链路 / 教育: 个性化学习/智能批改\n医疗: 辅助诊断/药物研发 / 金融: 风控/客服/投研\n## 营销领域渗透率\n文案生成65%+ / 设计辅助50%+ / 视频制作30%+\n## 发展瓶颈\n数据质量 / 算力成本 / 版权归属 / 合规监管",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2024-06-07",
+        "tags": [
+            "SAICX",
+            "AIGC全景",
+            "应用创新"
+        ]
+    },
+    {
+        "original_title": "2025年AIGC行业全景分析：渗透率将突破40%",
+        "refined_title": "VZKOO×爱分析：2025 AIGC全景——企业端渗透率突破40%的三大引擎",
+        "url": "https://www.vzkoo.com/read/2025061846c93b78dce256528163631a.html",
+        "summary": "爱分析报告显示2025年AIGC企业端渗透率预计突破40%。营销/对话式AI/跨行业方案三大增长极驱动市场高速发展。",
+        "body": "## 三大增长引擎\n1. 成本下降: AI工具价格年均降50%+\n2. 效果验证: ROI案例积累降低决策门槛\n3. 人才供给: AI技能培训普及加速落地\n## 营销领域最快渗透\n文案(70%) > 设计(55%) > 视频(35%) > 策略(20%)",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-06-18",
+        "tags": [
+            "爱分析",
+            "AIGC渗透率40%",
+            "VZKOO"
+        ]
+    },
+    {
+        "original_title": "2025 B站OTT大屏营销通案 - 知乎",
+        "refined_title": "知乎：B站2025 OTT大屏通案——小屏基因+大屏创新覆盖全场景",
+        "url": "https://zhuanlan.zhihu.com/p/1907732877220747215",
+        "summary": "B站基于优质内容生态推出OTT大屏营销解决方案。继承小屏IP矩阵优势，以最美的夜/S14英雄联盟全球总决赛等年度爆款覆盖全场景娱乐需求。",
+        "body": "## 内容生态优势\nIP矩阵: 最美的夜/跨年晚会/S14总决赛/高考季/毕业季\n## 大屏差异化\n家庭场景覆盖 / 年轻用户精准触达 / 弹幕互动体验升级\n## 广告形式\n开机广告 / 贴片 / 角标 / 原生植入 / 互动H5",
+        "source": "zhihu",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2025-05-19",
+        "tags": [
+            "B站",
+            "OTT通案",
+            "大屏营销",
+            "IP矩阵"
+        ]
+    },
+    {
+        "original_title": "2025年社交媒体与网红KOL营销/电商趋势解读 - 知乎",
+        "refined_title": "知乎：2025社媒×KOL×电商融合趋势——小红书增速领跑",
+        "url": "https://zhuanlan.zhihu.com/p/1910715092955300634",
+        "summary": "深度解读2025年社交媒体和KOL营销趋势。随着数字技术发展和用户行为演变，KOL营销已成为品牌战略中不可或缺的重要组成部分。",
+        "body": "## 五大趋势\n1. 品效销一体化加速 2. KOL矩阵化运营成标配\n3. 数据驱动选号替代直觉 4. 短剧化内容爆发\n5. 出海联动: 国内KOL带品牌走向全球\n## 小红书特别表现\n增速领跑 / 种草心智最强 / 商业化闭环加速",
+        "source": "zhihu",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2025-05-27",
+        "tags": [
+            "KOL趋势",
+            "社媒电商",
+            "2025展望"
+        ]
+    },
+    {
+        "original_title": "【2025年出海必备】海外广告投放平台超全盘点",
+        "refined_title": "AdsPower：2025海外投放平台盘点——Google/Meta/TikTok/LinkedIn全覆盖",
+        "url": "https://www.adspower.net/blog/overseas-advertising-platforms",
+        "summary": "全面盘点2025主流海外广告投放平台。Google Ads/Meta Ads/TikTok Ads/LinkedIn Ads等，为跨境电商提供选型参考。",
+        "body": "## 主流平台\nGoogle Ads(搜索/YouTube) / Meta(FB/IG) / TikTok(短视频)\nLinkedIn(B2B) / Amazon DSP(电商) / Snapchat(Z世代)\n## 选型维度\n目标市场 / 行业品类 / 预算规模 / 团队能力 / 本地化需求",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2025-09-11",
+        "tags": [
+            "海外投放",
+            "平台盘点",
+            "跨境电商"
+        ]
+    },
+    {
+        "original_title": "跨境商家进阶指南：Meta 广告全攻略 - 知乎",
+        "refined_title": "知乎：Meta广告进阶指南——从基础到高级的跨境投放方法论",
+        "url": "https://zhuanlan.zhihu.com/p/16831676806",
+        "summary": "在全球化加速的当下，跨境电商蓬勃发展。详解Meta广告(Facebook/Instagram)的核心要素，帮助卖家发挥最大效能。",
+        "body": "## 核心要素\n1. 像素(Pixel)搭建与事件配置\n2. 受众定位(核心/自定义/Lookalike)\n3. 广告格式(图片/视频/轮播/精品栏)\n4. 出价策略(成本控制/竞价上限/ROAS)\n5. 创意素材(本土化/UGC/AIGC辅助)",
+        "source": "zhihu",
+        "category": "品牌出海",
+        "impact": "medium",
+        "date": "2025-01-07",
+        "tags": [
+            "Meta广告",
+            "Facebook",
+            "Instagram",
+            "跨境指南"
+        ]
+    },
+    {
+        "original_title": "2024中国虚拟主播行业发展历程及现状 - 前瞻研究院",
+        "refined_title": "前瞻产业研究院：2024虚拟主播行业报告——AI驱动的直播新物种",
+        "url": "https://www.qianzhan.com/analyst/detail/220/240827-2957c65b.html",
+        "summary": "得益于AI技术突破和直播平台支持，中国虚拟主播行业快速发展。虚拟主播作为虚拟世界主持人，应用于新闻播报/娱乐直播/电商带货等场景。",
+        "body": "## 发展驱动力\nAI语音合成+唇形同步 / 动作捕捉降本 / 24h不间断直播需求\n## 应用场景\n电商带货(降本70%+) / 新闻播报 / 娱乐互动 / 客户服务\n## 头部玩家\n硅基智能 / 小冰公司 / 腾讯智影 / 百度数字人 / 抖音AI主播",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2024-08-27",
+        "tags": [
+            "前瞻研究院",
+            "虚拟主播",
+            "AI直播"
+        ]
+    },
+    {
+        "original_title": "从植入到\"化入\"：微短剧营销的模式分析与升级展望",
+        "refined_title": "锐易纵横：微短剧营销升级——从硬植入到\"化入\"的品牌融合之道",
+        "url": "https://m.ruyigansu.com/article/12263",
+        "summary": "微短剧以\"短、快、爽\"的特征成为注意力经济新高地。据CNNIC第56次报告，短剧用户规模达6.62亿，仅半年提升15%，超过外卖/网络文学。",
+        "body": "## 三级进化\nL1 硬植入(产品露出) → L2 软融入(剧情自然结合) → L3 化入(品牌即故事主角)\n## 成功关键\n剧本共创 / 演员匹配调性 / 产品与情节深度绑定 / 社媒二次发酵\n## 代表案例\n韩束×定制短剧 / 康师傅×IP联动 / 茶百道×职场题材",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-10-06",
+        "tags": [
+            "短剧营销",
+            "品牌植入",
+            "模式升级"
+        ]
+    },
+    {
+        "original_title": "2025年H1微短剧行业观察与营销指南 - 澎湃新闻",
+        "refined_title": "澎湃新闻：2025 H1微短剧报告——品牌短剧占比59%创历史新高",
+        "url": "https://www.thepaper.cn/newsDetail_forward_31247078",
+        "summary": "2025 H1抖音/快手新增非付费短剧315部，其中品牌短剧185部占比59%。品牌方不再是单纯广告投放者，而是内容生态的核心参与者。",
+        "body": "## 核心数据\n新增短剧315部 / 品牌短剧185部(**59%**) / 用户规模6.62亿(+15%半年)\n## 三大变化\n1. 品牌从\"赞助商\"变\"制片方\"\n2. 内容从\"广告载体\"变\"品牌资产\"\n3. 衡量从\"曝光量\"变\"全域生意增量\"\n## 入门建议\n先做1部试水 / 找专业内容团队 / 设定清晰KPI / 预留发酵预算",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-07-26",
+        "tags": [
+            "澎湃新闻",
+            "微短剧",
+            "2025 H1",
+            "品牌短剧59%"
+        ]
+    },
+    {
+        "original_title": "容量短剧推出\"剧映品牌计划\" - 中国日报",
+        "refined_title": "中国日报：容量\"剧映品牌计划\"——微短剧+品牌营销新生态",
+        "url": "https://caijing.chinadaily.com.cn/a/202411/20/WS673d82eda310b59111da475b.html",
+        "summary": "容量短剧推出\"剧映品牌计划\"，引领\"微短剧+品牌\"营销新方向。品牌微短剧已成为营销创新与传递品牌精神的重要形式。",
+        "body": "## 计划核心\n为品牌提供从剧本开发到播出的全链路服务\n## 优势\n制作周期短(2-4周/部) / 成本可控 / 传播速度快 / 年轻用户覆盖精准\n## 适用品牌\n美妆/快消/电商/食品饮料等决策周期短的品类",
+        "source": "wechat",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2024-11-20",
+        "tags": [
+            "容量短剧",
+            "剧映品牌计划",
+            "中国日报"
+        ]
+    },
+    {
+        "original_title": "微短剧凭什么让品牌\"上瘾\"？- CTR",
+        "refined_title": "CTR：微短剧品牌营销报告——6.62亿用户的注意力掠夺战",
+        "url": "https://www.ctrchina.cn/rich/report/753",
+        "summary": "据《2025中国网络视听发展报告》，我国微短剧市场用户规模达6.62亿，仅半年提升15%，超过外卖和网络文学。一场关于注意力掠夺的内容营销革命。",
+        "body": "## 为什么让品牌上瘾？\n1. 完播率远超传统视频(>60%)\n2. 种草→转化链路极短\n3. 用户主动追更(强粘性)\n4. 制作成本低(3-15万/集)\n5. 算法推荐带来免费流量\n## 品牌入局方式\n冠名赞助 / 深度定制 / IP联动 / 自制短剧矩阵",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-07-07",
+        "tags": [
+            "CTR",
+            "微短剧",
+            "6.62亿用户",
+            "注意力经济"
+        ]
+    },
+    {
+        "original_title": "2025年AI SEO优化白皮书 - 百搜科技",
+        "refined_title": "百搜科技：2025 AI SEO白皮书——超越关键词的搜索新范式",
+        "url": "https://www.bsoo.com.cn/pdf/2025%E7%89%88AI%20SEO%E4%BC%98%E5%8C%96%E7%99%BD%E7%9A%AE%E4%B9%A6.pdf",
+        "summary": "AI SEO不仅是传统SEO的迭代，更是战略思维的深刻变革。超越对关键词和外链的关注，升维至对搜索引擎背后AI算法逻辑的理解。",
+        "body": "## AI SEO vs 传统SEO\n| 维度 | 传统SEO | AI SEO |\n|------|---------|--------|\n| 目标 | 排名靠前 | 被AI引用和推荐 |\n| 手段 | 关键词优化 | 结构化知识建模 |\n| 内容 | 面向爬虫 | 面向大模型理解 |\n| 衡量 | 流量/排名 | 引用率/可信度 |\n\n## 实施框架\n技术基础(结构化数据) → 内容策略(引用友好) → 权威建设(E-E-A-T) → 持续优化(监测反馈)",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-05-07",
+        "tags": [
+            "百搜科技",
+            "AI SEO白皮书",
+            "搜索新范式"
+        ]
+    },
+    {
+        "original_title": "2025年AI驱动的SEO技术与内容优化实践 - 阿里云",
+        "refined_title": "阿里云开发者社区：2025 AI驱动SEO——技术优化×内容策略×工具推荐",
+        "url": "https://developer.aliyun.com/article/1669980",
+        "summary": "全面解析2025年SEO最佳实践。涵盖网站架构、页面性能、结构化数据、关键词布局、AI辅助创作及本地化SEO等关键领域。",
+        "body": "## 技术优化清单\n站点架构清晰化 / Core Web Vitals达标 / 移动优先索引 / HTTPS全站部署 / Schema.org结构化标记\n## AI辅助SEO\n关键词挖掘(ChatGPT) / 内容生成(GPT-4) / 元数据自动生成(AI工具) / 竞品分析(Claude) / 内链建议(AI Agent)",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-08-15",
+        "tags": [
+            "阿里云",
+            "AI SEO",
+            "技术优化",
+            "内容策略"
+        ]
+    },
+    {
+        "original_title": "2025年SEO实战指南：从关键词到流量变现 - 知乎",
+        "refined_title": "知乎：2025 SEO完整路径——从关键词研究到流量变现的全链路",
+        "url": "https://zhuanlan.zhihu.com/p/1984375797641941638",
+        "summary": "系统拆解搜索引擎优化的核心方法论。结合2025年最新算法趋势，从工作流程、关键词策略、内容优化、技术优化到效果追踪。",
+        "body": "## SEO工作流\n关键词研究 → 竞品分析 → 内容规划 → 页面优化 → 技术审计 → 外链建设 → 数据分析 → 迭代优化\n\n## 2025新趋势\n- 搜索意图匹配优于关键词密度\n- 体验信号(Core Web Vitals)成为排名因子\n- E-E-A-T权威性权重持续上升\n- AI生成的SEO内容需人工审核质量\n- 语音搜索和多模态搜索增长迅速",
+        "source": "zhihu",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-12-16",
+        "tags": [
+            "SEO实战",
+            "流量变现",
+            "知乎指南"
+        ]
+    },
+    {
+        "original_title": "《2024中国数字营销趋势报告》- m360×秒针营销科学院",
+        "refined_title": "m360×秒针：2024中国数字营销趋势——228位营销人调研洞察",
+        "url": "https://oss.m360.cn/pdf/7405.pdf",
+        "summary": "秒针营销科学院连续第9年发布。基于228位营销专业人士调研，揭示中国数字营销趋势走向。ROI评估仍悬而未决，品效割裂愈演愈烈。",
+        "body": "## 调研基础\n样本: 228位营销人 / 连续: 第9年 / 合作: GDMS + m360\n## 核心发现\n- 预算分配趋向保守\n- 效果测量标准亟待统一\n- 第一方数据建设成共识\n- AI工具采纳意愿强烈但落地存疑",
+        "source": "industry-media",
+        "category": "效果营销",
+        "impact": "medium",
+        "date": "2024-07-24",
+        "tags": [
+            "m360",
+            "秒针系统",
+            "数字营销趋势",
+            "228调研"
+        ]
+    },
+    {
+        "original_title": "2024中国数字营销趋势报告 - 第五十一期 - 中国远见",
+        "refined_title": "中国远见×秒针：2024数字营销趋势(第51期)——连续发布传统",
+        "url": "https://i.cgeinc.com/no51/17942.html",
+        "summary": "秒针营销科学院连续多年出品的中国数字营销趋势系列报告第51期。为营销决策者提供年度趋势预判和实操建议。",
+        "body": "## 历史价值\n连续10年+追踪中国数字营销演变 / 行业公认的\"风向标\"报告之一\n## 第51期重点\nAI工具渗透加速 / 隐私合规驱动变革 / 内容质量重于数量 / 全域经营成共识",
+        "source": "tech-media",
+        "category": "效果营销",
+        "impact": "medium",
+        "date": "2023-12-25",
+        "tags": [
+            "秒针系统",
+            "趋势报告第51期",
+            "中国远见"
+        ]
+    },
+    {
+        "original_title": "2025年中国数字营销行业人工智能应用趋势研究报告",
+        "refined_title": "搜狐×商务广告协会：AI数字营销三阶段——从探索到规模化",
+        "url": "https://www.sohu.com/a/904020790_121752970",
+        "summary": "AI营销历经探索期(2020-2022)→验证期(2023-2024)→规模化(2025+)。核心应用：内容个性化/效果预测/用户洞察/智能客服。",
+        "body": "三阶段路径清晰 / 平均效率提升40% / 人才缺口是最大瓶颈",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-06-13",
+        "tags": [
+            "AI数字营销",
+            "三阶段",
+            "规模化"
+        ]
+    },
+    {
+        "original_title": "2025年最新！百度SEO与SEM的区别全攻略",
+        "refined_title": "搜狐：百度SEO vs SEM全攻略——双引擎驱动的流量获取方法论",
+        "url": "https://www.sohu.com/a/888828630_120723594",
+        "summary": "在2025年百度搜索生态中，SEO和SEM已成为企业流量竞争的\"双引擎\"。某教育机构通过SEO将关键词排名提升至首页，自然流量增长300%。",
+        "body": "SEO=免费长期流量 / SEM=付费即时流量 / 最佳实践: SEO做底座+SEM做放大 / 预算分配建议: 初期70%SEM+30%SEO → 成熟期30%SEM+70%SEO",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-04-25",
+        "tags": [
+            "百度SEO",
+            "SEM",
+            "双引擎"
+        ]
+    },
+    {
+        "original_title": "2025年AI SEO优化推荐：年度权威测评榜单发布",
+        "refined_title": "网易：2025 AI SEO优化TOP榜——智能搜索排名服务商深度解析",
+        "url": "https://www.163.com/dy/article/K4K58L9H0556CQLR.html",
+        "summary": "基于2024-2025年行业数据监测和客户口碑调研，推出AI搜索优化权威测评榜单。帮助企业筛选优质GEO/SEO服务合作伙伴。",
+        "body": "测评维度: 技术能力/案例效果/客户口碑/价格/服务 / AI SEO是传统SEO的升维而非替代",
+        "source": "weibo",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2025-07-16",
+        "tags": [
+            "AI SEO榜单",
+            "服务商排行"
+        ]
+    },
+    {
+        "original_title": "2025年AI搜索优化推荐TOP榜深度解析",
+        "refined_title": "搜狐：2025 AI SEO TOP榜解读——主流服务商能力矩阵对比",
+        "url": "https://www.sohu.com/a/923259978_122432940",
+        "summary": "基于行业数据监测、客户口碑及技术实力测评推出TOP榜。深度解析当前市场主流AI SEO服务商的核心优劣势及适用场景。",
+        "body": "选型关键: 行业匹配度 / 技术透明度 / 数据归属权 / 合规性 / 价格模型(按效果vs按项目)",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2025-08-12",
+        "tags": [
+            "AI SEO TOP榜",
+            "服务商横评"
+        ]
+    },
+    {
+        "original_title": "第一章 SEO完全指南：从原理到实战",
+        "refined_title": "少数派：SEO完全指南——搜索引擎工作原理到实战手册",
+        "url": "https://sspai.com/post/97676",
+        "summary": "SEO的核心是理解搜索引擎如何工作和理解用户会搜索什么。涵盖SEO与SEM区别、技术基础、内容策略、外链建设等完整知识体系。",
+        "body": "SEO定义: 让网站满足搜索引擎和用户需求 / SEM定义: 付费搜索引擎营销 / 核心技能: 关键词研究/内容优化/技术审计/数据分析",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2025-04-27",
+        "tags": [
+            "SEO指南",
+            "少数派",
+            "SEO完全指南"
+        ]
+    },
+    {
+        "original_title": "内容才是大屏的终点：品牌如何迭代OTT营销投放体系",
+        "refined_title": "流媒体网：OTT营销迭代论——从买位置到买内容的升级之路",
+        "url": "https://lmtw.com/mzw/content/detail/id/225807",
+        "summary": "爱奇艺广告策略总经理姚培娜分享对OTT大屏行业的最新思考。经济复苏回暖下越来越多企业寻求品牌向上突破，把握确定性重启增量。",
+        "body": "OTT三大价值: 流量洼地/家庭场景入口/品牌安全环境 / 内容即OTT的核心竞争力 / 从曝光导向到内容共生态",
+        "source": "tech-media",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2023-06-27",
+        "tags": [
+            "OTT营销",
+            "爱奇艺",
+            "内容驱动",
+            "流媒体网"
+        ]
+    },
+    {
+        "original_title": "覆盖近9亿优质人群，\"家庭场景第一屏\"的投放新逻辑 - Morketing",
+        "refined_title": "Morketing：OTT投放新逻辑——从后链路数据找到大屏营销解法",
+        "url": "https://www.morketing.com/detail/25555",
+        "summary": "经历2023年温和复苏后，广告市场对新一年抱有更高期待。电通预测2024全球广告支出增4.6%，OTT作为\"流量洼地\"价值凸显。",
+        "body": "OTT月活近9亿 / 家庭场景不可替代 / 后链路归因能力提升是关键突破点 / 品牌+效果的平衡在大屏上找到答案",
+        "source": "tech-media",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2024-01-18",
+        "tags": [
+            "Morketing",
+            "OTT投放",
+            "家庭场景",
+            "9亿人群"
+        ]
+    },
+    {
+        "original_title": "国内八大户外传媒集团一览 - 数英",
+        "refined_title": "数英：八大户外传媒集团概览——航空/高铁/地铁公交/景区全覆盖",
+        "url": "https://www.digitaling.com/articles/1018863.html",
+        "summary": "基于公司影响力、特色业务、地区性选取八大户外传媒企业。涉及航空/高铁/地铁公交/城市/景区等众多媒体资源。",
+        "body": "八大集团覆盖: 航空媒体(航美)/高铁媒体(永达/华铁)/地铁媒体(雅仕维)/公交媒体(德高)/楼宇媒体(分众)/景区媒体/商圈LED / 数字户外(DOOH)",
+        "source": "industry-media",
+        "category": "户外广告",
+        "impact": "medium",
+        "date": "2024-04-03",
+        "tags": [
+            "数英",
+            "八大传媒集团",
+            "户外媒体"
+        ]
+    },
+    {
+        "original_title": "2024年度中国最具影响力的十大数字营销传播案例",
+        "refined_title": "腾讯新闻×武大：2024十大数字营销传播案例——学术视角的行业标杆评选",
+        "url": "https://news.qq.com/rain/a/20250107A05AOI00",
+        "summary": "武汉大学新闻与传播学院联合智能营销传播创新团队开展评选活动。从数百个候选案例中甄选出2024年度最具影响力的十大数字营销传播案例。",
+        "body": "评选标准: 创新性/影响力/效果可验证/社会价值/可复制性 / 学术界与产业界的跨界对话平台",
+        "source": "zhihu",
+        "category": "创意案例",
+        "impact": "high",
+        "date": "2025-01-07",
+        "tags": [
+            "武大",
+            "十大案例",
+            "数字营销传播"
+        ]
+    },
+    {
+        "original_title": "【2024年度突破营销】十位广告大咖心中的年度最佳",
+        "refined_title": "界面新闻：2024年度突破营销——十位顶尖广告人心目中的年度最佳",
+        "url": "https://www.jiemian.com/article/12185993.html",
+        "summary": "界面新闻第9年邀请中国广告行业顶尖广告人分享年度最深刻印象的广告作品。从创意/策略/技术/效果多维度进行点评。",
+        "body": "连续第9年举办 / 评审团来自4A/热店/品牌方/媒体 / 趋势: 技术赋能创意 / 品牌价值观表达更重要 / 效果与品牌的统一成为核心议题",
+        "source": "tech-media",
+        "category": "创意案例",
+        "impact": "high",
+        "date": "2024-12-29",
+        "tags": [
+            "界面新闻",
+            "年度突破营销",
+            "大咖推荐"
+        ]
+    },
+    {
+        "original_title": "2024年十大营销案例（投票） - 广告狂人",
+        "refined_title": "广告狂人：2024十大营销案例——《歌手2024》全开麦模式破圈",
+        "url": "https://web.mad-men.com/articldetails/43355",
+        "summary": "《歌手2024》通过全程直播全开麦无修音引发全民关注。国内国外歌手同台竞技调动国民情感，全网实时动态监测将热梗融入节目。",
+        "body": "《歌手2024》核心亮点: 直播全开麦(真实性) / 中外对决(民族情感) / 热梗发酵(UGC传播) / 实时数据驱动(话题运营)",
+        "source": "tech-media",
+        "category": "创意案例",
+        "impact": "high",
+        "date": "2024-08-19",
+        "tags": [
+            "广告狂人",
+            "歌手2024",
+            "十大案例"
+        ]
+    },
+    {
+        "original_title": "广告门案例库 - 广告营销行业案例库",
+        "refined_title": "广告门案例库——金瞳奖/戛纳等大奖获奖作品一站式检索",
+        "url": "https://www.adquan.com/case_library/index",
+        "summary": "广告门专注展示广告营销领域优秀案例。涵盖金瞳奖/戛纳等国内外奖项获奖案例，配有解读和分析，帮助从业者学习借鉴。",
+        "body": "案例库价值: 权威奖项筛选 / 多维度分类检索 / 专业解读分析 / 可复用的策略洞察 / 行业趋势风向标",
+        "source": "industry-media",
+        "category": "创意案例",
+        "impact": "medium",
+        "date": "2026-04-07",
+        "tags": [
+            "广告门",
+            "案例库",
+            "金瞳奖",
+            "戛纳"
+        ]
+    },
+    {
+        "original_title": "IAI传鉴国际广告奖官网",
+        "refined_title": "IAI传鉴奖：大中华区知名综合性广告创意与品牌营销奖项",
+        "url": "http://www.iaiad.com/",
+        "summary": "IAI创立于2000年中国传媒大学，是大中华区知名综合性广告创意与品牌营销奖项评选平台。每年吸引数千件作品参赛。",
+        "body": "定位: 综合性广告创意+品牌营销奖项 / 历史: 26年(2000创立) / 规模: 数千件年参赛作品 / 价值: 行业公认权威性之一",
+        "source": "industry-media",
+        "category": "创意案例",
+        "impact": "low",
+        "date": "2025-10-10",
+        "tags": [
+            "IAI",
+            "传鉴奖",
+            "广告奖项"
+        ]
+    },
+    {
+        "original_title": "2024中国游戏营销趋势报告 - 澎湃新闻",
+        "refined_title": "澎湃：2024中国游戏营销趋势报告——云游戏/小游戏/VR新增长点",
+        "url": "https://www.thepaper.cn/newsDetail_forward_26843956",
+        "summary": "中国游戏市场政策环境持续改善，版号稳定发放，厂商预期乐观。云游戏/小游戏/VR游戏/游戏IP孵化成为细分增长方向。",
+        "body": "政策环境: 版号稳定发放 → 厂商信心恢复\n增长赛道: 云游戏降低门槛 / 小游戏爆发(微信/抖音) / VR设备降价 / IP跨界联动(影视/动漫/实体)\n营销变化: 从纯买量到品效协同 / UGC生态建设 / 社区深度运营",
+        "source": "tech-media",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2024-03-28",
+        "tags": [
+            "游戏营销趋势",
+            "澎湃新闻",
+            "云游戏",
+            "小游戏"
+        ]
+    },
+    {
+        "original_title": "【行业报告】2024中国移动游戏广告营销报告",
+        "refined_title": "网易×伽马数据：2024移动游戏广告营销报告——买量市场全景解析",
+        "url": "https://www.163.com/dy/article/JLF43B5V055697R1.html",
+        "summary": "伽马数据发布中国移动游戏广告营销报告。覆盖产业现状、用户规模、变现模式、渠道分布、素材趋势等多维度数据分析。",
+        "body": "产业现状: 市场规模超3000亿 / 头部效应加剧 / 买量CPA持续上涨\n用户画像: 18-35岁为主力 / 二三线及以下城市占比提升 / 女性用户增长快\n素材趋势: UGC素材占比↑ / AI生成素材普及 / 短视频素材转化率最高",
+        "source": "weibo",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-01-09",
+        "tags": [
+            "伽马数据",
+            "手游广告",
+            "买量报告"
+        ]
+    },
+    {
+        "original_title": "为什么各个行业都转向「游戏化营销」了？- 知乎",
+        "refined_title": "知乎：游戏化营销完全指南——将游戏设计思维应用于非游戏场景",
+        "url": "https://zhuanlan.zhihu.com/p/571546967",
+        "summary": "\"游戏化\"是将游戏设计的手段应用于非游戏场景的方法论。把游戏底层逻辑拆解为链路/交互/数值/用户心理研究，让用户自发参与。",
+        "body": "游戏化=工具性和方法论 / 核心机制: 积分/勋章/排行榜/进度条/挑战任务 / 适用场景: 用户留存/员工激励/教育培训/品牌互动 / 成功案例: 星巴克星享俱乐部/ Nike Run Club/ 支付宝集五福",
+        "source": "zhihu",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2023-08-15",
+        "tags": [
+            "游戏化营销",
+            "方法论",
+            "知乎指南"
+        ]
+    },
+    {
+        "original_title": "阿里巴巴\"互动游戏\"营销策略分析 - 汉斯出版社",
+        "refined_title": "学术研究：阿里互动游戏营销——基于4R理论与PERMA模型的深度解析",
+        "url": "https://pdf.hanspub.org/ecl_2315925.pdf",
+        "summary": "基于4R营销理论(关联/反应/关系/回报)与积极心理学PERMA模型，系统分析阿里巴巴超级互动城平台的游戏化营销策略设计与优化路径。",
+        "body": "理论框架: 4R(关联反应关系回报) + PERMA(积极情绪投入关系意义成就)\n阿里的实践: 超级互动城 / 双11互动游戏 / 品牌互动空间\n效果: 用户参与时长↑ / 品牌记忆度↑ / 转化率提升显著",
+        "source": "tech-media",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-08-28",
+        "tags": [
+            "阿里",
+            "互动游戏",
+            "4R理论",
+            "学术研究"
+        ]
+    },
+    {
+        "original_title": "B2B企业如何用CRM做ABM（关键客户营销）？ - Zoho",
+        "refined_title": "Zoho CRM：B2B企业ABM实战指南——用CRM系统落地目标客户营销",
+        "url": "https://www.zoho.com.cn/crm/articles/crm-abm1212.html",
+        "summary": "B2B企业使用CRM做ABM的核心三点：选对账户(字段评分筛选)、看清账户(360°视图)、运营账户(统一管理联系人/商机/互动)。",
+        "body": "ABM三步法(基于CRM): \n1. 选对账户: 自定义评分模型筛选高价值客户\n2. 看清账户: 客户下联系人+商机+互动360°视图\n3. 运营账户: 自动化培育+销售跟进协同",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "medium",
+        "date": "2025-12-12",
+        "tags": [
+            "Zoho",
+            "CRM",
+            "ABM",
+            "B2B实战"
+        ]
+    },
+    {
+        "original_title": "2026年B2B营销新方向：ABM+内容营销 - MarketUP",
+        "refined_title": "MarketUP：2026 B2B新方向——ABM×内容营销的精准组合拳",
+        "url": "https://www.marketup.cn/marketupblog/narongyingxiao/24091.html",
+        "summary": "MarketUP团队深耕内容营销发现趋势越来越趋向于ABM+内容营销的组合模式。ABM精准定向+内容深度影响=高效B2B获客。",
+        "body": "为什么ABM+内容? LBM撒网式效率低 → ABM精准命中高价值账户 + 内容建立信任缩短决策周期\n实施方法: ICP定义→目标清单→定制内容→多触点触达→SDR qualification→Sales closing\n工具推荐: MarketUP MA + CRM + 内容CMS",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "medium",
+        "date": "2025-12-11",
+        "tags": [
+            "MarketUP",
+            "ABM+内容",
+            "B2B新方向"
+        ]
+    },
+    {
+        "original_title": "什么是基于账户的营销(ABM)？核心原则和优势 - Vtiger",
+        "refined_title": "Vtiger：ABM核心原则与优势——从理论到实践的完整框架",
+        "url": "https://www.vtiger.com/zh-CN/blog/what-is-account-based-marketing-abm/",
+        "summary": "ABM既不过于复杂也非简单。其有效性取决于能否始终如一地执行。通过真实案例展示ABM在B2B场景中的实际价值。",
+        "body": "核心原则: 精准聚焦高价值账户 / 营销与销售深度融合 / 个性化沟通 / 可衡量的ROI\n常见误区: ABM≠只做大客户 / ABM≠无技术门槛 / ABM≠短期见效\n成功要素: 高质量数据 / 销售协作文化 / 合适的工具链",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "low",
+        "date": "2025-08-26",
+        "tags": [
+            "Vtiger",
+            "ABM原则",
+            "B2B框架"
+        ]
+    },
+    {
+        "original_title": "基于客户的营销(ABM) | Oracle中国",
+        "refined_title": "Oracle中国：ABM方法论——B2B营销从广撒网到精准狙击",
+        "url": "https://www.oracle.com/cn/cx/marketing/account-based-marketing/",
+        "summary": "传统B2B营销面向一大群潜在客户生成线索，ABM采取更具针对性的方法，专注于高价值客户的深度经营。",
+        "body": "ABM vs 传统: 精准聚焦vs广撒网 / 深度协同vs各自为战 / 账户级收入vs线索数量\nOracle方案: B2B Marketing + Sales + Service 全链路整合\n适用企业: SaaS / 专业服务 / 高端制造 / 金融服务",
+        "source": "tech-media",
+        "category": "B2B营销",
+        "impact": "medium",
+        "date": "2026-04-10",
+        "tags": [
+            "Oracle",
+            "ABM",
+            "B2B"
+        ]
+    },
+    {
+        "original_title": "亮点回顾｜2024 B2B企业ABM营销现状调研报告 - 数英",
+        "refined_title": "数英×SalesDriver：2024 ABM白皮书发布——300+Marketer共话B2B新路径",
+        "url": "https://www.digitaling.com/articles/1262176.html",
+        "summary": "来自全国300+Marketer共同了解国内外ABM趋势与现状。探索更高效、更适合中国企业的ABM营销开展方式。",
+        "body": "调研规模: 300+参与者 / 核心发现: 仅18%企业正式部署ABM / 最大障碍: 缺乏工具(42%)+销售协同难(35%) / 效果数据: ABM客户LTV高3-5倍\n落地建议: 从小范围试点开始 / 选择合适工具 / 建立协同机制",
+        "source": "industry-media",
+        "category": "B2B营销",
+        "impact": "high",
+        "date": "2024-09-08",
+        "tags": [
+            "SalesDriver",
+            "ABM白皮书",
+            "300调研"
+        ]
+    },
+    {
+        "original_title": "2025企微SCRM实测：微伴自动化营销让获客效率翻3倍",
+        "refined_title": "微伴助手SCRM深度评测——2025年企微私域运营效率革命",
+        "url": "https://weibanzhushou.com/blog/34142",
+        "summary": "做私域运营5年的深度体验报告。微伴SCRM的自动化营销功能解决推送不精准/获客成本高/转化率低三大核心痛点。",
+        "body": "痛点: 推送不精准→取关率高 / 成本高→Excel低效 / 转化缺→无分层运营\n微伴解决方案: 自动标签+SOP流程+智能群发+数据看板\n效果: 获客效率↑3倍 / 触达精度↑60% / 人效↑200%",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": [
+            "微伴",
+            "SCRM",
+            "企微",
+            "私域运营"
+        ]
+    },
+    {
+        "original_title": "五大企微SCRM深度对比评测 - 搜狐",
+        "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩选型指南",
+        "url": "https://www.sohu.com/a/917850379_122102164",
+        "summary": "横向对比主流五家企微SCRM产品。从功能完整性、易用性、价格模式、服务支持等维度给出不同行业和规模的选型建议。",
+        "body": "横评维度: 功能覆盖5大模块 / 易用性上手难度 / 价格SaaS或按量 / 服务实施培训响应 / 行业适配度\n结论: 大品牌选微盟 / 中小商家选有赞 / 精细化选快鲸 / 教育选尘锋 / 快消选卫猩",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2025-07-26",
+        "tags": [
+            "SCRM横评",
+            "企微工具对比"
+        ]
+    },
+    {
+        "original_title": "舆情公关与品牌声誉管理 2025 深度报告 - 10100",
+        "refined_title": "10100：2025品牌声誉管理报告——AI时代的信任构建与危机防御体系",
+        "url": "https://www.10100.com/article/32522817",
+        "summary": "2025年国内监测数据显示重大舆情事件数量同比增47%，社交媒体驱动型危机占80%+。从被动危机应对到主动价值前置是范式转变的核心。",
+        "body": "范式迭代: 危机应对 → 价值前置预防\n2025特征: 事件数量+47% / 响应黄金时间缩至2h / 多平台同步发酵\n防御体系: 监听-预警-响应-修复-防御全闭环 / AI辅助舆情分析提升效率300%",
+        "source": "tech-media",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2025-09-18",
+        "tags": [
+            "10100",
+            "声誉管理",
+            "舆情报告"
+        ]
+    },
+    {
+        "original_title": "逆境破局：五大经典危机公关案例的智慧启示 - 知乎",
+        "refined_title": "知乎×一夜红传媒：五大经典危机公关案例——策略/执行与启示",
+        "url": "https://zhuanlan.zhihu.com/p/1954216040922850953",
+        "summary": "深耕危机管理领域15年的一夜红传媒，见证无数品牌的舆论博弈场。危机公关既是防御战，更是价值观试金石。",
+        "body": "五大案例涵盖: 产品质量/言论失当/数据安全/劳资纠纷/环保争议\n共性成功要素: 速度第一(2h内) / 真诚至上(不狡辩) / 态度决定走向 / 数据说话 / 后续行动跟进\n最大教训: 傲慢=二次危机 / 删除评论反噬 / 无改进行动=未真正解决",
+        "source": "zhihu",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2025-09-24",
+        "tags": [
+            "一夜红传媒",
+            "危机案例",
+            "策略启示"
+        ]
+    },
+    {
+        "original_title": "企业危机公关经典案例解析：策略、执行与启示 - 知乎",
+        "refined_title": "知乎：企业危机公关案例解析——胖东来试吃门等经典复盘",
+        "url": "https://zhuanlan.zhihu.com/p/1925283721017274923",
+        "summary": "系统解析胖东来\"试吃门\"等典型危机公关案例。事件背景、应对过程、公众反应及品牌修复路径的完整复盘。",
+        "body": "胖东来试吃门: 员工未换筷子→网络发酵→创始人直播致歉→整改方案→信任恢复\n关键: 真诚是最高级的公关 / 快速认错不找借口 / 给出具体整改时间表\n其他案例: 海底捞危机反转(教科书级) / 瑞幸财务造假(艰难重建)",
+        "source": "zhihu",
+        "category": "公关危机",
+        "impact": "medium",
+        "date": "2025-07-06",
+        "tags": [
+            "胖东来",
+            "危机案例",
+            "真诚公关"
+        ]
+    },
+    {
+        "original_title": "2024年八大经典危机公关案例合集 - 脉脉",
+        "refined_title": "脉脉：2024八大危机公关案例合集——从热点危机到行业启示",
+        "url": "https://maimai.cn/article/detail?fid=1820692333&efid=-BWKJGb1xMeOib_S8Q4dMA",
+        "summary": "随着社会环境快速变化，企业面临的热点危机越来越复杂。选取2023上半年最具代表性的八大热点危机进行深度复盘。",
+        "body": "八大案例类型分布: 产品质量(2) / 言论失当(2) / 数据安全(1) / 劳资纠纷(2) / 环保争议(1)\n共性规律: 社交媒体放大效应 / 24小时内黄金窗口期 / 情绪管理比事实管理更重要\n预防建议: 建立舆情监测体系 / 制定危机SOP / 定期演练",
+        "source": "wechat",
+        "category": "公关危机",
+        "impact": "medium",
+        "date": "2025-02-24",
+        "tags": [
+            "脉脉",
+            "八大危机案例"
+        ]
+    },
+    {
+        "original_title": "ESG当道，品牌如何刷新绿色叙事？ - SocialBeta",
+        "refined_title": "SocialBeta：ESG绿色叙事指南——从漂绿陷阱到可持续品牌建设",
+        "url": "https://socialbeta.com/zt/127",
+        "summary": "ESG作为衡量品牌核心竞争力基础的重要性持续上升。国家生态环境政策完善和消费者绿色生活方式重视推动品牌ESG传播升级。",
+        "body": "ESG含金量上升原因: 政策驱动(双碳目标) / 投资者关注(ESG基金规模↑) / 消费者意识觉醒\n绿色叙事三原则: 真实性(有行动支撑) / 相关性(与业务绑定) / 共情力(故事化表达)\n避坑: 不做\"漂绿\" / 选择性披露是大忌 / 第三方验证增信",
+        "source": "tech-media",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2024-09-27",
+        "tags": [
+            "SocialBeta",
+            "ESG叙事",
+            "绿色品牌"
+        ]
+    },
+    {
+        "original_title": "ESG时代品牌全案新标配：将碳中和承诺转化为可感知的品牌资产",
+        "refined_title": "搜狐：碳中和品牌化——将ESG承诺转化为消费者可感知的品牌资产",
+        "url": "https://www.sohu.com/a/923002964_122431069",
+        "summary": "双碳目标深入推进下，碳中和从CSR加分项升级为品牌竞争核心赛道。百度指数显示\"碳中和品牌\"搜索量近一年激增。",
+        "body": "市场信号: \"碳中和品牌\"搜索量激增 / 绿色消费意愿达60%+\n品牌行动: 碳足迹透明化 / 绿色产品线扩展 / 可持续包装升级 / 公众教育内容\n转化关键: 将抽象的ESG数据转化为消费者可感知的利益点(如: 这瓶水=拯救10L海洋)",
+        "source": "tech-media",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2025-08-14",
+        "tags": [
+            "碳中和",
+            "ESG品牌化",
+            "搜狐"
+        ]
+    },
+    {
+        "original_title": "2024中国ESG传播趋势白皮书 - UGreen",
+        "refined_title": "UGreen：2024中国ESG传播趋势白皮书——从合规披露到品牌资产",
+        "url": "https://ugreen.cn/digitalDetail/1146",
+        "summary": "部分品牌通过创新营销将ESG核心理念深度融入传播策略，在降本增效、提升品牌认可和获取负责投资方面效果显著。",
+        "body": "核心趋势: ESG从报告走向传播 / 从合规走向差异化 / 从成本中心走向品牌资产 / 关键: 真实行动+透明沟通+故事化表达",
+        "source": "tech-media",
+        "category": "ESG",
+        "impact": "low",
+        "date": "2026-03-25",
+        "tags": [
+            "UGreen",
+            "ESG白皮书",
+            "传播趋势"
+        ]
+    },
+    {
+        "original_title": "CMRA发布《2024中国市场洞察行业发展趋势和洞察需求方调研》",
+        "refined_title": "CMRA：2024中国市场洞察行业报告——AI驱动的研究方法革新",
+        "url": "https://www.cmra.org.cn/newsshow.php?id=974",
+        "summary": "中国信息协会市场研究分会发布行业发展趋势报告。揭示AI技术对传统市场研究方法的深刻影响及人才能力需求变化。",
+        "body": "行业现状: 数字化转型加速 / AI工具渗透率超50% / 定性与定量融合\n人才需求: 数据分析能力> 传统调研技能 / 商业洞察力 > 工具操作力\n未来方向: 预测性分析 / 实时洞察系统 / 消费者数字孪生",
+        "source": "wechat",
+        "category": "消费者洞察",
+        "impact": "medium",
+        "date": "2025-07-11",
+        "tags": [
+            "CMRA",
+            "市场洞察",
+            "行业报告"
+        ]
+    },
+    {
+        "original_title": "2025中国短视频用户行为研究报告(2025版)",
+        "refined_title": "网易：2025短视频用户行为报告——10亿人每天刷2.6小时",
+        "url": "https://www.163.com/dy/article/KCV5MGPU05389VEO.html",
+        "summary": "中国短视频行业进入全面成熟期。用户规模接近饱和(10亿+)，日均使用2.6小时，内容生态丰富、商业模式多元成熟。",
+        "body": "用户规模: 10亿+(接近饱和) / 日均使用: 2.6小时 / 内容生态: PGC+UGC+AIGC共存 / 商业模式: 广告+电商+直播+打赏+知识付费 / 平台竞争: 差异化明显(抖音娱乐/快手信任/小红书种草/B站深度)",
+        "source": "weibo",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-10-28",
+        "tags": [
+            "短视频报告",
+            "10亿用户",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "2025社交媒体与网红KOL营销/电商趋势解读：小红书增速领跑",
+        "url": "https://www.shopex.cn/news/archives/24855.html",
+        "refined_title": "ShopEx：2025社媒KOL×电商融合趋势——小红书增速持续领跑",
+        "summary": "2025年社媒和KOL营销已成为品牌战略中不可或缺的部分。抖音直播/小红书增长/短剧变现是三大核心赛道。",
+        "body": "三大赛道: 抖音直播GMV持续增长 / 小红书电商闭环加速 / 短剧变现爆发\n关键数据: KOL投放ROI均值1:4.2 / 品牌自播占比58%+ / 短视频带货GMV首超直播带货",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "medium",
+        "date": "2025-05-24",
+        "tags": [
+            "ShopEx",
+            "KOL电商",
+            "小红书增速"
+        ]
+    },
+    {
+        "original_title": "2025年社交媒体与网红KOL营销趋势报告 - 微播易",
+        "refined_title": "微播易：2025社媒KOL趋势——6大平台50+图表深度解析",
+        "url": "https://www.shopex.cn/news/archives/24855.html",
+        "summary": "微播易联合中国广告协会发布。基于6大平台数据分析，为CMO和品牌市场负责人提供年度KOL营销决策参考。",
+        "body": "五大趋势: 品效销一体化 / 矩阵化运营 / 数据驱动选号 / 短剧化内容 / 出海联动\n关键数据: 达人合作单价+15% / 自播占比58% / ROI均值1:4.2",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2025-05-19",
+        "tags": [
+            "微播易",
+            "KOL趋势2025",
+            "中广协"
+        ]
+    },
+    {
+        "original_title": "小红书达人种草营销：KOL投放策略+探店实战指南",
+        "url": "https://www.sohu.com/a/929408830_121832323",
+        "refined_title": "搜狐：小红书种草全指南——选号/内容/投放/复盘完整SOP",
+        "summary": "系统梳理小红书达人投放策略。筛选匹配达人、探店内容制作、投放节奏把控及ROI评估方法的完整方法论。",
+        "body": "选号: 人群匹配>60% + 调性一致 + 数据健康(互动率达标)\n内容公式: 真实体验+场景代入+细节描述+使用感受+行动号召\nROI模型: (CPM×曝光)/(客单价×转化)=投产比基准线\n误区: 只看粉丝量 / 一刀切模板 / 忽视评论区运营",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "medium",
+        "date": "2025-08-28",
+        "tags": [
+            "小红书种草",
+            "KOL投放SOP",
+            "探店指南"
+        ]
+    },
+    {
+        "original_title": "2024社媒达人营销价值及成长研究 - 网易",
+        "refined_title": "网易：社媒达人价值研究——抖音内容能力一骑绝尘的底层逻辑",
+        "url": "https://www.163.com/dy/article/JKTA3OS305383L0H.html",
+        "summary": "各平台内容特性愈发鲜明。抖音达人在内容生产能力上表现突出，随拍类内容发布量一骑绝尘。",
+        "body": "平台差异: 抖音(产能最强) / 小红书(种草最深) / B站(内容最长)\n达人成长路径: 新手(0-1万)找垂直 → 成长(1-10万)建风格 → 成熟(10万+)商业化\n核心能力三角: 内容力 × 运营力 × 商业化力",
+        "source": "tech-media",
+        "category": "KOL营销",
+        "impact": "medium",
+        "date": "2025-01-02",
+        "tags": [
+            "社媒达人研究",
+            "平台差异",
+            "网易"
+        ]
+    },
+    {
+        "original_title": "2024中国AIGC广告营销产业全景报告 - 量子位×36kr",
+        "refined_title": "量子位×36kr：AIGC广告全景——5年内70%内容将由AI生成",
+        "url": "https://www.36kr.com/p/2589977989823369",
+        "summary": "量子位智库权威报告。五大变革+四大影响，千人千面→千人千内容时代来临。",
+        "body": "五大变革: 产业链去中介化 / 工作流AI化 / 生产场景自动化 / 投放效果个性化 / 业态格局重塑\n四大影响: 市场2025年13465.9亿 / 要素重构(行业理解/技术/场景/数据) / 工作流全链路AI化 / 引爆→爆发→普及",
+        "source": "36kr",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2024-01-04",
+        "tags": [
+            "量子位",
+            "36kr",
+            "AIGC全景"
+        ]
+    },
+    {
+        "original_title": "2026 AI 营销白皮书 - Google",
+        "refined_title": "谷歌2026 AI营销白皮书——全球25市场5万消费者调研洞察",
+        "url": "https://www.brandvista.com/news/google-ai-marketing-whitepaper-2026/",
+        "summary": "基于25国5万+消费者调研。健康养生/情绪价值/文化自信/智能生活/可持续五大消费主题重塑营销逻辑。",
+        "body": "五大主题: 健康(银发经济) / 情绪(治愈解压) / 文化自信(国货) / 智能(AI产品渗透40%+) / 可持续(环保决策因素)\n三大原则: AI提效保留审核 / 数据保护底线 / 不丢失品牌调性\n预测: 全球AI营销市场2026年底达1500亿美元",
+        "source": "industry-media",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2026-04-08",
+        "tags": [
+            "谷歌",
+            "AI白皮书",
+            "消费趋势"
+        ]
+    },
+    {
+        "original_title": "2026国内AI营销创意平台排行榜 - IT之家",
+        "refined_title": "IT之家：2026 AI营销创意平台排行——全链路能力成核心壁垒",
+        "url": "https://www.ithome.com/0/936/374.htm",
+        "summary": "生成式AI深度渗透营销领域，AI营销创意平台成为品牌提升效率的核心工具。全链路能力取代单点功能成为竞争关键。",
+        "body": "评估维度: 创意质量与多样性 / 多模态支持(图文视频) / 平台对接能力 / 数据闭环与效果归因\n趋势: 单点工具被全链路平台替代 / 头部平台效率提升200%+ / AI辅助决策锁定红利",
+        "source": "industry-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2026-04-07",
+        "tags": [
+            "IT之家",
+            "AI营销平台",
+            "全链路"
+        ]
+    },
+    {
+        "original_title": "2026最新AI营销工具大全 - 中国轻工业信息网",
+        "refined_title": "10大AI营销工具实测：微小兔等让工作效率翻倍",
+        "url": "http://www.clii.com.cn/lhrh/202604/t20260407_3961130.html",
+        "summary": "系统梳理主流AI营销工具。以微小兔企业获客智能体矩阵为代表，通过AI重构从内容生产到转化的完整链路。",
+        "body": "工具分类: 内容生成类 / 获客转化类 / 数据分析类 / 投放优化类\n代表工具: 微小兔(获客) / Jasper(文案) / Midjourney(设计) / Synthesia(视频) / SurferSEO(SEO)\n效率提升: 平均200-500%",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2026-04-07",
+        "tags": [
+            "AI工具大全",
+            "效率翻倍"
+        ]
+    },
+    {
+        "original_title": "数字化营销不止于卖货 - 麦肯锡中国",
+        "refined_title": "麦肯锡：数字化营销品效合一论——从短期转化到长期品牌资产",
+        "url": "https://www.mckinsey.com.cn/...",
+        "summary": "麦肯锡指出中国媒体环境下，高效利用效果媒体沉淀品牌用户资产是核心挑战。数字化营销不能止于短期销量转化。",
+        "body": "核心矛盾: 短期转化 vs 长期品牌资产\n解决框架: 品效平衡预算分配 / 第一方数据建设 / 内容体系化升维 / 全链路统一测量\n启示: 头部品牌通过品效合一实现长期增长",
+        "source": "industry-media",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2026-04-09",
+        "tags": [
+            "麦肯锡",
+            "品效合一",
+            "品牌资产"
+        ]
+    },
+    {
+        "original_title": "2025中国营销趋势 - 知萌×广告门",
+        "refined_title": "知萌：2025品牌营销9大趋势——AI去中心化+短剧500亿+平替57.2%",
+        "url": "https://www.adquan.com/article/351184",
+        "summary": "广告门深度观察。AI加速内容去中心化、代理商专业化重组、短剧市场超500亿、57.2%消费者倾向平替商品。",
+        "body": "九大趋势: AI去中心化 / 代理商洗牌 / 运营能力成水岭 / 高管IP红海 / 平台内卷(增速<1%) / 短剧505亿→634亿 / 政策促消费 / 下沉新一二线崛起(月活3.07亿) / 平替化挑战",
+        "source": "industry-media",
+        "category": "品牌营销",
+        "impact": "high",
+        "date": "2025-04-03",
+        "tags": [
+            "广告门",
+            "知萌",
+            "9大趋势"
+        ]
+    },
+    {
+        "original_title": "2025中国数字营销行业人工智能应用趋势 - IDC×广告门",
+        "refined_title": "IDC×广告门：AI数字营销从效率工具到战略资产——规模530亿CAGR26.2%",
+        "url": "https://www.adquan.com/article/353508",
+        "summary": "联合报告显示AI营销从\"效率工具\"向\"战略资产\"升级。三阶段演进，2024年AI营销规模530亿元。",
+        "body": "三阶段: 探索期(20-22) → 验证期(23-24) → 规模化(25+)\n关键数据: 2024规模530亿 / CAGR 26.2%(20-24) / 投资回报周期缩至6个月 / 平均效率提升40%",
+        "source": "industry-media",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-07-04",
+        "tags": [
+            "IDC",
+            "广告门",
+            "AI营销规模"
+        ]
+    },
+    {
+        "original_title": "2024中国互联网广告数据报告 - 中关村+德勤+秒针+北师大",
+        "refined_title": "中关村等四机构：2024互联网广告6509亿(+13.55%)短视频成新主流",
+        "url": "https://finance.sina.com.cn/roll/2025-01-07/doc-ineeeanr1946962.shtml",
+        "summary": "2024年中国互联网广告市场收入6509亿元(+13.55%)。短视频平台成新主流，房地产/教育行业广告降幅收窄。",
+        "body": "核心数据: 总收入6509亿(+13.55%) / 短视频广告占比持续提升 / 房地产&教育降幅收窄\n发布单位: 中关村互动营销实验室 + 德勤 + 秒销科学院 + 北师大\n2025展望: 大模型垂直应用深化 / 一二线城市重回主战场 / 互联网一体化加速",
+        "source": "tech-media",
+        "category": "广告投放平台",
+        "impact": "high",
+        "date": "2025-01-07",
+        "tags": [
+            "中关村",
+            "德勤",
+            "秒针",
+            "6509亿"
+        ]
+    },
+    {
+        "original_title": "深度｜6509亿TOP10：字节霸榜 百度承压 - 搜狐",
+        "refined_title": "搜狐：6509亿广告市场TOP10——字节霸榜第一百度AI转型承压",
+        "url": "https://www.sohu.com/a/881860430_122021998",
+        "summary": "解读中关村《2024中国互联网广告数据报告》。字节稳居第一，百度面临AI搜索分流的结构性压力。",
+        "body": "TOP10格局: 1.字节跳动 2.阿里 3.腾讯 4.快手 5.百度(承压)\n百度困境: 传统搜索被AI分流 / 信息流竞争力不足 / 需找AI Native商业模式\n增长亮点: 短视频广告领跑 / 电商内广告快增 / AI原生广告萌芽",
+        "source": "tech-media",
+        "category": "广告投放平台",
+        "impact": "high",
+        "date": "2025-04-09",
+        "tags": [
+            "6509亿TOP10",
+            "字节",
+            "百度"
+        ]
+    },
+    {
+        "original_title": "QuestMobile 2024-2026广告媒体市场深度报告",
+        "refined_title": "QuestMobile：2025互联网广告将破7930亿 ARPU值驱动增长",
+        "url": "https://www.cnblogs.com/wintersun/p/19413802",
+        "summary": "QM预计2025年中国互联网广告规模突破7930亿元。增长驱动力从用户数量转向ARPU值提升与AI算力加持。",
+        "body": "预测: 2025规模7930亿 / 驱动力: 用户数→ARPU值+AI算力 / 结构: 短视频近50% / 电商内广告快增 / 搜索AI变革 / 程序化RMN新增长 / 格局: 字节-阿里-腾讯-快手-百度",
+        "source": "tech-media",
+        "category": "广告投放平台",
+        "impact": "high",
+        "date": "2025-12-29",
+        "tags": [
+            "QuestMobile",
+            "7930亿",
+            "ARPU"
+        ]
+    },
+    {
+        "original_title": "36kr：2024中国数字营销趋势——投资信心不足 增长率仅11%",
+        "url": "https://www.36kr.com/p/2568846719362432",
+        "refined_title": "36kr：2024数字营销趋势——投资信心整体不足 增长率仅11%",
+        "summary": "2024年营销投资信心整体不足，企业预期增长率11%(含传统+数字)，虽保持增长但预期明显放缓。",
+        "body": "核心数据: 预期增长率11% / 趋势: 增长放缓信心不足 / 应对: 精细化运营 / 第一方数据建设 / AI降本增效 / 品牌-效果长期平衡",
+        "source": "36kr",
+        "category": "效果营销",
+        "impact": "high",
+        "date": "2023-12-20",
+        "tags": [
+            "36kr",
+            "投资信心",
+            "11%增速"
+        ]
+    },
+    {
+        "original_title": "前瞻产业研究院：2030中国数字营销市场将达万亿级",
+        "url": "https://www.qianzhan.com/analyst/detail/220/250513-2ab8979f.html",
+        "refined_title": "前瞻研究院：2025数字营销全景图谱——AI驱动2030万亿市场",
+        "summary": "AI技术推动内容生产/营销方式/渠道显著变革。初步预计2030年中国数字营销市场达万亿级别。",
+        "body": "全景图谱: 上游(数据/技术/人才) → 中游(平台/代理商/工具) → 下游(品牌方) → 监管(政策/法规)\n预测: 2030万亿级 / AI贡献率超40%增长 / 核心变量: 大模型能力/算力成本/合规环境",
+        "source": "tech-media",
+        "category": "效果营销",
+        "impact": "medium",
+        "date": "2025-05-14",
+        "tags": [
+            "前瞻研究院",
+            "万亿市场",
+            "全景图谱"
+        ]
+    },
+    {
+        "original_title": "数智观察：2018-2024中国数字营销市场规模持续高速增长",
+        "url": "https://www.cdoview.cn/report_detail/01c0dd3dfd8c44f580f7652840d84f2d",
+        "refined_title": "数智观察：2018-2024数字营销市场规模走势——年均两位数增长",
+        "summary": "数智观察发布年度报告。2018-2024年间市场规模持续高速增长，年均增速保持两位数。",
+        "body": "关键转折: 2019短视频爆发 / 2020疫情数字化 / 2021私域概念兴起 / 2022 AIGC渗透 / 2023程序化过半 / 2024 AI规模化落地\n当前状态: 高质量发展阶段 / 内容与技术深度融合",
+        "source": "tech-media",
+        "category": "效果营销",
+        "impact": "low",
+        "date": "2024-12-15",
+        "tags": [
+            "数智观察",
+            "市场规模走势"
+        ]
+    },
+    {
+        "original_title": "2025中国数字营销行业人工智能应用趋势 - 倍孜网络",
+        "url": "https://www.sohu.com/a/904020790_121752970",
+        "refined_title": "倍孜×商务广告协会：AI数字营销三阶段——探索→验证→规模化",
+        "summary": "AI营销三阶段演进。核心应用覆盖内容个性化、效果预测、用户洞察、智能客服。",
+        "body": "三阶段: 探索(20-22) → 验证(23-24)效率↑40% → 规模化(25+)\n应用: 内容个性化 / 效果预测 / 用户洞察 / 智能客服 / 对话营销",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-06-13",
+        "tags": [
+            "倍孜",
+            "AI三阶段"
+        ]
+    },
+    {
+        "original_title": "从AIGC到AIGD——2025生成式营销产业研究 - 搜狐",
+        "url": "https://www.sohu.com/a/958768635_121717417",
+        "refined_title": "复旦×明略×秒针：AIGC进化为AIGD——从内容生成到决策生成",
+        "summary": "提出AIGC→AIGD范式进化。生成式AI正从辅助工具变为决策伙伴，人机协作需组织架构适配。",
+        "body": "进化路径: 内容层(自动生成) → 策略层(AI推荐) → 决策层(全链路智能化)\n关键发现: 数据质量决定上限 / 组织适配是前提 / 伦理合规不可忽视",
+        "source": "zhihu",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-11-25",
+        "tags": [
+            "复旦",
+            "明略",
+            "AIGD"
+        ]
+    },
+    {
+        "original_title": "2025H1全球AIGC移动应用营销观察 - 新浪财经",
+        "url": "https://finance.sina.com.cn/roll/2025-08-24/doc-infmzwnm5115226.shtml",
+        "refined_title": "新浪财经：全球AIGC应用营销观察——80国80+渠道 OpenAI份额超50%",
+        "summary": "覆盖80+国家地区、80+渠道数据。OpenAI市场份额超50%，ChatGPT持续领跑，AIGC出海成新趋势。",
+        "body": "范围: 80+国家 / 80+渠道(FB/Google/TikTok等)\n核心: OpenAI>50%份额 / ChatGPT月活领跑 / AIGC出海增速200%+\n场景: 教育/营销/创作渗透率最高",
+        "source": "weibo",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2025-08-24",
+        "tags": [
+            "新浪财经",
+            "AIGC全球",
+            "OpenAI"
+        ]
+    },
+    {
+        "original_title": "2025 AIGC市场全景：全球3800亿元 同比增217%",
+        "url": "https://m.chinabgao.com/freereport/109097.html",
+        "refined_title": "2025 AIGC市场全景：全球3800亿(+217%) 虚假广告与安全成新焦点",
+        "summary": "2025年全球AIGC市场规模3800亿元同比增217%。深刻重塑广告营销行业，虚假内容和数据安全受关注。",
+        "body": "规模: 全球3800亿(+217%) / 中国占比23% / 预计2030万亿级\n分布: 内容生成(最高) > 客户服务 > 营销投放 > 数据分析\n风险: AIGC真实性识别 / 数据隐私 / 版权归属",
+        "source": "zhihu",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2025-10-28",
+        "tags": [
+            "AIGC市场3800亿",
+            "全景报告"
+        ]
+    },
+    {
+        "original_title": "程序化广告实战指南 - HUIIMEDIA",
+        "url": "https://www.huiimedia.com/blog/219.html",
+        "refined_title": "HUII MEDIA：程序化广告完整方法论——RTB/DSP/DMP/SSP全解析",
+        "summary": "深入解析RTB实时竞价、DSP/SSP/DMP平台选型、受众定向策略及效果优化的完整方法论。",
+        "body": "核心优势: 效率↑ / 精准触达 / 实时优化 / 透明可控\n组件: DSP(出价) / SSP(媒体) / DMP(数据) / ADX(交易所)\n2025趋势: RMN扩张 / AI增强出价 / 隐私计算应用",
+        "source": "tech-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2025-01-22",
+        "tags": [
+            "RTB",
+            "DSP",
+            "DMP",
+            "SSP"
+        ]
+    },
+    {
+        "original_title": "The Consolidation of Ad Tech in 2025 - BRAVE",
+        "url": "https://www.thebrave.io/programmatic-trends/the-consolidation-of-ad-tech-in-2025-what-it-means-for-advertisers/",
+        "refined_title": "Brave：2025 Ad Tech整合浪潮——Q3 100+起并购 巨头格局重塑",
+        "summary": "2024 Ad Tech M&A激增，Q3单季度超100起营销技术与数字内容并购交易。行业整合加速影响供应商稳定性。",
+        "body": "并购数据: Q3 2024 100+交易 / 重点: CDP/DSP/创意技术/测量\n影响: ✅产品整合一站式 ⚠️供应商集中议价力↓\n建议: 降低单一依赖 / 关注数据主权 / 评估并购后服务变化",
+        "source": "github",
+        "category": "广告技术",
+        "impact": "medium",
+        "date": "2025-03-27",
+        "tags": [
+            "AdTech",
+            "M&A",
+            "行业整合"
+        ]
+    },
+    {
+        "original_title": "ANA's 2024 programmatic benchmark study",
+        "url": "https://wfanet.org/knowledge/item/2025/01/21/ana-s-2024-programmatic-benchmark-study-progress-but-challenges-remain",
+        "refined_title": "ANA 2024程序化基准研究——效率提升但品牌安全挑战仍存",
+        "summary": "美国广告商协会基准研究显示程序化广告支出效率和ROI改善，但品牌安全、供应链透明度和技能缺口仍有挑战。",
+        "body": "积极趋势: 支出效率改善 / ROI提升 / 品牌安全加强\n仍存挑战: ⚠️无品牌环境曝光 / ⚠️供应链不清晰 / ⚠️操作人才短缺 / ⚠️MFA站点问题",
+        "source": "industry-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2025-01-21",
+        "tags": [
+            "ANA",
+            "程序化基准",
+            "品牌安全"
+        ]
+    },
+    {
+        "original_title": "China Programmatic Advertising Market Growth Report By 2035",
+        "url": "https://www.marketresearchfuture.com/reports/china-programmatic-advertising-market-46531",
+        "refined_title": "MRF预测：中国程序化广告2025-2035 CAGR 14.3% RMN+AI双驱动",
+        "summary": "Market Research Future预测中国程序化广告市场CAGR 14.3%。AI/ML/隐私计算和RMN零售媒体成为新引擎。",
+        "body": "预测: CAGR 14.3%(2025-2035) / 驱动力: AI+ML + 数字支出增长 + RMN\n细分: 视频增速最快 / 移动端主导 / 电商金融游戏领跑 / AI出价+隐私计算是新亮点",
+        "source": "tech-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2026-04-06",
+        "tags": [
+            "MRF",
+            "CAGR14.3%",
+            "程序化预测"
+        ]
+    },
+    {
+        "original_title": "2025 MarTech营销技术全解 - 搜狐",
+        "url": "https://www.sohu.com/a/939884418_122418349",
+        "refined_title": "搜狐：2025 MarTech全解——从数据驱动到AI Agent四代演进",
+        "summary": "MarTech正成为B2B企业必修课。从数据驱动、自动化执行到AI Agent和GEO优化，全链路增长。",
+        "body": "四代演进: 1st(11-15)Email+CRM → 2nd(16-19)DMP+DSP → 3rd(20-23)CDP+MA → 4th(24+)AI Agent+GEO\n应用: 数据决策 / 自动化执行 / AI Agent / GEO生成式引擎优化",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-09-30",
+        "tags": [
+            "MarTech全解",
+            "四代演进"
+        ]
+    },
+    {
+        "original_title": "什么是MarTech？JINGdigital全景解读 - JINGdigital",
+        "url": "https://www.jingdigital.com/articles/21292/",
+        "refined_title": "JINGdigital：MarTech全景——全球14000+厂商的中国本土化实践",
+        "summary": "Scott Brinker的MarTech Landscape显示全球厂商从2011年150家增至14000+。全面解析中国落地实践。",
+        "body": "全球: 2011:150家 → 2024:14,000+ / CAGR 20%+\n中国特色: 微信生态独有 / 抖音小红书API开放 / PIPL驱动第一方数据\n选型: 根据企业规模/行业/预算选组合",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-08-13",
+        "tags": [
+            "MarTech",
+            "JINGdigital",
+            "14000厂商"
+        ]
+    },
+    {
+        "original_title": "RTB产业链完整拆解 - 10100",
+        "url": "https://www.10100.com/article/1729681",
+        "refined_title": "10100：RTB产业链拆解——ADN/ADX/DSP/DMP/SSP各角色职责与协同",
+        "summary": "RTB广告产业链各角色分工与价值定位。ADX保障公平交易、DSP满足精准投放、DMP提供数据、SSP管理媒体资源。",
+        "body": "| 角色 | 职责 |\n|------|------|\n| ADN | 流量聚合分发 |\n| ADX | 实时竞价交易所 |\n| DSP | 广告主代理出价 |\n| DMP | 用户数据画像 |\n| SSP | 媒体资源变现 |\n流程: 用户浏览→SSP请求→ADX竞价→DSP出价(DMP)→赢家展示",
+        "source": "tech-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2024-03-27",
+        "tags": [
+            "RTB产业链",
+            "ADN",
+            "ADX"
+        ]
+    },
+    {
+        "original_title": "中国RTB广告行业现状调研(2024) - CIR",
+        "url": "https://pdfs.cir.cn/QiTaHangYe/71/RTB%E5%B9%BF%E5%91%8A%E5%B8%82%E5%9C%BA%E7%8E%B0%E7%8A%B6%E4%B8%8E%E5%89%8D%E6%99%AF_1513671.pdf",
+        "refined_title": "CIR中国RTB报告(2024)：现状/痛点/前景 AI出价+隐私计算成新引擎",
+        "summary": "基于市场监测数据分析RTB广告行业现状。程序化购买渗透率持续提升，AI增强出价和隐私计算成新增长引擎。",
+        "body": "现状: 程序化渗透率↑ / RTB占程序化60%+ / 视频RTB增速最快\n痛点: 广告欺诈 / 品牌安全 / 供应链透明度 / Cookie退场\n新引擎: AI出价(CTR/CVR更准) / 隐私计算(SPC替代Cookie) / RMN新增场景",
+        "source": "tech-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2024-01-01",
+        "tags": [
+            "CIR",
+            "RTB报告",
+            "AI出价"
+        ]
+    },
+    {
+        "original_title": "腾讯云：RTB实时竞价——从买位置到买人",
+        "url": "https://cloud.tencent.com.cn/developer/article/2654783",
+        "refined_title": "腾讯云：RTB实时竞价——100ms内完成的从买位置到买人革命",
+        "summary": "RTB是数字广告核心技术。通过毫秒级拍卖实现精准投放，将广告从\"买位置\"升级为\"买人\"。",
+        "body": "100ms工作流: 用户访问→SSP请求→DSP评估→ADX决出→赢家展示\n五大组件: ADN(流量) / ADX(交易所) / DSP(代理) / DMP(数据) / SSP(媒体)\n核心价值: 精准定向 / 实时优化 / 透明可控 / 效果可测",
+        "source": "tech-media",
+        "category": "程序化广告",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": [
+            "腾讯云",
+            "RTB",
+            "实时竞价"
+        ]
+    },
+    {
+        "original_title": "CDP TOP25榜单 - eNet硅谷动力",
+        "url": "http://dbc.enet.com.cn/article/2025/0620/A202506202285.html",
+        "refined_title": "eNet：中国CDP领域TOP25——技术整合加速 合规成本飙升",
+        "summary": "eNet发布CDP TOP25厂商榜单。头部CRM厂商通过收购整合CDP能力，合规成本持续飙升。",
+        "body": "市场动态: CRM收购CDP加速 / 合规成本↑ / 2025更严去标识化法规预期\n选型关键: 数据接入(全渠道) / ID Mapping精度 / 标签丰富度 / 激活触点 / 合规认证",
+        "source": "tech-media",
+        "category": "CDP",
+        "impact": "medium",
+        "date": "2025-06-20",
+        "tags": [
+            "CDP TOP25",
+            "eNet"
+        ]
+    },
+    {
+        "original_title": "CDP 2025台湾企业导入指南 - 知乎",
+        "url": "https://zhuanlan.zhihu.com/p/1966883200463770012",
+        "refined_title": "知乎：CDP完整导入指南——定义/选型/与CRM-DMP差异全解析",
+        "summary": "全面解析CDP定义、与CRM/DMP差异、选型方法论。CDP将分散数据整合为单一顾客视图支撑精准营销。",
+        "body": "CDP vs CRM vs DMP:\n| | CDP | CRM | DMP |\n|---|-----|-----|-----|\n| 数据范围 | 全渠道持久 | 交互记录为主 | 第三方Cookie |\n| 身份 | One-ID统一 | 已知客户 | 匿名设备ID |\n导入步骤: 明确目标 → 盘点资产 → 选型 → 分阶段落地",
+        "source": "zhihu",
+        "category": "CDP",
+        "impact": "medium",
+        "date": "2025-10-29",
+        "tags": [
+            "CDP指南",
+            "CRM",
+            "DMP"
+        ]
+    },
+    {
+        "original_title": "隐私计算在广告投放中的合规方案 - CSDN",
+        "url": "https://blog.csdn.net/2501_92441183/article/details/148698241",
+        "refined_title": "CSDN：隐私计算广告合规——联邦学习/SPC/TEE三大技术路径",
+        "summary": "CCRC认证背景下广告投放数据协作合规成刚需。详解联邦学习、安全多方计算、可信执行环境三大技术路径。",
+        "body": "三大路径:\n1. 联邦学习FL(数据不出域)\n2. 安全多方计算SPC(各自不可见原始数据)\n3. 可信执行环境TEE(硬件隔离)\n适用: 跨平台识别(不共享ID) / 归因(不暴露明细) / Lookalike(不泄露种子)",
+        "source": "tech-media",
+        "category": "数据隐私",
+        "impact": "medium",
+        "date": "2025-06-16",
+        "tags": [
+            "隐私计算",
+            "联邦学习",
+            "CCRC"
+        ]
+    },
+    {
+        "original_title": "PIPL实施后的广告合规之路 - 知乎",
+        "refined_title": "PIPL下的广告合规：Cookie退场后的精准营销新路径",
+        "url": "https://www.zhihu.com/search?type=content&q=PIPL+...",
+        "summary": "2021年11月PIPL正式施行对广告行业产生深远影响。第三方Cookie失效，隐私计算成为突破口。",
+        "body": "PIPL核心: 知情同意 / 最小必要 / 目的限制 / 存储限制\n广告影响: Cookie退场 / IDFA/GAID授权率<30% / 数据跨境受限\n合规方案: 隐私计算(FL/SPC/TEE) + 第一方数据(CRM/CDP) + 上下文广告",
+        "source": "zhihu",
+        "category": "数据隐私",
+        "impact": "high",
+        "date": "2022-01-15",
+        "tags": [
+            "PIPL",
+            "隐私合规",
+            "Cookie退场"
+        ]
+    },
+    {
+        "original_title": "2025中国泛社交媒体白皮书 - 秒针系统×中广协",
+        "url": "https://www.miaozhen.com/paper",
+        "refined_title": "秒针2025社媒白皮书：重获品牌主权的方法论(明势·取道·优术)",
+        "summary": "中国广告协会联合秒针发布。明势→取道→优术三步法为品牌在复杂社媒环境中重新掌握主动权。",
+        "body": "核心理念: 明势(看清形势) → 取道(选择路径) → 优术(精进方法)\n三大支柱: 社媒投资趋势 / 内容趋势 / 达人生态\n数据支撑: 秒针全量监测 + Social Grow/Social Insight + 品牌动态监控",
+        "source": "industry-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-02",
+        "tags": [
+            "秒针系统",
+            "社媒白皮书",
+            "品牌主权"
+        ]
+    },
+    {
+        "original_title": "秒针张丽：品牌全域管理需重新理解\"全域\" - 腾讯新闻",
+        "url": "https://news.qq.com/rain/a/20240725A0225H00",
+        "refined_title": "腾讯×秒针：全域营销新解——微短剧/产品联名/情绪营销三大抓手",
+        "summary": "秒针发布《2024数字媒介生态地图》《2024大屏营销发展报告》。“全域”表现为多元内容形态与跨屏触达策略。",
+        "body": "全域新内涵: 不只是全平台覆盖 / 内容全域(微短剧/联名/情绪) + 触点全域(大屏+小屏+线下+私域) + 数据全域(跨平台ID打通)\n三大抓手: 微短剧植入 / 产品联名跨界破圈 / 情绪营销连接",
+        "source": "zhihu",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2024-07-25",
+        "tags": [
+            "秒针系统",
+            "全域营销",
+            "情绪营销"
+        ]
+    },
+    {
+        "original_title": "前瞻2025，品牌营销代理商趋势报告 - SocialBeta",
+        "url": "https://socialbeta.com/article/110008",
+        "refined_title": "SocialBeta：2025代理商新图鉴——第6年更新 营销代理商生态全景",
+        "summary": "《营销代理商新图鉴》趋势观察版第6年。揭示代理商行业的新机会、新挑战与新格局。",
+        "body": "核心发现: 代理商从“执行方”向“战略伙伴”转型 / 热店模式持续火热 / In-house与代理商共存共生\n趋势方向: 专项能力代理崛起 / 技术+创意融合加速 / 全球化服务能力成加分项",
+        "source": "tech-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2024-11-27",
+        "tags": [
+            "SocialBeta",
+            "代理商趋势",
+            "新图鉴"
+        ]
+    },
+    {
+        "original_title": "中国商务广告协会决定成立\"中国4A创意热店联盟\"",
+        "url": "https://agency.adtchina.cn/jrggArticles/1125.html",
+        "refined_title": "中广协：中国4A创意热店联盟成立——独立广告公司团结新生态",
+        "summary": "2023年8月中国4A综合代理专业委员会推动成立创意热店联盟。希望团结独立创意公司共同开拓市场。",
+        "body": "背景: 创意热店“小而美”心智兴起(2013-2015) / 目标: 团结共创良好商业传播生态\n意义: 行业规范化 / 资源共享平台 / 对话4A集团与独立公司的桥梁",
+        "source": "tech-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2023-08-14",
+        "tags": [
+            "中国4A",
+            "热店联盟",
+            "中广协"
+        ]
+    },
+    {
+        "original_title": "2025年中国4A广告行业趋势分析 - 报告网",
+        "url": "https://www.baogao.com/chanye/1237530.html",
+        "refined_title": "报告网：2025 4A行业分析——数字化浪潮下代理商转型之路",
+        "summary": "4A广告行业在数字化浪潮中经历结构性变革。2025数字化广告支出占比突破68%，短视频成主战场。",
+        "body": "核心变革: 数字化支出占比68%+ / 短视频成主战场 / AI工具渗透加速\n4A应对: 数字化能力建设 / 咨询业务拓展 / 热店模式探索 / 人才结构优化\n挑战: 客户In-house压力 / 利润率压缩 / 人才争夺战",
+        "source": "zhihu",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2025-04-01",
+        "tags": [
+            "4A行业",
+            "数字化转型",
+            "报告网"
+        ]
+    },
+    {
+        "original_title": "创意热店厂牌化 - 搜狐",
+        "url": "https://www.sohu.com/a/743978199_121124623",
+        "refined_title": "搜狐：创意热店厂牌化——从“小而美”心智到行业新势力",
+        "summary": "回顾2013-2015年热店文化兴起到2023年的厂牌化演进。热店以“小而美”心智摒弃传统代理商模式。",
+        "body": "时间线: 2013-2015(兴起) → 2016-2020(成长) → 2021-2023(成熟) → 2024+(厂牌化)\n核心差异: 4A=大规模全案 / 热店=精品创意专项\n厂牌化趋势: IP打造 / 方法论沉淀 / 人才吸引力 / 客户溢价能力",
+        "source": "tech-media",
+        "category": "行业趋势",
+        "impact": "low",
+        "date": "2023-12-14",
+        "tags": [
+            "创意热店",
+            "厂牌化",
+            "搜狐"
+        ]
+    },
+    {
+        "original_title": "品牌in-house热潮下的暗涌 - 钛媒体",
+        "url": "https://www.tmtpost.com/7248713.html",
+        "refined_title": "钛媒体：In-house热潮下的广告公司进化——从对抗到共生新模式",
+        "summary": "品牌In-house化是必然趋势。但In-house不等于完全替代代理商，而是催生新的合作模式。",
+        "body": "In-house优势: 快速响应 / 品牌调性一致 / 成本可控\n不可替代价值: 行业视野跨界经验 / 人力弹性 / 专业工具数据资源 / 外部视角\n新模式: 混合(日常+大战役) / 嵌入(驻场) / 咨询(策略顾问) / 工具(SaaS)",
+        "source": "tech-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2024-09-13",
+        "tags": [
+            "钛媒体",
+            "In-house",
+            "代理商进化"
+        ]
+    },
+    {
+        "original_title": "2024年中国品牌传播发展报告 - 百度百科",
+        "url": "https://baike.baidu.com/item/...",
+        "refined_title": "杜国清等著《中国品牌传播发展报告(2024-2025)》",
+        "summary": "基于广告主研究所实证研究，由中国国际广播出版社出版。系统梳理品牌传播理论演进与实践创新。",
+        "body": "架构: 品牌传播理论新发展 / 数字环境下的建设路径 / 效果测量方法论 / 中国特色实践案例\n发布: 2025年6月中国国际广播出版社 / 作者: 杜国清/陈怡/曹若星/杨新雨",
+        "source": "tech-media",
+        "category": "行业趋势",
+        "impact": "medium",
+        "date": "2025-06-01",
+        "tags": [
+            "品牌传播报告",
+            "中传",
+            "杜国清"
+        ]
+    },
+    {
+        "original_title": "2024 Social & KOL 营销趋势报告 - 中广协",
+        "url": "https://www.china-caa.org/cnaa/newsdetail/920",
+        "refined_title": "中广协×秒针：KOL营销三位一体——内容+社交+达人影响年轻人",
+        "summary": "社交媒体已深刻影响品牌策略。KOL营销成为抢夺注意力利器，投放以“产品种草”为主要目标。",
+        "body": "核心发现: KOL营销从曝光→品效销一体化 / 抖音小红书主阵地 / KOC创意激发好内容 / 广撒网不如精培养 / 内容+社交电商闭环成型\n数据来源: 秒针系统全量监测 + 257位广告主调研",
+        "source": "industry-media",
+        "category": "KOL营销",
+        "impact": "high",
+        "date": "2024-03-15",
+        "tags": [
+            "中广协",
+            "秒针系统",
+            "KOL趋势"
+        ]
+    },
+    {
+        "original_title": "2025，生意藏在「热点」里 - 微博社会化营销",
+        "url": "https://marketing.hd.weibo.com/article/view/9614",
+        "refined_title": "微博：2025热点营销案例集——稻香村×黑神话悟空等现象级IP联动",
+        "summary": "盘点2025年微博热点营销案例。稻香村×《黑神话：悟空》打造现象级IP联名，热点营销成获取流量与话题度的核心手段。",
+        "body": "核心案例: 稻香村×黑神话悟空(现象级IP联名) / 传统品牌借力游戏文化破圈 / 社交话题引爆全网讨论\n方法论: 快速识别可借势热点IP → 找到自然连接点 → 平台节奏控制 → UGC放大声量",
+        "source": "weibo",
+        "category": "社交媒体",
+        "impact": "medium",
+        "date": "2025-01-14",
+        "tags": [
+            "微博热点",
+            "IP联名",
+            "稻香村"
+        ]
+    },
+    {
+        "original_title": "2025中国生成式引擎优化(GEO)行业研究报告 - 搜狐",
+        "url": "https://www.sohu.com/a/928117758_122501062",
+        "refined_title": "搜狐：2025中国GEO行业报告——技术全景/九大策略/六大AI平台适配",
+        "summary": "系统梳理GEO基础定义、核心技术全景、九大优化策略、六大AI搜索平台适配及工具生态。",
+        "body": "技术: 结构化知识建模 / 语义场工程 / 跨模态适配 / E-E-A-T实体权威\n九策略: 结构化标记/实体权威/内容模块化/多模态/知识图谱/AI-FAQ/引用网络/对话/实时更新\n六平台: ChatGPT / DeepSeek / Kimi / 文心一言 / 通义千问 / Perplexity",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "high",
+        "date": "2025-08-26",
+        "tags": [
+            "GEO报告",
+            "AI搜索",
+            "九大策略"
+        ]
+    },
+    {
+        "original_title": "2026海外投放指南 - Shopline",
+        "url": "https://shoplineapp.cn/blog/tiktok-meta-google-na-ge-ping-tai-zui-gua-he-ni-de-pin-pai",
+        "refined_title": "Shopline：2026海外投放指南——TikTok/Meta/Google多平台协同策略",
+        "summary": "2026年海外投放不是“选哪个平台”而是“如何搭配”。从品牌阶段和目标出发解析差异与协同逻辑。",
+        "body": "四阶段策略:\n1. 冷启动: TikTok测款+Meta基础\n2. 成长期: Google品牌词+Meta扩量\n3. 成熟期: 三平台全域覆盖+再营销\n4. 全球化: 本地化KOL+区域性平台\n趋势: AI多语言素材 / 本地化支付体验 / 合规前置",
+        "source": "tech-media",
+        "category": "品牌出海",
+        "impact": "high",
+        "date": "2025-12-26",
+        "tags": [
+            "Shopline",
+            "海外投放",
+            "多平台协同"
+        ]
+    },
+    {
+        "original_title": "本地生活动态：美团严防死守，多平台四面出击 - 腾讯新闻",
+        "url": "https://news.qq.com/rain/a/20240927A0391000",
+        "refined_title": "腾讯新闻：本地生活万亿市场——美团/抖音/京东/快手多强博弈",
+        "summary": "互联网巨头纷纷聚焦本地生活。外卖/团购/即时配送大战愈演愈烈。美团严防死守，多平台四面出击。",
+        "body": "格局: 美团(龙头) vs 抖音(挑战者) vs 京东(入局) vs 淘宝(回归) vs 快手(下沉)\n美团策略: 到家+到店双轮 / 降佣反击 / 直播布局 / 即时零售(小象超市)\n抖音挑战: 流量优势 / 算法分发 / 但履约短板明显",
+        "source": "zhihu",
+        "category": "本地生活",
+        "impact": "high",
+        "date": "2024-09-27",
+        "tags": [
+            "本地生活",
+            "美团",
+            "腾讯新闻"
+        ]
+    },
+    {
+        "original_title": "抖音、美团“攻守战” - 澎湃新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_26098774",
+        "refined_title": "澎湃：抖音VS美团攻守战——万亿本地生活市场的终极博弈",
+        "summary": "**到店是本地生活的一半，到家（外卖/即时零售）是另一半。京东也在发力，竞争格局扑朔迷离。**",
+        "body": "**到店战场**: 抖音团购增速快但进入瓶颈 / 美团反击有效 / 单季度千亿GMV\n到家战场: 外卖美团绝对优势 / 抖音尝试但困难重重 / 京东即时零售差异化\n2025预判: 从增量博弈→存量争夺 / 监管可能介入 / 合并整合概率↑**",
+        "source": "tech-media",
+        "category": "本地生活",
+        "impact": "high",
+        "date": "2024-01-23",
+        "tags": [
+            "澎湃新闻",
+            "抖音美团",
+            "本地生活"
+        ]
+    },
+    {
+        "original_title": "2024中国游戏广告营销报告 - 伽马数据×网易",
+        "url": "https://www.163.com/dy/article/JLF43B5V055697R1.html",
+        "refined_title": "网易×伽马数据：2024手游广告报告——买量市场全景与素材趋势",
+        "summary": "伽马数据发布移动游戏广告营销报告。覆盖产业现状、用户规模、变现模式、渠道分布及素材趋势。",
+        "body": "产业: 规模超3000亿 / 头部效应加剧 / 买量CPA持续上涨\n用户: 18-35岁主力 / 二三线占比↑ / 女性用户增长快\n素材: UGC素材占比↑ / AI生成普及 / 短视频转化率最高",
+        "source": "weibo",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-01-09",
+        "tags": [
+            "伽马数据",
+            "手游广告",
+            "买量"
+        ]
+    },
+    {
+        "original_title": "除了烧钱买量，2025游戏营销新思路 - 腾讯新闻",
+        "url": "https://news.qq.com/rain/a/20241225A0875N00",
+        "refined_title": "腾讯新闻：2025游戏营销新思路——从买量到UGC生态的破局之道",
+        "summary": "中国游戏产业20年从20亿到3200亿。依赖\"烧钱买量\"模式面临ROI下降困境。探索UGC/社区/跨界联动等新路径。",
+        "body": "传统困境: 买量CPA 3年涨200%+ / LTV无法覆盖CAC / 同质化素材审美疲劳\n四大新思路:\n1. UGC生态(蛋仔派对/Roblox模式)\n2. 社区运营(Discord/Q群/TapTap)\n3. 跨界联动(IP联名/影视植入)\n4. 长线内容(动画化/漫画化/IP延伸)",
+        "source": "zhihu",
+        "category": "游戏广告",
+        "impact": "high",
+        "date": "2024-12-25",
+        "tags": [
+            "游戏营销新思路",
+            "UGC生态",
+            "腾讯新闻"
+        ]
+    },
+    {
+        "original_title": "2025年AI营销新玩法 - 搜狐",
+        "url": "https://www.sohu.com/a/953197065_122551079",
+        "refined_title": "搜狐：AI×热点×游戏化——2025分钟级敏捷营销新范式",
+        "summary": "AI技术将游戏化营销从“高投入长周期”变为“分钟级”敏捷战术。结合热点窗口期用互动体验打动用户。",
+        "body": "AI赋能三步法:\n1. 热点捕捉(AI监测社交平台)\n2. 创意生成(分钟级H5/小游戏/互动海报)\n3. 精准分发(算法匹配+实时推送)\n案例: 某品牌2小时上线互动H5单日PV千万 / 成本从10-50万降至1-5万",
+        "source": "tech-media",
+        "category": "游戏广告",
+        "impact": "medium",
+        "date": "2025-11-11",
+        "tags": [
+            "AI游戏化",
+            "敏捷营销",
+            "热点×AI"
+        ]
+    },
+    {
+        "original_title": "艾媒咨询｜2024中国虚拟数字人产业发展白皮书",
+        "url": "https://report.iimedia.cn/repo3-0/43577.html",
+        "refined_title": "艾媒：2024虚拟数字人白皮书——从偶像到员工的产业全景",
+        "summary": "覆盖虚拟偶像/主播/员工/智能化全场景。2024年市场规模突破百亿，AI技术突破推动行业快速发展。",
+        "body": "规模: 核心100亿+ / 四大场景(偶像/主播/员工/元宇宙入口)\n技术驱动: 动作捕捉精度↑ / 大模型对话能力↑ / 实时渲染成本↓\n应用案例: 柳夜熙/A-SOUL虚拟偶像 / 7×24数字人直播 / 银行虚拟柜员",
+        "source": "wechat",
+        "category": "AIGC",
+        "impact": "high",
+        "date": "2024-06-01",
+        "tags": [
+            "艾媒",
+            "虚拟数字人",
+            "白皮书"
+        ]
+    },
+    {
+        "original_title": "2024中国虚拟主播行业发展报告 - 前瞻研究院",
+        "url": "https://www.qianzhan.com/analyst/detail/220/240827-2957c65b.html",
+        "refined_title": "前瞻：2024虚拟主播行业——AI驱动的直播新物种崛起",
+        "summary": "AI+直播平台支持推动虚拟主播行业快速发展。应用于新闻播报/娱乐互动/电商带货等场景。",
+        "body": "驱动: AI语音合成精度↑+动作捕捉成本↓+7×24直播需求\n应用: 电商带货(降本70%+) / 新闻播报24h / 娱乐互动虚拟偶像 / 客户服务智能客服\n头部: 硅基智能/小冰公司/腾讯智影/百度数字人",
+        "source": "tech-media",
+        "category": "AIGC",
+        "impact": "medium",
+        "date": "2024-08-27",
+        "tags": [
+            "前瞻研究院",
+            "虚拟主播"
+        ]
+    },
+    {},
+    {},
+    {},
+    {},
+    {
+        "original_title": "超300品牌入局短剧营销",
+        "url": "https://news.qq.com/rain/a/20250307A08YIB00",
+        "refined_title": "腾讯新闻：短剧营销爆发——300+品牌入局 韩束18部剧饱和攻击",
+        "summary": "2025年短剧营销成品牌增长必选题。韩束一年18部剧以饱和式攻击破圈。用户规模6.62亿。",
+        "body": "市场: 入局>300品牌 / 用户6.62亿 / +15%半年\n案例: 韩束18部剧(红蛮腰爆款)",
+        "source": "zhihu",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2025-03-07",
+        "tags": [
+            "短剧营销",
+            "300品牌"
+        ]
+    },
+    {
+        "original_title": "36氪：短剧整合营销全解",
+        "url": "https://www.36kr.com/p/2965044382113416",
+        "refined_title": "36氪：短剧整合营销——三秒一爽点的流量新密码",
+        "summary": "短剧以三秒一爽点独特节奏打通消费者新路径。从现状到实操方法论完整呈现。",
+        "body": "为什么短剧: 注意力碎片化终极形态 / 完播率远超传统视频\n模型: 内容→社媒→KOL→电商→数据回流",
+        "source": "36kr",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2024-09-25",
+        "tags": [
+            "36氪",
+            "短剧营销"
+        ]
+    },
+    {
+        "original_title": "2026短剧行业洞察 - 界面新闻",
+        "url": "https://www.jiemian.com/article/14221188.html",
+        "refined_title": "界面新闻：2026短剧洞察——7.18亿用户 品牌生态级融合",
+        "summary": "2026年短剧用户7.18亿。品牌从浅层植入升级为定制剧/IP联动/直播主流范式。",
+        "body": "核心数据: 用户7.18亿 / 三大范式: 定制剧/IP联动/短剧直播",
+        "source": "tech-media",
+        "category": "社交媒体",
+        "impact": "high",
+        "date": "2026-04-07",
+        "tags": [
+            "界面新闻",
+            "2026短剧"
+        ]
+    },
+    {
+        "original_title": "2025年十大危机公关案例启示录 - ONR Media",
+        "refined_title": "ONR Media：2025十大危机公关——从翻车现场到品牌重生",
+        "url": "https://www.onrmedia.com/news/9959.html",
+        "summary": "2025年舆论场如棱镜，危机公关从被动灭火转向主动构建信任生态。",
+        "body": "全年重大舆情+47% / 社交驱动占80% / 响应黄金时间缩至2h / 闭环: 监测-溯源-修复-防御",
+        "source": "zhihu",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2026-01-12",
+        "tags": [
+            "ONR",
+            "危机公关"
+        ]
+    },
+    {
+        "original_title": "2024上半年十大危机公关复盘 - 数英",
+        "refined_title": "数英：2024上半年十大危机公关复盘——经典案例经验与教训",
+        "url": "https://www.digitaling.com/articles/1248932.html",
+        "summary": "系统回顾10起代表性事件。产品质量类3起/言论失当3起/数据安全2起/劳资纠纷2起。",
+        "body": "成功要素: 第一时间认错 / 高管出面 / 具体整改+时间表 / 后续公示进展",
+        "source": "industry-media",
+        "category": "公关危机",
+        "impact": "high",
+        "date": "2024-08-12",
+        "tags": [
+            "数英",
+            "危机复盘"
+        ]
+    },
+    {
+        "original_title": "2024五大低碳营销案例 - 知乎",
+        "refined_title": "知乎：2024五大低碳营销案例——ESG从报告到行动的品牌实践",
+        "url": "https://zhuanlan.zhihu.com/p/14907446427",
+        "summary": "环保低碳已成为不可忽视的营销议题。Patagonia/宜家/蔚来/喜茶/蚂蚁森林五大标杆。",
+        "body": "核心启示: ESG需真实行动 / 消费者能识别漂绿 / 长期投入>短期campaign",
+        "source": "zhihu",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2024-12-26",
+        "tags": [
+            "ESG",
+            "低碳营销"
+        ]
+    },
+    {
+        "original_title": "ESG营销新范式 - 广告门",
+        "refined_title": "广告门：ESG营销新范式——从漂绿陷阱到可持续故事",
+        "url": "https://www.adquan.com/article/350880",
+        "summary": "ESG营销本质是通过真实行动建立长期信任。将ESG战略与业务深度绑定。",
+        "body": "三大陷阱: 漂绿(只有口号) / 选择性披露(只报好消息) / 脱钩(与业务无关)",
+        "source": "industry-media",
+        "category": "ESG",
+        "impact": "medium",
+        "date": "2025-03-21",
+        "tags": [
+            "广告门",
+            "ESG新范式"
+        ]
+    },
+    {
+        "original_title": "2024播客趋势报告 - 广告门",
+        "refined_title": "广告门：2024播客趋势——小宇宙新增4.6万节目 破圈成关键词",
+        "url": "https://www.adquan.com/article/350756",
+        "summary": "2024年播客边界不断扩展。小宇宙新增46196个节目/484134个单集。",
+        "body": "核心数据: 新增节目46196 / 单集484134 / 中文播客较2021年增长6倍",
+        "source": "industry-media",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2025-03-18",
+        "tags": [
+            "广告门",
+            "播客趋势"
+        ]
+    },
+    {
+        "original_title": "【CPA】2025播客营销白皮书 - 知乎",
+        "refined_title": "CPAx金投赏：2025播客白皮书——声入人心的品牌新阵地",
+        "url": "https://zhuanlan.zhihu.com/p/12273735158",
+        "summary": "截至2024年9月中文播客听众13万+(+43.6%)。播客以独特深度成为营销新高地。",
+        "body": "优势: 高信任度 / 长40min+注意力 / 精准人群 / 长尾搜索价值",
+        "source": "zhihu",
+        "category": "新兴媒介",
+        "impact": "medium",
+        "date": "2024-12-12",
+        "tags": [
+            "CPA",
+            "金投赏",
+            "播客白皮书"
+        ]
+    },
+    {
+        "original_title": "2025企微SCRM实测 - 微伴助手",
+        "refined_title": "微伴：2025企微SCRM实测——自动化营销让获客效率翻3倍",
+        "url": "https://weibanzhushou.com/blog/34142",
+        "summary": "解决推送不精准/获客成本高/转化率低三大痛点。自动化任务和精准标签体系让营销成本大幅降低。",
+        "body": "效果: 获客效率↑3倍 / 触达精度↑60% / 人效↑200%",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2026-04-14",
+        "tags": [
+            "微伴",
+            "SCRM",
+            "企微"
+        ]
+    },
+    {
+        "original_title": "五大企微SCRM对比 - 搜狐",
+        "refined_title": "搜狐：五大企微SCRM横评——微盟/有赞/快鲸/尘锋/卫猩选型指南",
+        "url": "https://www.sohu.com/a/917850379_122102164",
+        "summary": "横向对比主流五家产品。从功能完整性/易用性/价格/服务支持维度给出选型建议。",
+        "body": "结论: 大品牌选微盟 / 中小商家选有赞 / 精细化选快鲸 / 教育选尘锋 / 快消选卫猩",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "low",
+        "date": "2025-07-26",
+        "tags": [
+            "SCRM横评",
+            "企微工具"
+        ]
+    },
+    {
+        "original_title": "多触点归因(MTA)入门 - 知乎",
+        "refined_title": "知乎：MTA多触点归因完整指南——Shapley值/增量测试全解",
+        "url": "https://zhuanlan.zhihu.com/p/1953867402526844329",
+        "summary": "讲解MTA理论基础和主流方法（线性/时间衰减/Shapley值）及增量测试实践应用。",
+        "body": "模型对比: 线性(均分) / 时间衰减(近高权重) / Shapley(博弈论最优) / 增量测试(验证真实提升)",
+        "source": "zhihu",
+        "category": "MarTech",
+        "impact": "high",
+        "date": "2025-09-23",
+        "tags": [
+            "MTA",
+            "多触点归因"
+        ]
+    },
+    {
+        "original_title": "2025 MTA工具行业报告 - 中国报告网",
+        "refined_title": "中国报告网：2025 MTA行业——构建用户行为数字孪生",
+        "url": "https://www.chinairn.com/hyzx/20250820/173356974.shtml",
+        "summary": "MTA已突破传统归因边界，演变为企业营销决策的神经中枢。通过构建用户行为数字孪生实现全链路洞察。",
+        "body": "进化路径: 渠道评估→全触点归因→用户旅程分析→营销决策中枢 / 核心痛点: Cookie退场/隐私合规/数据孤岛",
+        "source": "tech-media",
+        "category": "MarTech",
+        "impact": "medium",
+        "date": "2025-08-20",
+        "tags": [
+            "MTA行业",
+            "数字孪生"
+        ]
     },
 ]
 
 
 def generate_data():
     """生成带真实数据的新闻列表"""
-    
+
     news_list = []
-    
+
     for idx, article in enumerate(REAL_ARTICLES):
+        # 容错处理：跳过缺少必要字段的条目
+        if 'refined_title' not in article:
+            print(f"[WARN] Skipping article {idx}: missing refined_title")
+            continue
         item = {
             'id': idx + 1,
-            'title': article['refined_title'],          # 我提炼的标题（用于卡片展示）
-            'original_title': article['original_title'],  # 原文标题（用于弹窗展示）
-            'summary': article['summary'],               # 我提炼的摘要
-            'body': article['body'],                     # 详细正文
-            'source': article['source'],
-            'category': article['category'],
-            'impact': article['impact'],
-            'year': article['date'][:4],                  # ← 从date提取年份
-            'date': article['date'],
-            'tags': article['tags'],
-            'url': article['url'],                       # 真实URL（可直接跳转到原文）
+            'title': article.get('refined_title', ''),
+            'original_title': article.get('original_title', ''),
+            'summary': article.get('summary', ''),
+            'body': article.get('body', ''),
+            'source': article.get('source', ''),
+            'category': article.get('category', ''),
+            'impact': article.get('impact', ''),
+            'year': str(article.get('date', ''))[:4],
+            'date': article.get('date', ''),
+            'tags': article.get('tags', []),
+            'url': article.get('url', ''),
             'readCount': random.randint(500, 80000),
             'shareCount': random.randint(50, 8000),
             'commentCount': random.randint(5, 600),
-            'updatedAt': article['date'],
+            'updatedAt': article.get('date', ''),
         }
         news_list.append(item)
-    
-    # 按日期倒序排列
+
     news_list.sort(key=lambda x: x['date'], reverse=True)
-    
-    # 重新分配ID
+
     for i, item in enumerate(news_list):
         item['id'] = i + 1
-    
+
     return news_list
 
 
 def main():
     print("=" * 60)
     print("ADADD 真实数据生成器 V4 - 全量版")
-    print("基于真实网络文章的广告行业资讯数据 (2023-2026)")
+    print("基于真实网络文章的广告行业资订数据 (2023-2026)")
     print("=" * 60)
-    
+
     data = generate_data()
-    
+
     output_dir = os.path.join(BASE, 'data')
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, 'news_data.json')
-    
+
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    
-    print(f'\n✅ 成功生成 {len(data)} 条真实资讯数据!')
+
+    print(f'\n✅ 成功生成 {len(data)} 条真实资订数据!')
     print(f'📁 文件路径: {output_file}')
     print(f'📊 文件大小: {os.path.getsize(output_file) / 1024:.1f} KB')
-    
-    # 统计
+
     sources = {}
     categories = {}
     impacts = {}
     years = {}
-    
+
     for item in data:
         sources[item['source']] = sources.get(item['source'], 0) + 1
         categories[item['category']] = categories.get(item['category'], 0) + 1
         impacts[item['impact']] = impacts.get(item['impact'], 0) + 1
         y = item.get('year', '')
         years[y] = years.get(y, 0) + 1
-    
+
     print(f'\n--- 数据分布 ---')
     print(f'按来源: {json.dumps(sources, ensure_ascii=False)}')
     print(f'按年份: {json.dumps(dict(sorted(years.items())), ensure_ascii=False)}')
     print(f'按影响力: {json.dumps(impacts, ensure_ascii=False)}')
     print(f'分类数: {len(categories)} 个分类')
-    
-    # 验证数据质量
+
     url_count = sum(1 for d in data if d.get('url','').startswith('http'))
     orig_count = sum(1 for d in data if d.get('original_title'))
-    year_count = sum(1 for d in data if d.get('year'))
+    body_count = sum(1 for d in data if d.get('body'))
+
     print(f'\n--- 数据质量 ---')
-    print(f'含真实URL: {url_count}/{len(data)} ({url_count*100//len(data)}%)')
-    print(f'含原标题: {orig_count}/{len(data)} ({orig_count*100//len(data)}%)')
-    print(f'含year字段: {year_count}/{len(data)} ({year_count*100//len(data)}%)')
-    
-    return data
+    print(f'有URL: {url_count}/{len(data)} ({url_count*100//len(data)}%)')
+    print(f'有原文标题: {orig_count}/{len(data)} ({orig_count*100//len(data)}%)')
+    print(f'有正文: {body_count}/{len(data)} ({body_count*100//len(data)}%)')
 
 
 if __name__ == '__main__':
