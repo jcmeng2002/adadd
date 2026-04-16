@@ -63,7 +63,7 @@ var modalOverlay=$("modalOverlay"),modalClose=$("modalClose"),modalBody=$("modal
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
 var SOURCE_SEARCH_TPL={"zhihu":"https://www.zhihu.com/search?type=content&q=","36kr":"https://36kr.com/search/articles?q=","weibo":"https://s.weibo.com/weibo?q=","github":"https://github.com/search?q=","wechat":"https://weixin.sogou.com/weixin?type=2&query=","tech-media":"https://www.google.com/search?q=site:juejin.cn+","industry-media":"https://www.google.com/search?q=site:madisonboom.com+OR+site:meihua.info+OR+site:adquan.com+"};
 function getSearchQuery(item){var kw=item.category||"";if(item.tags&&item.tags.length>0)kw+=" "+item.tags[0];var t=item.title.replace(/\d{4}年.*?[白皮书|指南|观察|复盘|报告|洞察]/g,"").replace(/[：:].*/g,"");kw=t.trim()||kw;return kw}
-function getNewsUrl(item){if(item.url&&item.url.length>0&&(!item.url.includes("search?"))&&(!item.url.includes("/search/")))return item.url;var src=item.source||"",tpl=SOURCE_SEARCH_TPL[src],q=getSearchQuery(item);if(tpl)return tpl+encodeURIComponent(q);return "https://www.google.com/search?q="+encodeURIComponent(q)+" 广告 营销 2026")}
+function getNewsUrl(item){if(item.url&&item.url.length>0&&(!item.url.includes("search?"))&&(!item.url.includes("/search/")))return item.url;var src=item.source||"",tpl=SOURCE_SEARCH_TPL[src],q=getSearchQuery(item);if(tpl)return tpl+encodeURIComponent(q);return "https://www.google.com/search?q="+encodeURIComponent(q)+" 广告 营销 2026"}
 function openRealSearch(q){window.open("https://www.google.com/search?q="+encodeURIComponent(q+" 广告 营销 AI 程序化 2026")+"&hl=zh-CN","_blank")}
 
 function getFilteredData(){
