@@ -163,7 +163,7 @@ function renderNews(){
       for(var i=sp;i<=ep;i++){nh+=`<button class="pg-btn${i===state.page?" active":""}" data-p="${i}">${i}</button>`}
       if(ep<total){if(ep<total-1)nh+=`<span class="pg-dots">...</span>`;nh+=`<button class="pg-btn" data-p="${total}">${total}</button>`}
       nh+=`<button class="pg-btn" data-p="${state.page+1}"${state.page>=total?" disabled":""}>›</button>`;
-      nh+=`<div class="pg-jump-wrap"><select id="pageJumpSelect">${pageOptions}</select></div>`;
+      nh+=`<div class="pg-jump-wrap"><select id="pageJumpSelect">${pageOptions}</select><button class="pg-jump-btn" data-a="jump">跳转</button></div>`;
       nh+="</div></div>";}
     newsSection.innerHTML=nh;
   }
