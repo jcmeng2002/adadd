@@ -44,6 +44,28 @@ def log(msg):
     print(f'[{datetime.now(CST).strftime("%H:%M:%S")}] {msg}', flush=True)
 
 
+# 全局排除词：与广告行业无关的标题直接跳过
+BLOCK_KEYWORDS = [
+    '招聘','职位','诚聘','急招','Job ','实习','全职','兼职','简历',
+    '融资','IPO','上市','财报','股价','市值','股票',
+    '芯片半导体','硬件发布','手机发布','汽车发布','电动车','电池技术',
+    '游戏发布','影视综艺','体育赛事','娱乐圈','明星','八卦',
+    '房价楼市','医疗健康','疫苗药品','教育双减','房产交易',
+    '天气预报','自然灾害','军事国防','国际政治','外交',
+    # 纯技术无广告关联
+    '编程语言入门','Python教程','Java基础','前端框架对比','后端架构',
+    '数据库优化','运维部署','代码规范','开源协议','Git使用',
+]
+
+def is_relevant(title):
+    """判断标题是否与广告/营销/MarTech相关"""
+    t = title
+    # 先检查排除词
+    if any(kw in t for kw in BLOCK_KEYWORDS):
+        return False
+    return True
+
+
 def fetch_url(url, timeout=12):
     """通用URL抓取，返回文本内容"""
     try:
@@ -169,7 +191,9 @@ def fetch_36kr(existing_urls):
 
     articles = []
     items = re.findall(r'<item[^>]*>(.*?)</item>', xml, re.S)
-    keywords = ['广告','营销','投放','品牌','MarTech','程序化','DSP','RTA','DMP','CDP','增长','私域','转化','ROI','效果','AIGC','AI','电商']
+    keywords = ['广告','营销','投放','品牌','MarTech','程序化','DSP','RTA','DMP','CDP','增长','私域',
+                '转化','ROI','效果','AIGC','电商','内容营销','KOL','直播带货','信息流广告',
+                '品牌出海','用户增长','流量','获客','复购','GMV','种草','达人']
 
     for item_xml in items[:30]:
         t_m = re.search(r'<title><!\[CDATA\[(.*?)\]\]></title>|<title>(.*?)</title>', item_xml, re.S)
@@ -183,6 +207,7 @@ def fetch_36kr(existing_urls):
 
         t_lower = title.lower()
         if not any(kw in t_lower for kw in keywords): continue
+        if not is_relevant(title): continue  # 全局排除无关内容
 
         date_str = TODAY
         p_m = re.search(r'<pubDate>(.*?)</pubDate>', item_xml)
@@ -259,7 +284,9 @@ def fetch_infoq(existing_urls):
 
     articles = []
     items = re.findall(r'<item[^>]*>(.*?)</item>', xml, re.S)
-    keywords = ['广告','营销','推荐','搜索','增长','数据','推荐系统','算法','AI','大模型','AIGC','智能','投放','转化']
+    keywords = ['广告','营销','推荐系统','搜索广告','程序化广告','投放','增长',
+                '数据驱动','AIGC营销','AI营销','智能投放','转化率','用户画像',
+                '品牌策略','内容营销','KOL','信息流','流量变现']
 
     for item_xml in items[:20]:
         t_m = re.search(r'<title><!\[CDATA\[(.*?)\]\]></title>|<title>(.*?)</title>', item_xml, re.S)
@@ -273,6 +300,7 @@ def fetch_infoq(existing_urls):
 
         t_lower = title.lower()
         if not any(kw in t_lower for kw in keywords): continue
+        if not is_relevant(title): continue  # 全局排除无关内容
 
         date_str = TODAY
         p_m = re.search(r'<published>(.*?)</published>|<pubDate>(.*?)</pubDate>', item_xml)
@@ -412,12 +440,14 @@ def fetch_gov(existing_urls):
         html
     )
     
-    gov_keywords = ['广告','监管','市场','平台','企业','互联网','数据','算法','AI',
-                     '个人信息','消费者','竞争法','反垄断','处罚','执法']
+    gov_keywords = ['广告','监管','平台经济','企业','互联网','数据安全','算法推荐',
+                     '个人信息保护','消费者','竞争法','反垄断','处罚','执法',
+                     '虚假宣传','互联网广告','直播带货','网红','流量']
     
     for raw_url, title in links:
         title = clean_html(title)
         if not any(k in title for k in gov_keywords): continue
+        if not is_relevant(title): continue
         
         # 补全相对URL
         if raw_url.startswith('/'):
@@ -476,12 +506,14 @@ def fetch_tech_qq(existing_urls):
     # 腾讯科技文章链接模式
     links = re.findall(r'<a[^>]+href="((/a/\d+\.htm)[^"]*)"[^>]*>([^<]{10,80})</a>', html)
     
-    tech_keywords = ['AI','广告','营销','技术','算法','数据','平台','互联网','数字','智能',
-                      '大模型','AIGC','芯片','算力','云计算','搜索','推荐','增长','品牌']
+    tech_keywords = ['广告','营销','投放','品牌','AIGC','大模型','数字营销','智能投放',
+                      '搜索','推荐算法','增长黑客','用户运营','内容分发','流量',
+                      '程序化','DSP','RTA','DMP','CDP','私域']
     
     for raw_url, path, title in links:
         title = clean_html(title)
         if not any(k in title for k in tech_keywords): continue
+        if not is_relevant(title): continue
         
         url = f'https://tech.qq.com{raw_url}' if raw_url.startswith('/') else raw_url
         if url.rstrip('/') in existing_urls: continue
