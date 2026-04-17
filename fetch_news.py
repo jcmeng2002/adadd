@@ -712,6 +712,24 @@ def main():
     except Exception as e:
         log(f'❌ 构建异常: {e}')
     
+    # 推送到 GitHub Pages（有新增内容才推）
+    if all_new:
+        log('🚀 推送到 GitHub ...')
+        try:
+            subprocess.run(['git', 'add', 'index.html', 'data/news_data.json'], 
+                          capture_output=True, text=True, cwd=BASE)
+            today = time.strftime('%Y-%m-%d %H:%M', time.localtime())
+            msg = f'auto: +{len(all_new)}篇 ({src_summary}) | {today}'
+            r = subprocess.run(['git', 'commit', '-m', msg],
+                              capture_output=True, text=True, cwd=BASE)
+            if r.returncode == 0:
+                r2 = subprocess.run(['git', 'push'], capture_output=True, text=True, cwd=BASE, timeout=30)
+                log(f'  {"✅ 已上线" if r2.returncode==0 else f"⚠️ push失败"}')
+            else:
+                log('  ⏭️ 无变更（可能已提交）')
+        except Exception as e:
+            log(f'  ❌ 推送异常: {e}')
+    
     elapsed = time.time() - t0
     log(f'\n⏱️ 总耗时 {elapsed:.1f}s | +{len(all_new)}篇 ({src_summary})')
     return len(all_new)
