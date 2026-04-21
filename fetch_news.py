@@ -324,43 +324,33 @@ def fetch_infoq(existing_urls):
 
 
 # =====================================================================
-#  抓取器 #4 — 数英网 RSS（过滤招聘）
+#  抓取器 #4 — 数英网（HTML爬取，RSS已下线）
 # =====================================================================
+
+DIGITALING_KW = ['广告','营销','投放','品牌','MarTech','程序化','DSP','RTA',
+                 'DMP','CDP','增长','私域','转化','ROI','效果','AIGC','电商',
+                 '内容营销','KOL','直播带货','信息流','品牌出海','用户增长',
+                 '流量','获客','GMV','种草','达人','创意','Campaign','媒介',
+                 '社媒','私域运营','用户运营','效果广告']
 
 def fetch_digitaling(existing_urls):
     log('🔍 [数英网] 抓取中...')
-    xml = fetch_url('https://www.digitaling.com/rss', timeout=12)
-    if not xml: return []
+    html = fetch_url('https://www.digitaling.com/', timeout=12)
+    if not html: return []
 
     articles = []
-    items = re.findall(r'<item[^>]*>(.*?)</item>', xml, re.S)
-    skip_keywords = ['招聘','职位','诚聘','急招','Job ','实习','全职','兼职','简历']
-
-    for item_xml in items[:20]:
-        t_m = re.search(r'<title><!\[CDATA\[(.*?)\]\]></title>|<title>(.*?)</title>', item_xml, re.S)
-        if not t_m: continue
-        title = (t_m.group(1) or t_m.group(2)).strip()
-        if any(kw in title for kw in skip_keywords): continue
-
-        l_m = re.search(r'<link><!\[CDATA\[(.*?)\]\]></link>|<link>(.*?)</link>', item_xml)
-        url = ((l_m.group(1) or l_m.group(2) or '').split('<')[0]).strip().rstrip('/')
-        if not url: continue
+    # 从首页提取文章链接和标题
+    links = re.findall(r'href="(https://www\.digitaling\.com/articles/\d+\.html)"[^>]*title="([^"]{10,80})"', html)
+    
+    for url, title in links[:25]:
+        title = clean_html(title)
+        if not title: continue
+        # 只做排除词过滤（招聘/融资等无关内容）
+        if not is_relevant(title): continue
+        
         if url.rstrip('/') in existing_urls: continue
-
-        date_str = TODAY
-        p_m = re.search(r'<pubDate>(.*?)</pubDate>', item_xml)
-        if p_m:
-            try:
-                dt = parsedate_to_datetime(p_m.group(1).strip())
-                pd = dt.astimezone(CST).date()
-                if (TODAY_DATE - pd).days > 14: continue
-                date_str = pd.strftime('%Y-%m-%d')
-            except: pass
-
-        d_m = re.search(r'<description><!\[CDATA\[(.*?)\]\]></description>', item_xml, re.S)
-        desc = clean_html(d_m.group(1))[:300] if d_m else ''
-
-        articles.append(make_article(url, title, desc, 'industry-media', '数英网', date_str))
+        
+        articles.append(make_article(url, title, '', 'industry-media', '数英网', TODAY))
         existing_urls.add(url.rstrip('/'))
 
     log(f'  ✅ +{len(articles)} 篇')
