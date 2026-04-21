@@ -327,12 +327,6 @@ def fetch_infoq(existing_urls):
 #  抓取器 #4 — 数英网（HTML爬取，RSS已下线）
 # =====================================================================
 
-DIGITALING_KW = ['广告','营销','投放','品牌','MarTech','程序化','DSP','RTA',
-                 'DMP','CDP','增长','私域','转化','ROI','效果','AIGC','电商',
-                 '内容营销','KOL','直播带货','信息流','品牌出海','用户增长',
-                 '流量','获客','GMV','种草','达人','创意','Campaign','媒介',
-                 '社媒','私域运营','用户运营','效果广告']
-
 def fetch_digitaling(existing_urls):
     log('🔍 [数英网] 抓取中...')
     html = fetch_url('https://www.digitaling.com/', timeout=12)
