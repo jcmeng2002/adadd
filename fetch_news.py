@@ -46,24 +46,89 @@ def log(msg):
 
 # 全局排除词：与广告行业无关的标题直接跳过
 BLOCK_KEYWORDS = [
-    '招聘','职位','诚聘','急招','Job ','实习','全职','兼职','简历',
-    '融资','IPO','上市','财报','股价','市值','股票',
-    '芯片半导体','硬件发布','手机发布','汽车发布','电动车','电池技术',
-    '游戏发布','影视综艺','体育赛事','娱乐圈','明星','八卦',
-    '房价楼市','医疗健康','疫苗药品','教育双减','房产交易',
-    '天气预报','自然灾害','军事国防','国际政治','外交',
-    # 纯技术无广告关联
+    # 招聘求职
+    '招聘','职位','诚聘','急招','Job ','实习','全职','兼职','简历','面试','HR ','人力',
+    # 融资财报
+    '融资','IPO','上市','财报','股价','市值','股票','并购','重组',
+    # 硬件/产品发布（非营销视角）
+    '芯片半导体','硬件发布','手机发布','汽车发布','新车上市','电动车','电池技术',
+    # 娱乐八卦
+    '游戏发布','影视综艺','体育赛事','娱乐圈','明星','八卦','恋情','出轨','离婚',
+    # 生活民生（非商业）
+    '房价楼市','医疗健康','疫苗药品','教育双减','房产交易','天气预报','自然灾害',
+    # 政治军事
+    '军事国防','国际政治','外交','总统','首相',
+    # 纯编程技术教程（非MarTech应用）
     '编程语言入门','Python教程','Java基础','前端框架对比','后端架构',
     '数据库优化','运维部署','代码规范','开源协议','Git使用',
+    # 食品/餐饮/零售门店（非营销案例）
+    '奶茶','海底捞','菜单','菜品','食谱','餐厅排队','香水',  # 近期误抓的
+    # 辟谣/假消息（非行业分析）
+    '辟谣','假消息','网友爆料','博主爆料',
+]
+
+# 正向关键词白名单：必须命中至少一个才收录（宽松源使用）
+# 覆盖：广告/营销/MarTech/品牌/投放/内容/增长/数据/合规/AI应用
+POSITIVE_KEYWORDS = [
+    # 核心广告营销词
+    '广告','营销','品牌','投放','Campaign','创意','文案','策划','传播',
+    '代言','联名','赞助','植入','种草','带货','直播','电商',
+    # MarTech / AdTech
+    'MarTech','AdTech','程序化','DSP','SSP','ADX','RTA','DMP','CDP',
+    'CRM','SCRM','MA','CEP','私域','获客','增长','转化','ROI','ROAS',
+    'CTR','CPC','CPM','oCPM','效果广告','信息流','搜索广告','SEM','SEO',
+    # 数据与AI
+    'AIGC','大模型','AI营销','智能投放','用户画像','推荐算法','精准营销',
+    '数据分析','归因','监测','洞察','BI',
+    # 内容与媒介
+    'KOL','KOC','达人','短视频','抖音','快手','小红书','B站','视频号',
+    '内容营销','社交媒体','媒介','公关','舆情',
+    # 行业与策略
+    '出海','跨境','消费者','消费升级','Z世代','00后',
+    '监管','合规','广告法','个保法','算法推荐','隐私',
+    '白皮书','报告','趋势','峰会','论坛','颁奖','奖项','金投赏','艾菲',
+    # 平台生态
+    '腾讯广告','微信','公众号','小程序','朋友圈广告','视频号推广',
+    '淘宝','天猫','京东','拼多多','亚马逊',
 ]
 
 def is_relevant(title):
-    """判断标题是否与广告/营销/MarTech相关"""
+    """判断标题是否与广告/营销/MarTech相关 — 双重过滤"""
     t = title
     # 先检查排除词
     if any(kw in t for kw in BLOCK_KEYWORDS):
         return False
+    # 再检查正向关键词 — 必须至少命中一个
+    if not any(kw in t for kw in POSITIVE_KEYWORDS):
+        return False
     return True
+
+
+def fetch_article_summary(url, timeout=6):
+    """尝试从文章页面提取 meta description 或首段文字作为摘要"""
+    try:
+        html = fetch_url(url, timeout=timeout)
+        if not html: return ''
+        # 优先取 meta description
+        m = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"]{30,500})["\']', html, re.I)
+        if m:
+            desc = clean_html(m.group(1))
+            if len(desc) >= 15 and '最新报道' not in desc:
+                return desc[:300]
+        # 备用：取 og:description
+        m2 = re.search(r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"]{30,500})["\']', html, re.I)
+        if m2:
+            desc = clean_html(m2.group(1))
+            if len(desc) >= 15 and '最新报道' not in desc:
+                return desc[:300]
+        # 再备用：找 article 标签或第一个有实质内容的 p
+        p_m = re.search(r'<p[^>]*>([^<]{40,500})</p>', html)
+        if p_m:
+            text = clean_html(p_m.group(1))[:300]
+            if len(text) >= 20: return text
+    except Exception:
+        pass
+    return ''
 
 
 def fetch_url(url, timeout=12):
@@ -245,8 +310,8 @@ def fetch_meihua(existing_urls):
         t_m = re.search(r'<title><!\[CDATA\[(.*?)\]\]></title>|<title>(.*?)</title>', item_xml, re.S)
         if not t_m: continue
         title = (t_m.group(1) or t_m.group(2)).strip()
-        # 过滤招聘信息
-        if any(kw in title for kw in ['招聘','职位','诚聘','急招']): continue
+        # 过滤无关内容（双重过滤：排除词 + 正向关键词）
+        if not is_relevant(title): continue
 
         l_m = re.search(r'<link>(.*?)</link>', item_xml)
         url = (l_m.group(1) or '').split('<')[0].strip().rstrip('/')
@@ -339,12 +404,14 @@ def fetch_digitaling(existing_urls):
     for url, title in links[:25]:
         title = clean_html(title)
         if not title: continue
-        # 只做排除词过滤（招聘/融资等无关内容）
+        # 双重过滤：排除词 + 正向关键词
         if not is_relevant(title): continue
-        
         if url.rstrip('/') in existing_urls: continue
-        
-        articles.append(make_article(url, title, '', 'industry-media', '数英网', TODAY))
+
+        # 尝试提取文章摘要
+        summary = fetch_article_summary(url)
+
+        articles.append(make_article(url, title, summary, 'industry-media', '数英网', TODAY))
         existing_urls.add(url.rstrip('/'))
 
     log(f'  ✅ +{len(articles)} 篇')
@@ -443,8 +510,11 @@ def fetch_gov(existing_urls):
         
         if url.rstrip('/') in existing_urls: continue
         
+        # 尝试提取摘要
+        summary = fetch_article_summary(url)
+        
         articles.append(make_article(
-            url, title, '',
+            url, title, summary,
             'gov', '中国政府网',
             date_str=TODAY, impact='high'
         ))
@@ -467,7 +537,8 @@ def fetch_gov(existing_urls):
                 if not any(k in ti for k in gov_keywords): continue
                 full_url = f'http://www.gov.cn{ru}' if ru.startswith('/') else ru
                 if full_url.rstrip('/') in existing_urls: continue
-                articles.append(make_article(full_url, ti, '', 'gov', f'中国政府网-{ch_name}', TODAY, 'high'))
+                summary = fetch_article_summary(full_url)
+                articles.append(make_article(full_url, ti, summary, 'gov', f'中国政府网-{ch_name}', TODAY, 'high'))
                 existing_urls.add(full_url.rstrip('/'))
                 if len(articles) >= 8: break
             if len(articles) >= 8: break
@@ -502,7 +573,10 @@ def fetch_tech_qq(existing_urls):
         url = f'https://tech.qq.com{raw_url}' if raw_url.startswith('/') else raw_url
         if url.rstrip('/') in existing_urls: continue
         
-        articles.append(make_article(url, title, '', 'tech-media', '腾讯科技', TODAY))
+        # 尝试提取摘要
+        summary = fetch_article_summary(url)
+        
+        articles.append(make_article(url, title, summary, 'tech-media', '腾讯科技', TODAY))
         existing_urls.add(url.rstrip('/'))
         
         if len(articles) >= 8: break
