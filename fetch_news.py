@@ -531,43 +531,47 @@ def fetch_ima(existing_urls):
     ima_url = f'https://ima.qq.com/wiki/?shareId={ima_share_id}'
 
     # ====== 方案1：读取本地已提取的数据缓存 ======
+    IMA_CACHE_MAX_DAYS = 3  # 缓存超过此天数自动走Playwright刷新
     if os.path.exists(ima_data_path):
         try:
             from datetime import datetime as dt
             ftime = dt.fromtimestamp(os.path.getmtime(ima_data_path)).date()
             age_days = (TODAY_DATE - ftime).days
 
-            with open(ima_data_path, 'r', encoding='utf-8') as f:
-                ima_items = json.load(f)
+            if age_days > IMA_CACHE_MAX_DAYS:
+                log(f'  ⏰ 缓存已过期({age_days}天前)，跳过旧缓存，将使用Playwright实时抓取...')
+            else:
+                with open(ima_data_path, 'r', encoding='utf-8') as f:
+                    ima_items = json.load(f)
 
-            if isinstance(ima_items, list) and len(ima_items) > 0:
-                import urllib.parse
-                for item in ima_items:
-                    title = item.get('title', '')
-                    url = item.get('url', '')
-                    date_str = item.get('date', TODAY)
-                    if not title: continue
+                if isinstance(ima_items, list) and len(ima_items) > 0:
+                    import urllib.parse
+                    for item in ima_items:
+                        title = item.get('title', '')
+                        url = item.get('url', '')
+                        date_str = item.get('date', TODAY)
+                        if not title: continue
 
-                    norm_url = url.rstrip('/') if url else f"ima://{title}"
-                    if norm_url in existing_urls: continue
+                        norm_url = url.rstrip('/') if url else f"ima://{title}"
+                        if norm_url in existing_urls: continue
 
-                    # 只收录近30天文章
-                    try:
-                        article_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-                        if (TODAY_DATE - article_date).days > 30: continue
-                    except Exception: pass
+                        # 只收录近30天文章
+                        try:
+                            article_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                            if (TODAY_DATE - article_date).days > 30: continue
+                        except Exception: pass
 
-                    tags_str = ', '.join(item.get('tags', []))
-                    summary = f"[腾讯IMA知识库] {tags_str}" if tags_str else '腾讯广告官方营销知识库'
+                        tags_str = ', '.join(item.get('tags', []))
+                        summary = f"[腾讯IMA知识库] {tags_str}" if tags_str else '腾讯广告官方营销知识库'
 
-                    articles.append(make_article(
-                        url or ima_url, title, summary,
-                        'tencent-ima', '腾讯IMA', date_str, impact='medium'
-                    ))
-                    existing_urls.add(norm_url)
+                        articles.append(make_article(
+                            url or ima_url, title, summary,
+                            'tencent-ima', '腾讯IMA', date_str, impact='medium'
+                        ))
+                        existing_urls.add(norm_url)
 
-                log(f'  ✅ 从本地缓存 +{len(articles)} 篇 (共{len(ima_items)}条, 缓存{age_days}天前)')
-                return articles
+                    log(f'  ✅ 从本地缓存 +{len(articles)} 篇 (共{len(ima_items)}条, 缓存{age_days}天前)')
+                    return articles
 
         except Exception as e:
             log(f'  ⚠️ 读取本地IMA缓存失败: {e}')
