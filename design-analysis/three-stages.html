@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>三阶段演进合理性论证</title>
+<title>未来该往哪走——D族职位发展畅想</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
   
@@ -13,7 +13,11 @@
     --blue-bg: #EDF2FF;
     --blue-deep: #0034B5;
     --orange: #E37318;
+    --orange-bg: #FFF5E8;
     --green: #2BA471;
+    --green-bg: #E8F8F0;
+    --purple: #7B61FF;
+    --purple-bg: #F3EEFF;
     --red: #D9304E;
     --dark: #1A1A1A;
     --mid: #444444;
@@ -53,70 +57,69 @@
     margin-top: 4px;
   }
 
-  /* === Three Stages Flow === */
+  /* === Section Title === */
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .icon {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .s-now .section-title { background: var(--blue-bg); color: var(--blue); }
+  .s-now .icon { background: var(--blue); }
+  .s-trend .section-title { background: var(--orange-bg); color: var(--orange); }
+  .s-trend .icon { background: var(--orange); }
+  .s-vision .section-title { background: var(--purple-bg); color: var(--purple); }
+  .s-vision .icon { background: var(--purple); }
+
+  /* === Flow: Now → Trend → Vision === */
   .flow-container {
     display: flex;
     align-items: stretch;
     gap: 0;
-    margin: 20px 0;
-    position: relative;
+    margin: 16px 0;
   }
-
   .flow-stage {
     flex: 1;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 16px 14px;
-    position: relative;
+    padding: 14px;
     text-align: center;
   }
   .flow-stage.s1 { border-top: 3px solid var(--blue-light); }
   .flow-stage.s2 { border-top: 3px solid var(--orange); }
-  .flow-stage.s3 { border-top: 3px solid var(--green); }
+  .flow-stage.s3 { border-top: 3px solid var(--purple); }
 
-  .flow-stage .stage-num {
-    display: inline-block;
-    width: 28px; height: 28px;
-    line-height: 28px;
-    border-radius: 50%;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
+  .flow-stage .f-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gray);
+    margin-bottom: 4px;
   }
-  .s1 .stage-num { background: var(--blue-light); }
-  .s2 .stage-num { background: var(--orange); }
-  .s3 .stage-num { background: var(--green); }
-
-  .flow-stage .stage-name {
+  .flow-stage .f-title {
     font-size: 14px;
     font-weight: 700;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
   }
-  .s1 .stage-name { color: var(--blue-light); }
-  .s2 .stage-name { color: var(--orange); }
-  .s3 .stage-name { color: var(--green); }
-
-  .flow-stage .stage-sub {
+  .s1 .f-title { color: var(--blue-light); }
+  .s2 .f-title { color: var(--orange); }
+  .s3 .f-title { color: var(--purple); }
+  .flow-stage .f-desc {
     font-size: 11px;
-    color: var(--gray);
-    margin-bottom: 8px;
+    color: var(--mid);
+    line-height: 1.5;
   }
-
-  .flow-stage .stage-core {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--dark);
-    background: var(--blue-bg);
-    padding: 4px 8px;
-    border-radius: 4px;
-    display: inline-block;
-  }
-  .s2 .stage-core { background: #FFF5E8; }
-  .s3 .stage-core { background: #E8F8F0; }
-
-  /* Arrows between stages */
   .flow-arrow {
     display: flex;
     align-items: center;
@@ -124,89 +127,8 @@
     width: 36px;
     flex-shrink: 0;
   }
-  .flow-arrow svg { width: 28px; height: 28px; }
 
-  /* === Theory Mapping === */
-  .theory-section {
-    margin: 20px 0;
-  }
-  .theory-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--blue);
-    padding-left: 10px;
-    border-left: 4px solid var(--blue);
-    margin-bottom: 12px;
-  }
-
-  .theory-row {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    margin-bottom: 10px;
-  }
-
-  .theory-label {
-    width: 140px;
-    flex-shrink: 0;
-    background: var(--blue);
-    color: #fff;
-    border-radius: 6px 0 0 6px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .theory-label .t-name {
-    font-size: 13px;
-    font-weight: 700;
-  }
-  .theory-label .t-meta {
-    font-size: 9px;
-    opacity: 0.85;
-    margin-top: 2px;
-  }
-
-  .theory-cells {
-    display: flex;
-    flex: 1;
-    gap: 2px;
-  }
-  .theory-cell {
-    flex: 1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 8px 10px;
-    text-align: center;
-  }
-  .theory-cell .tc-phase {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--dark);
-  }
-  .theory-cell .tc-desc {
-    font-size: 10px;
-    color: var(--mid);
-    margin-top: 2px;
-  }
-
-  .theory-cell.c1 { border-top: 2px solid var(--blue-light); }
-  .theory-cell.c2 { border-top: 2px solid var(--orange); }
-  .theory-cell.c3 { border-top: 2px solid var(--green); }
-
-  /* Highlight */
-  .hl-box {
-    background: var(--blue-bg);
-    border-left: 3px solid var(--blue);
-    padding: 8px 12px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--blue-deep);
-    border-radius: 0 4px 4px 0;
-    margin: 12px 0;
-  }
-
-  /* Data card */
+  /* === Data card === */
   .data-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -222,40 +144,34 @@
 
   .stat-row {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 10px;
   }
   .stat-item {
     flex: 1;
-    background: var(--blue-bg);
     border-radius: 6px;
     padding: 10px;
     text-align: center;
   }
+  .stat-item.blue { background: var(--blue-bg); }
+  .stat-item.orange { background: var(--orange-bg); }
+  .stat-item.green { background: var(--green-bg); }
+  .stat-item.purple { background: var(--purple-bg); }
   .stat-item .si-num {
     font-size: 22px;
     font-weight: 900;
-    color: var(--blue);
   }
+  .stat-item.blue .si-num { color: var(--blue); }
+  .stat-item.orange .si-num { color: var(--orange); }
+  .stat-item.green .si-num { color: var(--green); }
+  .stat-item.purple .si-num { color: var(--purple); }
   .stat-item .si-label {
     font-size: 10px;
     color: var(--mid);
     margin-top: 2px;
   }
-  .stat-item.warn {
-    background: #FFF0F0;
-  }
-  .stat-item.warn .si-num {
-    color: var(--red);
-  }
-  .stat-item.ok {
-    background: #E8F8F0;
-  }
-  .stat-item.ok .si-num {
-    color: var(--green);
-  }
 
-  /* Table */
+  /* === Table === */
   .t-table {
     width: 100%;
     border-collapse: collapse;
@@ -275,7 +191,105 @@
     vertical-align: top;
   }
   .t-table tr:nth-child(even) td { background: #F8FAFF; }
-  .t-table .bold { font-weight: 700; color: var(--blue); }
+  .t-table .bold { font-weight: 700; }
+
+  /* Highlight box */
+  .hl-box {
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 0 4px 4px 0;
+    margin: 12px 0;
+  }
+  .hl-blue {
+    background: var(--blue-bg);
+    border-left: 3px solid var(--blue);
+    color: var(--blue-deep);
+  }
+  .hl-orange {
+    background: var(--orange-bg);
+    border-left: 3px solid var(--orange);
+    color: #8B4513;
+  }
+  .hl-purple {
+    background: var(--purple-bg);
+    border-left: 3px solid var(--purple);
+    color: #4A2D8A;
+  }
+
+  /* Vision card */
+  .vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .vision-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .vision-card .vc-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .vision-card .vc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  .vision-card .vc-desc {
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+  .vision-card .vc-highlight {
+    margin-top: 6px;
+    padding: 4px 8px;
+    background: var(--purple-bg);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--purple);
+  }
+
+  /* Three Steps */
+  .steps-flow {
+    display: flex;
+    gap: 0;
+    margin: 12px 0;
+  }
+  .step-item {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+  .step-item.st1 { border-top: 3px solid var(--blue-light); }
+  .step-item.st2 { border-top: 3px solid var(--orange); }
+  .step-item.st3 { border-top: 3px solid var(--green); }
+  .step-item .step-name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .st1 .step-name { color: var(--blue-light); }
+  .st2 .step-name { color: var(--orange); }
+  .st3 .step-name { color: var(--green); }
+  .step-item .step-do {
+    font-size: 11px;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .step-item .step-why {
+    font-size: 10px;
+    color: var(--mid);
+    margin-top: 4px;
+  }
 
   /* Source */
   .src {
@@ -296,11 +310,10 @@
   }
 
   @media (max-width: 768px) {
-    .flow-container, .theory-row { flex-direction: column; }
+    .flow-container, .steps-flow { flex-direction: column; }
     .flow-arrow { transform: rotate(90deg); width: auto; height: 24px; }
-    .theory-label { width: 100%; border-radius: 6px 6px 0 0; }
-    .theory-cells { flex-direction: column; }
     .stat-row { flex-direction: column; }
+    .vision-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -308,189 +321,181 @@
 <div class="page">
 
 <div class="header">
-  <h1>D族→P族三阶段演进：合理性论证</h1>
-  <div class="sub">广告营销设计中心 · 职位切换分析 · 第一部分</div>
+  <h1>未来该往哪走——D族职位发展畅想</h1>
+  <div class="sub">广告营销设计中心 · 职位切换分析 · 第四部分</div>
 </div>
 
-<!-- ===== 三阶段核心流程 ===== -->
+<!-- ===== 核心逻辑转变 ===== -->
 <div class="flow-container">
   <div class="flow-stage s1">
-    <div class="stage-num">1</div>
-    <div class="stage-name">D族整合</div>
-    <div class="stage-sub">职位归一</div>
-    <div class="stage-core">四职位→产品体验设计</div>
+    <div class="f-label">现状</div>
+    <div class="f-title">岗位决定工作流</div>
+    <div class="f-desc">PM定需求→设计师执行视觉→开发翻译实现<br>每个岗位边界固定，AI只在边界内提速</div>
   </div>
   <div class="flow-arrow">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#0052D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#0052D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
   <div class="flow-stage s2">
-    <div class="stage-num">2</div>
-    <div class="stage-name">D族升级</div>
-    <div class="stage-sub">能力补齐</div>
-    <div class="stage-core">产品+数据+AI+商业</div>
+    <div class="f-label">趋势</div>
+    <div class="f-title">岗位边界溶解</div>
+    <div class="f-desc">AI跳过协作翻译层<br>Design Engineer直出代码、PM直出原型</div>
   </div>
   <div class="flow-arrow">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#E37318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#E37318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
   <div class="flow-stage s3">
-    <div class="stage-num">3</div>
-    <div class="stage-name">P族并轨</div>
-    <div class="stage-sub">通道归属</div>
-    <div class="stage-core">产品设计师纳入P族</div>
+    <div class="f-label">畅想</div>
+    <div class="f-title">业务目标决定工作流</div>
+    <div class="f-desc">谁最懂业务谁主导<br>不再按D/P/技术划线</div>
   </div>
 </div>
 
-<!-- ===== 三大理论映射 ===== -->
-<div class="theory-section">
-  <div class="theory-title">三大权威变革理论映射</div>
+<!-- ===== 一、现状 ===== -->
+<div class="s-now">
+  <div class="section-title"><div class="icon">1</div> 现状：AI已经在崩解岗位边界</div>
 
-  <!-- Lewin -->
-  <div class="theory-row">
-    <div class="theory-label">
-      <div class="t-name">Lewin三阶段模型</div>
-      <div class="t-meta">K. Lewin, 1951<br>组织变革理论奠基</div>
+  <div class="data-card">
+    <div class="dc-title">内部实践：高价值AI实践正在以碎片化方式发生</div>
+    <table class="t-table">
+      <tr><th>岗位</th><th>内部实践</th><th>变化本质</th></tr>
+      <tr><td class="bold">设计</td><td>设计师直接用AI生成可上线代码——"设计稿到代码的翻译，根本就不应该存在"</td><td>设计→开发的协作层被跳过</td></tr>
+      <tr><td class="bold">产品</td><td>PM不依赖研发，用AI生成可体验原型——假设验证周期从周级压缩到小时级</td><td>PM→原型的协作层被跳过</td></tr>
+      <tr><td class="bold">研发</td><td>100+线上业务迁移从2天压缩到30分钟；部分团队标准化需求开发速度提升40-60%</td><td>研发→测试的协作层被跳过</td></tr>
+    </table>
+    <div class="hl-box hl-blue" style="margin-top:8px">
+      核心规律：AI不是让某个岗位跑得更快，而是让某类业务找到了最短的交付路径——有时候这条路径会跨越原来的岗位边界。
     </div>
-    <div class="theory-cells">
-      <div class="theory-cell c1">
-        <div class="tc-phase">解冻 Unfreeze</div>
-        <div class="tc-desc">打破现状，创造变革动力<br>→ D族整合：统一职位，制造共识</div>
-      </div>
-      <div class="theory-cell c2">
-        <div class="tc-phase">变革 Change</div>
-        <div class="tc-desc">形成新态度与行为<br>→ D族升级：补齐P族能力</div>
-      </div>
-      <div class="theory-cell c3">
-        <div class="tc-phase">再冻结 Refreeze</div>
-        <div class="tc-desc">固化新状态<br>→ P族并轨：制度确认新归属</div>
-      </div>
-    </div>
+    <div class="src">数据来源：公司内部KM平台AI实践分享，远满、金浩等整理《AI时代的工作流演进：我们观察到了什么》，2026.3</div>
   </div>
 
-  <!-- Kotter -->
-  <div class="theory-row">
-    <div class="theory-label">
-      <div class="t-name">Kotter八步法</div>
-      <div class="t-meta">J. Kotter, 1996<br>Harvard Business Review</div>
-    </div>
-    <div class="theory-cells">
-      <div class="theory-cell c1">
-        <div class="tc-phase">创造气候</div>
-        <div class="tc-desc">紧迫感+联盟+愿景<br>(Steps 1-3)</div>
-      </div>
-      <div class="theory-cell c2">
-        <div class="tc-phase">赋能行动</div>
-        <div class="tc-desc">沟通+除障+短期胜利<br>(Steps 4-6)</div>
-      </div>
-      <div class="theory-cell c3">
-        <div class="tc-phase">巩固成果</div>
-        <div class="tc-desc">深化+文化锚定<br>(Steps 7-8)</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- McKinsey -->
-  <div class="theory-row">
-    <div class="theory-label">
-      <div class="t-name">McKinsey变革研究</div>
-      <div class="t-meta">McKinsey Global Survey<br>2015/2021</div>
-    </div>
-    <div class="theory-cells">
-      <div class="theory-cell c1">
-        <div class="tc-phase">目标设定</div>
-        <div class="tc-desc">对齐变革目标<br>→ 明确整合方向</div>
-      </div>
-      <div class="theory-cell c2">
-        <div class="tc-phase">设计实施</div>
-        <div class="tc-desc">角色+激励+沟通<br>→ 能力建设与验证</div>
-      </div>
-      <div class="theory-cell c3">
-        <div class="tc-phase">固化嵌入</div>
-        <div class="tc-desc">嵌入日常体系<br>→ 通道归属制度确认</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="hl-box">
-  三大权威理论高度一致：组织变革必须经历<b>"解冻→变革→再冻结"</b>三阶段。D族→P族的三步走方案，本质上就是将经典变革理论应用于职位切换的具体实践。
-</div>
-
-<!-- ===== 数据支撑 ===== -->
-<div class="data-card">
-  <div class="dc-title">关键数据：为什么必须分阶段？</div>
   <div class="stat-row">
-    <div class="stat-item warn">
-      <div class="si-num">70%</div>
-      <div class="si-label">组织变革失败率<br>(McKinsey/Kotter研究)</div>
+    <div class="stat-item blue">
+      <div class="si-num">88%</div>
+      <div class="si-label">企业已采用AI<br>(McKinsey 2025)</div>
     </div>
-    <div class="stat-item ok">
-      <div class="si-num">79%</div>
-      <div class="si-label">全程24项行动<br>变革成功率</div>
+    <div class="stat-item orange">
+      <div class="si-num">6%</div>
+      <div class="si-label">真正获得变革性收益<br>差异不在工具</div>
     </div>
-    <div class="stat-item">
-      <div class="si-num">3×</div>
-      <div class="si-label">完整行动者成功率<br>是平均水平的3倍</div>
+    <div class="stat-item green">
+      <div class="si-num">6-12月</div>
+      <div class="si-label">内外认知差距<br>时间窗口</div>
     </div>
   </div>
-  <div class="hl-box" style="margin-top:8px">
-    McKinsey研究表明：变革成功的关键不是"做什么"，而是"做多少"——完整覆盖目标设定、设计实施、固化嵌入三阶段24项行动的组织，成功率从26%跃升至79%。一步跳过任何阶段，成功率都将大幅下降。
+
+  <div class="hl-box hl-blue">
+    内部还在讨论"每个岗位怎么用AI提速"，行业头部已经在讨论"哪些协作层可以直接去掉"。这是两个不同量级的问题。
   </div>
-  <div class="src">数据来源：McKinsey Global Survey "How to beat the transformation odds" (2015); "The science behind successful organizational transformations" (2021); J.P. Kotter "Leading Change" (Harvard Business Review Press, 1996)</div>
 </div>
 
-<!-- ===== 每阶段论证表 ===== -->
+<!-- ===== 二、趋势 ===== -->
+<div class="s-trend">
+  <div class="section-title"><div class="icon">2</div> 趋势：岗位边界正在溶解</div>
+
+  <div class="data-card">
+    <div class="dc-title">硅谷"向上融合" vs 国内"向下融合"</div>
+    <table class="t-table">
+      <tr><th>维度</th><th>硅谷（OpenAI/Meta/Google）</th><th>国内（字节/腾讯）</th></tr>
+      <tr><td class="bold">融合方向</td><td>向上融合：设计师进入产品决策层</td><td>向下融合：AI工具提效，岗位边界不变</td></tr>
+      <tr><td class="bold">设计师影响</td><td>影响"做什么"</td><td>优化"怎么做"</td></tr>
+      <tr><td class="bold">驱动力</td><td>产品范式不确定性驱动——交互范式未定，设计师必须定义产品</td><td>快速迭代效率优先——成熟形态上叠加AI能力</td></tr>
+      <tr><td class="bold">新岗位</td><td>Design Engineer、AI Interaction Designer已系统化</td><td>尚处于探索期</td></tr>
+    </table>
+  </div>
+
+  <div class="data-card">
+    <div class="dc-title">新物种已出现</div>
+    <div class="stat-row">
+      <div class="stat-item orange">
+        <div class="si-num" style="font-size:16px">Design Engineer</div>
+        <div class="si-label">设计+代码实现<br>OpenAI招聘最多的设计岗</div>
+      </div>
+      <div class="stat-item orange">
+        <div class="si-num" style="font-size:16px">AI Interaction</div>
+        <div class="si-label">交互+AI研究<br>设计人与AI的对话体验</div>
+      </div>
+      <div class="stat-item orange">
+        <div class="si-num" style="font-size:16px">AI Persona</div>
+        <div class="si-label">UX写作+心理学<br>设计AI的"人格"</div>
+      </div>
+    </div>
+    <div class="hl-box hl-orange">
+      岗位边界溶解的三个关键词：<b>融合</b>（设计×产品×工程的边界软化）、<b>新物种</b>（Design Engineer等新角色浮现）、<b>话语权重构</b>（谁能定义AI体验，谁就拥有影响力）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 三、畅想 ===== -->
+<div class="s-vision">
+  <div class="section-title"><div class="icon">3</div> 畅想：未来该往哪走</div>
+
+  <div class="vision-grid">
+    <div class="vision-card">
+      <div class="vc-title">业务目标决定工作流</div>
+      <div class="vc-desc">不同业务目标对应不同最优路径：创意类需求设计主导、探索类需求PM主导、工具类需求工程主导</div>
+      <div class="vc-highlight">让业务目标决定工作流，而非岗位边界决定工作流</div>
+    </div>
+    <div class="vision-card">
+      <div class="vc-title">设计"吞并"产品</div>
+      <div class="vc-desc">当设计师能直接交付可上线产物（Design Engineer路径），PM作为"需求翻译层"的必要性被重新审视</div>
+      <div class="vc-highlight">谁最懂业务目标，谁就应该主导</div>
+    </div>
+    <div class="vision-card">
+      <div class="vc-title">消除"翻译成本"</div>
+      <div class="vc-desc">设计稿→开发理解、PM写PRD→设计师读PRD——这些环节本质上是信息的反复翻译，而非价值创造</div>
+      <div class="vc-highlight">哪些协作层是"翻译成本"而非"价值创造"?</div>
+    </div>
+    <div class="vision-card">
+      <div class="vc-title">业务Owner制</div>
+      <div class="vc-desc">未来团队可能不再按D/P/技术划线，而是按业务影响力划线——每个人都必须是T型：核心优势+跨域协作</div>
+      <div class="vc-highlight">不再按岗位划线，而是按业务影响力划线</div>
+    </div>
+  </div>
+
+  <div class="hl-box hl-purple" style="font-size:12px; line-height:1.8;">
+    <b>终局猜想：</b>未来的竞争不是岗位之间的，而是"谁更懂业务、谁更能做判断"。PM的价值从"需求翻译"向"业务判断"迁移，设计师的价值从"视觉执行"向"产品判断"迁移。<b>设计×产品融合，不是谁吞并谁，而是"判断力"成为所有人的核心能力。</b>
+  </div>
+
+  <div class="data-card">
+    <div class="dc-title" style="color:var(--blue)">回到现实：三步走是迈向这个未来的实际路径</div>
+    <div class="steps-flow">
+      <div class="step-item st1">
+        <div class="step-name">第一步：D族整合</div>
+        <div class="step-do">四职位→产品体验设计</div>
+        <div class="step-why">打破内部壁垒，让设计师不再被岗位名称割裂</div>
+      </div>
+      <div class="step-item st2">
+        <div class="step-name">第二步：D族升级</div>
+        <div class="step-do">补齐产品+数据+AI+商业</div>
+        <div class="step-why">让设计师从"执行者"升级为"判断者"</div>
+      </div>
+      <div class="step-item st3">
+        <div class="step-name">第三步：P族并轨</div>
+        <div class="step-do">产品设计师纳入P族</div>
+        <div class="step-why">制度确认"设计师可以主导产品方向"</div>
+      </div>
+    </div>
+    <div class="hl-box hl-blue" style="margin-top:8px">
+      三步走的每一步，都是在把"让业务目标决定工作流"这个理念往前推一步。最终方向：不再按岗位划线，而是按业务影响力划线。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 行业对标 ===== -->
 <div class="data-card">
-  <div class="dc-title">三阶段各自的核心价值</div>
+  <div class="dc-title" style="color:var(--blue)">行业已经在这么做</div>
   <table class="t-table">
-    <tr>
-      <th>阶段</th>
-      <th>核心目标</th>
-      <th>跳过会怎样</th>
-      <th>理论依据</th>
-    </tr>
-    <tr>
-      <td class="bold" style="color:var(--blue-light)">第一阶段<br>D族整合</td>
-      <td>统一职位名称，消除内部差异，建立变革共识与紧迫感</td>
-      <td>五个职位各自为战，无法形成统一的能力升级方向，变革缺乏起点</td>
-      <td>Lewin"解冻"：必须先打破现状平衡，才能推动变革<br>Kotter Step1"建立紧迫感"</td>
-    </tr>
-    <tr>
-      <td class="bold" style="color:var(--orange)">第二阶段<br>D族升级</td>
-      <td>在统一框架下补齐产品规划、数据驱动、AI应用、商业理解四维能力</td>
-      <td>直接并轨→"名不副实"：能力未到位就换标签，P族通道无法真正融入</td>
-      <td>Lewin"变革"：新行为需要学习与内化<br>McKinsey"设计实施"阶段：角色+激励+沟通</td>
-    </tr>
-    <tr>
-      <td class="bold" style="color:var(--green)">第三阶段<br>P族并轨</td>
-      <td>能力到位后制度确认，产品设计师纳入P族，与PM同级平行</td>
-      <td>能力固化不足→并轨后回弹，新制度无法稳定运行</td>
-      <td>Lewin"再冻结"：新状态需制度化固化<br>Kotter Step8"锚定文化"</td>
-    </tr>
+    <tr><th>维度</th><th>OpenAI</th><th>Meta</th><th>Google</th><th>字节</th><th>腾讯</th></tr>
+    <tr><td class="bold">角色层级</td><td>范式定义者</td><td>框架构建者</td><td>概念翻译者</td><td>体验创造者</td><td>执行支持者</td></tr>
+    <tr><td class="bold">跨职能影响力</td><td>影响产品方向+设计范式</td><td>影响ML模型训练决策</td><td>影响产品战略</td><td>参与战略决策</td><td>配合PM执行</td></tr>
+    <tr><td class="bold">代码能力</td><td>强要求</td><td>明确要求</td><td>中等</td><td>部分</td><td>通常不要求</td></tr>
+    <tr><td class="bold">职级体系</td><td colspan="3" style="text-align:center">设计IC与PM/工程同L体系</td><td colspan="2" style="text-align:center">L序列统一（字节2026启用）</td></tr>
   </table>
-</div>
-
-<!-- ===== 结论 ===== -->
-<div class="data-card" style="border-left: 3px solid var(--blue);">
-  <div class="dc-title" style="color:var(--blue)">结论</div>
-  <div style="font-size:12px; line-height:1.8;">
-    <b>1.</b> Lewin(1951)、Kotter(1996)、McKinsey(2015/2021)三大权威框架均验证：组织变革必须经历"解冻→变革→再冻结"三阶段，不可跳跃。<br>
-    <b>2.</b> McKinsey全球调研数据：完整覆盖三阶段24项行动的成功率(79%)是平均(26%)的3倍——分阶段不是"慢"，是成功率的关键保障。<br>
-    <b>3.</b> D族整合→D族升级→P族并轨，分别对应解冻→变革→再冻结，是将经典理论在职位切换场景下的精确应用。
-  </div>
-  <div class="src" style="margin-top:8px">
-    参考文献：<br>
-    [1] Lewin, K. (1951). <i>Field Theory in Social Science</i>. Harper & Brothers.<br>
-    [2] Kotter, J.P. (1995). "Leading Change: Why Transformation Efforts Fail." <i>Harvard Business Review</i>, 73(2), 59-67.<br>
-    [3] Kotter, J.P. (1996). <i>Leading Change</i>. Harvard Business Review Press.<br>
-    [4] McKinsey & Company (2015). "How to beat the transformation odds." McKinsey Global Survey.<br>
-    [5] McKinsey & Company (2021). "The science behind successful organizational transformations." McKinsey Global Survey.<br>
-    [6] McKinsey & Company. "Why do most transformations fail?" — Interview with Harry Robinson, Senior Partner.<br>
-    [7] 中国大百科全书(2024). "Lewin变革模型"词条. 中国大百科全书出版社.
-  </div>
+  <div class="src">数据来源：OpenAI/Meta/Google官方招聘页；字节/LinkedIn招聘页；内部研究</div>
 </div>
 
 <div class="footer">
-  广告营销设计中心 · 职位切换分析 · 三阶段合理性论证 | 2026年5月
+  广告营销设计中心 · 职位切换分析 · 第四部分畅想 | 2026年5月
 </div>
 
 </div>
