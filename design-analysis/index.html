@@ -3,274 +3,639 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>设计族岗位融合 — 现状数据可视化分析</title>
+<title>广告营销设计中心 · D族职位发展建议（完善版）</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <style>
-  /* ═══ 腾讯蓝主题 ═══ */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  
   :root {
-    --tb: #0052D9;
-    --tb-dark: #003366;
-    --tb-light: #4DA6FF;
-    --tb-bg: #F0F7FF;
-    --tb-surface: #FFFFFF;
-    --text-primary: #1A1A2E;
-    --text-secondary: #666666;
-    --accent: #FF6B35;
-    --success: #2E7D32;
-    --shadow: 0 4px 24px rgba(0,82,217,0.10);
-    --radius: 12px;
+    --blue: #0052D9;
+    --blue-light: #3C7CFF;
+    --blue-bg: #EDF2FF;
+    --blue-deep: #0034B5;
+    --orange: #E37318;
+    --green: #2BA471;
+    --red: #D9304E;
+    --dark: #1A1A1A;
+    --mid: #444444;
+    --gray: #888888;
+    --bg: #F5F7FA;
+    --card: #FFFFFF;
+    --border: #E8ECF0;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   
   body {
-    font-family: "TencentSans", -apple-system, "Microsoft YaHei", sans-serif;
-    background: var(--tb-bg);
-    color: var(--text-primary);
-    line-height: 1.7;
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ── Header ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* Header */
   .header {
-    background: linear-gradient(135deg, var(--tb-dark) 0%, var(--tb) 60%, var(--tb-light) 100%);
-    color: white; padding: 48px 24px 40px; text-align: center;
-    position: relative; overflow: hidden;
+    text-align: center;
+    padding: 32px 0 20px;
+    border-bottom: 3px solid var(--blue);
+    margin-bottom: 28px;
   }
-  .header::before {
-    content: ''; position:absolute; top:-50%; right:-20%;
-    width:400px; height:400px; border-radius:50%;
-    background: rgba(255,255,255,0.06);
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue);
+    letter-spacing: 1px;
   }
-  .header::after {
-    content: ''; position:absolute; bottom:-30%; left:-10%;
-    width:300px; height:300px; border-radius:50%;
-    background: rgba(255,255,255,0.04);
+  .header .sub {
+    font-size: 13px;
+    color: var(--mid);
+    margin-top: 6px;
   }
-  .badge {
-    display:inline-block; background:rgba(255,255,255,0.18); backdrop-filter:blur(8px);
-    padding:6px 18px; border-radius:20px; font-size:13px; letter-spacing:1px;
-    margin-bottom:16px; border:1px solid rgba(255,255,255,0.25);
-  }
-  .header h1 { font-size:32px; font-weight:800; margin-bottom:8px; position:relative;}
-  .header p { font-size:15px; opacity:0.9; max-width:600px; margin:0 auto; position:relative;}
 
-  /* ── 容器 ── */
-  .container { max-width:1100px; margin:0 auto; padding:0 20px 60px; }
-  
-  /* ── 统计卡片区 ── */
-  .stats-row { display:flex; gap:16px; margin-top:-30px; position:relative; z-index:2; flex-wrap:wrap; }
-  .stat-card {
-    flex:1; min-width:140px; background:white; border-radius:var(--radius);
-    padding:22px 16px; text-align:center; box-shadow:var(--shadow); border-top:3px solid var(--tb);
-  }
-  .stat-card .num { font-size:28px; font-weight:800; color:var(--tb); line-height:1.2; }
-  .stat-card .label { font-size:12.5px; color:var(--text-secondary); margin-top:4px; }
-
-  /* ── 图表卡片 ── */
-  .chart-section { margin-top:40px; }
+  /* Section */
+  .section { margin-bottom: 28px; }
   .section-title {
-    font-size:19px; font-weight:700; color:var(--tb-dark); margin-bottom:20px;
-    display:flex; align-items:center; gap:10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blue);
+    padding-left: 10px;
+    border-left: 4px solid var(--blue);
+    margin-bottom: 14px;
   }
-  .section-title::before {
-    content:''; width:4px; height:22px; background:linear-gradient(to bottom, var(--tb), var(--tb-light));
-    border-radius:2px;
-  }
-
-  .chart-card {
-    background:white; border-radius:var(--radius); box-shadow:var(--shadow);
-    overflow:hidden; margin-bottom:28px;
-  }
-  .chart-card-header {
-    padding:18px 24px; border-bottom:1px solid #F0F0F0;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
-  }
-  .chart-card-title { font-size:15px; font-weight:700; color:var(--tb-dark); }
-  .chart-card-desc { font-size:12.5px; color:var(--text-secondary); }
-  .chart-card-body { padding:16px 24px 24px; text-align:center; }
-  .chart-card-body img {
-    max-width:100%; height:auto; border-radius:8px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  .sub-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 14px 0 8px;
   }
 
-  /* ── 双栏布局 ── */
-  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  @media(max-width:768px){ .grid-2{grid-template-columns:1fr;} }
-
-  /* ── 标签 ── */
-  .tag {
-    display:inline-block; padding:3px 10px; border-radius:12px; font-size:11.5px;
-    font-weight:600; letter-spacing:0.5px;
+  /* Card */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
   }
-  .tag-blue   { background:#E3F2FD; color:var(--tb-dark); }
-  .tag-orange  { background:#FFF3E0; color:#E65100; }
-  .tag-green   { background:#E8F5E9; color:#2E7D32; }
 
-  /* ── Footer ── */
+  /* Table */
+  .t-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+  }
+  .t-table th {
+    background: var(--blue);
+    color: #fff;
+    font-weight: 500;
+    padding: 7px 10px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .t-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .t-table tr:nth-child(even) td { background: #F8FAFF; }
+  .t-table .bold { font-weight: 700; color: var(--blue); }
+  .t-table .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .tag-red { background: #FFF0F0; color: var(--red); }
+  .tag-green { background: #E8F8F0; color: var(--green); }
+  .tag-orange { background: #FFF5E8; color: var(--orange); }
+  .tag-blue { background: var(--blue-bg); color: var(--blue); }
+
+  /* Stage cards */
+  .stages { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .stage-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    border-top: 3px solid var(--blue-light);
+  }
+  .stage-card.s2 { border-top-color: var(--orange); }
+  .stage-card.s3 { border-top-color: var(--green); }
+  .stage-card .s-header {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .stage-card .s-period {
+    font-size: 10px;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+  .stage-card .s-item {
+    font-size: 11px;
+    padding: 3px 0;
+    padding-left: 12px;
+    position: relative;
+  }
+  .stage-card .s-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+  .stage-card.s2 .s-item::before { background: var(--orange); }
+  .stage-card.s3 .s-item::before { background: var(--green); }
+
+  .s-check { font-size: 10.5px; color: var(--mid); margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); }
+  .s-check span { color: var(--blue); font-weight: 500; }
+
+  /* Highlight box */
+  .hl-box {
+    background: var(--blue-bg);
+    border-left: 3px solid var(--blue);
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--blue-deep);
+    border-radius: 0 4px 4px 0;
+    margin: 10px 0;
+  }
+
+  /* Chart container */
+  .chart-box {
+    width: 100%;
+    height: 340px;
+    margin: 8px 0;
+  }
+  .chart-box.sm { height: 260px; }
+
+  /* Timeline */
+  .timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .tl-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .tl-card .tl-year {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--blue-light);
+  }
+  .tl-card .tl-label {
+    font-size: 11px;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+  .tl-card.y2 .tl-year { color: var(--orange); }
+  .tl-card.y3 .tl-year { color: var(--green); }
+  .tl-card .tl-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    padding: 3px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .tl-card .tl-row:last-child { border: none; }
+  .tl-card .tl-pct {
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* Source */
+  .src {
+    font-size: 9.5px;
+    color: var(--gray);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .src a { color: var(--blue); text-decoration: none; }
+
+  /* Footer */
   .footer {
-    text-align:center; padding:32px 20px; color:var(--text-secondary); font-size:12.5px;
-    border-top:1px solid #E8EEF7; background:white;
+    text-align: center;
+    font-size: 10px;
+    color: var(--gray);
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
   }
-  .footer a { color:var(--tb); text-decoration:none; }
 
-  /* ── 数据来源标注 ── */
-  .data-source {
-    background: linear-gradient(135deg, #FFF8E1, #FFFDE7);
-    border-left:4px solid #FFC107; border-radius:0 8px 8px 0;
-    padding:14px 18px; font-size:12.5px; color:#795548; margin-bottom:28px;
-  }
-  .data-source strong { color:#E65100; }
-
-  @media print {
-    body { background:white; }
-    .chart-card { break-inside: avoid; box-shadow:none; border:1px solid #ddd; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .stages, .timeline { grid-template-columns: 1fr; }
+    .t-table { font-size: 10px; }
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-<!-- ══ Header ══ -->
+<!-- ==================== HEADER ==================== -->
 <div class="header">
-  <div class="badge">📊 数据可视化分析 · 真实数据版 v2</div>
-  <h1>设计族岗位融合改革</h1>
-  <p>基于部门编制统计表（工作簿1.xlsx）的53人真实数据分析，配合公开可验证的AI工具案例</p>
+  <h1>广告营销设计中心 · D族职位发展建议</h1>
+  <div class="sub">完善版 | 三阶段演进 · AI时代演进map · 行业先例</div>
 </div>
 
-<!-- ══ 统计卡片 ══ -->
-<div class="container">
-<div class="stats-row">
-  <div class="stat-card"><div class="num">53</div><div class="label">团队总人数</div></div>
-  <div class="stat-card"><div class="num">8</div><div class="label">职级档位(D5-D12)</div></div>
-  <div class="stat-card"><div class="num">69.8%</div><div class="label">核心骨干(D6-D9)</div></div>
-  <div class="stat-card"><div class="num">82%</div><div class="label">可行性综合评分</div></div>
-  <div class="stat-card"><div class="num">18月</div><div class="label">过渡计划周期</div></div>
-</div>
+<!-- ==================== 4.1 三阶段演进 ==================== -->
+<div class="section">
+  <div class="section-title">4.1 D族→P族三阶段演进方案</div>
+  
+  <div class="hl-box">核心逻辑：D族整合→"职位归一" | D族升级→"能力补齐" | P族并轨→"通道归属"。允许条件成熟者提前进入下一阶段。</div>
 
-<!-- ══ 数据来源说明 ══ -->
-<div class="data-source">
-  📌 <strong>数据来源：</strong>部门编制统计表「<code>工作簿1.xlsx</code>」Sheet2员工明细 + Sheet1统计分析 | 
-  所有人数均为实际统计值，无估算或虚构 | 图表生成时间：2026年4月27日
-</div>
-
-
-<!-- ══ 图表1: 职级分布柱状图 ══ -->
-<div class="chart-section">
-  <div class="section-title">一、职级人数分布</div>
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">📊 职级人数分布柱状图</span>
-      <span class="tag tag-blue">核心图表</span>
+  <div class="stages">
+    <!-- Stage 1 -->
+    <div class="stage-card">
+      <div class="s-header" style="color:var(--blue-light)">▸ 第一阶段：D族"四归一"</div>
+      <div class="s-period">0-6个月</div>
+      <div class="s-item">32人统一切换至产品体验设计</div>
+      <div class="s-item">五维能力雷达图逐一盘点</div>
+      <div class="s-item">3个月定向补强计划</div>
+      <div class="s-item">异质组队加速适应</div>
+      <div class="s-check">验收：<span>弱项维度提升≥1档</span>；AI应用从✗→◑</div>
     </div>
-    <div class="chart-card-body">
-      <img src="chart_01_level_distribution.png" alt="职级人数分布柱状图" loading="lazy">
-      <p style="margin-top:12px;font-size:12.5px;color:var(--text-secondary);">
-        展示53人按D5-D12的完整分布。三阶段区域划分：<br>
-        <span class="tag tag-orange" style="margin:2px;">初级成长区 D5-D6 (9人/17%)</span>
-        <span class="tag tag-blue" style="margin:2px;">核心骨干区 D7-D9 (29人/54.7%) ★主力军</span>
-        <span class="tag tag-green" style="margin:2px;">管理层区 D10-D12 (15人/28.3%)</span>
-      </p>
+    <!-- Stage 2 -->
+    <div class="stage-card s2">
+      <div class="s-header" style="color:var(--orange)">▸ 第二阶段：能力深化</div>
+      <div class="s-period">6-18个月</div>
+      <div class="s-item">产品规划：需求评审→独立规划功能</div>
+      <div class="s-item">数据驱动：看板→AB实验→数据迭代</div>
+      <div class="s-item">AI实践：用工具→重构工作流</div>
+      <div class="s-item">商业理解：GMV/ARPU/ROI挂钩</div>
+      <div class="s-check">验收：<span>50%独立规划 | 70%AB实验 | 100%AI工作流</span></div>
     </div>
+    <!-- Stage 3 -->
+    <div class="stage-card s3">
+      <div class="s-header" style="color:var(--green)">▸ 第三阶段：P族并轨</div>
+      <div class="s-period">18-24个月</div>
+      <div class="s-item">升级为"产品设计师"纳入P族</div>
+      <div class="s-item">与产品策划平行，非附属</div>
+      <div class="s-item">PM定义what&why，设计师定义how</div>
+      <div class="s-item">IC track通向Principal</div>
+      <div class="s-check">条件：<span>第2阶段验收通过 | 1个业务线试点 | 通道审批 | AI常态化</span></div>
+    </div>
+  </div>
+
+  <!-- 能力演进对照表 -->
+  <div class="card" style="margin-top:14px">
+    <div class="sub-title">D族→P族能力演进对照</div>
+    <table class="t-table">
+      <tr><th>能力维度</th><th>第1阶段末</th><th>第2阶段末</th><th>升级方式</th></tr>
+      <tr><td class="bold">用户研究</td><td>能参与访谈，提取洞察</td><td>独立规划研究方案→产品决策</td><td><span class="tag tag-green">加深度</span></td></tr>
+      <tr><td class="bold">交互逻辑</td><td>主导交互设计，输出说明</td><td>界面→行为设计，对话式交互</td><td><span class="tag tag-green">加广度</span></td></tr>
+      <tr><td class="bold">视觉审美</td><td>视觉判断力，评审方案</td><td>设计语言指南，视觉一致性</td><td><span class="tag tag-green">加系统</span></td></tr>
+      <tr><td class="bold">前端技术</td><td>读懂组件代码</td><td>代码还原设计稿，维护设计系统</td><td><span class="tag tag-green">加实现</span></td></tr>
+      <tr><td class="bold">产品规划</td><td><span class="tag tag-red">✗ 暂不具备</span></td><td>产品路线图，功能优先级</td><td><span class="tag tag-orange">新增</span></td></tr>
+      <tr><td class="bold">数据分析</td><td><span class="tag tag-red">✗ 暂不具备</span></td><td>AB实验，数据迭代方案</td><td><span class="tag tag-orange">新增</span></td></tr>
+      <tr><td class="bold">AI应用</td><td>掌握2+AIGC工具</td><td>AI重构工作流，非确定性体验</td><td><span class="tag tag-green">加实战</span></td></tr>
+      <tr><td class="bold">商业理解</td><td><span class="tag tag-red">✗ 暂不具备</span></td><td>商业指标挂钩设计决策</td><td><span class="tag tag-orange">新增</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 并轨后定位 -->
+  <div class="card">
+    <div class="sub-title">P族并轨后：产品策划 vs 产品设计师</div>
+    <table class="t-table">
+      <tr><th>维度</th><th style="background:#7B61FF">产品策划/经理</th><th style="background:var(--blue)">产品设计师</th></tr>
+      <tr><td class="bold">核心</td><td>定义"做什么"：战略、路线图、商业</td><td>定义"怎么体验"：策略、范式、AI体验</td></tr>
+      <tr><td class="bold">用户理解</td><td>分析→决策（数据驱动）</td><td>洞察→方案（研究驱动）</td></tr>
+      <tr><td class="bold">产品规划</td><td>全生命周期路线图</td><td>体验路线图、设计语言演进</td></tr>
+      <tr><td class="bold">技术理解</td><td>评估技术方案</td><td>还原度把控、设计系统实现</td></tr>
+      <tr><td class="bold">数据分析</td><td>AB→决策，商业指标</td><td>行为数据→体验优化</td></tr>
+      <tr><td class="bold">市场分析</td><td>竞品、定位、商业模式</td><td>体验竞品、设计趋势、审美</td></tr>
+      <tr><td class="bold">晋升</td><td>P4→P5→P6→…</td><td>P4→P5→P6→… IC→Principal</td></tr>
+    </table>
+    <div class="hl-box" style="margin-top:8px">第2阶段是缓冲带——在D族内部完成能力升级，不急于换标签；只有能力真正覆盖P族要求时才并轨，避免"名不副实"。</div>
   </div>
 </div>
 
-<!-- ══ 图表2: 团队结构环形图 ══ -->
-<div class="chart-section">
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">🍩 团队人员结构环形图</span>
-      <span class="tag tag-blue">双层结构</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_02_team_structure_donut.png" alt="团队结构环形图" loading="lazy">
-      <p style="margin-top:12px;font-size:12.5px;color:var(--text-secondary);">
-        双层环形图：内环展示三大层级聚合（初级/骨干/管理层），外环展示八档职级详细占比
-      </p>
-    </div>
+<!-- ==================== 4.2 AI时代演进map ==================== -->
+<div class="section">
+  <div class="section-title">4.2 AI时代设计职位演进map</div>
+
+  <!-- 不可替代性 -->
+  <div class="card">
+    <div class="sub-title">设计师不可替代性论证</div>
+    <table class="t-table">
+      <tr><th>不可替代能力</th><th>具体内涵</th><th>AI替代？</th><th>为什么</th></tr>
+      <tr><td class="bold">问题定义</td><td>模糊需求→真问题，业务语言→设计语言</td><td><span class="tag tag-red">不能</span></td><td>AI擅长回答问题，不擅长提出问题</td></tr>
+      <tr><td class="bold">审美判断</td><td>多方案中选最优，指导AI迭代</td><td><span class="tag tag-red">不能</span></td><td>"哪个好"需要审美直觉+文化语境</td></tr>
+      <tr><td class="bold">不确定性驾驭</td><td>AI出错/幻觉→兜底体验+用户信任</td><td><span class="tag tag-red">不能</span></td><td>全新设计挑战，需同理心+创造力</td></tr>
+      <tr><td class="bold">跨域整合</td><td>连接用户研究+交互+视觉+前端+产品</td><td><span class="tag tag-red">不能</span></td><td>AI单点增强，跨域需系统思维+协作</td></tr>
+    </table>
+    <div class="hl-box">不可替代性 = 问题定义 × 审美判断 × 不确定性驾驭 × 跨域整合。AI替代的是"手"，不是"脑"。</div>
+    <div class="src">数据来源：Gartner 2024年AIGC影响预测（60%重复性工作替代、40%高阶岗位催生）；站酷《2025中国设计行业AI应用调研报告》AI工具使用率85.8%</div>
+  </div>
+
+  <!-- 1/3/5年演进图 -->
+  <div class="card">
+    <div class="sub-title">设计团队1/3/5年演进路线图</div>
+    <div id="chart-evolution" class="chart-box"></div>
+  </div>
+
+  <!-- 团队结构演进表 -->
+  <div class="card">
+    <div class="sub-title">团队结构演进明细</div>
+    <table class="t-table">
+      <tr><th>时期</th><th>角色</th><th>占比</th><th>核心变化</th><th>AI协作</th></tr>
+      <tr><td rowspan="3" class="bold" style="color:var(--blue-light)">1年后<br><small>2027</small></td>
+        <td class="bold">产品体验设计</td><td>70%</td><td>四职位整合完成</td><td>AI辅助分析+生成</td></tr>
+      <tr><td class="bold">设计系统工程师</td><td>15%</td><td>原UI开发→系统+代码</td><td>AI生成代码+审核</td></tr>
+      <tr><td class="bold">AI视觉策展人</td><td>15%</td><td>原视觉→审图+品控</td><td>AI生成+策展</td></tr>
+      
+      <tr><td rowspan="4" class="bold" style="color:var(--orange)">3年后<br><small>2029</small></td>
+        <td class="bold" style="color:var(--green)">产品设计师</td><td>50%</td><td>体验策略+AI体验+PM平行</td><td>AI驱动迭代+验证</td></tr>
+      <tr><td class="bold" style="color:var(--orange)">AI体验设计师</td><td>20%</td><td>非确定性输出+AI人格</td><td>AI是对象+工具</td></tr>
+      <tr><td class="bold">设计系统工程师</td><td>15%</td><td>AI驱动设计→代码自动化</td><td>AI自动生成+Token</td></tr>
+      <tr><td class="bold" style="color:var(--orange)">设计策略师</td><td>15%</td><td>设计ROI+能力建设</td><td>AI辅助分析+预测</td></tr>
+      
+      <tr><td rowspan="4" class="bold" style="color:var(--green)">5年后<br><small>2031</small></td>
+        <td class="bold" style="color:var(--green)">首席产品设计师</td><td>30%</td><td>产品+体验双面负责人</td><td>AI全流程副驾驶</td></tr>
+      <tr><td class="bold" style="color:var(--orange)">AI体验架构师</td><td>25%</td><td>AI人格+多模态+情感</td><td>AI是工具+对象</td></tr>
+      <tr><td class="bold">设计自动化工程师</td><td>25%</td><td>设计→交付自动化管线</td><td>AI核心生产力</td></tr>
+      <tr><td class="bold">设计策略与运营</td><td>20%</td><td>ROI+能力+一致性</td><td>AI辅助决策</td></tr>
+    </table>
+    <div class="src">数据来源：McKinsey Global Institute《Jobs Lost, Jobs Gained》(2017更新)预测AI对创意岗位影响；World Economic Forum《Future of Jobs Report 2025》设计岗位演进趋势</div>
+  </div>
+
+  <!-- AI替代vs不可替代 雷达图 -->
+  <div class="card">
+    <div class="sub-title">AI时代设计师能力价值变化</div>
+    <div id="chart-radar" class="chart-box"></div>
   </div>
 </div>
 
-<!-- ══ 图表3: 四岗对比 + 改革前后 ══ -->
-<div class="chart-section">
-  <div class="section-title">二、四岗对比与改革效果</div>
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">📊 四岗位人数对比 &amp; 改革前后效果评估</span>
-      <span class="tag tag-green">双面板</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_03_position_compare.png" alt="四岗位对比与改革前后" loading="lazy">
-      <p style="margin-top:12px;font-size:12.5px;color:var(--text-secondary);">
-        左图：原始四岗位的人数估算与占比 | 右图：改革前vs改革后在五个维度的评分对比
-      </p>
-    </div>
+<!-- ==================== 4.3 行业先例 ==================== -->
+<div class="section">
+  <div class="section-title">4.3 行业先例：产品设计师纳入P族</div>
+
+  <!-- 国内 -->
+  <div class="card">
+    <div class="sub-title">国内互联网公司职级对标</div>
+    <table class="t-table">
+      <tr><th>公司</th><th>职级体系</th><th>设计师归属</th><th>与PM关系</th><th>关键特点</th></tr>
+      <tr><td class="bold">阿里</td><td>P序列(P4-P14)</td><td><span class="tag tag-green">P序列，同ladder</span></td><td>同级平行</td><td>独立能力模型，共享职级框架</td></tr>
+      <tr><td class="bold">字节跳动</td><td>T/P/O序列</td><td><span class="tag tag-orange">T序列(技术)</span></td><td>不同ladder</td><td>内部正推动向产品侧靠拢</td></tr>
+      <tr><td class="bold">美团</td><td>L序列(L4-L9)</td><td><span class="tag tag-green">L序列，同ladder</span></td><td>同级平行</td><td>按专业方向区分，共享框架</td></tr>
+      <tr><td class="bold">百度</td><td>已取消P序列</td><td><span class="tag tag-orange">独立序列</span></td><td>独立发展</td><td>更扁平管理体系</td></tr>
+      <tr><td class="bold" style="color:var(--blue)">腾讯(现状)</td><td>T/P/M/S/D</td><td><span class="tag tag-red">D族(设计)</span></td><td>不同ladder</td><td>—</td></tr>
+      <tr><td class="bold" style="color:var(--blue)">腾讯(建议)</td><td>P族增设</td><td><span class="tag tag-blue">P族产品设计师</span></td><td>与PM平行</td><td>参照阿里模式</td></tr>
+    </table>
+    <div class="src">数据来源：阿里巴巴集团公开职级体系（阿里技术公众号2020年P序列改革说明）；美团技术博客职级体系介绍；字节跳动职级体系公开信息（脉脉/知乎多条来源交叉验证）</div>
+  </div>
+
+  <!-- 海外 -->
+  <div class="card">
+    <div class="sub-title">海外科技公司产品设计师职级</div>
+    <table class="t-table">
+      <tr><th>公司</th><th>职位名</th><th>职级框架</th><th>与PM关系</th><th>关键特点</th></tr>
+      <tr><td class="bold">Figma</td><td>Product Designer</td><td>L1-L6</td><td>同级平行，IC→Principal</td><td>自身团队即最佳实践</td></tr>
+      <tr><td class="bold">Google</td><td>UX/Product Designer</td><td>L3-L10+</td><td>同级，IC→Fellow</td><td>共享职级，独立晋升</td></tr>
+      <tr><td class="bold">Meta</td><td>Product Designer</td><td>E3-E9+</td><td>同级，IC→Distinguished</td><td>深度参与产品决策</td></tr>
+      <tr><td class="bold">Airbnb</td><td>Product Designer</td><td>独立设计ladder</td><td>平行协作，独立晋升</td><td>设计驱动，高决策权</td></tr>
+      <tr><td class="bold">Spotify</td><td>Product Designer</td><td>与PM共享ladder</td><td>Tribe/Squad组队</td><td>敏捷小队，平等协作</td></tr>
+    </table>
+    <div class="src">数据来源：Figma Careers公开职位说明(careers.figma.com)；Google/Meta职级体系(levels.fyi 2025数据)；Airbnb Design Blog(design.airbnb.com)；Spotify Engineering Blog(engineering.atspotify.com)</div>
+  </div>
+
+  <!-- 行业先例对比图 -->
+  <div class="card">
+    <div class="sub-title">国内外设计师与PM职级关系对比</div>
+    <div id="chart-industry" class="chart-box sm"></div>
+  </div>
+
+  <!-- 启示 -->
+  <div class="card">
+    <div class="sub-title">先例对腾讯的4点启示</div>
+    <table class="t-table">
+      <tr><th>#</th><th>启示</th><th>来源</th></tr>
+      <tr><td class="bold">1</td><td>阿里P序列含设计师，与PM同ladder不同能力模型，已运行多年→<b>证明可行性</b></td><td>阿里技术公众号2020年P序列改革</td></tr>
+      <tr><td class="bold">2</td><td>Figma/Google/Meta/Airbnb/Spotify均"Product Designer"与PM同级→<b>证明必要性</b>：设计通道已无法承载"定义体验"的能力成长空间</td><td>levels.fyi 2025职级数据</td></tr>
+      <tr><td class="bold">3</td><td>海外IC track可通向Principal/Fellow→<b>保障天花板</b>，避免"到P6到头"</td><td>Google/Meta公开职级体系</td></tr>
+      <tr><td class="bold">4</td><td>海外"一开始就同ladder"vs腾讯"从D族并轨"→<b>需缓冲</b>：第2阶段充分升级，确保并轨时名实相符</td><td>—</td></tr>
+    </table>
+    <div class="hl-box">行业先例总结：产品设计师纳入产品职级体系是全球头部科技公司主流实践。腾讯D族→P族并轨有充分行业参照，关键是做好过渡缓冲，确保"并轨时能力到位，不是标签先行"。</div>
   </div>
 </div>
 
-<!-- ══ 图表4: 雷达图 ══ -->
-<div class="chart-section">
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">🎯 五维能力雷达图</span>
-      <span class="tag tag-blue">能力画像</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_04_radar.png" alt="五维能力雷达图" loading="lazy">
-      <p style="margin-top:12px;font-size:12.5px;color:var(--text-secondary);">
-        四种岗位在五维能力模型上的得分对比。产品体验设计（融合后）在各维度均表现均衡。
-      </p>
-    </div>
+<!-- ==================== 4.4 五维能力 ==================== -->
+<div class="section">
+  <div class="section-title">4.4 D族五维能力对比及优化建议</div>
+  
+  <div class="card">
+    <div id="chart-radar5" class="chart-box"></div>
+    <div class="src">数据来源：D族通道职位能力模型（腾讯内部通道能力定义文档）</div>
+  </div>
+
+  <div class="card">
+    <table class="t-table">
+      <tr><th>维度</th><th>差距</th><th>补强能力</th><th>职能改造</th><th>AI融合</th></tr>
+      <tr><td class="bold">用户研究</td><td><span class="tag tag-orange">◑</span></td><td>访谈/挖掘/分析/定位</td><td>访谈纳入流程→洞察融入方案→掌握统计分析</td><td>AI分析纪要/画像/反馈</td></tr>
+      <tr><td class="bold">交互逻辑</td><td><span class="tag tag-green">✓</span></td><td>深化理论+AI交互</td><td>主导交互→组件库→评审</td><td>AI生成流程/检查逻辑</td></tr>
+      <tr><td class="bold">前端技术</td><td><span class="tag tag-orange">◑</span></td><td>HTML/CSS/JS/组件化</td><td>读代码→还原稿→维护系统</td><td>vibe coding/低代码</td></tr>
+      <tr><td class="bold">视觉审美</td><td><span class="tag tag-orange">◑</span></td><td>规范/色彩/品牌/排版</td><td>判断质量→评审→语言指南</td><td>AI探索/配色/趋势</td></tr>
+      <tr><td class="bold">AI应用</td><td><span class="tag tag-red">✗</span></td><td>AIGC/提示词/工作流</td><td>重构全链路/非确定性体验/AI人格</td><td>最大机会点</td></tr>
+    </table>
   </div>
 </div>
 
-<!-- ══ 图表5: AI消融壁垒 ══ -->
-<div class="chart-section">
-  <div class="section-title">三、AI技术消融壁垒</div>
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">⚡ 六大壁垒消融效果对比</span>
-      <span class="tag tag-orange">核心论据</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_05_ai_barriers.png" alt="AI消融壁垒效果" loading="lazy">
-      <p style="margin-top:12px;font-size:12.5px;color:var(--text-secondary);">
-        基于Cursor/Autodesk Percy/Vercel v0/Figma AI等公开案例的实测数据。<br>
-        编码壁垒和视觉走查壁垒的消融效果最为显著（↓86% 和 ↓88%）
-      </p>
-    </div>
+<!-- ==================== 4.5 通道能力对标 ==================== -->
+<div class="section">
+  <div class="section-title">4.5 产品体验设计→产品设计师通道能力对标</div>
+  
+  <div class="card">
+    <div id="chart-compare" class="chart-box"></div>
+    <div class="src">数据来源：D族产品体验设计5组通道能力 + P族产品策划6组通道能力（腾讯内部通道能力模型文档）</div>
+  </div>
+
+  <div class="card">
+    <div class="hl-box">联系：都关注用户和产品，以用户为中心做研究、理解方向与需求、验证迭代<br>区别：产品体验设计侧重"如何更好地体验"(how)，产品策划侧重"做什么更有价值"(what & why)</div>
+    <table class="t-table">
+      <tr><th>升级方向</th><th>升级方式</th></tr>
+      <tr><td class="bold">产品规划</td><td>设计理念→信息架构 延伸至 业务目标→路线图→优先级 全链路</td></tr>
+      <tr><td class="bold">数据驱动</td><td>建立AB测试+行为数据→设计迭代闭环</td></tr>
+      <tr><td class="bold">AI实践</td><td>AIGC工具+非确定性体验设计+AI代码交付</td></tr>
+      <tr><td class="bold">商业理解</td><td>商业指标/ROI/增长飞轮。加产品，不改设计</td></tr>
+    </table>
   </div>
 </div>
 
-<!-- ══ 图表6+7: 时间轴 + 仪表盘 ══ -->
-<div class="grid-2" style="margin-top:8px;">
-  <!-- 过渡路径 -->
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">📅 过渡路径时间轴</span>
-      <span class="tag tag-blue">18个月</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_06_transition_timeline.png" alt="过渡路径时间轴" loading="lazy" style="max-height:320px;object-fit:contain;">
-    </div>
-  </div>
-  <!-- 可行性评分 -->
-  <div class="chart-card">
-    <div class="chart-card-header">
-      <span class="chart-card-title">🎯 可行性综合评分</span>
-      <span class="tag tag-green">推荐推进</span>
-    </div>
-    <div class="chart-card-body">
-      <img src="chart_07_feasibility_gauge.png" alt="可行性综合评分" loading="lazy" style="max-height:320px;object-fit:contain;">
-    </div>
-  </div>
-</div>
-
-<!-- ══ Footer ══ -->
 <div class="footer">
-  <p>设计族岗位融合改革 — 数据可视化报告 v2.0</p>
-  <p>生成于 2026-04-27 | 图表引擎: Python Matplotlib + TencentSans 字体</p>
-  <p style="margin-top:8px;">数据来源: 部门编制统计表（工作簿1.xlsx）| 案例来源: Cursor/Autodesk/Vercel/Figma AI/MasterGo AI 等</p>
+  广告营销设计中心 · 职位切换分析（完善版） | 数据截止2026年5月
 </div>
 
-</div><!-- /.container -->
+</div><!-- .page -->
 
+<!-- ==================== ECharts ==================== -->
+<script>
+const BLUE = '#0052D9';
+const BLUE_L = '#3C7CFF';
+const ORANGE = '#E37318';
+const GREEN = '#2BA471';
+const RED = '#D9304E';
+const GRAY = '#999';
+
+// 1. 团队演进堆叠柱状图
+const c1 = echarts.init(document.getElementById('chart-evolution'));
+c1.setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: {
+    data: ['产品体验设计', '设计系统工程师', 'AI视觉策展人', '产品设计师', 'AI体验设计师', '设计策略师', '首席产品设计师', 'AI体验架构师', '设计自动化工程师', '设计策略与运营'],
+    textStyle: { fontSize: 10, fontFamily: 'Noto Sans SC' },
+    type: 'scroll'
+  },
+  grid: { left: 50, right: 20, top: 50, bottom: 30 },
+  xAxis: {
+    type: 'category',
+    data: ['1年后(2027)', '3年后(2029)', '5年后(2031)'],
+    axisLabel: { fontSize: 11, fontFamily: 'Noto Sans SC' }
+  },
+  yAxis: {
+    type: 'value', max: 100, name: '%',
+    axisLabel: { fontSize: 10 }, nameTextStyle: { fontSize: 10 }
+  },
+  series: [
+    { name: '产品体验设计', type: 'bar', stack: 'a', data: [70, 0, 0], itemStyle: { color: BLUE } },
+    { name: '产品设计师', type: 'bar', stack: 'a', data: [0, 50, 0], itemStyle: { color: GREEN } },
+    { name: '首席产品设计师', type: 'bar', stack: 'a', data: [0, 0, 30], itemStyle: { color: '#1D8348' } },
+    { name: '设计系统工程师', type: 'bar', stack: 'a', data: [15, 15, 0], itemStyle: { color: '#7B61FF' } },
+    { name: 'AI视觉策展人', type: 'bar', stack: 'a', data: [15, 0, 0], itemStyle: { color: ORANGE } },
+    { name: 'AI体验设计师', type: 'bar', stack: 'a', data: [0, 20, 0], itemStyle: { color: '#FF9F43' } },
+    { name: 'AI体验架构师', type: 'bar', stack: 'a', data: [0, 0, 25], itemStyle: { color: '#E67E22' } },
+    { name: '设计策略师', type: 'bar', stack: 'a', data: [0, 15, 0], itemStyle: { color: '#54A0FF' } },
+    { name: '设计自动化工程师', type: 'bar', stack: 'a', data: [0, 0, 25], itemStyle: { color: '#5F27CD' } },
+    { name: '设计策略与运营', type: 'bar', stack: 'a', data: [0, 0, 20], itemStyle: { color: '#A29BFE' } },
+  ]
+});
+
+// 2. 不可替代性雷达图
+const c2 = echarts.init(document.getElementById('chart-radar'));
+c2.setOption({
+  tooltip: {},
+  legend: {
+    data: ['当前设计师', 'AI能力', '未来设计师'],
+    bottom: 0,
+    textStyle: { fontSize: 11, fontFamily: 'Noto Sans SC' }
+  },
+  radar: {
+    indicator: [
+      { name: '问题定义', max: 10 },
+      { name: '审美判断', max: 10 },
+      { name: '不确定性驾驭', max: 10 },
+      { name: '跨域整合', max: 10 },
+      { name: '设计执行', max: 10 },
+    ],
+    radius: '60%',
+    nameGap: 8,
+    name: { textStyle: { fontSize: 11, fontFamily: 'Noto Sans SC', color: '#333' } }
+  },
+  series: [{
+    type: 'radar',
+    data: [
+      { value: [6, 7, 4, 5, 8], name: '当前设计师', lineStyle: { color: BLUE }, areaStyle: { color: 'rgba(0,82,217,0.15)' }, itemStyle: { color: BLUE } },
+      { value: [2, 3, 1, 2, 9], name: 'AI能力', lineStyle: { color: RED, type: 'dashed' }, areaStyle: { color: 'rgba(217,48,78,0.1)' }, itemStyle: { color: RED } },
+      { value: [9, 9, 8, 8, 4], name: '未来设计师', lineStyle: { color: GREEN }, areaStyle: { color: 'rgba(43,164,113,0.15)' }, itemStyle: { color: GREEN } },
+    ]
+  }]
+});
+
+// 3. 行业先例对比图
+const c3 = echarts.init(document.getElementById('chart-industry'));
+c3.setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: { data: ['同ladder", "不同ladder", "建议并轨'], textStyle: { fontSize: 10, fontFamily: 'Noto Sans SC' }, bottom: 0 },
+  grid: { left: 70, right: 20, top: 20, bottom: 40 },
+  xAxis: { type: 'value', axisLabel: { fontSize: 10 } },
+  yAxis: {
+    type: 'category',
+    data: ['Spotify', 'Airbnb', 'Meta', 'Google', 'Figma', '百度', '美团', '字节', '阿里', '腾讯(建议)', '腾讯(现状)'],
+    axisLabel: { fontSize: 10, fontFamily: 'Noto Sans SC' }
+  },
+  series: [
+    { name: '同ladder', type: 'bar', stack: 'b', data: [1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0], itemStyle: { color: GREEN } },
+    { name: '不同ladder', type: 'bar', stack: 'b', data: [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1], itemStyle: { color: RED } },
+    { name: '建议并轨', type: 'bar', stack: 'b', data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0], itemStyle: { color: BLUE } },
+  ]
+});
+
+// 4. 五职位五维能力雷达图
+const c4 = echarts.init(document.getElementById('chart-radar5'));
+c4.setOption({
+  tooltip: {},
+  legend: {
+    data: ['产品体验设计', '交互设计', '视觉设计', 'UI开发', '用户研究'],
+    bottom: 0,
+    textStyle: { fontSize: 10, fontFamily: 'Noto Sans SC' }
+  },
+  radar: {
+    indicator: [
+      { name: '用户研究', max: 5 },
+      { name: '交互逻辑', max: 5 },
+      { name: '视觉审美', max: 5 },
+      { name: '前端技术', max: 5 },
+      { name: 'AI应用', max: 5 },
+    ],
+    radius: '58%',
+    nameGap: 8,
+    name: { textStyle: { fontSize: 11, fontFamily: 'Noto Sans SC', color: '#333' } }
+  },
+  series: [{
+    type: 'radar',
+    data: [
+      { value: [3, 5, 3, 2, 1], name: '产品体验设计', lineStyle: { color: BLUE, width: 2 }, areaStyle: { color: 'rgba(0,82,217,0.2)' }, itemStyle: { color: BLUE } },
+      { value: [4, 5, 2, 1, 1], name: '交互设计', lineStyle: { color: ORANGE }, areaStyle: { color: 'rgba(227,115,24,0.1)' }, itemStyle: { color: ORANGE } },
+      { value: [2, 2, 5, 2, 1], name: '视觉设计', lineStyle: { color: RED }, areaStyle: { color: 'rgba(217,48,78,0.1)' }, itemStyle: { color: RED } },
+      { value: [1, 2, 3, 5, 1], name: 'UI开发', lineStyle: { color: '#7B61FF' }, areaStyle: { color: 'rgba(123,97,255,0.1)' }, itemStyle: { color: '#7B61FF' } },
+      { value: [5, 3, 1, 1, 1], name: '用户研究', lineStyle: { color: GREEN }, areaStyle: { color: 'rgba(43,164,113,0.1)' }, itemStyle: { color: GREEN } },
+    ]
+  }]
+});
+
+// 5. 产品体验设计 vs 产品策划对比
+const c5 = echarts.init(document.getElementById('chart-compare'));
+c5.setOption({
+  tooltip: {},
+  legend: {
+    data: ['产品体验设计(D族)', '产品策划(P族)', '产品设计师(建议)'],
+    bottom: 0,
+    textStyle: { fontSize: 10, fontFamily: 'Noto Sans SC' }
+  },
+  radar: {
+    indicator: [
+      { name: '用户理解', max: 10 },
+      { name: '产品设计', max: 10 },
+      { name: '产品规划', max: 10 },
+      { name: '技术理解', max: 10 },
+      { name: '数据分析', max: 10 },
+      { name: '市场分析', max: 10 },
+    ],
+    radius: '58%',
+    nameGap: 8,
+    name: { textStyle: { fontSize: 11, fontFamily: 'Noto Sans SC', color: '#333' } }
+  },
+  series: [{
+    type: 'radar',
+    data: [
+      { value: [7, 8, 4, 5, 3, 2], name: '产品体验设计(D族)', lineStyle: { color: BLUE }, areaStyle: { color: 'rgba(0,82,217,0.15)' }, itemStyle: { color: BLUE } },
+      { value: [8, 6, 9, 6, 8, 8], name: '产品策划(P族)', lineStyle: { color: '#7B61FF' }, areaStyle: { color: 'rgba(123,97,255,0.1)' }, itemStyle: { color: '#7B61FF' } },
+      { value: [8, 8, 7, 6, 6, 5], name: '产品设计师(建议)', lineStyle: { color: GREEN, width: 2 }, areaStyle: { color: 'rgba(43,164,113,0.15)' }, itemStyle: { color: GREEN } },
+    ]
+  }]
+});
+
+// Responsive
+window.addEventListener('resize', () => {
+  c1.resize(); c2.resize(); c3.resize(); c4.resize(); c5.resize();
+});
+</script>
 </body>
 </html>
