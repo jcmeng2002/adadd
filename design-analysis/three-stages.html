@@ -3,501 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>未来该往哪走——D族职位发展畅想</title>
+<title>设计职位的未来：从岗位到能力</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
-  
-  :root {
-    --blue: #0052D9;
-    --blue-light: #3C7CFF;
-    --blue-bg: #EDF2FF;
-    --blue-deep: #0034B5;
-    --orange: #E37318;
-    --orange-bg: #FFF5E8;
-    --green: #2BA471;
-    --green-bg: #E8F8F0;
-    --purple: #7B61FF;
-    --purple-bg: #F3EEFF;
-    --red: #D9304E;
-    --dark: #1A1A1A;
-    --mid: #444444;
-    --gray: #888888;
-    --bg: #F5F7FA;
-    --card: #FFFFFF;
-    --border: #E8ECF0;
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f0f3f8;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+h1 {
+  font-size: 32px; font-weight: 900; color: #0052D9;
+  text-align: center; margin-bottom: 8px;
+}
+.subtitle {
+  text-align: center; font-size: 14px; color: #666;
+  margin-bottom: 40px;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  body {
-    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: var(--bg);
-    color: var(--dark);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+/* 时间线 */
+.timeline {
+  position: relative; padding: 30px 0;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 3px; background: linear-gradient(to bottom, #0052D9, #7B61FF, #FF6B6B);
+  transform: translateX(-50%);
+}
+.era {
+  position: relative; margin-bottom: 40px; display: flex;
+  align-items: flex-start; gap: 30px;
+}
+.era:nth-child(odd) { flex-direction: row; }
+.era:nth-child(even) { flex-direction: row-reverse; }
+.era-content {
+  flex: 1; background: white; border-radius: 12px; padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,82,217,0.08);
+  border-left: 4px solid #0052D9;
+}
+.era:nth-child(even) .era-content { border-left: none; border-right: 4px solid #7B61FF; }
+.era:nth-child(3) .era-content { border-left: none; border-right: 4px solid #FF6B6B; }
+.era-dot {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 700; color: white;
+  position: relative; z-index: 2;
+}
+.era:nth-child(1) .era-dot { background: #0052D9; }
+.era:nth-child(2) .era-dot { background: #7B61FF; }
+.era:nth-child(3) .era-dot { background: #FF6B6B; }
+.era-label {
+  font-size: 11px; color: white; background: #0052D9;
+  padding: 2px 10px; border-radius: 10px; display: inline-block;
+  margin-bottom: 8px; font-weight: 500;
+}
+.era:nth-child(2) .era-label { background: #7B61FF; }
+.era:nth-child(3) .era-label { background: #FF6B6B; }
+.era-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.era-desc { font-size: 13px; color: #555; }
+.era-data { font-size: 12px; color: #0052D9; font-weight: 500; margin-top: 8px; }
 
-  .page { max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px; }
+/* 数据卡 */
+.data-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px; margin: 40px 0;
+}
+.data-card {
+  background: white; border-radius: 12px; padding: 20px;
+  text-align: center; box-shadow: 0 2px 12px rgba(0,82,217,0.08);
+}
+.data-card .number {
+  font-size: 36px; font-weight: 900; color: #0052D9;
+}
+.data-card .label { font-size: 12px; color: #666; margin-top: 4px; }
+.data-card .source { font-size: 10px; color: #999; margin-top: 4px; }
 
-  .header {
-    text-align: center;
-    padding: 24px 0 16px;
-    border-bottom: 3px solid var(--blue);
-    margin-bottom: 24px;
-  }
-  .header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--blue);
-    letter-spacing: 1px;
-  }
-  .header .sub {
-    font-size: 12px;
-    color: var(--mid);
-    margin-top: 4px;
-  }
+/* 畅想区 */
+.vision {
+  background: linear-gradient(135deg, #0052D9 0%, #7B61FF 100%);
+  border-radius: 16px; padding: 32px; color: white; margin: 40px 0;
+}
+.vision h2 { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+.vision-item {
+  background: rgba(255,255,255,0.15); border-radius: 8px;
+  padding: 16px; margin-bottom: 12px; backdrop-filter: blur(4px);
+}
+.vision-item .q { font-size: 15px; font-weight: 700; }
+.vision-item .a { font-size: 13px; opacity: 0.9; margin-top: 4px; }
 
-  /* === Section Title === */
-  .section-title {
-    font-size: 15px;
-    font-weight: 700;
-    padding: 8px 14px;
-    border-radius: 6px;
-    margin: 20px 0 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-title .icon {
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
-  }
-  .s-now .section-title { background: var(--blue-bg); color: var(--blue); }
-  .s-now .icon { background: var(--blue); }
-  .s-trend .section-title { background: var(--orange-bg); color: var(--orange); }
-  .s-trend .icon { background: var(--orange); }
-  .s-vision .section-title { background: var(--purple-bg); color: var(--purple); }
-  .s-vision .icon { background: var(--purple); }
+/* 三步走 */
+.stages {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 40px 0;
+}
+.stage {
+  background: white; border-radius: 12px; padding: 24px; text-align: center;
+  box-shadow: 0 2px 12px rgba(0,82,217,0.08); position: relative;
+}
+.stage::after {
+  content: ''; position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%); width: 0; height: 0;
+  border-left: 12px solid #0052D9; border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.stage:last-child::after { display: none; }
+.stage-num {
+  width: 40px; height: 40px; border-radius: 50%; background: #0052D9;
+  color: white; font-weight: 700; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+}
+.stage:nth-child(2) .stage-num { background: #7B61FF; }
+.stage:nth-child(3) .stage-num { background: #FF6B6B; }
+.stage-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.stage-desc { font-size: 12px; color: #555; }
+.stage-why { font-size: 11px; color: #0052D9; font-weight: 500; margin-top: 8px; }
 
-  /* === Flow: Now → Trend → Vision === */
-  .flow-container {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-    margin: 16px 0;
-  }
-  .flow-stage {
-    flex: 1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-    text-align: center;
-  }
-  .flow-stage.s1 { border-top: 3px solid var(--blue-light); }
-  .flow-stage.s2 { border-top: 3px solid var(--orange); }
-  .flow-stage.s3 { border-top: 3px solid var(--purple); }
+/* refs */
+.refs { font-size: 10px; color: #999; margin-top: 40px; line-height: 1.8; }
+.refs span { color: #0052D9; font-weight: 500; }
 
-  .flow-stage .f-label {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--gray);
-    margin-bottom: 4px;
-  }
-  .flow-stage .f-title {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-  .s1 .f-title { color: var(--blue-light); }
-  .s2 .f-title { color: var(--orange); }
-  .s3 .f-title { color: var(--purple); }
-  .flow-stage .f-desc {
-    font-size: 11px;
-    color: var(--mid);
-    line-height: 1.5;
-  }
-  .flow-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    flex-shrink: 0;
-  }
-
-  /* === Data card === */
-  .data-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-  }
-  .data-card .dc-title {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .stat-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .stat-item {
-    flex: 1;
-    border-radius: 6px;
-    padding: 10px;
-    text-align: center;
-  }
-  .stat-item.blue { background: var(--blue-bg); }
-  .stat-item.orange { background: var(--orange-bg); }
-  .stat-item.green { background: var(--green-bg); }
-  .stat-item.purple { background: var(--purple-bg); }
-  .stat-item .si-num {
-    font-size: 22px;
-    font-weight: 900;
-  }
-  .stat-item.blue .si-num { color: var(--blue); }
-  .stat-item.orange .si-num { color: var(--orange); }
-  .stat-item.green .si-num { color: var(--green); }
-  .stat-item.purple .si-num { color: var(--purple); }
-  .stat-item .si-label {
-    font-size: 10px;
-    color: var(--mid);
-    margin-top: 2px;
-  }
-
-  /* === Table === */
-  .t-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 11px;
-  }
-  .t-table th {
-    background: var(--blue);
-    color: #fff;
-    font-weight: 500;
-    padding: 6px 8px;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .t-table td {
-    padding: 5px 8px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  .t-table tr:nth-child(even) td { background: #F8FAFF; }
-  .t-table .bold { font-weight: 700; }
-
-  /* Highlight box */
-  .hl-box {
-    padding: 8px 12px;
-    font-size: 11px;
-    font-weight: 500;
-    border-radius: 0 4px 4px 0;
-    margin: 12px 0;
-  }
-  .hl-blue {
-    background: var(--blue-bg);
-    border-left: 3px solid var(--blue);
-    color: var(--blue-deep);
-  }
-  .hl-orange {
-    background: var(--orange-bg);
-    border-left: 3px solid var(--orange);
-    color: #8B4513;
-  }
-  .hl-purple {
-    background: var(--purple-bg);
-    border-left: 3px solid var(--purple);
-    color: #4A2D8A;
-  }
-
-  /* Vision card */
-  .vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 12px 0;
-  }
-  .vision-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-  }
-  .vision-card .vc-icon {
-    font-size: 20px;
-    margin-bottom: 4px;
-  }
-  .vision-card .vc-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--purple);
-    margin-bottom: 4px;
-  }
-  .vision-card .vc-desc {
-    font-size: 11px;
-    color: var(--mid);
-    line-height: 1.5;
-  }
-  .vision-card .vc-highlight {
-    margin-top: 6px;
-    padding: 4px 8px;
-    background: var(--purple-bg);
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--purple);
-  }
-
-  /* Three Steps */
-  .steps-flow {
-    display: flex;
-    gap: 0;
-    margin: 12px 0;
-  }
-  .step-item {
-    flex: 1;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    text-align: center;
-  }
-  .step-item.st1 { border-top: 3px solid var(--blue-light); }
-  .step-item.st2 { border-top: 3px solid var(--orange); }
-  .step-item.st3 { border-top: 3px solid var(--green); }
-  .step-item .step-name {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-  .st1 .step-name { color: var(--blue-light); }
-  .st2 .step-name { color: var(--orange); }
-  .st3 .step-name { color: var(--green); }
-  .step-item .step-do {
-    font-size: 11px;
-    color: var(--dark);
-    font-weight: 500;
-  }
-  .step-item .step-why {
-    font-size: 10px;
-    color: var(--mid);
-    margin-top: 4px;
-  }
-
-  /* Source */
-  .src {
-    font-size: 9px;
-    color: var(--gray);
-    font-style: italic;
-    margin-top: 6px;
-  }
-  .src a { color: var(--blue); text-decoration: none; }
-
-  .footer {
-    text-align: center;
-    font-size: 10px;
-    color: var(--gray);
-    padding: 16px 0 0;
-    border-top: 1px solid var(--border);
-    margin-top: 20px;
-  }
-
-  @media (max-width: 768px) {
-    .flow-container, .steps-flow { flex-direction: column; }
-    .flow-arrow { transform: rotate(90deg); width: auto; height: 24px; }
-    .stat-row { flex-direction: column; }
-    .vision-grid { grid-template-columns: 1fr; }
-  }
+@media (max-width: 768px) {
+  .era { flex-direction: column !important; }
+  .timeline::before { left: 24px; }
+  .era-dot { margin-left: 0; }
+  .stages { grid-template-columns: 1fr; }
+  .stage::after { display: none; }
+}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="container">
+  <h1>设计职位的未来：从岗位到能力</h1>
+  <p class="subtitle">基于 Figma / Adobe / Gartner / McKinsey / OpenAI / Vercel 等行业一手研究</p>
 
-<div class="header">
-  <h1>未来该往哪走——D族职位发展畅想</h1>
-  <div class="sub">广告营销设计中心 · 职位切换分析 · 第四部分</div>
-</div>
-
-<!-- ===== 核心逻辑转变 ===== -->
-<div class="flow-container">
-  <div class="flow-stage s1">
-    <div class="f-label">现状</div>
-    <div class="f-title">岗位决定工作流</div>
-    <div class="f-desc">PM定需求→设计师执行视觉→开发翻译实现<br>每个岗位边界固定，AI只在边界内提速</div>
-  </div>
-  <div class="flow-arrow">
-    <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#0052D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-  <div class="flow-stage s2">
-    <div class="f-label">趋势</div>
-    <div class="f-title">岗位边界溶解</div>
-    <div class="f-desc">AI跳过协作翻译层<br>Design Engineer直出代码、PM直出原型</div>
-  </div>
-  <div class="flow-arrow">
-    <svg viewBox="0 0 24 24" fill="none" width="28" height="28"><path d="M5 12h14m-4-4l4 4-4 4" stroke="#E37318" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-  <div class="flow-stage s3">
-    <div class="f-label">畅想</div>
-    <div class="f-title">业务目标决定工作流</div>
-    <div class="f-desc">谁最懂业务谁主导<br>不再按D/P/技术划线</div>
-  </div>
-</div>
-
-<!-- ===== 一、现状 ===== -->
-<div class="s-now">
-  <div class="section-title"><div class="icon">1</div> 现状：AI已经在崩解岗位边界</div>
-
-  <div class="data-card">
-    <div class="dc-title">内部实践：高价值AI实践正在以碎片化方式发生</div>
-    <table class="t-table">
-      <tr><th>岗位</th><th>内部实践</th><th>变化本质</th></tr>
-      <tr><td class="bold">设计</td><td>设计师直接用AI生成可上线代码——"设计稿到代码的翻译，根本就不应该存在"</td><td>设计→开发的协作层被跳过</td></tr>
-      <tr><td class="bold">产品</td><td>PM不依赖研发，用AI生成可体验原型——假设验证周期从周级压缩到小时级</td><td>PM→原型的协作层被跳过</td></tr>
-      <tr><td class="bold">研发</td><td>100+线上业务迁移从2天压缩到30分钟；部分团队标准化需求开发速度提升40-60%</td><td>研发→测试的协作层被跳过</td></tr>
-    </table>
-    <div class="hl-box hl-blue" style="margin-top:8px">
-      核心规律：AI不是让某个岗位跑得更快，而是让某类业务找到了最短的交付路径——有时候这条路径会跨越原来的岗位边界。
+  <!-- 数据卡 -->
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="number">78%</div>
+      <div class="label">设计师认为AI提升了工作效率</div>
+      <div class="source">Figma 2025 AI Report</div>
     </div>
-    <div class="src">数据来源：公司内部KM平台AI实践分享，远满、金浩等整理《AI时代的工作流演进：我们观察到了什么》，2026.3</div>
-  </div>
-
-  <div class="stat-row">
-    <div class="stat-item blue">
-      <div class="si-num">88%</div>
-      <div class="si-label">企业已采用AI<br>(McKinsey 2025)</div>
+    <div class="data-card">
+      <div class="number">32%</div>
+      <div class="label">仅32%信任AI输出质量</div>
+      <div class="source">Figma 2025 AI Report</div>
     </div>
-    <div class="stat-item orange">
-      <div class="si-num">6%</div>
-      <div class="si-label">真正获得变革性收益<br>差异不在工具</div>
+    <div class="data-card">
+      <div class="number">60%</div>
+      <div class="label">重复性设计工作将被AIGC替代</div>
+      <div class="source">Gartner 2026预测</div>
     </div>
-    <div class="stat-item green">
-      <div class="si-num">6-12月</div>
-      <div class="si-label">内外认知差距<br>时间窗口</div>
+    <div class="data-card">
+      <div class="number">+32%</div>
+      <div class="label">设计思维前25%企业营收超越行业</div>
+      <div class="source">McKinsey Design Index</div>
     </div>
   </div>
 
-  <div class="hl-box hl-blue">
-    内部还在讨论"每个岗位怎么用AI提速"，行业头部已经在讨论"哪些协作层可以直接去掉"。这是两个不同量级的问题。
-  </div>
-</div>
-
-<!-- ===== 二、趋势 ===== -->
-<div class="s-trend">
-  <div class="section-title"><div class="icon">2</div> 趋势：岗位边界正在溶解</div>
-
-  <div class="data-card">
-    <div class="dc-title">硅谷"向上融合" vs 国内"向下融合"</div>
-    <table class="t-table">
-      <tr><th>维度</th><th>硅谷（OpenAI/Meta/Google）</th><th>国内（字节/腾讯）</th></tr>
-      <tr><td class="bold">融合方向</td><td>向上融合：设计师进入产品决策层</td><td>向下融合：AI工具提效，岗位边界不变</td></tr>
-      <tr><td class="bold">设计师影响</td><td>影响"做什么"</td><td>优化"怎么做"</td></tr>
-      <tr><td class="bold">驱动力</td><td>产品范式不确定性驱动——交互范式未定，设计师必须定义产品</td><td>快速迭代效率优先——成熟形态上叠加AI能力</td></tr>
-      <tr><td class="bold">新岗位</td><td>Design Engineer、AI Interaction Designer已系统化</td><td>尚处于探索期</td></tr>
-    </table>
-  </div>
-
-  <div class="data-card">
-    <div class="dc-title">新物种已出现</div>
-    <div class="stat-row">
-      <div class="stat-item orange">
-        <div class="si-num" style="font-size:16px">Design Engineer</div>
-        <div class="si-label">设计+代码实现<br>OpenAI招聘最多的设计岗</div>
+  <!-- 时间线 -->
+  <h2 style="font-size:20px;font-weight:700;color:#0052D9;text-align:center;margin-bottom:20px;">三阶段演进方向</h2>
+  <div class="timeline">
+    <div class="era">
+      <div class="era-content">
+        <span class="era-label">近期 1-2年</span>
+        <div class="era-title">设计师成为AI协同的"指挥者"</div>
+        <div class="era-desc">AI消平执行效率差异，核心价值从"做得快"转向"选得准"。谁能在AI海量选项中快速做出高质量判断，谁就掌握话语权。</div>
+        <div class="era-data">▸ 33%设计师已用AI生成素材 | ▸ Vercel设计师直接交付生产代码</div>
       </div>
-      <div class="stat-item orange">
-        <div class="si-num" style="font-size:16px">AI Interaction</div>
-        <div class="si-label">交互+AI研究<br>设计人与AI的对话体验</div>
+      <div class="era-dot">1</div>
+    </div>
+    <div class="era">
+      <div class="era-content">
+        <span class="era-label">中期 3-5年</span>
+        <div class="era-title">岗位边界溶解，能力组合成为新单位</div>
+        <div class="era-desc">"你是设计师还是产品经理"变得无意义。真正有意义的是：你具备哪些能力组合？你能解决什么问题？族类是组织便利，不是能力边界。</div>
+        <div class="era-data">▸ 20%组织用AI压扁层级 | ▸ OpenAI/Meta的JD已按能力而非岗位招聘</div>
       </div>
-      <div class="stat-item orange">
-        <div class="si-num" style="font-size:16px">AI Persona</div>
-        <div class="si-label">UX写作+心理学<br>设计AI的"人格"</div>
+      <div class="era-dot">2</div>
+    </div>
+    <div class="era">
+      <div class="era-content">
+        <span class="era-label">远期畅想</span>
+        <div class="era-title">设计"吞并"产品</div>
+        <div class="era-desc">当设计师能直接交付可上线产物，PM作为"需求翻译层"的必要性被重新审视。终局：谁最懂业务目标+用户需求，谁主导。</div>
+        <div class="era-data">▸ 麦肯锡：深度设计思维=+32%营收 | ▸ 设计思维本身就是产品竞争力</div>
       </div>
-    </div>
-    <div class="hl-box hl-orange">
-      岗位边界溶解的三个关键词：<b>融合</b>（设计×产品×工程的边界软化）、<b>新物种</b>（Design Engineer等新角色浮现）、<b>话语权重构</b>（谁能定义AI体验，谁就拥有影响力）。
-    </div>
-  </div>
-</div>
-
-<!-- ===== 三、畅想 ===== -->
-<div class="s-vision">
-  <div class="section-title"><div class="icon">3</div> 畅想：未来该往哪走</div>
-
-  <div class="vision-grid">
-    <div class="vision-card">
-      <div class="vc-title">业务目标决定工作流</div>
-      <div class="vc-desc">不同业务目标对应不同最优路径：创意类需求设计主导、探索类需求PM主导、工具类需求工程主导</div>
-      <div class="vc-highlight">让业务目标决定工作流，而非岗位边界决定工作流</div>
-    </div>
-    <div class="vision-card">
-      <div class="vc-title">设计"吞并"产品</div>
-      <div class="vc-desc">当设计师能直接交付可上线产物（Design Engineer路径），PM作为"需求翻译层"的必要性被重新审视</div>
-      <div class="vc-highlight">谁最懂业务目标，谁就应该主导</div>
-    </div>
-    <div class="vision-card">
-      <div class="vc-title">消除"翻译成本"</div>
-      <div class="vc-desc">设计稿→开发理解、PM写PRD→设计师读PRD——这些环节本质上是信息的反复翻译，而非价值创造</div>
-      <div class="vc-highlight">哪些协作层是"翻译成本"而非"价值创造"?</div>
-    </div>
-    <div class="vision-card">
-      <div class="vc-title">业务Owner制</div>
-      <div class="vc-desc">未来团队可能不再按D/P/技术划线，而是按业务影响力划线——每个人都必须是T型：核心优势+跨域协作</div>
-      <div class="vc-highlight">不再按岗位划线，而是按业务影响力划线</div>
+      <div class="era-dot">3</div>
     </div>
   </div>
 
-  <div class="hl-box hl-purple" style="font-size:12px; line-height:1.8;">
-    <b>终局猜想：</b>未来的竞争不是岗位之间的，而是"谁更懂业务、谁更能做判断"。PM的价值从"需求翻译"向"业务判断"迁移，设计师的价值从"视觉执行"向"产品判断"迁移。<b>设计×产品融合，不是谁吞并谁，而是"判断力"成为所有人的核心能力。</b>
-  </div>
-
-  <div class="data-card">
-    <div class="dc-title" style="color:var(--blue)">回到现实：三步走是迈向这个未来的实际路径</div>
-    <div class="steps-flow">
-      <div class="step-item st1">
-        <div class="step-name">第一步：D族整合</div>
-        <div class="step-do">四职位→产品体验设计</div>
-        <div class="step-why">打破内部壁垒，让设计师不再被岗位名称割裂</div>
-      </div>
-      <div class="step-item st2">
-        <div class="step-name">第二步：D族升级</div>
-        <div class="step-do">补齐产品+数据+AI+商业</div>
-        <div class="step-why">让设计师从"执行者"升级为"判断者"</div>
-      </div>
-      <div class="step-item st3">
-        <div class="step-name">第三步：P族并轨</div>
-        <div class="step-do">产品设计师纳入P族</div>
-        <div class="step-why">制度确认"设计师可以主导产品方向"</div>
-      </div>
+  <!-- 畅想区 -->
+  <div class="vision">
+    <h2>三个未来场景</h2>
+    <div class="vision-item">
+      <div class="q">广告营销项目——提升转化率</div>
+      <div class="a">传统：PM写需求→设计师做图→开发实现→数据验证<br>未来：设计师用AI直出交互原型→A/B测试→数据验证→迭代。PM变为"业务对齐者"，不决定怎么做。</div>
     </div>
-    <div class="hl-box hl-blue" style="margin-top:8px">
-      三步走的每一步，都是在把"让业务目标决定工作流"这个理念往前推一步。最终方向：不再按岗位划线，而是按业务影响力划线。
+    <div class="vision-item">
+      <div class="q">AI产品功能——交互范式未定</div>
+      <div class="a">定义"AI该怎样与用户对话"的人，不是写PRD的PM，而是理解人机交互本质的设计师。OpenAI的Product Designer已在做这件事。</div>
+    </div>
+    <div class="vision-item">
+      <div class="q">设计团队——从服务中心到驱动中心</div>
+      <div class="a">不再"接需求做图"，而是"定义产品体验"。策略能力+创意能力+技术能力三力合一。OpenAI Design Systems Manager年薪$393K-495K。</div>
     </div>
   </div>
-</div>
 
-<!-- ===== 行业对标 ===== -->
-<div class="data-card">
-  <div class="dc-title" style="color:var(--blue)">行业已经在这么做</div>
-  <table class="t-table">
-    <tr><th>维度</th><th>OpenAI</th><th>Meta</th><th>Google</th><th>字节</th><th>腾讯</th></tr>
-    <tr><td class="bold">角色层级</td><td>范式定义者</td><td>框架构建者</td><td>概念翻译者</td><td>体验创造者</td><td>执行支持者</td></tr>
-    <tr><td class="bold">跨职能影响力</td><td>影响产品方向+设计范式</td><td>影响ML模型训练决策</td><td>影响产品战略</td><td>参与战略决策</td><td>配合PM执行</td></tr>
-    <tr><td class="bold">代码能力</td><td>强要求</td><td>明确要求</td><td>中等</td><td>部分</td><td>通常不要求</td></tr>
-    <tr><td class="bold">职级体系</td><td colspan="3" style="text-align:center">设计IC与PM/工程同L体系</td><td colspan="2" style="text-align:center">L序列统一（字节2026启用）</td></tr>
-  </table>
-  <div class="src">数据来源：OpenAI/Meta/Google官方招聘页；字节/LinkedIn招聘页；内部研究</div>
-</div>
+  <!-- 三步走 -->
+  <h2 style="font-size:20px;font-weight:700;color:#0052D9;text-align:center;margin-bottom:20px;">三步走：迈向这个未来的路径</h2>
+  <div class="stages">
+    <div class="stage">
+      <div class="stage-num">1</div>
+      <div class="stage-title">D族整合</div>
+      <div class="stage-desc">统一设计岗位，消除内部分化</div>
+      <div class="stage-why">未来设计师需要全链路能力，内部先打通才能向外扩展</div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">2</div>
+      <div class="stage-title">D族升级</div>
+      <div class="stage-desc">提升策略判断和AI协同能力</div>
+      <div class="stage-why">从"做得快"到"选得准"再到"定义问题"</div>
+    </div>
+    <div class="stage">
+      <div class="stage-num">3</div>
+      <div class="stage-title">P族并轨</div>
+      <div class="stage-desc">设计与产品在组织层面融合</div>
+      <div class="stage-why">当设计师具备产品决策能力，族类边界自然消融</div>
+    </div>
+  </div>
 
-<div class="footer">
-  广告营销设计中心 · 职位切换分析 · 第四部分畅想 | 2026年5月
-</div>
-
+  <!-- 参考文献 -->
+  <div class="refs">
+    <span>参考文献：</span>[1] Figma 2025 AI Report [2] Adobe 2024 State of Creativity [3] Adobe 2025设计行业白皮书 [4] Gartner 2025/2026 Predictions [5] McKinsey Design Index [6] UK Design Council 2024 [7] Vercel Design Engineer Announcement [8] OpenAI/Meta JD [9] UX Magazine 2025 [10] BCG Research
+  </div>
 </div>
 </body>
 </html>
